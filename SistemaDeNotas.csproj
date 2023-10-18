@@ -52,6 +52,18 @@
     <Compile Include="AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlumnoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlumnoForm.Designer.cs">
+      <DependentUpon>AlumnoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocenteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocenteForm.Designer.cs">
+      <DependentUpon>DocenteForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +74,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlumnoForm.resx">
+      <DependentUpon>AlumnoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocenteForm.resx">
+      <DependentUpon>DocenteForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -91,6 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

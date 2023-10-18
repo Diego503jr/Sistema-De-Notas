@@ -28,9 +28,18 @@ namespace SistemaDeNotas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            AdminForm adminForm = new AdminForm();
-            adminForm.Show();
+
+            if (txtEmail.Text != "" && txtContraseña.Text != "")
+            {
+                this.Hide();
+                AdminForm adminForm = new AdminForm();
+                adminForm.Show();
+            } else
+            {
+                MessageBox.Show("Ingresa datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            
         }
     }
 }
