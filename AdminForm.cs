@@ -46,5 +46,10 @@ namespace SistemaDeNotas
         {
             Application.Exit();
         }
-    }
+
+		private void BarraMenuLateral_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+	}
 }
