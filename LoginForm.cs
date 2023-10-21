@@ -28,18 +28,20 @@ namespace SistemaDeNotas
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Clases.CConexion objConexion =  new Clases.CConexion();
 
-            if (txtEmail.Text != "" && txtContraseña.Text != "")
-            {
-                this.Hide();
-                //AdminForm adminForm = new AdminForm();
-                //adminForm.Show();
-                AlumnoForm alumnoForm = new AlumnoForm();
-                alumnoForm.Show();
-            } else
-            {
-                MessageBox.Show("Ingresa datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            objConexion.establecerConexion();
+            //if (txtEmail.Text != "" && txtContraseña.Text != "")
+            //{
+            //    this.Hide();
+            //    //AdminForm adminForm = new AdminForm();
+            //    //adminForm.Show();
+            //    AlumnoForm alumnoForm = new AlumnoForm();
+            //    alumnoForm.Show();
+            //} else
+            //{
+            //    MessageBox.Show("Ingresa datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
 
             
         }

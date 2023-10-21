@@ -64,6 +64,7 @@
     <Compile Include="AlumnoFormSecundario.Designer.cs">
       <DependentUpon>AlumnoFormSecundario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases\CConexion.cs" />
     <Compile Include="CursoFormAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
