@@ -45,7 +45,7 @@
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.BarraTitulo.Margin = new System.Windows.Forms.Padding(2);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(600, 29);
+            this.BarraTitulo.Size = new System.Drawing.Size(1194, 29);
             this.BarraTitulo.TabIndex = 6;
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
             // 
@@ -54,7 +54,7 @@
             this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::SistemaDeNotas.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(574, 6);
+            this.btnCerrar.Location = new System.Drawing.Point(1168, 6);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(19, 19);
@@ -67,16 +67,16 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(260, 100);
+            this.label1.Location = new System.Drawing.Point(557, 240);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.Size = new System.Drawing.Size(128, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "Iniciar sesion como";
             // 
             // btnDocenteLoginForm
             // 
             this.btnDocenteLoginForm.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDocenteLoginForm.Location = new System.Drawing.Point(104, 205);
+            this.btnDocenteLoginForm.Location = new System.Drawing.Point(401, 345);
             this.btnDocenteLoginForm.Name = "btnDocenteLoginForm";
             this.btnDocenteLoginForm.Size = new System.Drawing.Size(75, 23);
             this.btnDocenteLoginForm.TabIndex = 8;
@@ -87,7 +87,7 @@
             // btnAlumnoLoginForm
             // 
             this.btnAlumnoLoginForm.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAlumnoLoginForm.Location = new System.Drawing.Point(438, 205);
+            this.btnAlumnoLoginForm.Location = new System.Drawing.Point(735, 345);
             this.btnAlumnoLoginForm.Name = "btnAlumnoLoginForm";
             this.btnAlumnoLoginForm.Size = new System.Drawing.Size(75, 23);
             this.btnAlumnoLoginForm.TabIndex = 9;
@@ -97,10 +97,10 @@
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(600, 344);
+            this.ClientSize = new System.Drawing.Size(1194, 624);
             this.Controls.Add(this.btnAlumnoLoginForm);
             this.Controls.Add(this.btnDocenteLoginForm);
             this.Controls.Add(this.label1);

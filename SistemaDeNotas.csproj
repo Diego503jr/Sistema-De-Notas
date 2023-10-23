@@ -101,6 +101,18 @@
     <Compile Include="Interfaz\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaz\perfilAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\perfilAlumno.Designer.cs">
+      <DependentUpon>perfilAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="perfildocente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="perfildocente.Designer.cs">
+      <DependentUpon>perfildocente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Interfaz\Admin\AdminForm.resx">
@@ -123,6 +135,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\perfilAlumno.resx">
+      <DependentUpon>perfilAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfildocente.resx">
+      <DependentUpon>perfildocente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

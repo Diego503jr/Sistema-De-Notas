@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace SistemaDeNotas
 {
-	public partial class DocenteFormAlumno : Form
-	{
-		public DocenteFormAlumno()
-		{
-			InitializeComponent();
-		}
-
-        private void btnagregardocente_Click(object sender, EventArgs e)
+    public partial class perfildocente : Form
+    {
+        public perfildocente()
         {
-			perfildocente ventana = new perfildocente();
-			ventana.Show();
-			this.Hide();
+            InitializeComponent();
         }
     }
 }

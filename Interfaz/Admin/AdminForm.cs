@@ -51,5 +51,17 @@ namespace SistemaDeNotas
 		{
 
 		}
-	}
+
+        private void btnMenuPerfil_Click(object sender, EventArgs e)
+        {
+            perfildocente ventana = new perfildocente();
+            ventana.Show();
+            this.Hide();
+        }
+
+        private void btnMenuDocentes_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
