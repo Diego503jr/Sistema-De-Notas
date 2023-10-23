@@ -17,17 +17,17 @@ namespace SistemaDeNotas
             InitializeComponent();
         }
 
-        private void AbrirFormHijo(object formHijo)
+        public void AbrirFormHijo(object formHijo)
         {
-            if (this.ContPrincipal.Controls.Count > 0)
+            if (this.ContPrincipalAdmin.Controls.Count > 0)
             
-                this.ContPrincipal.Controls.RemoveAt(0);
+                this.ContPrincipalAdmin.Controls.RemoveAt(0);
                 Form fh = formHijo as Form;
                 //AlumnoFormSecundario alumnFormSec = new AlumnoFormSecundario();
                 fh.TopLevel = false;
                 fh.Dock = DockStyle.Fill;
-                this.ContPrincipal.Controls.Add(fh);
-                this.ContPrincipal.Tag = fh;
+                this.ContPrincipalAdmin.Controls.Add(fh);
+                this.ContPrincipalAdmin.Tag = fh;
                 fh.Show();
             
         }
@@ -54,14 +54,26 @@ namespace SistemaDeNotas
 
         private void btnMenuPerfil_Click(object sender, EventArgs e)
         {
-            perfildocente ventana = new perfildocente();
-            ventana.Show();
-            this.Hide();
+            //perfildocente ventana = new perfildocente();
+            //ventana.Show();
+            //this.Hide();
         }
 
         private void btnMenuDocentes_Click(object sender, EventArgs e)
         {
+            AbrirFormHijo(new DocenteFormAlumno());
+        }
 
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+        }
+
+        private void btnMenuCursos_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new CursoFormAlumno());
         }
     }
 }

@@ -16,10 +16,36 @@ namespace SistemaDeNotas
         {
             InitializeComponent();
         }
+        public void AbrirFormHijo(object formHijo)
+        {
+            if (this.ContPrincipalDocente.Controls.Count > 0)
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+                this.ContPrincipalDocente.Controls.RemoveAt(0);
+            Form fh = formHijo as Form;
+            //AlumnoFormSecundario alumnFormSec = new AlumnoFormSecundario();
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.ContPrincipalDocente.Controls.Add(fh);
+            this.ContPrincipalDocente.Tag = fh;
+            fh.Show();
+
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+        }
+
+        private void btnMenuCursos_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new CursoFormAlumno());
         }
     }
 }

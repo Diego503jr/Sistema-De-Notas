@@ -16,5 +16,17 @@ namespace SistemaDeNotas.Interfaz
         {
             InitializeComponent();
         }
+
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AlumnoForm alumnoForm = new AlumnoForm();
+            alumnoForm.ShowDialog();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

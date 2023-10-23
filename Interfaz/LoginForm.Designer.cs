@@ -28,14 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnAdminLoginForm = new System.Windows.Forms.Button();
+            this.btnAlumnoLoginForm = new System.Windows.Forms.Button();
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnDocenteLoginForm = new System.Windows.Forms.Button();
-            this.btnAlumnoLoginForm = new System.Windows.Forms.Button();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(386, 115);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(220, 29);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Iniciar sesion como";
+            // 
+            // btnAdminLoginForm
+            // 
+            this.btnAdminLoginForm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAdminLoginForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.btnAdminLoginForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdminLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdminLoginForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminLoginForm.ForeColor = System.Drawing.Color.White;
+            this.btnAdminLoginForm.Location = new System.Drawing.Point(166, 344);
+            this.btnAdminLoginForm.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdminLoginForm.Name = "btnAdminLoginForm";
+            this.btnAdminLoginForm.Size = new System.Drawing.Size(108, 42);
+            this.btnAdminLoginForm.TabIndex = 8;
+            this.btnAdminLoginForm.Text = "Administrador";
+            this.btnAdminLoginForm.UseVisualStyleBackColor = false;
+            this.btnAdminLoginForm.Click += new System.EventHandler(this.btnDocenteLoginForm_Click);
+            // 
+            // btnAlumnoLoginForm
+            // 
+            this.btnAlumnoLoginForm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAlumnoLoginForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.btnAlumnoLoginForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAlumnoLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlumnoLoginForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlumnoLoginForm.ForeColor = System.Drawing.Color.White;
+            this.btnAlumnoLoginForm.Location = new System.Drawing.Point(680, 344);
+            this.btnAlumnoLoginForm.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAlumnoLoginForm.Name = "btnAlumnoLoginForm";
+            this.btnAlumnoLoginForm.Size = new System.Drawing.Size(108, 42);
+            this.btnAlumnoLoginForm.TabIndex = 9;
+            this.btnAlumnoLoginForm.Text = "Alumno";
+            this.btnAlumnoLoginForm.UseVisualStyleBackColor = false;
+            this.btnAlumnoLoginForm.Click += new System.EventHandler(this.btnAlumnoLoginForm_Click);
             // 
             // BarraTitulo
             // 
@@ -45,7 +92,7 @@
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.BarraTitulo.Margin = new System.Windows.Forms.Padding(2);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(1194, 29);
+            this.BarraTitulo.Size = new System.Drawing.Size(896, 38);
             this.BarraTitulo.TabIndex = 6;
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
             // 
@@ -54,55 +101,41 @@
             this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::SistemaDeNotas.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(1168, 6);
+            this.btnCerrar.Location = new System.Drawing.Point(859, 5);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(19, 19);
+            this.btnCerrar.Size = new System.Drawing.Size(26, 25);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 7;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(557, 240);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 17);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Iniciar sesion como";
-            // 
             // btnDocenteLoginForm
             // 
             this.btnDocenteLoginForm.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDocenteLoginForm.Location = new System.Drawing.Point(401, 345);
+            this.btnDocenteLoginForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.btnDocenteLoginForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDocenteLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDocenteLoginForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDocenteLoginForm.ForeColor = System.Drawing.Color.White;
+            this.btnDocenteLoginForm.Location = new System.Drawing.Point(424, 344);
+            this.btnDocenteLoginForm.Margin = new System.Windows.Forms.Padding(2);
             this.btnDocenteLoginForm.Name = "btnDocenteLoginForm";
-            this.btnDocenteLoginForm.Size = new System.Drawing.Size(75, 23);
-            this.btnDocenteLoginForm.TabIndex = 8;
+            this.btnDocenteLoginForm.Size = new System.Drawing.Size(108, 42);
+            this.btnDocenteLoginForm.TabIndex = 10;
             this.btnDocenteLoginForm.Text = "Docente";
-            this.btnDocenteLoginForm.UseVisualStyleBackColor = true;
-            this.btnDocenteLoginForm.Click += new System.EventHandler(this.btnDocenteLoginForm_Click);
-            // 
-            // btnAlumnoLoginForm
-            // 
-            this.btnAlumnoLoginForm.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAlumnoLoginForm.Location = new System.Drawing.Point(735, 345);
-            this.btnAlumnoLoginForm.Name = "btnAlumnoLoginForm";
-            this.btnAlumnoLoginForm.Size = new System.Drawing.Size(75, 23);
-            this.btnAlumnoLoginForm.TabIndex = 9;
-            this.btnAlumnoLoginForm.Text = "Alumno";
-            this.btnAlumnoLoginForm.UseVisualStyleBackColor = true;
-            this.btnAlumnoLoginForm.Click += new System.EventHandler(this.btnAlumnoLoginForm_Click);
+            this.btnDocenteLoginForm.UseVisualStyleBackColor = false;
+            this.btnDocenteLoginForm.Click += new System.EventHandler(this.btnDocenteLoginForm_Click_1);
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1194, 624);
-            this.Controls.Add(this.btnAlumnoLoginForm);
+            this.ClientSize = new System.Drawing.Size(896, 477);
             this.Controls.Add(this.btnDocenteLoginForm);
+            this.Controls.Add(this.btnAlumnoLoginForm);
+            this.Controls.Add(this.btnAdminLoginForm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BarraTitulo);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -119,11 +152,12 @@
         }
 
         #endregion
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAdminLoginForm;
+        private System.Windows.Forms.Button btnAlumnoLoginForm;
         private System.Windows.Forms.Panel BarraTitulo;
         private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDocenteLoginForm;
-        private System.Windows.Forms.Button btnAlumnoLoginForm;
     }
 }
 

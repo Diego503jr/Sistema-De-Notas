@@ -10,23 +10,23 @@ using System.Windows.Forms;
 
 namespace SistemaDeNotas.Interfaz
 {
-    public partial class DocenteLogin : Form
+    public partial class AdminLogin : Form
     {
-        public DocenteLogin()
+        public AdminLogin()
         {
             InitializeComponent();
-        }
-
-        private void btnDocente_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DocenteForm docenteForm = new DocenteForm();
-            docenteForm.ShowDialog();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminForm adminForm = new AdminForm();
+            adminForm.ShowDialog();
         }
     }
 }

@@ -23,15 +23,15 @@ namespace SistemaDeNotas
         }
 		private void AbrirFormHijo(object formHijo)
 		{
-			if (this.ContPrincipal1.Controls.Count > 0)
+			if (this.ContPrincipalAlumno.Controls.Count > 0)
 
-				this.ContPrincipal1.Controls.RemoveAt(0);
+				this.ContPrincipalAlumno.Controls.RemoveAt(0);
 			Form fh = formHijo as Form;
 			//AlumnoFormSecundario alumnFormSec = new AlumnoFormSecundario();
 			fh.TopLevel = false;
 			fh.Dock = DockStyle.Fill;
-			this.ContPrincipal1.Controls.Add(fh);
-			this.ContPrincipal1.Tag = fh;
+			this.ContPrincipalAlumno.Controls.Add(fh);
+			this.ContPrincipalAlumno.Tag = fh;
 			fh.Show();
 
 		}
@@ -45,10 +45,11 @@ namespace SistemaDeNotas
 		{
 			AbrirFormHijo(new DocenteFormAlumno());
 		}
-
-		private void label1_Click(object sender, EventArgs e)
-		{
-
-		}
-	}
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+        }
+    }
 }

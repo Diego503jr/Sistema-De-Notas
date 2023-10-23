@@ -50,7 +50,7 @@ namespace SistemaDeNotas
         private void btnDocenteLoginForm_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DocenteLogin docenteLogin = new DocenteLogin();
+            AdminLogin docenteLogin = new AdminLogin();
             docenteLogin.ShowDialog();
         }
 
@@ -59,6 +59,12 @@ namespace SistemaDeNotas
             this.Hide();
             AlumnoLogin alumnoLogin = new AlumnoLogin();
             alumnoLogin.ShowDialog();
+        }
+        private void btnDocenteLoginForm_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            DocenteLogin docenteLogin = new DocenteLogin();
+            docenteLogin.ShowDialog();
         }
     }
 }
