@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeNotas.Interfaz;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,6 +45,20 @@ namespace SistemaDeNotas
             //}
 
             
+        }
+
+        private void btnDocenteLoginForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DocenteLogin docenteLogin = new DocenteLogin();
+            docenteLogin.ShowDialog();
+        }
+
+        private void btnAlumnoLoginForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AlumnoLogin alumnoLogin = new AlumnoLogin();
+            alumnoLogin.ShowDialog();
         }
     }
 }
