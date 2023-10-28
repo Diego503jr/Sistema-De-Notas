@@ -16,12 +16,5 @@ namespace SistemaDeNotas
 		{
 			InitializeComponent();
 		}
-
-        private void btnagregardocente_Click(object sender, EventArgs e)
-        {
-			perfildocente ventana = new perfildocente();
-			ventana.Show();
-			this.Hide();
-        }
     }
 }

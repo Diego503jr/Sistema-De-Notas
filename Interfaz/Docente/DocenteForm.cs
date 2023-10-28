@@ -49,5 +49,11 @@ namespace SistemaDeNotas
         {
             AbrirFormHijo(new CursoFormAlumno());
         }
+
+        private void btnMenuPerfil_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new Perfil());
+
+        }
     }
 }

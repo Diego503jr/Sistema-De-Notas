@@ -1,5 +1,5 @@
 ﻿using SistemaDeNotas.Clases;
-using SistemaDeNotas.Interfaz;
+//using SistemaDeNotas.Interfaz;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

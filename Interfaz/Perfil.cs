@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SistemaDeNotas
 {
-    public partial class perfildocente : Form
+    public partial class Perfil : Form
     {
-        public perfildocente()
+        public Perfil()
         {
             InitializeComponent();
         }

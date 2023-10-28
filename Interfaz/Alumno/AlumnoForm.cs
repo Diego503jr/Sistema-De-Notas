@@ -53,5 +53,10 @@ namespace SistemaDeNotas
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
         }
+
+        private void btnMenuPerfil_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new Perfil());
+        }
     }
 }
