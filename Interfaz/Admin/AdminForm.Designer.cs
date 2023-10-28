@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.BarraMenuLateral = new System.Windows.Forms.Panel();
@@ -46,10 +45,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnMenuDocentes = new System.Windows.Forms.Button();
             this.ContPrincipalAdmin = new System.Windows.Forms.Panel();
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.lblHora = new System.Windows.Forms.Label();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
-            this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.BarraMenuLateral.SuspendLayout();
@@ -110,7 +106,6 @@
             this.BarraMenuLateral.Name = "BarraMenuLateral";
             this.BarraMenuLateral.Size = new System.Drawing.Size(327, 745);
             this.BarraMenuLateral.TabIndex = 1;
-            this.BarraMenuLateral.Paint += new System.Windows.Forms.PaintEventHandler(this.BarraMenuLateral_Paint);
             // 
             // pictureBox6
             // 
@@ -148,7 +143,6 @@
             this.btnInicio.TabIndex = 11;
             this.btnInicio.Text = "Inicio";
             this.btnInicio.UseVisualStyleBackColor = false;
-            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
             // label1
             // 
@@ -292,8 +286,6 @@
             // ContPrincipalAdmin
             // 
             this.ContPrincipalAdmin.AutoSize = true;
-            this.ContPrincipalAdmin.Controls.Add(this.lblFecha);
-            this.ContPrincipalAdmin.Controls.Add(this.lblHora);
             this.ContPrincipalAdmin.Controls.Add(this.txtNombreUsuario);
             this.ContPrincipalAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContPrincipalAdmin.Location = new System.Drawing.Point(327, 50);
@@ -301,29 +293,6 @@
             this.ContPrincipalAdmin.Name = "ContPrincipalAdmin";
             this.ContPrincipalAdmin.Size = new System.Drawing.Size(828, 745);
             this.ContPrincipalAdmin.TabIndex = 2;
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(351, 316);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(200, 54);
-            this.lblFecha.TabIndex = 3;
-            this.lblFecha.Text = "lblFecha";
-            // 
-            // lblHora
-            // 
-            this.lblHora.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblHora.AutoSize = true;
-            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
-            this.lblHora.Location = new System.Drawing.Point(349, 247);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(220, 69);
-            this.lblHora.TabIndex = 2;
-            this.lblHora.Text = "lblHora";
             // 
             // txtNombreUsuario
             // 
@@ -339,11 +308,6 @@
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(470, 60);
             this.txtNombreUsuario.TabIndex = 0;
-            // 
-            // HoraFecha
-            // 
-            this.HoraFecha.Enabled = true;
-            this.HoraFecha.Tick += new System.EventHandler(this.HoraFecha_Tick);
             // 
             // AdminForm
             // 
@@ -396,8 +360,5 @@
         private System.Windows.Forms.Button btnInicio;
 		private System.Windows.Forms.TextBox txtNombreUsuario;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Label lblHora;
-        private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.Timer HoraFecha;
     }
 }

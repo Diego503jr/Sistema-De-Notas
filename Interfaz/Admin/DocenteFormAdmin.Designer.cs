@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAgregarDocente = new System.Windows.Forms.Button();
+            this.btnActualizarDocente = new System.Windows.Forms.Button();
+            this.btnEliminarDocente = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -45,53 +45,54 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button3
+            // btnAgregarDocente
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(481, 671);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 41);
-            this.button3.TabIndex = 28;
-            this.button3.Text = "Crear";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnAgregarDocente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAgregarDocente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.btnAgregarDocente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarDocente.FlatAppearance.BorderSize = 0;
+            this.btnAgregarDocente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarDocente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.btnAgregarDocente.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarDocente.Location = new System.Drawing.Point(481, 671);
+            this.btnAgregarDocente.Name = "btnAgregarDocente";
+            this.btnAgregarDocente.Size = new System.Drawing.Size(133, 41);
+            this.btnAgregarDocente.TabIndex = 28;
+            this.btnAgregarDocente.Text = "Agregar";
+            this.btnAgregarDocente.UseVisualStyleBackColor = false;
+            this.btnAgregarDocente.Click += new System.EventHandler(this.btnAgregarDocente_Click);
             // 
-            // button2
+            // btnActualizarDocente
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(264, 671);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 41);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "Actualizar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnActualizarDocente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnActualizarDocente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.btnActualizarDocente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnActualizarDocente.FlatAppearance.BorderSize = 0;
+            this.btnActualizarDocente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarDocente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.btnActualizarDocente.ForeColor = System.Drawing.Color.White;
+            this.btnActualizarDocente.Location = new System.Drawing.Point(264, 671);
+            this.btnActualizarDocente.Name = "btnActualizarDocente";
+            this.btnActualizarDocente.Size = new System.Drawing.Size(133, 41);
+            this.btnActualizarDocente.TabIndex = 27;
+            this.btnActualizarDocente.Text = "Actualizar";
+            this.btnActualizarDocente.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnEliminarDocente
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(57, 671);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 41);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Eliminar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnEliminarDocente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEliminarDocente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.btnEliminarDocente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminarDocente.FlatAppearance.BorderSize = 0;
+            this.btnEliminarDocente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarDocente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.btnEliminarDocente.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarDocente.Location = new System.Drawing.Point(57, 671);
+            this.btnEliminarDocente.Name = "btnEliminarDocente";
+            this.btnEliminarDocente.Size = new System.Drawing.Size(133, 41);
+            this.btnEliminarDocente.TabIndex = 26;
+            this.btnEliminarDocente.Text = "Eliminar";
+            this.btnEliminarDocente.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
@@ -220,9 +221,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1182, 781);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAgregarDocente);
+            this.Controls.Add(this.btnActualizarDocente);
+            this.Controls.Add(this.btnEliminarDocente);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbEstado);
             this.Controls.Add(this.txtTelefono);
@@ -246,9 +247,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAgregarDocente;
+        private System.Windows.Forms.Button btnActualizarDocente;
+        private System.Windows.Forms.Button btnEliminarDocente;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.TextBox txtTelefono;

@@ -33,18 +33,10 @@ namespace SistemaDeNotas
                 this.ContPrincipalAdmin.Tag = fh;
                 fh.Show();
         }
-
-        private void ContPrincipal_Paint(object sender, PaintEventArgs e)
-        {
-        }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-		private void BarraMenuLateral_Paint(object sender, PaintEventArgs e)
-		{
-
-		}
         private void btnMenuPerfil_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new Perfil());
@@ -54,32 +46,20 @@ namespace SistemaDeNotas
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
-
         }
 
         private void btnMenuCursos_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new CursoFormAlumno());
         }
-
-        private void btnInicio_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btnMenuDocentes_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new DocenteFormAdmin());
+            AbrirFormHijo(new DocenteFormAdmin(this));
         }
 
         private void btnMenuAlumnos_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new AlumnoFormAdmin());
-        }
-
-        private void HoraFecha_Tick(object sender, EventArgs e)
-        {
-            lblHora.Text = DateTime.Now.ToLongTimeString();
-            lblFecha.Text = DateTime.Now.ToShortDateString();
+            AbrirFormHijo(new AlumnoFormAdmin(this));
         }
     }
 }
