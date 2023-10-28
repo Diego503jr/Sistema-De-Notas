@@ -1,4 +1,5 @@
 ﻿using SistemaDeNotas.Clases;
+using SistemaDeNotas.Interfaz.Admin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,39 +33,23 @@ namespace SistemaDeNotas
                 this.ContPrincipalAdmin.Controls.Add(fh);
                 this.ContPrincipalAdmin.Tag = fh;
                 fh.Show();
-            
         }
 
         private void ContPrincipal_Paint(object sender, PaintEventArgs e)
         {
-
         }
-
-        private void btnMenuAlumnos_Click(object sender, EventArgs e)
-        {
-            AbrirFormHijo(new AlumnoFormSecundario());
-        }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
 		private void BarraMenuLateral_Paint(object sender, PaintEventArgs e)
 		{
 
 		}
-
         private void btnMenuPerfil_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new Perfil());
         }
-
-        private void btnMenuDocentes_Click(object sender, EventArgs e)
-        {
-            AbrirFormHijo(new DocenteFormAlumno());
-        }
-
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -76,6 +61,20 @@ namespace SistemaDeNotas
         private void btnMenuCursos_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new CursoFormAlumno());
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnMenuDocentes_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new DocenteFormAdmin());
+        }
+
+        private void btnMenuAlumnos_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new AlumnoFormAdmin());
         }
     }
 }

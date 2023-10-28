@@ -45,7 +45,7 @@ namespace SistemaDeNotas
 
 		private void btnMenuDocentes_Click(object sender, EventArgs e)
 		{
-			AbrirFormHijo(new DocenteFormAlumno());
+			//AbrirFormHijo(new DocenteForm());
 		}
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {

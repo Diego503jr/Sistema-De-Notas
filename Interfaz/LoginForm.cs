@@ -15,7 +15,6 @@ namespace SistemaDeNotas
 {
     public partial class LoginForm : Form
     {
-		string nombre;
         public LoginForm()
         {
             InitializeComponent();
@@ -54,7 +53,7 @@ namespace SistemaDeNotas
 		{
 			if (string.IsNullOrEmpty(txtCarnet.Text) || string.IsNullOrEmpty(txtContraseña.Text))
 			{
-				MessageBox.Show("No puede dejar campos vacíos");
+				MessageBox.Show("No puede dejar campos vacíos", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				
 			}
 			else
@@ -96,14 +95,14 @@ namespace SistemaDeNotas
 				}
 				else
 				{
-					MessageBox.Show("Usuario y/o contraseña incorrectos");
+					MessageBox.Show("Usuario y/o contraseña incorrectos", "Upsss!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					txtCarnet.Clear();
 					txtContraseña.Clear();
 				}
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("Error");
+				MessageBox.Show($"Error, {ex}");
 				txtCarnet.Clear();
 				txtContraseña.Clear();
 			}

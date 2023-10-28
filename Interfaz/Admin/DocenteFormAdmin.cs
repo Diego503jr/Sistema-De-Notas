@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaDeNotas
+namespace SistemaDeNotas.Interfaz.Admin
 {
-    public partial class AlumnoFormSecundario : Form
+    public partial class DocenteFormAdmin : Form
     {
-        public AlumnoFormSecundario()
+        public DocenteFormAdmin()
         {
             InitializeComponent();
         }
