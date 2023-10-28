@@ -10,7 +10,6 @@ namespace SistemaDeNotas.Clases
 {
     internal class CConexion
     {
-        SqlConnection conexion = new SqlConnection();
 
         static string servidor = "DBRegistroNotas.mssql.somee.com";
         static string db = "DBRegistroNotas";
@@ -22,10 +21,13 @@ namespace SistemaDeNotas.Clases
 
         public SqlConnection establecerConexion()
         {
-            try{
+
+			SqlConnection conexion = new SqlConnection(cadeConexion);
+			try
+			{
                 conexion.ConnectionString = cadeConexion;
                 conexion.Open();
-                MessageBox.Show("Se conecto a la base de datos");
+                //MessageBox.Show("Se conecto a la base de datos");
             } 
             catch (SqlException e){
                 MessageBox.Show("No se logro conectar a la base de datos" + e);

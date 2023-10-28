@@ -46,23 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaz\AdminLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaz\AdminLogin.Designer.cs">
-      <DependentUpon>AdminLogin.cs</DependentUpon>
-    </Compile>
     <Compile Include="Interfaz\Admin\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Interfaz\Admin\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Interfaz\AlumnoLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaz\AlumnoLogin.Designer.cs">
-      <DependentUpon>AlumnoLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaz\Alumno\AlumnoForm.cs">
       <SubType>Form</SubType>
@@ -82,12 +70,6 @@
     </Compile>
     <Compile Include="Interfaz\Cursos\CursoFormAlumno.Designer.cs">
       <DependentUpon>CursoFormAlumno.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Interfaz\DocenteLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaz\DocenteLogin.Designer.cs">
-      <DependentUpon>DocenteLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaz\Docente\DocenteForm.cs">
       <SubType>Form</SubType>
@@ -121,14 +103,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Interfaz\AdminLogin.resx">
-      <DependentUpon>AdminLogin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Admin\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\AlumnoLogin.resx">
-      <DependentUpon>AlumnoLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Alumno\AlumnoForm.resx">
       <DependentUpon>AlumnoForm.cs</DependentUpon>
@@ -138,9 +114,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Cursos\CursoFormAlumno.resx">
       <DependentUpon>CursoFormAlumno.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\DocenteLogin.resx">
-      <DependentUpon>DocenteLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Docente\DocenteForm.resx">
       <DependentUpon>DocenteForm.cs</DependentUpon>

@@ -12,10 +12,12 @@ namespace SistemaDeNotas
 {
     public partial class AlumnoForm : Form
     {
-        public AlumnoForm()
+        public AlumnoForm(string nombre)
         {
             InitializeComponent();
-        }
+			txtNombreUsuario.Text =  "Bienvenido " + nombre;
+
+		}
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

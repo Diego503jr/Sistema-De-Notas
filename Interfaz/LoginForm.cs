@@ -1,8 +1,10 @@
-﻿using SistemaDeNotas.Interfaz;
+﻿using SistemaDeNotas.Clases;
+using SistemaDeNotas.Interfaz;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +15,7 @@ namespace SistemaDeNotas
 {
     public partial class LoginForm : Form
     {
+		string nombre;
         public LoginForm()
         {
             InitializeComponent();
@@ -47,24 +50,67 @@ namespace SistemaDeNotas
             
         }
 
-        private void btnDocenteLoginForm_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            AdminLogin docenteLogin = new AdminLogin();
-            docenteLogin.ShowDialog();
-        }
+		private void btnIniciarSesion_Click(object sender, EventArgs e)
+		{
+			if (string.IsNullOrEmpty(txtCarnet.Text) || string.IsNullOrEmpty(txtContraseña.Text))
+			{
+				MessageBox.Show("No puede dejar campos vacíos");
+				
+			}
+			else
+			{
+				logear(this.txtCarnet.Text, this.txtContraseña.Text);
+			}
+		}
 
-        private void btnAlumnoLoginForm_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            AlumnoLogin alumnoLogin = new AlumnoLogin();
-            alumnoLogin.ShowDialog();
-        }
-        private void btnDocenteLoginForm_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            DocenteLogin docenteLogin = new DocenteLogin();
-            docenteLogin.ShowDialog();
-        }
-    }
+		public void logear(string Carnet, string Contraseña)
+		{
+
+			CConexion conexion = new CConexion();
+			try
+			{
+				SqlCommand cmd = new SqlCommand("SELECT Nombre,IdRol FROM dbo.Usuarios WHERE Carnet = @Carnet AND Contraseña = @Contraseña", conexion.establecerConexion());
+
+				cmd.Parameters.AddWithValue("Carnet", Carnet);
+				cmd.Parameters.AddWithValue("Contraseña", Contraseña);
+				SqlDataAdapter sda = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable();
+				sda.Fill(dt);
+
+				if (dt.Rows.Count == 1)
+				{
+					this.Hide();
+					if (dt.Rows[0][1].ToString() == "0" )
+					{
+						new AdminForm(dt.Rows[0][0].ToString()).Show();
+					}
+					else if (dt.Rows[0][1].ToString() == "1")
+					{
+						new AdminForm(dt.Rows[0][0].ToString()).Show();
+					}
+					else if (dt.Rows[0][1].ToString() == "2")
+					{
+						new AdminForm(dt.Rows[0][0].ToString()).Show();
+					}
+					
+				}
+				else
+				{
+					MessageBox.Show("Usuario y/o contraseña incorrectos");
+					txtCarnet.Clear();
+					txtContraseña.Clear();
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Error");
+				txtCarnet.Clear();
+				txtContraseña.Clear();
+			}
+			finally
+			{
+
+			}
+		}
+	}
 }

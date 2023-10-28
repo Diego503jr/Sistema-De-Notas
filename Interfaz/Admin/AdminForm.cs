@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeNotas.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,12 @@ namespace SistemaDeNotas
 {
     public partial class AdminForm : Form
     {
-        public AdminForm()
+        
+        public AdminForm(string nombre)
         {
             InitializeComponent();
-        }
+            txtNombreUsuario.Text =  "Bienvenido " + nombre;
+		}
 
         public void AbrirFormHijo(object formHijo)
         {
@@ -69,6 +72,7 @@ namespace SistemaDeNotas
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
+
         }
 
         private void btnMenuCursos_Click(object sender, EventArgs e)

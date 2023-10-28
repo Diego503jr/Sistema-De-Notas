@@ -28,136 +28,133 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnAdminLoginForm = new System.Windows.Forms.Button();
-            this.btnAlumnoLoginForm = new System.Windows.Forms.Button();
-            this.BarraTitulo = new System.Windows.Forms.Panel();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.btnDocenteLoginForm = new System.Windows.Forms.Button();
-            this.BarraTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(386, 115);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 29);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Iniciar sesion como";
-            // 
-            // btnAdminLoginForm
-            // 
-            this.btnAdminLoginForm.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAdminLoginForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.btnAdminLoginForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdminLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdminLoginForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdminLoginForm.ForeColor = System.Drawing.Color.White;
-            this.btnAdminLoginForm.Location = new System.Drawing.Point(166, 344);
-            this.btnAdminLoginForm.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAdminLoginForm.Name = "btnAdminLoginForm";
-            this.btnAdminLoginForm.Size = new System.Drawing.Size(108, 42);
-            this.btnAdminLoginForm.TabIndex = 8;
-            this.btnAdminLoginForm.Text = "Administrador";
-            this.btnAdminLoginForm.UseVisualStyleBackColor = false;
-            this.btnAdminLoginForm.Click += new System.EventHandler(this.btnDocenteLoginForm_Click);
-            // 
-            // btnAlumnoLoginForm
-            // 
-            this.btnAlumnoLoginForm.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAlumnoLoginForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.btnAlumnoLoginForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAlumnoLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlumnoLoginForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlumnoLoginForm.ForeColor = System.Drawing.Color.White;
-            this.btnAlumnoLoginForm.Location = new System.Drawing.Point(680, 344);
-            this.btnAlumnoLoginForm.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAlumnoLoginForm.Name = "btnAlumnoLoginForm";
-            this.btnAlumnoLoginForm.Size = new System.Drawing.Size(108, 42);
-            this.btnAlumnoLoginForm.TabIndex = 9;
-            this.btnAlumnoLoginForm.Text = "Alumno";
-            this.btnAlumnoLoginForm.UseVisualStyleBackColor = false;
-            this.btnAlumnoLoginForm.Click += new System.EventHandler(this.btnAlumnoLoginForm_Click);
-            // 
-            // BarraTitulo
-            // 
-            this.BarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.BarraTitulo.Controls.Add(this.btnCerrar);
-            this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
-            this.BarraTitulo.Margin = new System.Windows.Forms.Padding(2);
-            this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(896, 38);
-            this.BarraTitulo.TabIndex = 6;
-            this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::SistemaDeNotas.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(859, 5);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(26, 25);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 7;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // btnDocenteLoginForm
-            // 
-            this.btnDocenteLoginForm.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDocenteLoginForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.btnDocenteLoginForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDocenteLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDocenteLoginForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDocenteLoginForm.ForeColor = System.Drawing.Color.White;
-            this.btnDocenteLoginForm.Location = new System.Drawing.Point(424, 344);
-            this.btnDocenteLoginForm.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDocenteLoginForm.Name = "btnDocenteLoginForm";
-            this.btnDocenteLoginForm.Size = new System.Drawing.Size(108, 42);
-            this.btnDocenteLoginForm.TabIndex = 10;
-            this.btnDocenteLoginForm.Text = "Docente";
-            this.btnDocenteLoginForm.UseVisualStyleBackColor = false;
-            this.btnDocenteLoginForm.Click += new System.EventHandler(this.btnDocenteLoginForm_Click_1);
-            // 
-            // LoginForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(896, 477);
-            this.Controls.Add(this.btnDocenteLoginForm);
-            this.Controls.Add(this.btnAlumnoLoginForm);
-            this.Controls.Add(this.btnAdminLoginForm);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.BarraTitulo);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "LoginForm";
-            this.Text = "Inicio de Sesión";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.BarraTitulo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.label1 = new System.Windows.Forms.Label();
+			this.BarraTitulo = new System.Windows.Forms.Panel();
+			this.btnCerrar = new System.Windows.Forms.PictureBox();
+			this.lblCarnet = new System.Windows.Forms.Label();
+			this.lblContraseña = new System.Windows.Forms.Label();
+			this.txtCarnet = new System.Windows.Forms.TextBox();
+			this.txtContraseña = new System.Windows.Forms.TextBox();
+			this.btnIniciarSesion = new System.Windows.Forms.Button();
+			this.BarraTitulo.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// label1
+			// 
+			this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(371, 98);
+			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(181, 29);
+			this.label1.TabIndex = 7;
+			this.label1.Text = "Inicio de sesión";
+			// 
+			// BarraTitulo
+			// 
+			this.BarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+			this.BarraTitulo.Controls.Add(this.btnCerrar);
+			this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+			this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
+			this.BarraTitulo.Margin = new System.Windows.Forms.Padding(2);
+			this.BarraTitulo.Name = "BarraTitulo";
+			this.BarraTitulo.Size = new System.Drawing.Size(896, 38);
+			this.BarraTitulo.TabIndex = 6;
+			this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
+			// 
+			// btnCerrar
+			// 
+			this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+			this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnCerrar.Image = global::SistemaDeNotas.Properties.Resources.cerrar;
+			this.btnCerrar.Location = new System.Drawing.Point(859, 5);
+			this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
+			this.btnCerrar.Name = "btnCerrar";
+			this.btnCerrar.Size = new System.Drawing.Size(26, 25);
+			this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.btnCerrar.TabIndex = 7;
+			this.btnCerrar.TabStop = false;
+			this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+			// 
+			// lblCarnet
+			// 
+			this.lblCarnet.AutoSize = true;
+			this.lblCarnet.Location = new System.Drawing.Point(357, 191);
+			this.lblCarnet.Name = "lblCarnet";
+			this.lblCarnet.Size = new System.Drawing.Size(38, 13);
+			this.lblCarnet.TabIndex = 0;
+			this.lblCarnet.Text = "Carnet";
+			// 
+			// lblContraseña
+			// 
+			this.lblContraseña.AutoSize = true;
+			this.lblContraseña.Location = new System.Drawing.Point(334, 250);
+			this.lblContraseña.Name = "lblContraseña";
+			this.lblContraseña.Size = new System.Drawing.Size(61, 13);
+			this.lblContraseña.TabIndex = 0;
+			this.lblContraseña.Text = "Contraseña";
+			// 
+			// txtCarnet
+			// 
+			this.txtCarnet.Location = new System.Drawing.Point(413, 188);
+			this.txtCarnet.Name = "txtCarnet";
+			this.txtCarnet.Size = new System.Drawing.Size(100, 20);
+			this.txtCarnet.TabIndex = 1;
+			// 
+			// txtContraseña
+			// 
+			this.txtContraseña.Location = new System.Drawing.Point(413, 250);
+			this.txtContraseña.Name = "txtContraseña";
+			this.txtContraseña.Size = new System.Drawing.Size(100, 20);
+			this.txtContraseña.TabIndex = 2;
+			// 
+			// btnIniciarSesion
+			// 
+			this.btnIniciarSesion.Location = new System.Drawing.Point(376, 323);
+			this.btnIniciarSesion.Name = "btnIniciarSesion";
+			this.btnIniciarSesion.Size = new System.Drawing.Size(115, 23);
+			this.btnIniciarSesion.TabIndex = 3;
+			this.btnIniciarSesion.Text = "Iniciar Sesión";
+			this.btnIniciarSesion.UseVisualStyleBackColor = true;
+			this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
+			// 
+			// LoginForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.White;
+			this.ClientSize = new System.Drawing.Size(896, 477);
+			this.Controls.Add(this.btnIniciarSesion);
+			this.Controls.Add(this.txtContraseña);
+			this.Controls.Add(this.txtCarnet);
+			this.Controls.Add(this.lblContraseña);
+			this.Controls.Add(this.lblCarnet);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.BarraTitulo);
+			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.Margin = new System.Windows.Forms.Padding(2);
+			this.Name = "LoginForm";
+			this.Text = "Inicio de Sesión";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.BarraTitulo.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnAdminLoginForm;
-        private System.Windows.Forms.Button btnAlumnoLoginForm;
         private System.Windows.Forms.Panel BarraTitulo;
         private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.Button btnDocenteLoginForm;
-    }
+		private System.Windows.Forms.Label lblCarnet;
+		private System.Windows.Forms.Label lblContraseña;
+		private System.Windows.Forms.TextBox txtCarnet;
+		private System.Windows.Forms.TextBox txtContraseña;
+		private System.Windows.Forms.Button btnIniciarSesion;
+	}
 }
 

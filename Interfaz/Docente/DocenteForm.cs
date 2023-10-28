@@ -12,10 +12,12 @@ namespace SistemaDeNotas
 {
     public partial class DocenteForm : Form
     {
-        public DocenteForm()
+        public DocenteForm(string nombre)
         {
             InitializeComponent();
-        }
+            txtNombreUsuario.Text = "Bienvenido " + nombre;
+
+		}
         public void AbrirFormHijo(object formHijo)
         {
             if (this.ContPrincipalDocente.Controls.Count > 0)
