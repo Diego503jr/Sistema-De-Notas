@@ -27,7 +27,6 @@ namespace SistemaDeNotas
             
                 this.ContPrincipalAdmin.Controls.RemoveAt(0);
                 Form fh = formHijo as Form;
-                //AlumnoFormSecundario alumnFormSec = new AlumnoFormSecundario();
                 fh.TopLevel = false;
                 fh.Dock = DockStyle.Fill;
                 this.ContPrincipalAdmin.Controls.Add(fh);
@@ -75,6 +74,12 @@ namespace SistemaDeNotas
         private void btnMenuAlumnos_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new AlumnoFormAdmin());
+        }
+
+        private void HoraFecha_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToLongTimeString();
+            lblFecha.Text = DateTime.Now.ToShortDateString();
         }
     }
 }

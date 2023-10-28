@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.BarraMenuLateral = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnInicio = new System.Windows.Forms.Button();
             this.btnMenuDocentes = new System.Windows.Forms.Button();
@@ -42,10 +44,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCerrarSesion = new System.Windows.Forms.PictureBox();
             this.ContPrincipalDocente = new System.Windows.Forms.Panel();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
+            this.horaFecha = new System.Windows.Forms.Timer(this.components);
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.BarraMenuLateral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -82,6 +88,7 @@
             // BarraMenuLateral
             // 
             this.BarraMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
+            this.BarraMenuLateral.Controls.Add(this.pictureBox6);
             this.BarraMenuLateral.Controls.Add(this.pictureBox3);
             this.BarraMenuLateral.Controls.Add(this.btnInicio);
             this.BarraMenuLateral.Controls.Add(this.btnMenuDocentes);
@@ -98,6 +105,16 @@
             this.BarraMenuLateral.Name = "BarraMenuLateral";
             this.BarraMenuLateral.Size = new System.Drawing.Size(327, 745);
             this.BarraMenuLateral.TabIndex = 1;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::SistemaDeNotas.Properties.Resources.ITCA_RemoveBG;
+            this.pictureBox6.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(321, 103);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 31;
+            this.pictureBox6.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -234,7 +251,7 @@
             // 
             this.btnCerrarSesion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrarSesion.Image = global::SistemaDeNotas.Properties.Resources.salir;
+            this.btnCerrarSesion.Image = global::SistemaDeNotas.Properties.Resources.cerrarSesion;
             this.btnCerrarSesion.Location = new System.Drawing.Point(16, 635);
             this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
@@ -246,6 +263,8 @@
             // 
             // ContPrincipalDocente
             // 
+            this.ContPrincipalDocente.Controls.Add(this.lblFecha);
+            this.ContPrincipalDocente.Controls.Add(this.lblHora);
             this.ContPrincipalDocente.Controls.Add(this.txtNombreUsuario);
             this.ContPrincipalDocente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContPrincipalDocente.Location = new System.Drawing.Point(327, 50);
@@ -253,6 +272,29 @@
             this.ContPrincipalDocente.Name = "ContPrincipalDocente";
             this.ContPrincipalDocente.Size = new System.Drawing.Size(830, 745);
             this.ContPrincipalDocente.TabIndex = 2;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(351, 316);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(200, 54);
+            this.lblFecha.TabIndex = 5;
+            this.lblFecha.Text = "lblFecha";
+            // 
+            // lblHora
+            // 
+            this.lblHora.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
+            this.lblHora.Location = new System.Drawing.Point(349, 247);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(220, 69);
+            this.lblHora.TabIndex = 4;
+            this.lblHora.Text = "lblHora";
             // 
             // txtNombreUsuario
             // 
@@ -268,6 +310,11 @@
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(470, 60);
             this.txtNombreUsuario.TabIndex = 0;
+            // 
+            // horaFecha
+            // 
+            this.horaFecha.Enabled = true;
+            this.horaFecha.Tick += new System.EventHandler(this.horaFecha_Tick);
             // 
             // DocenteForm
             // 
@@ -286,6 +333,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.BarraMenuLateral.ResumeLayout(false);
             this.BarraMenuLateral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -314,5 +362,9 @@
         private System.Windows.Forms.Button btnMenuPerfil;
         private System.Windows.Forms.Panel ContPrincipalDocente;
 		private System.Windows.Forms.TextBox txtNombreUsuario;
-	}
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.Timer horaFecha;
+    }
 }
