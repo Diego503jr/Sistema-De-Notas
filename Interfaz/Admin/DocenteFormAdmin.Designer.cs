@@ -42,6 +42,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +56,7 @@
             this.btnAgregarDocente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarDocente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
             this.btnAgregarDocente.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarDocente.Location = new System.Drawing.Point(481, 671);
+            this.btnAgregarDocente.Location = new System.Drawing.Point(482, 699);
             this.btnAgregarDocente.Name = "btnAgregarDocente";
             this.btnAgregarDocente.Size = new System.Drawing.Size(133, 41);
             this.btnAgregarDocente.TabIndex = 28;
@@ -71,7 +73,7 @@
             this.btnActualizarDocente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizarDocente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
             this.btnActualizarDocente.ForeColor = System.Drawing.Color.White;
-            this.btnActualizarDocente.Location = new System.Drawing.Point(264, 671);
+            this.btnActualizarDocente.Location = new System.Drawing.Point(265, 699);
             this.btnActualizarDocente.Name = "btnActualizarDocente";
             this.btnActualizarDocente.Size = new System.Drawing.Size(133, 41);
             this.btnActualizarDocente.TabIndex = 27;
@@ -87,7 +89,7 @@
             this.btnEliminarDocente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarDocente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
             this.btnEliminarDocente.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarDocente.Location = new System.Drawing.Point(57, 671);
+            this.btnEliminarDocente.Location = new System.Drawing.Point(58, 699);
             this.btnEliminarDocente.Name = "btnEliminarDocente";
             this.btnEliminarDocente.Size = new System.Drawing.Size(133, 41);
             this.btnEliminarDocente.TabIndex = 26;
@@ -99,7 +101,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(16, 93);
+            this.label6.Location = new System.Drawing.Point(17, 121);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(297, 29);
             this.label6.TabIndex = 25;
@@ -113,7 +115,7 @@
             this.cbEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.cbEstado.Location = new System.Drawing.Point(854, 346);
+            this.cbEstado.Location = new System.Drawing.Point(855, 412);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(309, 37);
             this.cbEstado.TabIndex = 24;
@@ -122,7 +124,7 @@
             // 
             this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(854, 274);
+            this.txtTelefono.Location = new System.Drawing.Point(855, 354);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(309, 34);
             this.txtTelefono.TabIndex = 23;
@@ -131,7 +133,7 @@
             // 
             this.txtCarnet.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCarnet.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCarnet.Location = new System.Drawing.Point(854, 208);
+            this.txtCarnet.Location = new System.Drawing.Point(855, 234);
             this.txtCarnet.Name = "txtCarnet";
             this.txtCarnet.Size = new System.Drawing.Size(309, 34);
             this.txtCarnet.TabIndex = 22;
@@ -140,7 +142,7 @@
             // 
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(854, 149);
+            this.txtNombre.Location = new System.Drawing.Point(855, 177);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(309, 34);
             this.txtNombre.TabIndex = 21;
@@ -150,7 +152,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(724, 349);
+            this.label5.Location = new System.Drawing.Point(737, 415);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 29);
             this.label5.TabIndex = 20;
@@ -161,7 +163,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(702, 277);
+            this.label4.Location = new System.Drawing.Point(715, 357);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 29);
             this.label4.TabIndex = 19;
@@ -172,7 +174,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(728, 211);
+            this.label3.Location = new System.Drawing.Point(741, 237);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 29);
             this.label3.TabIndex = 18;
@@ -183,7 +185,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(711, 152);
+            this.label2.Location = new System.Drawing.Point(724, 180);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 29);
             this.label2.TabIndex = 17;
@@ -196,7 +198,7 @@
             this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 128);
+            this.dataGridView1.Location = new System.Drawing.Point(19, 156);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -209,11 +211,31 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(497, 9);
+            this.label1.Location = new System.Drawing.Point(498, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(329, 42);
             this.label1.TabIndex = 15;
             this.label1.Text = "Lista de docentes";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(855, 292);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(309, 34);
+            this.txtPassword.TabIndex = 30;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(689, 295);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(148, 29);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Contraseña :";
             // 
             // DocenteFormAdmin
             // 
@@ -221,6 +243,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1182, 781);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnAgregarDocente);
             this.Controls.Add(this.btnActualizarDocente);
             this.Controls.Add(this.btnEliminarDocente);
@@ -261,5 +285,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label7;
     }
 }

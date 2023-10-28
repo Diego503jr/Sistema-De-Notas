@@ -67,7 +67,7 @@
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.BarraTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(1155, 50);
+            this.BarraTitulo.Size = new System.Drawing.Size(1155, 60);
             this.BarraTitulo.TabIndex = 0;
             // 
             // btnCerrar
@@ -75,10 +75,10 @@
             this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::SistemaDeNotas.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(1102, 5);
+            this.btnCerrar.Location = new System.Drawing.Point(1092, 5);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(40, 40);
+            this.btnCerrar.Size = new System.Drawing.Size(50, 50);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.TabStop = false;
@@ -101,18 +101,18 @@
             this.BarraMenuLateral.Controls.Add(this.pictureBox2);
             this.BarraMenuLateral.Controls.Add(this.btnMenuDocentes);
             this.BarraMenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BarraMenuLateral.Location = new System.Drawing.Point(0, 50);
+            this.BarraMenuLateral.Location = new System.Drawing.Point(0, 60);
             this.BarraMenuLateral.Margin = new System.Windows.Forms.Padding(4);
             this.BarraMenuLateral.Name = "BarraMenuLateral";
-            this.BarraMenuLateral.Size = new System.Drawing.Size(327, 745);
+            this.BarraMenuLateral.Size = new System.Drawing.Size(410, 735);
             this.BarraMenuLateral.TabIndex = 1;
             // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::SistemaDeNotas.Properties.Resources.ITCA_RemoveBG;
-            this.pictureBox6.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox6.Location = new System.Drawing.Point(3, 7);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(321, 103);
+            this.pictureBox6.Size = new System.Drawing.Size(400, 161);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 2;
             this.pictureBox6.TabStop = false;
@@ -120,7 +120,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.pictureBox1.Location = new System.Drawing.Point(7, 130);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 200);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(13, 46);
@@ -136,10 +136,10 @@
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.White;
-            this.btnInicio.Location = new System.Drawing.Point(20, 130);
+            this.btnInicio.Location = new System.Drawing.Point(13, 200);
             this.btnInicio.Margin = new System.Windows.Forms.Padding(4);
             this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(299, 46);
+            this.btnInicio.Size = new System.Drawing.Size(397, 46);
             this.btnInicio.TabIndex = 11;
             this.btnInicio.Text = "Inicio";
             this.btnInicio.UseVisualStyleBackColor = false;
@@ -150,7 +150,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(125, 667);
+            this.label1.Location = new System.Drawing.Point(181, 658);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(162, 29);
@@ -162,7 +162,7 @@
             this.btnCerrarSesion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrarSesion.Image = global::SistemaDeNotas.Properties.Resources.cerrarSesion;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(16, 635);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(58, 625);
             this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(101, 95);
@@ -174,7 +174,7 @@
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.pictureBox5.Location = new System.Drawing.Point(7, 342);
+            this.pictureBox5.Location = new System.Drawing.Point(0, 412);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(13, 46);
@@ -190,10 +190,10 @@
             this.btnMenuCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuCursos.ForeColor = System.Drawing.Color.White;
-            this.btnMenuCursos.Location = new System.Drawing.Point(20, 342);
+            this.btnMenuCursos.Location = new System.Drawing.Point(13, 412);
             this.btnMenuCursos.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenuCursos.Name = "btnMenuCursos";
-            this.btnMenuCursos.Size = new System.Drawing.Size(299, 46);
+            this.btnMenuCursos.Size = new System.Drawing.Size(397, 46);
             this.btnMenuCursos.TabIndex = 7;
             this.btnMenuCursos.Text = "Cursos";
             this.btnMenuCursos.UseVisualStyleBackColor = false;
@@ -202,7 +202,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.pictureBox4.Location = new System.Drawing.Point(7, 289);
+            this.pictureBox4.Location = new System.Drawing.Point(0, 359);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(13, 46);
@@ -218,10 +218,10 @@
             this.btnMenuPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuPerfil.ForeColor = System.Drawing.Color.White;
-            this.btnMenuPerfil.Location = new System.Drawing.Point(20, 289);
+            this.btnMenuPerfil.Location = new System.Drawing.Point(13, 359);
             this.btnMenuPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenuPerfil.Name = "btnMenuPerfil";
-            this.btnMenuPerfil.Size = new System.Drawing.Size(299, 46);
+            this.btnMenuPerfil.Size = new System.Drawing.Size(397, 46);
             this.btnMenuPerfil.TabIndex = 5;
             this.btnMenuPerfil.Text = "Perfil";
             this.btnMenuPerfil.UseVisualStyleBackColor = false;
@@ -230,7 +230,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.pictureBox3.Location = new System.Drawing.Point(7, 236);
+            this.pictureBox3.Location = new System.Drawing.Point(0, 306);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(13, 46);
@@ -246,10 +246,10 @@
             this.btnMenuAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuAlumnos.ForeColor = System.Drawing.Color.White;
-            this.btnMenuAlumnos.Location = new System.Drawing.Point(20, 236);
+            this.btnMenuAlumnos.Location = new System.Drawing.Point(13, 306);
             this.btnMenuAlumnos.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenuAlumnos.Name = "btnMenuAlumnos";
-            this.btnMenuAlumnos.Size = new System.Drawing.Size(299, 46);
+            this.btnMenuAlumnos.Size = new System.Drawing.Size(397, 46);
             this.btnMenuAlumnos.TabIndex = 3;
             this.btnMenuAlumnos.Text = "Alumnos";
             this.btnMenuAlumnos.UseVisualStyleBackColor = false;
@@ -258,7 +258,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.pictureBox2.Location = new System.Drawing.Point(7, 183);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 253);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(13, 46);
@@ -274,10 +274,10 @@
             this.btnMenuDocentes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuDocentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuDocentes.ForeColor = System.Drawing.Color.White;
-            this.btnMenuDocentes.Location = new System.Drawing.Point(20, 183);
+            this.btnMenuDocentes.Location = new System.Drawing.Point(13, 253);
             this.btnMenuDocentes.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenuDocentes.Name = "btnMenuDocentes";
-            this.btnMenuDocentes.Size = new System.Drawing.Size(299, 46);
+            this.btnMenuDocentes.Size = new System.Drawing.Size(397, 46);
             this.btnMenuDocentes.TabIndex = 0;
             this.btnMenuDocentes.Text = "Docentes";
             this.btnMenuDocentes.UseVisualStyleBackColor = false;
@@ -288,10 +288,10 @@
             this.ContPrincipalAdmin.AutoSize = true;
             this.ContPrincipalAdmin.Controls.Add(this.txtNombreUsuario);
             this.ContPrincipalAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ContPrincipalAdmin.Location = new System.Drawing.Point(327, 50);
+            this.ContPrincipalAdmin.Location = new System.Drawing.Point(410, 60);
             this.ContPrincipalAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.ContPrincipalAdmin.Name = "ContPrincipalAdmin";
-            this.ContPrincipalAdmin.Size = new System.Drawing.Size(828, 745);
+            this.ContPrincipalAdmin.Size = new System.Drawing.Size(745, 735);
             this.ContPrincipalAdmin.TabIndex = 2;
             // 
             // txtNombreUsuario
@@ -302,11 +302,11 @@
             this.txtNombreUsuario.Cursor = System.Windows.Forms.Cursors.No;
             this.txtNombreUsuario.Enabled = false;
             this.txtNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreUsuario.Location = new System.Drawing.Point(179, 52);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(109, 52);
             this.txtNombreUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreUsuario.Multiline = true;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(470, 60);
+            this.txtNombreUsuario.Size = new System.Drawing.Size(593, 45);
             this.txtNombreUsuario.TabIndex = 0;
             // 
             // AdminForm

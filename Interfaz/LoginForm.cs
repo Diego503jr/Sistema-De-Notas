@@ -85,11 +85,11 @@ namespace SistemaDeNotas
 					}
 					else if (dt.Rows[0][1].ToString() == "1")
 					{
-						new AdminForm(dt.Rows[0][0].ToString()).Show();
+						new DocenteForm(dt.Rows[0][0].ToString()).Show();
 					}
 					else if (dt.Rows[0][1].ToString() == "2")
 					{
-						new AdminForm(dt.Rows[0][0].ToString()).Show();
+						new AlumnoForm(dt.Rows[0][0].ToString()).Show();
 					}
 					
 				}

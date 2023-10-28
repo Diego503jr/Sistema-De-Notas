@@ -17,7 +17,7 @@ namespace SistemaDeNotas
             InitializeComponent();
             txtNombreUsuario.Text = "Bienvenido " + nombre;
 
-		}
+        }
         public void AbrirFormHijo(object formHijo)
         {
             if (this.ContPrincipalDocente.Controls.Count > 0)
@@ -54,12 +54,6 @@ namespace SistemaDeNotas
         {
             AbrirFormHijo(new Perfil());
 
-        }
-
-        private void horaFecha_Tick(object sender, EventArgs e)
-        {
-            lblHora.Text = DateTime.Now.ToLongTimeString();
-            lblFecha.Text = DateTime.Now.ToShortDateString();
         }
     }
 }

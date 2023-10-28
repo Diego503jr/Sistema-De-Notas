@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -71,12 +72,6 @@
       <DependentUpon>AlumnoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\CConexion.cs" />
-    <Compile Include="Interfaz\CrearUsuarioForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaz\CrearUsuarioForm.Designer.cs">
-      <DependentUpon>CrearUsuarioForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Interfaz\Cursos\CursoFormAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,9 +109,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Alumno\AlumnoForm.resx">
       <DependentUpon>AlumnoForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\CrearUsuarioForm.resx">
-      <DependentUpon>CrearUsuarioForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Cursos\CursoFormAlumno.resx">
       <DependentUpon>CursoFormAlumno.cs</DependentUpon>

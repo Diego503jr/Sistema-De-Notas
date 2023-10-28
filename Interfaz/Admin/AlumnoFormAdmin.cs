@@ -12,16 +12,14 @@ namespace SistemaDeNotas.Interfaz.Admin
 {
     public partial class AlumnoFormAdmin : Form
     {
-        private AdminForm formularioPadre;
-        public AlumnoFormAdmin(AdminForm padre)
+        public AlumnoFormAdmin()
         {
             InitializeComponent();
-            formularioPadre = padre;
         }
 
         private void btnAgregarAlumno_Click(object sender, EventArgs e)
         {
-            formularioPadre.AbrirFormHijo(new CrearUsuarioForm());
+            //Aqui tiene que ir la funcion para crear alumno
         }
     }
 }

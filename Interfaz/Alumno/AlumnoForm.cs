@@ -58,11 +58,5 @@ namespace SistemaDeNotas
         {
             AbrirFormHijo(new Perfil());
         }
-
-        private void horaFecha_Tick(object sender, EventArgs e)
-        {
-            lblHora.Text = DateTime.Now.ToLongTimeString();
-            lblFecha.Text = DateTime.Now.ToShortDateString();
-        }
     }
 }

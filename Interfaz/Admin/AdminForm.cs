@@ -54,12 +54,12 @@ namespace SistemaDeNotas
         }
         private void btnMenuDocentes_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new DocenteFormAdmin(this));
+            AbrirFormHijo(new DocenteFormAdmin());
         }
 
         private void btnMenuAlumnos_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new AlumnoFormAdmin(this));
+            AbrirFormHijo(new AlumnoFormAdmin());
         }
     }
 }
