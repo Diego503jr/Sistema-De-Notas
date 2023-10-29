@@ -55,7 +55,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(322, 247);
+            this.label2.Location = new System.Drawing.Point(332, 244);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 32);
             this.label2.TabIndex = 1;
@@ -66,7 +66,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(333, 522);
+            this.label3.Location = new System.Drawing.Point(343, 522);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 32);
             this.label3.TabIndex = 2;
@@ -77,7 +77,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(310, 427);
+            this.label4.Location = new System.Drawing.Point(320, 427);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 32);
             this.label4.TabIndex = 3;
@@ -88,7 +88,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(337, 334);
+            this.label5.Location = new System.Drawing.Point(347, 331);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 32);
             this.label5.TabIndex = 4;
@@ -100,7 +100,7 @@
             this.txtnombre.BackColor = System.Drawing.Color.White;
             this.txtnombre.Enabled = false;
             this.txtnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnombre.Location = new System.Drawing.Point(507, 244);
+            this.txtnombre.Location = new System.Drawing.Point(488, 244);
             this.txtnombre.Multiline = true;
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(272, 35);
@@ -112,7 +112,7 @@
             this.txtcarnet.BackColor = System.Drawing.Color.White;
             this.txtcarnet.Enabled = false;
             this.txtcarnet.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcarnet.Location = new System.Drawing.Point(507, 331);
+            this.txtcarnet.Location = new System.Drawing.Point(488, 331);
             this.txtcarnet.Multiline = true;
             this.txtcarnet.Name = "txtcarnet";
             this.txtcarnet.Size = new System.Drawing.Size(272, 35);
@@ -124,7 +124,7 @@
             this.txttelefono.BackColor = System.Drawing.Color.White;
             this.txttelefono.Enabled = false;
             this.txttelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefono.Location = new System.Drawing.Point(507, 427);
+            this.txttelefono.Location = new System.Drawing.Point(488, 427);
             this.txttelefono.Multiline = true;
             this.txttelefono.Name = "txttelefono";
             this.txttelefono.Size = new System.Drawing.Size(272, 35);
@@ -136,7 +136,7 @@
             this.txtestado.BackColor = System.Drawing.Color.White;
             this.txtestado.Enabled = false;
             this.txtestado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtestado.Location = new System.Drawing.Point(507, 522);
+            this.txtestado.Location = new System.Drawing.Point(488, 522);
             this.txtestado.Multiline = true;
             this.txtestado.Name = "txtestado";
             this.txtestado.Size = new System.Drawing.Size(272, 35);

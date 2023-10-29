@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.contentPrincipal = new System.Windows.Forms.Panel();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnAgregarAlumno = new System.Windows.Forms.Button();
             this.btnActualizarAlumno = new System.Windows.Forms.Button();
             this.btnEliminarAlumno = new System.Windows.Forms.Button();
@@ -43,8 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.contentPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -68,10 +68,31 @@
             this.contentPrincipal.Controls.Add(this.dataGridView1);
             this.contentPrincipal.Controls.Add(this.label1);
             this.contentPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contentPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contentPrincipal.Location = new System.Drawing.Point(0, 0);
             this.contentPrincipal.Name = "contentPrincipal";
             this.contentPrincipal.Size = new System.Drawing.Size(1182, 781);
             this.contentPrincipal.TabIndex = 0;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(862, 294);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(309, 38);
+            this.txtPassword.TabIndex = 30;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(683, 297);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(176, 32);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Contraseña :";
             // 
             // btnAgregarAlumno
             // 
@@ -80,11 +101,11 @@
             this.btnAgregarAlumno.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarAlumno.FlatAppearance.BorderSize = 0;
             this.btnAgregarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.btnAgregarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarAlumno.ForeColor = System.Drawing.Color.White;
             this.btnAgregarAlumno.Location = new System.Drawing.Point(483, 701);
             this.btnAgregarAlumno.Name = "btnAgregarAlumno";
-            this.btnAgregarAlumno.Size = new System.Drawing.Size(133, 41);
+            this.btnAgregarAlumno.Size = new System.Drawing.Size(152, 41);
             this.btnAgregarAlumno.TabIndex = 28;
             this.btnAgregarAlumno.Text = "Agregar";
             this.btnAgregarAlumno.UseVisualStyleBackColor = false;
@@ -97,11 +118,11 @@
             this.btnActualizarAlumno.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnActualizarAlumno.FlatAppearance.BorderSize = 0;
             this.btnActualizarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.btnActualizarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizarAlumno.ForeColor = System.Drawing.Color.White;
             this.btnActualizarAlumno.Location = new System.Drawing.Point(266, 701);
             this.btnActualizarAlumno.Name = "btnActualizarAlumno";
-            this.btnActualizarAlumno.Size = new System.Drawing.Size(133, 41);
+            this.btnActualizarAlumno.Size = new System.Drawing.Size(152, 41);
             this.btnActualizarAlumno.TabIndex = 27;
             this.btnActualizarAlumno.Text = "Actualizar";
             this.btnActualizarAlumno.UseVisualStyleBackColor = false;
@@ -113,11 +134,11 @@
             this.btnEliminarAlumno.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminarAlumno.FlatAppearance.BorderSize = 0;
             this.btnEliminarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.btnEliminarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarAlumno.ForeColor = System.Drawing.Color.White;
             this.btnEliminarAlumno.Location = new System.Drawing.Point(59, 701);
             this.btnEliminarAlumno.Name = "btnEliminarAlumno";
-            this.btnEliminarAlumno.Size = new System.Drawing.Size(133, 41);
+            this.btnEliminarAlumno.Size = new System.Drawing.Size(152, 41);
             this.btnEliminarAlumno.TabIndex = 26;
             this.btnEliminarAlumno.Text = "Eliminar";
             this.btnEliminarAlumno.UseVisualStyleBackColor = false;
@@ -126,61 +147,61 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(18, 123);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(18, 120);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(289, 29);
+            this.label6.Size = new System.Drawing.Size(343, 32);
             this.label6.TabIndex = 25;
             this.label6.Text = "Lista de alumnos actuales";
             // 
             // cbEstado
             // 
             this.cbEstado.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.cbEstado.Location = new System.Drawing.Point(861, 413);
+            this.cbEstado.Location = new System.Drawing.Point(864, 413);
             this.cbEstado.Name = "cbEstado";
-            this.cbEstado.Size = new System.Drawing.Size(309, 37);
+            this.cbEstado.Size = new System.Drawing.Size(309, 39);
             this.cbEstado.TabIndex = 24;
             // 
             // txtTelefono
             // 
             this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(861, 355);
+            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(864, 355);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(309, 34);
+            this.txtTelefono.Size = new System.Drawing.Size(309, 38);
             this.txtTelefono.TabIndex = 23;
             // 
             // txtCarnet
             // 
             this.txtCarnet.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCarnet.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCarnet.Location = new System.Drawing.Point(861, 236);
+            this.txtCarnet.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCarnet.Location = new System.Drawing.Point(864, 236);
             this.txtCarnet.Name = "txtCarnet";
-            this.txtCarnet.Size = new System.Drawing.Size(309, 34);
+            this.txtCarnet.Size = new System.Drawing.Size(309, 38);
             this.txtCarnet.TabIndex = 22;
             // 
             // txtNombre
             // 
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(861, 179);
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(864, 179);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(309, 34);
+            this.txtNombre.Size = new System.Drawing.Size(309, 38);
             this.txtNombre.TabIndex = 21;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(736, 416);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(741, 416);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 29);
+            this.label5.Size = new System.Drawing.Size(118, 32);
             this.label5.TabIndex = 20;
             this.label5.Text = "Estado :";
             // 
@@ -188,10 +209,10 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(714, 358);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(718, 358);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 29);
+            this.label4.Size = new System.Drawing.Size(141, 32);
             this.label4.TabIndex = 19;
             this.label4.Text = "Telefono :";
             // 
@@ -199,10 +220,10 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(740, 239);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(745, 239);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 29);
+            this.label3.Size = new System.Drawing.Size(114, 32);
             this.label3.TabIndex = 18;
             this.label3.Text = "Carnet :";
             // 
@@ -210,10 +231,10 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(723, 182);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(730, 182);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 29);
+            this.label2.Size = new System.Drawing.Size(129, 32);
             this.label2.TabIndex = 17;
             this.label2.Text = "Nombre :";
             // 
@@ -242,26 +263,6 @@
             this.label1.Size = new System.Drawing.Size(316, 42);
             this.label1.TabIndex = 15;
             this.label1.Text = "Lista de alumnos";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(859, 294);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(309, 34);
-            this.txtPassword.TabIndex = 30;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(688, 297);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(148, 29);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "Contraseña :";
             // 
             // AlumnoFormAdmin
             // 

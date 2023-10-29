@@ -25,22 +25,22 @@ namespace SistemaDeNotas
         }
 		private void AbrirFormHijo(object formHijo)
 		{
-			if (this.ContPrincipalAlumno.Controls.Count > 0)
+			if (this.ContPrincipal.Controls.Count > 0)
 
-				this.ContPrincipalAlumno.Controls.RemoveAt(0);
+				this.ContPrincipal.Controls.RemoveAt(0);
 			Form fh = formHijo as Form;
 			//AlumnoFormSecundario alumnFormSec = new AlumnoFormSecundario();
 			fh.TopLevel = false;
 			fh.Dock = DockStyle.Fill;
-			this.ContPrincipalAlumno.Controls.Add(fh);
-			this.ContPrincipalAlumno.Tag = fh;
+			this.ContPrincipal.Controls.Add(fh);
+			this.ContPrincipal.Tag = fh;
 			fh.Show();
 
 		}
 
 		private void btnMenuCursos_Click(object sender, EventArgs e)
 		{
-			AbrirFormHijo(new CursoFormAlumno());
+			//AbrirFormHijo(new CursoFormAlumno());
 		}
 
 		private void btnMenuDocentes_Click(object sender, EventArgs e)
@@ -57,6 +57,12 @@ namespace SistemaDeNotas
         private void btnMenuPerfil_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new Perfil());
+        }
+
+        private void horaFecha_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToLongTimeString();
+            lblFecha.Text = DateTime.Now.ToShortDateString();
         }
     }
 }
