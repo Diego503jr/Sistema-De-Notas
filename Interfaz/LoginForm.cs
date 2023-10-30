@@ -1,5 +1,4 @@
 ﻿using SistemaDeNotas.Clases;
-//using SistemaDeNotas.Interfaz;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,27 +27,6 @@ namespace SistemaDeNotas
         {
             //Ya no se va usar
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Clases.CConexion objConexion =  new Clases.CConexion();
-
-            objConexion.establecerConexion();
-            //if (txtEmail.Text != "" && txtContraseña.Text != "")
-            //{
-            //    this.Hide();
-            //    //AdminForm adminForm = new AdminForm();
-            //    //adminForm.Show();
-            //    AlumnoForm alumnoForm = new AlumnoForm();
-            //    alumnoForm.Show();
-            //} else
-            //{
-            //    MessageBox.Show("Ingresa datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
-            
-        }
-
 		private void btnIniciarSesion_Click(object sender, EventArgs e)
 		{
 			if (string.IsNullOrEmpty(txtCarnet.Text) || string.IsNullOrEmpty(txtContraseña.Text))
@@ -105,10 +83,6 @@ namespace SistemaDeNotas
 				MessageBox.Show($"Error, {ex}");
 				txtCarnet.Clear();
 				txtContraseña.Clear();
-			}
-			finally
-			{
-
 			}
 		}
 	}

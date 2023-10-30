@@ -36,7 +36,7 @@
             this.cBCursos = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnInscribir = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvInscripcion = new System.Windows.Forms.DataGridView();
             this.gBDatosPersonales = new System.Windows.Forms.GroupBox();
             this.cBEstado = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.gBDatosInscribir.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).BeginInit();
             this.gBDatosPersonales.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +57,7 @@
             this.panel1.Controls.Add(this.btnActualizarInscripcion);
             this.panel1.Controls.Add(this.gBDatosInscribir);
             this.panel1.Controls.Add(this.btnInscribir);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgvInscripcion);
             this.panel1.Controls.Add(this.gBDatosPersonales);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -75,7 +75,7 @@
             this.btnActualizarInscripcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizarInscripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizarInscripcion.ForeColor = System.Drawing.Color.White;
-            this.btnActualizarInscripcion.Location = new System.Drawing.Point(641, 432);
+            this.btnActualizarInscripcion.Location = new System.Drawing.Point(641, 401);
             this.btnActualizarInscripcion.Name = "btnActualizarInscripcion";
             this.btnActualizarInscripcion.Size = new System.Drawing.Size(175, 41);
             this.btnActualizarInscripcion.TabIndex = 67;
@@ -90,7 +90,7 @@
             this.gBDatosInscribir.Controls.Add(this.cBCursos);
             this.gBDatosInscribir.Controls.Add(this.label2);
             this.gBDatosInscribir.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.gBDatosInscribir.Location = new System.Drawing.Point(609, 173);
+            this.gBDatosInscribir.Location = new System.Drawing.Point(610, 150);
             this.gBDatosInscribir.Name = "gBDatosInscribir";
             this.gBDatosInscribir.Size = new System.Drawing.Size(509, 199);
             this.gBDatosInscribir.TabIndex = 66;
@@ -152,24 +152,24 @@
             this.btnInscribir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInscribir.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInscribir.ForeColor = System.Drawing.Color.White;
-            this.btnInscribir.Location = new System.Drawing.Point(384, 432);
+            this.btnInscribir.Location = new System.Drawing.Point(384, 401);
             this.btnInscribir.Name = "btnInscribir";
             this.btnInscribir.Size = new System.Drawing.Size(175, 41);
             this.btnInscribir.TabIndex = 65;
             this.btnInscribir.Text = "Inscribir";
             this.btnInscribir.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dgvInscripcion
             // 
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(169, 501);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(839, 322);
-            this.dataGridView1.TabIndex = 64;
+            this.dgvInscripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvInscripcion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
+            this.dgvInscripcion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInscripcion.Location = new System.Drawing.Point(172, 474);
+            this.dgvInscripcion.Name = "dgvInscripcion";
+            this.dgvInscripcion.RowHeadersWidth = 51;
+            this.dgvInscripcion.RowTemplate.Height = 24;
+            this.dgvInscripcion.Size = new System.Drawing.Size(839, 346);
+            this.dgvInscripcion.TabIndex = 64;
             // 
             // gBDatosPersonales
             // 
@@ -181,7 +181,7 @@
             this.gBDatosPersonales.Controls.Add(this.label6);
             this.gBDatosPersonales.Controls.Add(this.label8);
             this.gBDatosPersonales.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBDatosPersonales.Location = new System.Drawing.Point(51, 144);
+            this.gBDatosPersonales.Location = new System.Drawing.Point(52, 121);
             this.gBDatosPersonales.Name = "gBDatosPersonales";
             this.gBDatosPersonales.Size = new System.Drawing.Size(509, 245);
             this.gBDatosPersonales.TabIndex = 63;
@@ -272,7 +272,7 @@
             this.panel1.PerformLayout();
             this.gBDatosInscribir.ResumeLayout(false);
             this.gBDatosInscribir.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).EndInit();
             this.gBDatosPersonales.ResumeLayout(false);
             this.gBDatosPersonales.PerformLayout();
             this.ResumeLayout(false);
@@ -289,7 +289,7 @@
         private System.Windows.Forms.ComboBox cBCursos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnInscribir;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvInscripcion;
         private System.Windows.Forms.GroupBox gBDatosPersonales;
         private System.Windows.Forms.TextBox cBEstado;
         private System.Windows.Forms.Label label3;

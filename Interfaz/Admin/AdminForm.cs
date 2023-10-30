@@ -62,5 +62,15 @@ namespace SistemaDeNotas
             lblHora.Text = DateTime.Now.ToLongTimeString(); 
             lblFecha.Text = DateTime.Now.ToShortDateString();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new CursosForm());
+        }
+
+        private void btnMaterias_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new MateriasForm());
+        }
     }
 }
