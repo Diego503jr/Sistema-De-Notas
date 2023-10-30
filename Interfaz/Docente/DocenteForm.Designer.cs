@@ -185,7 +185,7 @@
             this.btnMenuCursos.Name = "btnMenuCursos";
             this.btnMenuCursos.Size = new System.Drawing.Size(397, 46);
             this.btnMenuCursos.TabIndex = 27;
-            this.btnMenuCursos.Text = "Cursos";
+            this.btnMenuCursos.Text = "Notas";
             this.btnMenuCursos.UseVisualStyleBackColor = false;
             this.btnMenuCursos.Click += new System.EventHandler(this.btnMenuCursos_Click);
             // 
@@ -248,6 +248,7 @@
             // 
             // ContPrincipalDocente
             // 
+            this.ContPrincipalDocente.BackColor = System.Drawing.Color.White;
             this.ContPrincipalDocente.Controls.Add(this.txtNombreUsuario);
             this.ContPrincipalDocente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContPrincipalDocente.Location = new System.Drawing.Point(410, 60);

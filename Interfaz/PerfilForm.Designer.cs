@@ -1,6 +1,6 @@
 ﻿namespace SistemaDeNotas
 {
-    partial class Perfil
+    partial class PerfilForm
     {
         /// <summary>
         /// Required designer variable.
@@ -142,10 +142,11 @@
             this.txtestado.Size = new System.Drawing.Size(272, 35);
             this.txtestado.TabIndex = 8;
             // 
-            // Perfil
+            // PerfilForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1026, 766);
             this.Controls.Add(this.txtestado);
             this.Controls.Add(this.txttelefono);
@@ -157,7 +158,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Perfil";
+            this.Name = "PerfilForm";
             this.Text = "Perfil";
             this.ResumeLayout(false);
             this.PerformLayout();

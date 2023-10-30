@@ -18,7 +18,7 @@ namespace SistemaDeNotas
         public AdminForm(string nombre)
         {
             InitializeComponent();
-            txtNombreUsuario.Text =  "Bienvenido " + nombre;
+            txtNombreUsuario.Text =  "Bienvenid@ " + nombre;
 		}
 
         public void AbrirFormHijo(object formHijo)
@@ -39,7 +39,7 @@ namespace SistemaDeNotas
         }
         private void btnMenuPerfil_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new Perfil());
+            AbrirFormHijo(new PerfilForm());
         }
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
@@ -50,16 +50,11 @@ namespace SistemaDeNotas
 
         private void btnMenuCursos_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new CursoFormAlumno());
-        }
-        private void btnMenuDocentes_Click(object sender, EventArgs e)
-        {
-            AbrirFormHijo(new DocenteFormAdmin());
-        }
-
+            AbrirFormHijo(new InscripcionForm());
+        }        
         private void btnMenuAlumnos_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new AlumnoFormAdmin());
+            AbrirFormHijo(new UsuarioFormAdmin());
         }
 
         private void horaFecha_Tick(object sender, EventArgs e)

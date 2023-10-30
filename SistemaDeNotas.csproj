@@ -53,17 +53,17 @@
     <Compile Include="Interfaz\Admin\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Admin\AlumnoFormAdmin.cs">
+    <Compile Include="Interfaz\Admin\UsuarioFormAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Admin\AlumnoFormAdmin.Designer.cs">
-      <DependentUpon>AlumnoFormAdmin.cs</DependentUpon>
+    <Compile Include="Interfaz\Admin\UsuarioFormAdmin.Designer.cs">
+      <DependentUpon>UsuarioFormAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Admin\DocenteFormAdmin.cs">
+    <Compile Include="Interfaz\Admin\InscripcionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Admin\DocenteFormAdmin.Designer.cs">
-      <DependentUpon>DocenteFormAdmin.cs</DependentUpon>
+    <Compile Include="Interfaz\Admin\InscripcionForm.Designer.cs">
+      <DependentUpon>InscripcionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaz\Alumno\AlumnoForm.cs">
       <SubType>Form</SubType>
@@ -90,22 +90,22 @@
     <Compile Include="Interfaz\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Perfil.cs">
+    <Compile Include="Interfaz\PerfilForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Perfil.Designer.cs">
-      <DependentUpon>Perfil.cs</DependentUpon>
+    <Compile Include="Interfaz\PerfilForm.Designer.cs">
+      <DependentUpon>PerfilForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Interfaz\Admin\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Admin\AlumnoFormAdmin.resx">
-      <DependentUpon>AlumnoFormAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="Interfaz\Admin\UsuarioFormAdmin.resx">
+      <DependentUpon>UsuarioFormAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Admin\DocenteFormAdmin.resx">
-      <DependentUpon>DocenteFormAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="Interfaz\Admin\InscripcionForm.resx">
+      <DependentUpon>InscripcionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Alumno\AlumnoForm.resx">
       <DependentUpon>AlumnoForm.cs</DependentUpon>
@@ -119,8 +119,8 @@
     <EmbeddedResource Include="Interfaz\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Perfil.resx">
-      <DependentUpon>Perfil.cs</DependentUpon>
+    <EmbeddedResource Include="Interfaz\PerfilForm.resx">
+      <DependentUpon>PerfilForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

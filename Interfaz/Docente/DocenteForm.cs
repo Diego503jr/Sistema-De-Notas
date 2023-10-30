@@ -15,7 +15,7 @@ namespace SistemaDeNotas
         public DocenteForm(string nombre)
         {
             InitializeComponent();
-            txtNombreUsuario.Text = "Bienvenido " + nombre;
+            txtNombreUsuario.Text = "Bienvenid@ " + nombre;
 
         }
         public void AbrirFormHijo(object formHijo)
@@ -52,7 +52,7 @@ namespace SistemaDeNotas
 
         private void btnMenuPerfil_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new Perfil());
+            AbrirFormHijo(new PerfilForm());
 
         }
 

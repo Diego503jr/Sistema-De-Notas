@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaDeNotas.Interfaz.Admin
+namespace SistemaDeNotas
 {
-    public partial class AlumnoFormAdmin : Form
+    public partial class PerfilForm : Form
     {
-        public AlumnoFormAdmin()
+        public PerfilForm()
         {
             InitializeComponent();
-        }
-
-        private void btnAgregarAlumno_Click(object sender, EventArgs e)
-        {
-            //Aqui tiene que ir la funcion para crear alumno
         }
     }
 }

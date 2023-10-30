@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace SistemaDeNotas.Interfaz.Admin
 {
-    public partial class DocenteFormAdmin : Form
+    public partial class InscripcionForm : Form
     {
-        public DocenteFormAdmin()
+        public InscripcionForm()
         {
             InitializeComponent();
-        }
-
-        private void btnAgregarDocente_Click(object sender, EventArgs e)
-        {
-            //Aqui tiene que ir la funcion para crear docente
         }
     }
 }
