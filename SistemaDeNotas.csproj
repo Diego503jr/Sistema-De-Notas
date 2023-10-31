@@ -87,6 +87,12 @@
       <DependentUpon>AlumnoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\CConexion.cs" />
+    <Compile Include="Interfaz\Alumno\NotasAlumnocs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\Alumno\NotasAlumnocs.Designer.cs">
+      <DependentUpon>NotasAlumnocs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaz\Cursos\CursoFormAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Alumno\AlumnoForm.resx">
       <DependentUpon>AlumnoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\Alumno\NotasAlumnocs.resx">
+      <DependentUpon>NotasAlumnocs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Cursos\CursoFormAlumno.resx">
       <DependentUpon>CursoFormAlumno.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeNotas.Interfaz.Alumno;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,15 +39,6 @@ namespace SistemaDeNotas
 
 		}
 
-		private void btnMenuCursos_Click(object sender, EventArgs e)
-		{
-			//AbrirFormHijo(new CursoFormAlumno());
-		}
-
-		private void btnMenuDocentes_Click(object sender, EventArgs e)
-		{
-			//AbrirFormHijo(new DocenteForm());
-		}
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -63,6 +55,12 @@ namespace SistemaDeNotas
         {
             lblHora.Text = DateTime.Now.ToLongTimeString();
             lblFecha.Text = DateTime.Now.ToShortDateString();
+        }
+
+        private void btnNotas_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new NotasAlumnocs());
+
         }
     }
 }
