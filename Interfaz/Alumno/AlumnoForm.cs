@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeNotas.Interfaz.Alumno;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,17 @@ namespace SistemaDeNotas
 {
     public partial class AlumnoForm : Form
     {
-        public AlumnoForm(string nombre)
+        public AlumnoForm(string nombre, string carnet, string telefono, string idestado)
         {
             InitializeComponent();
 			txtNombreUsuario.Text =  "Bienvenid@ " + nombre;
-
+			PerfilForm perfil = new PerfilForm();
+			btnMenuPerfil.Click += (sender, e) =>
+			{
+				AbrirFormHijo(perfil);
+				perfil.ConfigurarNombre(nombre, carnet, telefono, idestado); // Pasa el nombre al PerfilForm cuando se carga
+				perfil.Show(); // Muestra el formulario PerfilForm después de que se carga
+			};
 		}
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -38,15 +45,6 @@ namespace SistemaDeNotas
 
 		}
 
-		private void btnMenuCursos_Click(object sender, EventArgs e)
-		{
-			//AbrirFormHijo(new CursoFormAlumno());
-		}
-
-		private void btnMenuDocentes_Click(object sender, EventArgs e)
-		{
-			//AbrirFormHijo(new DocenteForm());
-		}
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -56,13 +54,19 @@ namespace SistemaDeNotas
 
         private void btnMenuPerfil_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new PerfilForm());
+            //AbrirFormHijo(new PerfilForm());
         }
 
         private void horaFecha_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToLongTimeString();
             lblFecha.Text = DateTime.Now.ToShortDateString();
+        }
+
+        private void btnNotas_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new NotasAlumnocs());
+
         }
     }
 }

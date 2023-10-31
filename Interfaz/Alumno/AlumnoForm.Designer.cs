@@ -40,7 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCerrarSesion = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.btnMenuCursos = new System.Windows.Forms.Button();
+            this.btnNotas = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnMenuPerfil = new System.Windows.Forms.Button();
             this.ContPrincipalAlumno = new System.Windows.Forms.Panel();
@@ -133,7 +133,7 @@
             this.BarraMenuLateral.Controls.Add(this.label1);
             this.BarraMenuLateral.Controls.Add(this.btnCerrarSesion);
             this.BarraMenuLateral.Controls.Add(this.pictureBox5);
-            this.BarraMenuLateral.Controls.Add(this.btnMenuCursos);
+            this.BarraMenuLateral.Controls.Add(this.btnNotas);
             this.BarraMenuLateral.Controls.Add(this.pictureBox4);
             this.BarraMenuLateral.Controls.Add(this.btnMenuPerfil);
             this.BarraMenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
@@ -191,24 +191,24 @@
             this.pictureBox5.TabIndex = 18;
             this.pictureBox5.TabStop = false;
             // 
-            // btnMenuCursos
+            // btnNotas
             // 
-            this.btnMenuCursos.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnMenuCursos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
-            this.btnMenuCursos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuCursos.FlatAppearance.BorderSize = 0;
-            this.btnMenuCursos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.btnMenuCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuCursos.ForeColor = System.Drawing.Color.White;
-            this.btnMenuCursos.Location = new System.Drawing.Point(9, 284);
-            this.btnMenuCursos.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMenuCursos.Name = "btnMenuCursos";
-            this.btnMenuCursos.Size = new System.Drawing.Size(397, 46);
-            this.btnMenuCursos.TabIndex = 17;
-            this.btnMenuCursos.Text = "Notas";
-            this.btnMenuCursos.UseVisualStyleBackColor = false;
-            this.btnMenuCursos.Click += new System.EventHandler(this.btnMenuCursos_Click);
+            this.btnNotas.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnNotas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
+            this.btnNotas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNotas.FlatAppearance.BorderSize = 0;
+            this.btnNotas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.btnNotas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNotas.ForeColor = System.Drawing.Color.White;
+            this.btnNotas.Location = new System.Drawing.Point(9, 284);
+            this.btnNotas.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNotas.Name = "btnNotas";
+            this.btnNotas.Size = new System.Drawing.Size(397, 46);
+            this.btnNotas.TabIndex = 17;
+            this.btnNotas.Text = "Notas";
+            this.btnNotas.UseVisualStyleBackColor = false;
+            this.btnNotas.Click += new System.EventHandler(this.btnNotas_Click);
             // 
             // pictureBox4
             // 
@@ -357,7 +357,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.PictureBox btnCerrarSesion;
 		private System.Windows.Forms.PictureBox pictureBox5;
-		private System.Windows.Forms.Button btnMenuCursos;
+		private System.Windows.Forms.Button btnNotas;
 		private System.Windows.Forms.PictureBox pictureBox4;
 		private System.Windows.Forms.Button btnMenuPerfil;
 		private System.Windows.Forms.Panel ContPrincipalAlumno;
