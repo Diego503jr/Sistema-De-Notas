@@ -15,10 +15,17 @@ namespace SistemaDeNotas
     public partial class AdminForm : Form
     {
         
-        public AdminForm(string nombre)
+        public AdminForm(string nombre, string carnet, string telefono, string idestado)
         {
             InitializeComponent();
             txtNombreUsuario.Text =  "Bienvenid@ " + nombre;
+			PerfilForm perfil = new PerfilForm();
+			btnMenuPerfil.Click += (sender, e) =>
+			{
+                AbrirFormHijo(perfil);
+				perfil.ConfigurarNombre(nombre, carnet, telefono, idestado); // Pasa el nombre al PerfilForm cuando se carga
+				perfil.Show(); // Muestra el formulario PerfilForm después de que se carga
+			};
 		}
 
         public void AbrirFormHijo(object formHijo)
@@ -39,7 +46,7 @@ namespace SistemaDeNotas
         }
         private void btnMenuPerfil_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new PerfilForm());
+            //AbrirFormHijo(new PerfilForm());
         }
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
