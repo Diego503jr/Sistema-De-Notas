@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\ConstructorCurso.cs" />
+    <Compile Include="Clases\ConstructorInscripcion.cs" />
     <Compile Include="Clases\ConstructorMateria.cs" />
     <Compile Include="Clases\FuncionesAdministrador.cs" />
     <Compile Include="Interfaz\Admin\AdminForm.cs">

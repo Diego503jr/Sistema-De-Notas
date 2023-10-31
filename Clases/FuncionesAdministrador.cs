@@ -11,17 +11,18 @@ namespace SistemaDeNotas.Clases
 {
 	internal class FuncionesAdministrador
 	{
+		//Funciones para el formulario Materias
 		public static int AgregarMateria(ConstructorMateria Materia)
 		{
 			int retorno = 0;
 			try
 			{
 				CConexion conexion = new CConexion();
-				string agregar = "INSERT INTO dbo.Materias (Nombre, Descripcion, idDocente) VALUES (@Nombre, @Descripcion, @idDocente)";
-				SqlCommand cmd = new SqlCommand(agregar, conexion.establecerConexion());
+				string query = "INSERT INTO dbo.Materias (Nombre, Descripcion, IdDocente) VALUES (@Nombre, @Descripcion, @IdDocente)";
+				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
 				cmd.Parameters.AddWithValue("@Nombre", Materia.Nombre);
 				cmd.Parameters.AddWithValue("@Descripcion", Materia.Descripcion);
-				//cmd.Parameters.AddWithValue("@idDocente", Materia.IdDocente); 
+				cmd.Parameters.AddWithValue("@IdDocente", Materia.IdDocente);
 				retorno = cmd.ExecuteNonQuery();
 				if (retorno >= 0)
 				{
@@ -36,41 +37,39 @@ namespace SistemaDeNotas.Clases
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("Hubo un error de conexion" , "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+				MessageBox.Show($"Hubo un error de conexion {ex}" , "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 				return retorno;
 			}
 
 		}
+        public static DataTable MostrarMateria()
+        {
+            CConexion conexion = new CConexion();
+            DataTable data = new DataTable();
+            try
+            {
+                string query = "SELECT *FROM dbo.Materias";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                SqlDataAdapter dt = new SqlDataAdapter(cmd);
+                dt.Fill(data);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return data;
+            }
+        }
+        //Funciones para el formulario Curso
 
-		public static DataTable MostrarMateria()
-		{
-			DataTable data = new DataTable();
-			try
-			{
-				SqlCommand cmd = new SqlCommand();
-				string mostrar = "SELECT *FROM dbo.Materias";
-				SqlDataAdapter dt = new SqlDataAdapter();
-				dt.Fill(data);
-				return data;
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return data;
-			}
-		}
-
-
-		public static int AgregarCurso(ConstructorCurso Curso)
+        public static int AgregarCurso(ConstructorCurso Curso)
 		{
 			int retorno = 0;
 			try
 			{
 				CConexion conexion = new CConexion();
-				string agregar = "INSERT INTO dbo.Cursos ( Nombre) VALUES ( @Nombre)";
-
-				SqlCommand cmd = new SqlCommand(agregar, conexion.establecerConexion());
-				//cmd.Parameters.AddWithValue("@Id", Curso.Id);
+				string query = "INSERT INTO dbo.Cursos ( Nombre) VALUES ( @Nombre)";
+				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
 				cmd.Parameters.AddWithValue("@Nombre", Curso.Nombre);
 				retorno = cmd.ExecuteNonQuery();
 				if (retorno >= 0)
@@ -91,15 +90,16 @@ namespace SistemaDeNotas.Clases
 			}
 
 		}
-
-		public static DataTable MostrarCurso()
+  
+        public static DataTable MostrarCurso()
 		{
-			DataTable data = new DataTable();
+            CConexion conexion = new CConexion();
+            DataTable data = new DataTable();
 			try
 			{
-				SqlCommand cmd = new SqlCommand();
-				string mostrar = "SELECT *FROM dbo.Materias";
-				SqlDataAdapter dt = new SqlDataAdapter();
+				string query = "SELECT *FROM dbo.Cursos";
+				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+				SqlDataAdapter dt = new SqlDataAdapter(cmd);
 				dt.Fill(data);
 				return data;
 			}
@@ -110,9 +110,131 @@ namespace SistemaDeNotas.Clases
 			}
 		}
 
+		public static int ActualizarCurso(ConstructorCurso Curso)
+		{
+            CConexion conexion = new CConexion();
+            int retorno = 0;
+			string query = "Update dbo.Cursos SET Nombre = @nombreCurso WHERE Id = @idCurso";
+			SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+			cmd.Parameters.AddWithValue("@idCurso",Curso.Id);
+			cmd.Parameters.AddWithValue("@nombreCurso",Curso.Nombre);
+			retorno = cmd.ExecuteNonQuery();
+			return retorno;
+		}
 
+        //Funciones para el formulario Materias
 
+		public static DataTable MostrarInscripcion()
+		{
+            CConexion conexion = new CConexion();
+            DataTable data = new DataTable();
+			try
+			{
+				string query = "SELECT * FROM dbo.Inscripcion";
+				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+				SqlDataAdapter dt = new SqlDataAdapter(cmd);
+				dt.Fill(data);
+				return data;
+			}catch (Exception ex)
+			{
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return data;
+            }
+        }
 
+        //Listar en comboboxes
+        public static DataTable ListarDocentes()
+        {
+            CConexion conexion = new CConexion();
+            DataTable data = new DataTable();
+            try
+            {
+                string queryLeerDocentes = "SELECT Id, Nombre FROM dbo.Usuarios WHERE IdRol = 1";
+                SqlCommand cmd = new SqlCommand(queryLeerDocentes, conexion.establecerConexion());
+                SqlDataAdapter dt = new SqlDataAdapter(cmd);
+                dt.Fill(data);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return data;
+            }
+        }
 
-	}
+		public static DataTable ListarCursos()
+		{
+			CConexion conexion = new CConexion();
+			DataTable data = new DataTable();
+			try
+			{
+				string query = "SELECT Id, Nombre FROM dbo.Cursos";
+				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+				SqlDataAdapter dt = new SqlDataAdapter(cmd);
+				dt.Fill(data);
+				return data;
+			}catch (Exception ex)
+			{
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return data;
+            }
+		}
+
+        public static DataTable ListarMaterias()
+        {
+            CConexion conexion = new CConexion();
+            DataTable data = new DataTable();
+            try
+            {
+                string query = "SELECT Id, Nombre FROM dbo.Materias";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                SqlDataAdapter dt = new SqlDataAdapter(cmd);
+                dt.Fill(data);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return data;
+            }
+        }
+
+        public static DataTable ListarEstado()
+        {
+            CConexion conexion = new CConexion();
+            DataTable data = new DataTable();
+            try
+            {
+                string query = "SELECT Id, EstadoValor FROM dbo.Estado";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                SqlDataAdapter dt = new SqlDataAdapter(cmd);
+                dt.Fill(data);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return data;
+            }
+        }
+
+        public static DataTable ListarRoles()
+        {
+            CConexion conexion = new CConexion();
+            DataTable data = new DataTable();
+            try
+            {
+                string query = "SELECT Id, RolUsuario FROM dbo.Roles";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                SqlDataAdapter dt = new SqlDataAdapter(cmd);
+                dt.Fill(data);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return data;
+            }
+        }
+    }
 }

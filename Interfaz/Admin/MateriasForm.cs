@@ -15,7 +15,6 @@ namespace SistemaDeNotas.Interfaz.Admin
     public partial class MateriasForm : Form
     {
 		ConstructorMateria Materia = new ConstructorMateria();
-		CConexion conexion = new CConexion();
         public MateriasForm()
         {
             InitializeComponent();
@@ -24,12 +23,11 @@ namespace SistemaDeNotas.Interfaz.Admin
 		private void btnAgregar_Click(object sender, EventArgs e)
 		{
 			Insertar();
-			
 		}
 
 		private void Insertar()
 		{
-			if (txtNombreMateria.Text == "" || txtDescripcionMateria.Text == "" || cboDocente == null)
+			if (txtNombreMateria.Text == "" || txtDescripcionMateria.Text == "" )
 			{
 				MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
@@ -37,29 +35,33 @@ namespace SistemaDeNotas.Interfaz.Admin
 			{
 				Materia.Nombre = txtNombreMateria.Text;
 				Materia.Descripcion = txtDescripcionMateria.Text;
-				FuncionesAdministrador.AgregarMateria(Materia);
+				Materia.IdDocente = Convert.ToInt32(cbDocente.SelectedValue);
+                FuncionesAdministrador.AgregarMateria(Materia);
 			}
 		}
 
-		
-
-		private void MateriasForm_Load(object sender, EventArgs e)
+        private void MateriasForm_Load(object sender, EventArgs e)
 		{
-			CargarCombo();
-		}
-		
-		public void CargarCombo()
-		{
-			SqlCommand cmd = new SqlCommand("SELECT Nombre FROM dbo.Usuarios WHERE IdRol = 1", conexion.establecerConexion());
-			SqlDataReader reader = cmd.ExecuteReader();
-
-			while (reader.Read()) 
-			{
-				cboDocente.Items.Add(reader["Nombre"].ToString());
-			}
-			reader.Close();
-
+			MostrarMaterias();
+			ListarDocentesMat();
 		}
 
-	}
+		public void ListarDocentesMat()
+		{
+            cbDocente.DataSource = FuncionesAdministrador.ListarDocentes();
+            cbDocente.DisplayMember = "Nombre";
+            cbDocente.ValueMember = "Id";
+        }
+
+		public void MostrarMaterias()
+		{
+			dgvMaterias.DataSource = FuncionesAdministrador.MostrarMateria();
+			dgvMaterias.Columns[0].HeaderText = "IdMateria";
+			dgvMaterias.Columns[1].HeaderText = "Materia";
+			dgvMaterias.Columns[2].HeaderText = "Descripción";
+			dgvMaterias.Columns[3].HeaderText = "Docente";
+		}
+		
+
+    }
 }
