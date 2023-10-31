@@ -10,7 +10,6 @@ namespace SistemaDeNotas.Clases
 {
     internal class CConexion
     {
-
         static string servidor = "DBRegistroNotas.mssql.somee.com";
         static string db = "DBRegistroNotas";
         static string user = "DieCaris503_SQLLogin_1";

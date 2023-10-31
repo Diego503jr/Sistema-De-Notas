@@ -20,7 +20,7 @@ namespace SistemaDeNotas.Interfaz.Admin
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombreCurso.Text) && string.IsNullOrEmpty(txtDescripcionCurso.Text))
+            if (string.IsNullOrEmpty(txtNombreCurso.Text))
             {
                 MessageBox.Show("No puede dejar campos vacíos", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }

@@ -28,23 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TextBox txtDocente;
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnActualizarInscripcion = new System.Windows.Forms.Button();
             this.gBDatosInscribir = new System.Windows.Forms.GroupBox();
-            this.cBMaterias = new System.Windows.Forms.ComboBox();
+            this.cbMaterias = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cBCursos = new System.Windows.Forms.ComboBox();
+            this.cbCursos = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnInscribir = new System.Windows.Forms.Button();
             this.dgvInscripcion = new System.Windows.Forms.DataGridView();
             this.gBDatosPersonales = new System.Windows.Forms.GroupBox();
-            this.cBEstado = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCarnet = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            txtDocente = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.gBDatosInscribir.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).BeginInit();
@@ -85,59 +88,61 @@
             // gBDatosInscribir
             // 
             this.gBDatosInscribir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gBDatosInscribir.Controls.Add(this.cBMaterias);
+            this.gBDatosInscribir.Controls.Add(txtDocente);
+            this.gBDatosInscribir.Controls.Add(this.label5);
+            this.gBDatosInscribir.Controls.Add(this.cbMaterias);
             this.gBDatosInscribir.Controls.Add(this.label4);
-            this.gBDatosInscribir.Controls.Add(this.cBCursos);
+            this.gBDatosInscribir.Controls.Add(this.cbCursos);
             this.gBDatosInscribir.Controls.Add(this.label2);
             this.gBDatosInscribir.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.gBDatosInscribir.Location = new System.Drawing.Point(610, 150);
+            this.gBDatosInscribir.Location = new System.Drawing.Point(610, 132);
             this.gBDatosInscribir.Name = "gBDatosInscribir";
-            this.gBDatosInscribir.Size = new System.Drawing.Size(509, 199);
+            this.gBDatosInscribir.Size = new System.Drawing.Size(509, 234);
             this.gBDatosInscribir.TabIndex = 66;
             this.gBDatosInscribir.TabStop = false;
             this.gBDatosInscribir.Text = "Datos inscripción";
             // 
-            // cBMaterias
+            // cbMaterias
             // 
-            this.cBMaterias.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBMaterias.FormattingEnabled = true;
-            this.cBMaterias.Items.AddRange(new object[] {
+            this.cbMaterias.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaterias.FormattingEnabled = true;
+            this.cbMaterias.Items.AddRange(new object[] {
             "Programacion Estructurada",
             "Logica de programacion",
             "Base de Datos",
             "Desarrollo Web"});
-            this.cBMaterias.Location = new System.Drawing.Point(162, 116);
-            this.cBMaterias.Name = "cBMaterias";
-            this.cBMaterias.Size = new System.Drawing.Size(309, 37);
-            this.cBMaterias.TabIndex = 56;
+            this.cbMaterias.Location = new System.Drawing.Point(162, 105);
+            this.cbMaterias.Name = "cbMaterias";
+            this.cbMaterias.Size = new System.Drawing.Size(309, 37);
+            this.cbMaterias.TabIndex = 56;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(38, 119);
+            this.label4.Location = new System.Drawing.Point(38, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 29);
             this.label4.TabIndex = 55;
             this.label4.Text = "Materia :";
             // 
-            // cBCursos
+            // cbCursos
             // 
-            this.cBCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBCursos.FormattingEnabled = true;
-            this.cBCursos.Items.AddRange(new object[] {
+            this.cbCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCursos.FormattingEnabled = true;
+            this.cbCursos.Items.AddRange(new object[] {
             "DS01",
             "DS02"});
-            this.cBCursos.Location = new System.Drawing.Point(162, 45);
-            this.cBCursos.Name = "cBCursos";
-            this.cBCursos.Size = new System.Drawing.Size(309, 37);
-            this.cBCursos.TabIndex = 54;
+            this.cbCursos.Location = new System.Drawing.Point(162, 48);
+            this.cbCursos.Name = "cbCursos";
+            this.cbCursos.Size = new System.Drawing.Size(309, 37);
+            this.cbCursos.TabIndex = 54;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(54, 48);
+            this.label2.Location = new System.Drawing.Point(54, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 29);
             this.label2.TabIndex = 53;
@@ -174,7 +179,7 @@
             // gBDatosPersonales
             // 
             this.gBDatosPersonales.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gBDatosPersonales.Controls.Add(this.cBEstado);
+            this.gBDatosPersonales.Controls.Add(this.cbEstado);
             this.gBDatosPersonales.Controls.Add(this.label3);
             this.gBDatosPersonales.Controls.Add(this.txtCarnet);
             this.gBDatosPersonales.Controls.Add(this.txtNombre);
@@ -187,15 +192,6 @@
             this.gBDatosPersonales.TabIndex = 63;
             this.gBDatosPersonales.TabStop = false;
             this.gBDatosPersonales.Text = "Datos personales :";
-            // 
-            // cBEstado
-            // 
-            this.cBEstado.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cBEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBEstado.Location = new System.Drawing.Point(166, 176);
-            this.cBEstado.Name = "cBEstado";
-            this.cBEstado.Size = new System.Drawing.Size(309, 34);
-            this.cBEstado.TabIndex = 55;
             // 
             // label3
             // 
@@ -259,6 +255,42 @@
             this.label1.TabIndex = 62;
             this.label1.Text = "Inscripción";
             // 
+            // cbEstado
+            // 
+            this.cbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Items.AddRange(new object[] {
+            "Programacion Estructurada",
+            "Logica de programacion",
+            "Base de Datos",
+            "Desarrollo Web"});
+            this.cbEstado.Location = new System.Drawing.Point(166, 176);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(309, 37);
+            this.cbEstado.TabIndex = 57;
+            // 
+            // txtDocente
+            // 
+            txtDocente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            txtDocente.Cursor = System.Windows.Forms.Cursors.No;
+            txtDocente.Enabled = false;
+            txtDocente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            txtDocente.Location = new System.Drawing.Point(162, 165);
+            txtDocente.Name = "txtDocente";
+            txtDocente.Size = new System.Drawing.Size(309, 34);
+            txtDocente.TabIndex = 58;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(28, 168);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 29);
+            this.label5.TabIndex = 57;
+            this.label5.Text = "Docente :";
+            // 
             // InscripcionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -284,19 +316,20 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnActualizarInscripcion;
         private System.Windows.Forms.GroupBox gBDatosInscribir;
-        private System.Windows.Forms.ComboBox cBMaterias;
+        private System.Windows.Forms.ComboBox cbMaterias;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cBCursos;
+        private System.Windows.Forms.ComboBox cbCursos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnInscribir;
         private System.Windows.Forms.DataGridView dgvInscripcion;
         private System.Windows.Forms.GroupBox gBDatosPersonales;
-        private System.Windows.Forms.TextBox cBEstado;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCarnet;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbEstado;
+        private System.Windows.Forms.Label label5;
     }
 }
