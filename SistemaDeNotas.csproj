@@ -190,5 +190,11 @@
   <ItemGroup>
     <None Include="Resources\ITCA-RemoveBG.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo perfil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo Usuario.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
