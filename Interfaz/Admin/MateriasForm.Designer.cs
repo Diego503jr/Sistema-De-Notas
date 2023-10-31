@@ -138,12 +138,12 @@
             this.dgvMaterias.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvMaterias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
             this.dgvMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaterias.Location = new System.Drawing.Point(39, 404);
+            this.dgvMaterias.Location = new System.Drawing.Point(39, 393);
             this.dgvMaterias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvMaterias.Name = "dgvMaterias";
             this.dgvMaterias.RowHeadersWidth = 51;
             this.dgvMaterias.RowTemplate.Height = 24;
-            this.dgvMaterias.Size = new System.Drawing.Size(700, 384);
+            this.dgvMaterias.Size = new System.Drawing.Size(810, 394);
             this.dgvMaterias.TabIndex = 4;
             // 
             // btnActualizar
@@ -155,7 +155,7 @@
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.White;
-            this.btnActualizar.Location = new System.Drawing.Point(876, 645);
+            this.btnActualizar.Location = new System.Drawing.Point(900, 643);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(175, 41);
@@ -172,7 +172,7 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(876, 570);
+            this.btnEliminar.Location = new System.Drawing.Point(900, 568);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(175, 41);
@@ -189,7 +189,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(876, 501);
+            this.btnAgregar.Location = new System.Drawing.Point(900, 499);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(175, 41);

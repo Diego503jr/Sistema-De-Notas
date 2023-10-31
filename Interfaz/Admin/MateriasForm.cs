@@ -42,11 +42,25 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void MateriasForm_Load(object sender, EventArgs e)
 		{
-			cbDocente.DataSource = FuncionesAdministrador.ListarDocentes();
-			cbDocente.DisplayMember = "Nombre";
-			cbDocente.ValueMember = "Id";
+			MostrarMaterias();
+			ListarDocentesMat();
 		}
-		
+
+		public void ListarDocentesMat()
+		{
+            cbDocente.DataSource = FuncionesAdministrador.ListarDocentes();
+            cbDocente.DisplayMember = "Nombre";
+            cbDocente.ValueMember = "Id";
+        }
+
+		public void MostrarMaterias()
+		{
+			dgvMaterias.DataSource = FuncionesAdministrador.MostrarMateria();
+			dgvMaterias.Columns[0].HeaderText = "IdMateria";
+			dgvMaterias.Columns[1].HeaderText = "Materia";
+			dgvMaterias.Columns[2].HeaderText = "Descripción";
+			dgvMaterias.Columns[3].HeaderText = "Docente";
+		}
 		
 
     }
