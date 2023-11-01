@@ -60,9 +60,35 @@ namespace SistemaDeNotas.Clases
                 return data;
             }
         }
-        //Funciones para el formulario Curso
+		public static int ActualizarMateria(ConstructorMateria Materia)
+		{
+			CConexion conexion = new CConexion();
+			int retorno = 0;
+			string actu = "UPDATE dbo.Materias SET Nombre = @Nombre, Descripcion= @Descripcion, IdDocente = @IdDocente WHERE Id= @Id";
+			SqlCommand cmd = new SqlCommand(actu, conexion.establecerConexion());
+			cmd.Parameters.AddWithValue("@Nombre", Materia.Nombre);
+			cmd.Parameters.AddWithValue("@Descripcion", Materia.Descripcion);
+			cmd.Parameters.AddWithValue("@Id", Materia.Id);
+			cmd.Parameters.AddWithValue("@IdDocente", Materia.IdDocente);
+			retorno = cmd.ExecuteNonQuery();
+			return retorno;
+		}
 
-        public static int AgregarCurso(ConstructorCurso Curso)
+		public static int EliminarMateria(ConstructorMateria Materia)
+		{
+			CConexion conexion = new CConexion();
+			int retorno = 0;
+			string query = "DELETE dbo.Materias  WHERE Id = @Id";
+			SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+			cmd.Parameters.AddWithValue("@Id", Materia.Id);
+			//cmd.Parameters.AddWithValue("@Nombre", Curso.Nombre);
+			retorno = cmd.ExecuteNonQuery();
+			return retorno;
+		}
+
+		//Funciones para el formulario Curso
+
+		public static int AgregarCurso(ConstructorCurso Curso)
 		{
 			int retorno = 0;
 			try
@@ -114,15 +140,29 @@ namespace SistemaDeNotas.Clases
 		{
             CConexion conexion = new CConexion();
             int retorno = 0;
-			string query = "Update dbo.Cursos SET Nombre = @nombreCurso WHERE Id = @idCurso";
+			string query = "Update dbo.Cursos SET Nombre = @Nombre WHERE Id = @Id";
 			SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-			cmd.Parameters.AddWithValue("@idCurso",Curso.Id);
-			cmd.Parameters.AddWithValue("@nombreCurso",Curso.Nombre);
+			cmd.Parameters.AddWithValue("@Nombre", Curso.Nombre);
+			cmd.Parameters.AddWithValue("@Id",Curso.Id);
 			retorno = cmd.ExecuteNonQuery();
 			return retorno;
 		}
 
-        //Funciones para el formulario Materias
+		public static int EliminarCurso(ConstructorCurso Curso)
+		{
+			CConexion conexion = new CConexion();
+			int retorno = 0;
+			string query = "DELETE dbo.Cursos  WHERE Id = @Id";
+			SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+			cmd.Parameters.AddWithValue("@Id", Curso.Id);
+			//cmd.Parameters.AddWithValue("@Nombre", Curso.Nombre);
+			retorno = cmd.ExecuteNonQuery();
+			return retorno;
+		}
+
+
+
+		//Funciones para el formulario de inscripcion
 
 		public static DataTable MostrarInscripcion()
 		{
