@@ -186,7 +186,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
             this.Text = "Inicio de Sesión";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.BarraTitulo.ResumeLayout(false);
             this.BarraTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
