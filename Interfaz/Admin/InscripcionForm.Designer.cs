@@ -209,6 +209,7 @@
             this.btnInscribir.TabIndex = 71;
             this.btnInscribir.Text = "Inscribir";
             this.btnInscribir.UseVisualStyleBackColor = false;
+            this.btnInscribir.Click += new System.EventHandler(this.btnInscribir_Click);
             // 
             // dgvInscripcion
             // 

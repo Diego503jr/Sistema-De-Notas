@@ -40,8 +40,10 @@ namespace SistemaDeNotas.Clases
 				MessageBox.Show($"Hubo un error de conexion {ex}" , "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 				return retorno;
 			}
-
 		}
+
+		
+
         public static DataTable MostrarMateria()
         {
             CConexion conexion = new CConexion();
@@ -164,13 +166,38 @@ namespace SistemaDeNotas.Clases
 
 		//Funciones para el formulario de inscripcion
 
-		public static int AgregarInscripcion()
+		public static int AgregarInscripcion(ConstructorInscripcion Inscripcion)
 		{
-			CConexion conexion = new CConexion();
-			return 0;
+			int retorno = 0;
+			try
+			{
+                CConexion conexion = new CConexion();
+                string query = "INSERT INTO dbo.Inscripcion(IdAlumno, IdCurso, IdMateria) VALUES(@idAlumno, @idCurso, @idMateria)";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@idAlumno", Inscripcion.IdAlumno);
+                cmd.Parameters.AddWithValue("@idCurso", Inscripcion.IdCurso);
+                cmd.Parameters.AddWithValue("@idMateria", Inscripcion.IdMateria);
+                retorno = cmd.ExecuteNonQuery();
+
+                if (retorno >= 0)
+                {
+                    MessageBox.Show("Los datos de la inscripción se agregaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return retorno;
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no se agregaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+            }
+            catch (Exception ex)
+			{
+                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return retorno;
+            }
 		}
 
-		public static DataTable MostrarInscripcion()
+        public static DataTable MostrarInscripcion()
 		{
             CConexion conexion = new CConexion();
             DataTable data = new DataTable();
