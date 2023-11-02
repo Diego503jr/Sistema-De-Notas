@@ -37,11 +37,39 @@ namespace SistemaDeNotas.Interfaz.Admin
 
 		private void CursosForm_Load(object sender, EventArgs e)
 		{
+			ConfigurarDataGridView();
 			MostrarCursos();
 		}
+        private void ConfigurarDataGridView()
+        {
+            // Establecer el estilo de las celdas
+            dgvCursos.DefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
+            dgvCursos.DefaultCellStyle.ForeColor = Color.Black;
+            dgvCursos.DefaultCellStyle.BackColor = Color.White;
+            dgvCursos.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvCursos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(237, 28, 36);
 
-		//AGREGAR CURSO
-		private void Insertar()
+            // Establecer el estilo de las filas alternas
+            dgvCursos.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+
+            // Establecer el estilo de las cabeceras de las columnas
+            dgvCursos.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 11, FontStyle.Bold);
+            dgvCursos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvCursos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(237, 28, 36);
+
+            // Alinear el contenido de las celdas al centro
+            dgvCursos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            // Configurar la selección de celdas
+            dgvCursos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCursos.MultiSelect = false;
+
+            // Autoajustar el ancho de las columnas
+            dgvCursos.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+        }
+        //AGREGAR CURSO
+        private void Insertar()
 		{
 			if (txtNombreCurso.Text == "" )
 			{

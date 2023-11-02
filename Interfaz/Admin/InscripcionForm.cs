@@ -22,11 +22,39 @@ namespace SistemaDeNotas.Interfaz.Admin
         }
         private void InscripcionForm_Load(object sender, EventArgs e)
         {
+            ConfigurarDataGridView();
             MostrarInscripcion();
             ListarCursosIns();
             ListarMateriasIns();
         }
+        private void ConfigurarDataGridView()
+        {
+            // Establecer el estilo de las celdas
+            dgvInscripcion.DefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
+            dgvInscripcion.DefaultCellStyle.ForeColor = Color.Black;
+            dgvInscripcion.DefaultCellStyle.BackColor = Color.White;
+            dgvInscripcion.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvInscripcion.DefaultCellStyle.SelectionBackColor = Color.FromArgb(237, 28, 36);
 
+            // Establecer el estilo de las filas alternas
+            dgvInscripcion.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+
+            // Establecer el estilo de las cabeceras de las columnas
+            dgvInscripcion.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 11, FontStyle.Bold);
+            dgvInscripcion.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvInscripcion.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(237, 28, 36);
+
+            // Alinear el contenido de las celdas al centro
+            dgvInscripcion.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            // Configurar la selección de celdas
+            dgvInscripcion.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvInscripcion.MultiSelect = false;
+
+            // Autoajustar el ancho de las columnas
+            dgvInscripcion.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+        }
         public void ListarMateriasIns()
         {
             cbMaterias.DataSource = FuncionesAdministrador.ListarMaterias();

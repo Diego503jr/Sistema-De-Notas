@@ -34,13 +34,41 @@ namespace SistemaDeNotas.Interfaz.Admin
 
 		private void MateriasForm_Load(object sender, EventArgs e)
 		{
+			ConfigurarDataGridView();
 			MostrarMaterias();
 			ListarDocentesMat();
 		}
 
+        private void ConfigurarDataGridView()
+        {
+            // Establecer el estilo de las celdas
+            dgvMaterias.DefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
+            dgvMaterias.DefaultCellStyle.ForeColor = Color.Black;
+            dgvMaterias.DefaultCellStyle.BackColor = Color.White;
+            dgvMaterias.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvMaterias.DefaultCellStyle.SelectionBackColor = Color.FromArgb(237, 28, 36);
 
-		//AGREGAR MATERIA
-		private void btnAgregar_Click(object sender, EventArgs e)
+            // Establecer el estilo de las filas alternas
+            dgvMaterias.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+
+            // Establecer el estilo de las cabeceras de las columnas
+            dgvMaterias.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 11, FontStyle.Bold);
+            dgvMaterias.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvMaterias.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(237, 28, 36);
+
+            // Alinear el contenido de las celdas al centro
+            dgvMaterias.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            // Configurar la selección de celdas
+            dgvMaterias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvMaterias.MultiSelect = false;
+
+            // Autoajustar el ancho de las columnas
+            dgvMaterias.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+        }
+        //AGREGAR MATERIA
+        private void btnAgregar_Click(object sender, EventArgs e)
 		{
 			Insertar();
 		}
