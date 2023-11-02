@@ -31,6 +31,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             cbEstado.DataSource = FuncionesAdministrador.ListarEstado();
             cbEstado.DisplayMember = "EstadoValor";
             cbEstado.ValueMember = "Id";
+            cbEstado.Text = null;
         }
 
         public void ListarMateriasIns()
@@ -38,6 +39,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             cbMaterias.DataSource = FuncionesAdministrador.ListarMaterias();
             cbMaterias.DisplayMember = "Nombre";
             cbMaterias.ValueMember = "Id";
+            cbMaterias.Text = null;
         }
 
         public void ListarCursosIns()
@@ -45,6 +47,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             cbCursos.DataSource = FuncionesAdministrador.ListarCursos();
             cbCursos.DisplayMember = "Nombre";
             cbCursos.ValueMember = "Id";
+            cbCursos.Text = null;
         }
 
         public void MostrarInscripcion()

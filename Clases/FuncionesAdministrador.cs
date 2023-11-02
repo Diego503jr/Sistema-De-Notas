@@ -164,6 +164,12 @@ namespace SistemaDeNotas.Clases
 
 		//Funciones para el formulario de inscripcion
 
+		public static int AgregarInscripcion()
+		{
+			CConexion conexion = new CConexion();
+			return 0;
+		}
+
 		public static DataTable MostrarInscripcion()
 		{
             CConexion conexion = new CConexion();
