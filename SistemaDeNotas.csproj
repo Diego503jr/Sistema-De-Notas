@@ -106,6 +106,12 @@
     <Compile Include="Interfaz\Docente\DocenteForm.Designer.cs">
       <DependentUpon>DocenteForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaz\Docente\NotasDocente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\Docente\NotasDocente.Designer.cs">
+      <DependentUpon>NotasDocente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaz\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Docente\DocenteForm.resx">
       <DependentUpon>DocenteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\Docente\NotasDocente.resx">
+      <DependentUpon>NotasDocente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

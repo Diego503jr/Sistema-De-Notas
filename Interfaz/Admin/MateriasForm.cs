@@ -116,20 +116,9 @@ namespace SistemaDeNotas.Interfaz.Admin
 			//No se utiliza
 		}
 
-		//FILTRAR BÚSQUEDA
 		private void txtNombreMateria_TextChanged(object sender, EventArgs e)
 		{
-			//string buscar = txtNombreMateria.Text.Trim();
-			//if (!string.IsNullOrEmpty(buscar))
-			//{
-			//	// Realiza la búsqueda en la fuente de datos y filtra los resultados
-			//	(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = $"Nombre LIKE '%{buscar}%'";
-			//}
-			//else
-			//{
-			//	// Si el cuadro de búsqueda está vacío, muestra todos los datos
-			//	(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = "";
-			//}
+			//No se usa
 		}
 
 		//COMPLETA TEXTBOX Y COMBOBOX CON LA INFORMACIÓN SELECCIONADA EN EL DATAGRID
@@ -180,6 +169,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 		{
 			txtNombreMateria.Clear();
 			txtDescripcionMateria.Clear();
+			txtFiltroNombre.Clear();
 			cbDocente.Text = null;
 			if (dgvMaterias.SelectedRows.Count > 0)
 			{
@@ -190,6 +180,23 @@ namespace SistemaDeNotas.Interfaz.Admin
 				row.Selected = false;
 			}
 			btnAgregar.Enabled = true;
+		}
+
+		//FILTRAR BÚSQUEDA
+		private void txtFiltroNombre_TextChanged(object sender, EventArgs e)
+		{
+			string buscar = txtFiltroNombre.Text.Trim();
+			if (!string.IsNullOrEmpty(buscar))
+			{
+				// Realiza la búsqueda en la fuente de datos y filtra los resultados
+				(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = $"Nombre LIKE '%{buscar}%'";
+			}
+			else
+			{
+				// Si el cuadro de búsqueda está vacío, muestra todos los datos
+				(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = "";
+			}
+
 		}
 	}
 }

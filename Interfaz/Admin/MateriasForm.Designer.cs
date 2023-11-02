@@ -41,6 +41,8 @@
 			this.btnEliminar = new System.Windows.Forms.Button();
 			this.btnAgregar = new System.Windows.Forms.Button();
 			this.btnLimpiar = new System.Windows.Forms.Button();
+			this.txtFiltroNombre = new System.Windows.Forms.TextBox();
+			this.label5 = new System.Windows.Forms.Label();
 			this.gbDetalleMateria.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvMaterias)).BeginInit();
 			this.SuspendLayout();
@@ -50,7 +52,7 @@
 			this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(328, 40);
+			this.label1.Location = new System.Drawing.Point(328, 25);
 			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(257, 36);
@@ -67,7 +69,7 @@
 			this.gbDetalleMateria.Controls.Add(this.txtNombreMateria);
 			this.gbDetalleMateria.Controls.Add(this.label2);
 			this.gbDetalleMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.gbDetalleMateria.Location = new System.Drawing.Point(29, 96);
+			this.gbDetalleMateria.Location = new System.Drawing.Point(29, 84);
 			this.gbDetalleMateria.Margin = new System.Windows.Forms.Padding(2);
 			this.gbDetalleMateria.Name = "gbDetalleMateria";
 			this.gbDetalleMateria.Padding = new System.Windows.Forms.Padding(2);
@@ -227,12 +229,36 @@
 			this.btnLimpiar.UseVisualStyleBackColor = false;
 			this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
 			// 
+			// txtFiltroNombre
+			// 
+			this.txtFiltroNombre.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.txtFiltroNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtFiltroNombre.Location = new System.Drawing.Point(226, 293);
+			this.txtFiltroNombre.Multiline = true;
+			this.txtFiltroNombre.Name = "txtFiltroNombre";
+			this.txtFiltroNombre.Size = new System.Drawing.Size(298, 24);
+			this.txtFiltroNombre.TabIndex = 0;
+			this.txtFiltroNombre.TextChanged += new System.EventHandler(this.txtFiltroNombre_TextChanged);
+			// 
+			// label5
+			// 
+			this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.Location = new System.Drawing.Point(34, 293);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(168, 24);
+			this.label5.TabIndex = 74;
+			this.label5.Text = "Filtrar por Nombre:";
+			// 
 			// MateriasForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(862, 640);
+			this.Controls.Add(this.label5);
+			this.Controls.Add(this.txtFiltroNombre);
 			this.Controls.Add(this.btnLimpiar);
 			this.Controls.Add(this.btnActualizar);
 			this.Controls.Add(this.btnEliminar);
@@ -268,5 +294,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAgregar;
 		private System.Windows.Forms.Button btnLimpiar;
+		private System.Windows.Forms.TextBox txtFiltroNombre;
+		private System.Windows.Forms.Label label5;
 	}
 }
