@@ -27,7 +27,7 @@ namespace SistemaDeNotas
         {
             //Ya no se va usar
         }
-		private void btnIniciarSesion_Click(object sender, EventArgs e)
+		private void btnIniciarSesion_Click_1(object sender, EventArgs e)
 		{
 			if (string.IsNullOrEmpty(txtCarnet.Text) || string.IsNullOrEmpty(txtContraseña.Text))
 			{
@@ -85,5 +85,5 @@ namespace SistemaDeNotas
 				txtContraseña.Clear();
 			}
 		}
-	}
+    }
 }

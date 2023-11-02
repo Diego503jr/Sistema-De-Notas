@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.BarraTitulo = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnIniciarSesion = new System.Windows.Forms.Button();
@@ -47,36 +46,24 @@
             // BarraTitulo
             // 
             this.BarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.BarraTitulo.Controls.Add(this.label2);
             this.BarraTitulo.Controls.Add(this.btnCerrar);
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.BarraTitulo.Margin = new System.Windows.Forms.Padding(2);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(842, 60);
+            this.BarraTitulo.Size = new System.Drawing.Size(842, 55);
             this.BarraTitulo.TabIndex = 6;
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(389, 32);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Sistema de Registro de Notas";
             // 
             // btnCerrar
             // 
             this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::SistemaDeNotas.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(781, 5);
+            this.btnCerrar.Location = new System.Drawing.Point(786, 6);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(50, 50);
+            this.btnCerrar.Size = new System.Drawing.Size(45, 45);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 7;
             this.btnCerrar.TabStop = false;
@@ -101,13 +88,14 @@
             this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarSesion.ForeColor = System.Drawing.Color.White;
-            this.btnIniciarSesion.Location = new System.Drawing.Point(345, 449);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(335, 449);
             this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(2);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.Size = new System.Drawing.Size(177, 44);
+            this.btnIniciarSesion.Size = new System.Drawing.Size(189, 49);
             this.btnIniciarSesion.TabIndex = 13;
             this.btnIniciarSesion.Text = "Iniciar Sesión";
             this.btnIniciarSesion.UseVisualStyleBackColor = false;
+            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click_1);
             // 
             // txtContraseña
             // 
@@ -162,7 +150,7 @@
             this.label1.Location = new System.Drawing.Point(315, 166);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 39);
+            this.label1.Size = new System.Drawing.Size(257, 38);
             this.label1.TabIndex = 14;
             this.label1.Text = "Inicio de sesión";
             // 
@@ -187,7 +175,6 @@
             this.Name = "LoginForm";
             this.Text = "Inicio de Sesión";
             this.BarraTitulo.ResumeLayout(false);
-            this.BarraTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -198,7 +185,6 @@
         #endregion
         private System.Windows.Forms.Panel BarraTitulo;
         private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnIniciarSesion;
         private System.Windows.Forms.TextBox txtContraseña;

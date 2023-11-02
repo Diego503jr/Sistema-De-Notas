@@ -34,10 +34,8 @@ namespace SistemaDeNotas.Interfaz.Admin
 
 		private void MateriasForm_Load(object sender, EventArgs e)
 		{
-
 			MostrarMaterias();
 			ListarDocentesMat();
-			cbDocente.Text = null;
 		}
 
 
@@ -59,8 +57,9 @@ namespace SistemaDeNotas.Interfaz.Admin
 				Materia.Descripcion = txtDescripcionMateria.Text;
 				Materia.IdDocente = Convert.ToInt32(cbDocente.SelectedValue);
 				FuncionesAdministrador.AgregarMateria(Materia);
-			}
-		}
+                MostrarMaterias();
+            }
+        }
 
 		//ACTUALIZAR MATERIA
 		private void Actualizar()
@@ -75,8 +74,9 @@ namespace SistemaDeNotas.Interfaz.Admin
 				Materia.Descripcion = txtDescripcionMateria.Text;
 				Materia.IdDocente = Convert.ToInt32(cbDocente.SelectedValue);
 				FuncionesAdministrador.ActualizarMateria(Materia);
-			}
-		}
+                MostrarMaterias();
+            }
+        }
 
 		private void btnActualizar_Click(object sender, EventArgs e)
 		{
@@ -84,13 +84,6 @@ namespace SistemaDeNotas.Interfaz.Admin
 			int id = (int)dgvMaterias.SelectedRows[0].Cells["Id"].Value;
 			Materia.Id = id;
 			Actualizar();
-		}
-
-		//ELIMINAR MATERIA
-		private void Elimar()
-		{
-			Materia.IdDocente = Convert.ToInt32(cbDocente.SelectedValue);
-			FuncionesAdministrador.EliminarMateria(Materia);
 		}
 
 		private void btnEliminar_Click(object sender, EventArgs e)
@@ -108,11 +101,11 @@ namespace SistemaDeNotas.Interfaz.Admin
 			cbDocente.DataSource = FuncionesAdministrador.ListarDocentes();
 			cbDocente.DisplayMember = "Nombre";
 			cbDocente.ValueMember = "Id";
-		}
+            cbDocente.Text = null;
+        }
 
-		private void dgvMaterias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvMaterias_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
-
 			//No se utiliza
 		}
 

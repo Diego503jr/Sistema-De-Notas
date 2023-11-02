@@ -89,9 +89,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 				curso.Nombre = txtNombreCurso.Text;
 				FuncionesAdministrador.ActualizarCurso(curso);
 				MostrarCursos();
-
 			}
-				
 		}
 
 		//ELIMINAR CURSO
@@ -104,8 +102,6 @@ namespace SistemaDeNotas.Interfaz.Admin
 			MostrarCursos();
 		}
 
-
-		
 		private void txtNombreCurso_TextChanged(object sender, EventArgs e)
 		{
 			//No se usa

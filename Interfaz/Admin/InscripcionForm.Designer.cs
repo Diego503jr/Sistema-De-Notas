@@ -32,25 +32,37 @@
             this.btnActualizarInscripcion = new System.Windows.Forms.Button();
             this.gBDatosInscribir = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtCarnet = new System.Windows.Forms.TextBox();
             this.cbMaterias = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbCursos = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnInscribir = new System.Windows.Forms.Button();
-            this.dgvInscripcion = new System.Windows.Forms.DataGridView();
-            this.gBDatosPersonales = new System.Windows.Forms.GroupBox();
-            this.cbEstado = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtCarnet = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.cbCursos = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnInscribir = new System.Windows.Forms.Button();
+            this.dgvInscripcion = new System.Windows.Forms.DataGridView();
+            this.SubBarraTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblFiltro = new System.Windows.Forms.Label();
+            this.txtFiltroNombre = new System.Windows.Forms.TextBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             txtDocente = new System.Windows.Forms.TextBox();
             this.gBDatosInscribir.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).BeginInit();
-            this.gBDatosPersonales.SuspendLayout();
+            this.SubBarraTitulo.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // txtDocente
+            // 
+            txtDocente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            txtDocente.Cursor = System.Windows.Forms.Cursors.No;
+            txtDocente.Enabled = false;
+            txtDocente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            txtDocente.Location = new System.Drawing.Point(707, 165);
+            txtDocente.Name = "txtDocente";
+            txtDocente.Size = new System.Drawing.Size(404, 34);
+            txtDocente.TabIndex = 58;
             // 
             // btnActualizarInscripcion
             // 
@@ -61,7 +73,7 @@
             this.btnActualizarInscripcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizarInscripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizarInscripcion.ForeColor = System.Drawing.Color.White;
-            this.btnActualizarInscripcion.Location = new System.Drawing.Point(640, 389);
+            this.btnActualizarInscripcion.Location = new System.Drawing.Point(962, 651);
             this.btnActualizarInscripcion.Name = "btnActualizarInscripcion";
             this.btnActualizarInscripcion.Size = new System.Drawing.Size(175, 41);
             this.btnActualizarInscripcion.TabIndex = 73;
@@ -73,77 +85,114 @@
             this.gBDatosInscribir.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gBDatosInscribir.Controls.Add(txtDocente);
             this.gBDatosInscribir.Controls.Add(this.label5);
+            this.gBDatosInscribir.Controls.Add(this.txtCarnet);
             this.gBDatosInscribir.Controls.Add(this.cbMaterias);
             this.gBDatosInscribir.Controls.Add(this.label4);
+            this.gBDatosInscribir.Controls.Add(this.txtNombre);
+            this.gBDatosInscribir.Controls.Add(this.label6);
             this.gBDatosInscribir.Controls.Add(this.cbCursos);
             this.gBDatosInscribir.Controls.Add(this.label2);
+            this.gBDatosInscribir.Controls.Add(this.label8);
             this.gBDatosInscribir.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.gBDatosInscribir.Location = new System.Drawing.Point(609, 120);
+            this.gBDatosInscribir.Location = new System.Drawing.Point(26, 119);
             this.gBDatosInscribir.Name = "gBDatosInscribir";
-            this.gBDatosInscribir.Size = new System.Drawing.Size(509, 234);
+            this.gBDatosInscribir.Size = new System.Drawing.Size(1131, 234);
             this.gBDatosInscribir.TabIndex = 72;
             this.gBDatosInscribir.TabStop = false;
             this.gBDatosInscribir.Text = "Datos inscripción";
-            // 
-            // txtDocente
-            // 
-            txtDocente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            txtDocente.Cursor = System.Windows.Forms.Cursors.No;
-            txtDocente.Enabled = false;
-            txtDocente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            txtDocente.Location = new System.Drawing.Point(162, 165);
-            txtDocente.Name = "txtDocente";
-            txtDocente.Size = new System.Drawing.Size(309, 34);
-            txtDocente.TabIndex = 58;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(28, 168);
+            this.label5.Location = new System.Drawing.Point(565, 168);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 29);
             this.label5.TabIndex = 57;
             this.label5.Text = "Docente :";
             // 
+            // txtCarnet
+            // 
+            this.txtCarnet.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCarnet.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCarnet.Location = new System.Drawing.Point(157, 133);
+            this.txtCarnet.Name = "txtCarnet";
+            this.txtCarnet.Size = new System.Drawing.Size(204, 34);
+            this.txtCarnet.TabIndex = 53;
+            // 
             // cbMaterias
             // 
+            this.cbMaterias.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbMaterias.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMaterias.FormattingEnabled = true;
-            this.cbMaterias.Location = new System.Drawing.Point(162, 105);
+            this.cbMaterias.Location = new System.Drawing.Point(707, 105);
             this.cbMaterias.Name = "cbMaterias";
-            this.cbMaterias.Size = new System.Drawing.Size(309, 37);
+            this.cbMaterias.Size = new System.Drawing.Size(404, 37);
             this.cbMaterias.TabIndex = 56;
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(38, 108);
+            this.label4.Location = new System.Drawing.Point(575, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 29);
             this.label4.TabIndex = 55;
             this.label4.Text = "Materia :";
             // 
+            // txtNombre
+            // 
+            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(157, 76);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(369, 34);
+            this.txtNombre.TabIndex = 52;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(38, 136);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(96, 29);
+            this.label6.TabIndex = 51;
+            this.label6.Text = "Carnet :";
+            // 
             // cbCursos
             // 
+            this.cbCursos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCursos.FormattingEnabled = true;
-            this.cbCursos.Location = new System.Drawing.Point(162, 48);
+            this.cbCursos.Location = new System.Drawing.Point(707, 48);
             this.cbCursos.Name = "cbCursos";
             this.cbCursos.Size = new System.Drawing.Size(309, 37);
             this.cbCursos.TabIndex = 54;
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(54, 51);
+            this.label2.Location = new System.Drawing.Point(591, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 29);
             this.label2.TabIndex = 53;
             this.label2.Text = "Curso :";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(23, 79);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(113, 29);
+            this.label8.TabIndex = 50;
+            this.label8.Text = "Nombre :";
             // 
             // btnInscribir
             // 
@@ -154,7 +203,7 @@
             this.btnInscribir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInscribir.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInscribir.ForeColor = System.Drawing.Color.White;
-            this.btnInscribir.Location = new System.Drawing.Point(383, 389);
+            this.btnInscribir.Location = new System.Drawing.Point(962, 570);
             this.btnInscribir.Name = "btnInscribir";
             this.btnInscribir.Size = new System.Drawing.Size(175, 41);
             this.btnInscribir.TabIndex = 71;
@@ -166,105 +215,74 @@
             this.dgvInscripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvInscripcion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
             this.dgvInscripcion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInscripcion.Location = new System.Drawing.Point(282, 462);
+            this.dgvInscripcion.Location = new System.Drawing.Point(26, 465);
             this.dgvInscripcion.Name = "dgvInscripcion";
             this.dgvInscripcion.RowHeadersWidth = 51;
             this.dgvInscripcion.RowTemplate.Height = 24;
-            this.dgvInscripcion.Size = new System.Drawing.Size(611, 346);
+            this.dgvInscripcion.Size = new System.Drawing.Size(900, 346);
             this.dgvInscripcion.TabIndex = 70;
             // 
-            // gBDatosPersonales
+            // SubBarraTitulo
             // 
-            this.gBDatosPersonales.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gBDatosPersonales.Controls.Add(this.cbEstado);
-            this.gBDatosPersonales.Controls.Add(this.label3);
-            this.gBDatosPersonales.Controls.Add(this.txtCarnet);
-            this.gBDatosPersonales.Controls.Add(this.txtNombre);
-            this.gBDatosPersonales.Controls.Add(this.label6);
-            this.gBDatosPersonales.Controls.Add(this.label8);
-            this.gBDatosPersonales.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBDatosPersonales.Location = new System.Drawing.Point(51, 109);
-            this.gBDatosPersonales.Name = "gBDatosPersonales";
-            this.gBDatosPersonales.Size = new System.Drawing.Size(509, 245);
-            this.gBDatosPersonales.TabIndex = 69;
-            this.gBDatosPersonales.TabStop = false;
-            this.gBDatosPersonales.Text = "Datos personales :";
-            // 
-            // cbEstado
-            // 
-            this.cbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Items.AddRange(new object[] {
-            "Programacion Estructurada",
-            "Logica de programacion",
-            "Base de Datos",
-            "Desarrollo Web"});
-            this.cbEstado.Location = new System.Drawing.Point(166, 176);
-            this.cbEstado.Name = "cbEstado";
-            this.cbEstado.Size = new System.Drawing.Size(309, 37);
-            this.cbEstado.TabIndex = 57;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(47, 179);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 29);
-            this.label3.TabIndex = 54;
-            this.label3.Text = "Estado :";
-            // 
-            // txtCarnet
-            // 
-            this.txtCarnet.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCarnet.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCarnet.Location = new System.Drawing.Point(166, 116);
-            this.txtCarnet.Name = "txtCarnet";
-            this.txtCarnet.Size = new System.Drawing.Size(309, 34);
-            this.txtCarnet.TabIndex = 53;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(166, 59);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(309, 34);
-            this.txtNombre.TabIndex = 52;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(47, 119);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 29);
-            this.label6.TabIndex = 51;
-            this.label6.Text = "Carnet :";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(32, 62);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(113, 29);
-            this.label8.TabIndex = 50;
-            this.label8.Text = "Nombre :";
+            this.SubBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
+            this.SubBarraTitulo.Controls.Add(this.label1);
+            this.SubBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SubBarraTitulo.ForeColor = System.Drawing.Color.White;
+            this.SubBarraTitulo.Location = new System.Drawing.Point(0, 0);
+            this.SubBarraTitulo.Name = "SubBarraTitulo";
+            this.SubBarraTitulo.Size = new System.Drawing.Size(1169, 84);
+            this.SubBarraTitulo.TabIndex = 74;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(486, 15);
+            this.label1.Location = new System.Drawing.Point(486, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(196, 42);
-            this.label1.TabIndex = 68;
+            this.label1.TabIndex = 69;
             this.label1.Text = "Inscripción";
+            // 
+            // lblFiltro
+            // 
+            this.lblFiltro.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltro.Location = new System.Drawing.Point(44, 398);
+            this.lblFiltro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(217, 29);
+            this.lblFiltro.TabIndex = 75;
+            this.lblFiltro.Text = "Filtrar por Nombre:";
+            // 
+            // txtFiltroNombre
+            // 
+            this.txtFiltroNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtFiltroNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltroNombre.Location = new System.Drawing.Point(276, 398);
+            this.txtFiltroNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFiltroNombre.Multiline = true;
+            this.txtFiltroNombre.Name = "txtFiltroNombre";
+            this.txtFiltroNombre.Size = new System.Drawing.Size(406, 29);
+            this.txtFiltroNombre.TabIndex = 76;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiar.Location = new System.Drawing.Point(801, 392);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(253, 41);
+            this.btnLimpiar.TabIndex = 77;
+            this.btnLimpiar.Text = "Limpiar Búsqueda";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
             // 
             // InscripcionForm
             // 
@@ -272,12 +290,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1169, 823);
+            this.Controls.Add(this.btnLimpiar);
+            this.Controls.Add(this.lblFiltro);
+            this.Controls.Add(this.txtFiltroNombre);
+            this.Controls.Add(this.SubBarraTitulo);
             this.Controls.Add(this.btnActualizarInscripcion);
             this.Controls.Add(this.gBDatosInscribir);
             this.Controls.Add(this.btnInscribir);
             this.Controls.Add(this.dgvInscripcion);
-            this.Controls.Add(this.gBDatosPersonales);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InscripcionForm";
             this.Text = "InscripcionForm";
@@ -285,8 +305,8 @@
             this.gBDatosInscribir.ResumeLayout(false);
             this.gBDatosInscribir.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).EndInit();
-            this.gBDatosPersonales.ResumeLayout(false);
-            this.gBDatosPersonales.PerformLayout();
+            this.SubBarraTitulo.ResumeLayout(false);
+            this.SubBarraTitulo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,13 +323,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnInscribir;
         private System.Windows.Forms.DataGridView dgvInscripcion;
-        private System.Windows.Forms.GroupBox gBDatosPersonales;
-        private System.Windows.Forms.ComboBox cbEstado;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCarnet;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel SubBarraTitulo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblFiltro;
+        private System.Windows.Forms.TextBox txtFiltroNombre;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

@@ -23,16 +23,6 @@ namespace SistemaDeNotas.Interfaz.Admin
             MostrarInscripcion();
             ListarCursosIns();
             ListarMateriasIns();
-            ListarEstadoIns();
-            
-        }
-
-        public void ListarEstadoIns()
-        {
-            cbEstado.DataSource = FuncionesAdministrador.ListarEstado();
-            cbEstado.DisplayMember = "EstadoValor";
-            cbEstado.ValueMember = "Id";
-            cbEstado.Text = null;
         }
 
         public void ListarMateriasIns()
