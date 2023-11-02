@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TextBox txtDocente;
             this.btnActualizarInscripcion = new System.Windows.Forms.Button();
             this.gBDatosInscribir = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,22 +46,11 @@
             this.lblFiltro = new System.Windows.Forms.Label();
             this.txtFiltroNombre = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            txtDocente = new System.Windows.Forms.TextBox();
+            this.txtDocente = new System.Windows.Forms.TextBox();
             this.gBDatosInscribir.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).BeginInit();
             this.SubBarraTitulo.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtDocente
-            // 
-            txtDocente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            txtDocente.Cursor = System.Windows.Forms.Cursors.No;
-            txtDocente.Enabled = false;
-            txtDocente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            txtDocente.Location = new System.Drawing.Point(707, 165);
-            txtDocente.Name = "txtDocente";
-            txtDocente.Size = new System.Drawing.Size(404, 34);
-            txtDocente.TabIndex = 58;
             // 
             // btnActualizarInscripcion
             // 
@@ -79,11 +67,12 @@
             this.btnActualizarInscripcion.TabIndex = 73;
             this.btnActualizarInscripcion.Text = "Actualizar";
             this.btnActualizarInscripcion.UseVisualStyleBackColor = false;
+            this.btnActualizarInscripcion.Click += new System.EventHandler(this.btnActualizarInscripcion_Click);
             // 
             // gBDatosInscribir
             // 
             this.gBDatosInscribir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gBDatosInscribir.Controls.Add(txtDocente);
+            this.gBDatosInscribir.Controls.Add(this.txtDocente);
             this.gBDatosInscribir.Controls.Add(this.label5);
             this.gBDatosInscribir.Controls.Add(this.txtCarnet);
             this.gBDatosInscribir.Controls.Add(this.cbMaterias);
@@ -222,6 +211,7 @@
             this.dgvInscripcion.RowTemplate.Height = 24;
             this.dgvInscripcion.Size = new System.Drawing.Size(900, 346);
             this.dgvInscripcion.TabIndex = 70;
+            this.dgvInscripcion.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvInscripcion_RowHeaderMouseClick);
             // 
             // SubBarraTitulo
             // 
@@ -285,6 +275,16 @@
             this.btnLimpiar.Text = "Limpiar Búsqueda";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             // 
+            // txtDocente
+            // 
+            this.txtDocente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDocente.Enabled = false;
+            this.txtDocente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDocente.Location = new System.Drawing.Point(707, 165);
+            this.txtDocente.Name = "txtDocente";
+            this.txtDocente.Size = new System.Drawing.Size(404, 34);
+            this.txtDocente.TabIndex = 58;
+            // 
             // InscripcionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -333,5 +333,6 @@
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.TextBox txtFiltroNombre;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.TextBox txtDocente;
     }
 }

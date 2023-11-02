@@ -16,6 +16,7 @@ namespace SistemaDeNotas.Interfaz.Admin
     public partial class InscripcionForm : Form
     {
         ConstructorInscripcion inscripcion = new ConstructorInscripcion();
+        int posicion;
         public InscripcionForm()
         {
             InitializeComponent();
@@ -61,6 +62,20 @@ namespace SistemaDeNotas.Interfaz.Admin
             cbMaterias.DisplayMember = "Nombre";
             cbMaterias.ValueMember = "Id";
             cbMaterias.Text = null;
+
+            cbMaterias.SelectedIndexChanged += (sender, e) =>
+            {
+                if (cbMaterias.SelectedIndex != -1)
+                {
+                    int IdDocente = Convert.ToInt32(((DataRowView)cbMaterias.SelectedItem)["IdDocente"]);
+                    string nombreDocente = ObtenerNombreDocente(IdDocente);
+                    txtDocente.Text = nombreDocente;
+                }
+                else
+                {
+                    txtDocente.Text = string.Empty;
+                }
+            };
         }
 
         public void ListarCursosIns()
@@ -96,7 +111,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             {
                 string nombre = txtNombre.Text;
                 string carnet = txtCarnet.Text;
-                int idAlumno = ObtenerIdUsuario(nombre, carnet);
+                int idAlumno = ObtenerIdAlumno(nombre, carnet);
 
                 if (idAlumno > -1)
                 {
@@ -114,7 +129,61 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
         }
 
-        public static int ObtenerIdUsuario(string nombre, string carnet)
+        private void btnActualizarInscripcion_Click(object sender, EventArgs e)
+        {
+            ActualizarInscripcion();
+        }
+
+        public void ActualizarInscripcion()
+        {
+            if (txtNombre.Text == "" || txtCarnet.Text == "")
+            {
+                MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                string Nombre = txtNombre.Text;
+                string Carnet = txtCarnet.Text;
+
+                int idAlumno = ObtenerIdAlumno(Nombre, Carnet);
+
+                if (idAlumno > -1)
+                {
+                    int id = (int)dgvInscripcion.SelectedRows[0].Cells["Id"].Value;
+                    inscripcion.IdAlumno = idAlumno;
+                    inscripcion.IdCurso = Convert.ToInt32(cbCursos.SelectedValue);
+                    inscripcion.IdMateria = Convert.ToInt32(cbMaterias.SelectedValue);
+                    inscripcion.Id = id;
+                    FuncionesAdministrador.ActualizarInscripcion(inscripcion);
+                    MostrarInscripcion();
+                }
+                else
+                {
+                    MessageBox.Show("El usuario no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        public static string ObtenerNombreDocente(int IdDocente)
+        {
+            CConexion conexion = new CConexion();
+
+            try
+            {
+                string query = "SELECT Nombre FROM dbo.Usuarios WHERE Id = @idDocente";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@idDocente", IdDocente);
+                string nombreDocente = (string)cmd.ExecuteScalar();
+                return nombreDocente;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        public static int ObtenerIdAlumno(string nombre, string carnet)
         {
             int idUsuario = -1;
 
@@ -141,6 +210,56 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
 
             return idUsuario;
+        }
+
+        private void dgvInscripcion_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            CConexion conexion = new CConexion();
+            if (e.RowIndex >= 0)
+            {
+                //Obteniendo la fila seleccionada
+                DataGridViewRow row = dgvInscripcion.Rows[e.RowIndex];
+
+                //Obteniendo el valor del campo IdAlumno, IdCurso, IdMateria de la fila seleccionada
+                int idAlumno = Convert.ToInt32(row.Cells["IdAlumno"].Value.ToString());
+                int idCurso = Convert.ToInt32(row.Cells["IdCurso"].Value.ToString());
+                int idMateria = Convert.ToInt32(row.Cells["IdMateria"].Value.ToString());
+
+                //Se hacen las consulta SQL a las 3 tablas
+                string queryAlumno = "SELECT Nombre, Carnet FROM dbo.Usuarios WHERE Id = @idAlumno";
+                string queryCurso = "SELECT Nombre FROM dbo.Cursos WHERE Id = @idCurso";
+                string queryMaterias = "SELECT Nombre, IdDocente FROM dbo.Materias WHERE Id = @idMateria";
+
+                SqlCommand cmdAlumno = new SqlCommand(queryAlumno, conexion.establecerConexion());
+                SqlCommand cmdCurso = new SqlCommand(queryCurso, conexion.establecerConexion());
+                SqlCommand cmdMateria = new SqlCommand(queryMaterias, conexion.establecerConexion());
+                cmdAlumno.Parameters.AddWithValue("@idAlumno", idAlumno);
+                cmdCurso.Parameters.AddWithValue("@idCurso", idCurso);
+                cmdMateria.Parameters.AddWithValue("@idMateria", idMateria);
+
+                SqlDataReader drAlumno = cmdAlumno.ExecuteReader();
+                SqlDataReader drCurso = cmdCurso.ExecuteReader();
+                SqlDataReader drMateria = cmdMateria.ExecuteReader();
+
+                if (drAlumno.Read() && drCurso.Read() && drMateria.Read())
+                {
+                    string nombre = drAlumno["Nombre"].ToString();
+                    string carnet = drAlumno["Carnet"].ToString();
+                    string curso = drCurso["Nombre"].ToString();
+                    string materia = drMateria["Nombre"].ToString();
+
+                    txtNombre.Text = nombre;
+                    txtCarnet.Text = carnet;
+                    cbCursos.Text = curso;
+                    cbMaterias.Text = materia;
+                }
+                else
+                {
+                    MessageBox.Show("No hay registros de un dato");
+                }
+                btnInscribir.Enabled = false;
+                btnActualizarInscripcion.Enabled = true;
+            }
         }
     }
 }

@@ -121,7 +121,6 @@
             this.txtNombreMateria.Name = "txtNombreMateria";
             this.txtNombreMateria.Size = new System.Drawing.Size(432, 34);
             this.txtNombreMateria.TabIndex = 1;
-            this.txtNombreMateria.TextChanged += new System.EventHandler(this.txtNombreMateria_TextChanged);
             // 
             // label2
             // 
@@ -147,7 +146,6 @@
             this.dgvMaterias.RowTemplate.Height = 24;
             this.dgvMaterias.Size = new System.Drawing.Size(882, 376);
             this.dgvMaterias.TabIndex = 4;
-            this.dgvMaterias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterias_CellContentClick);
             this.dgvMaterias.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMaterias_RowHeaderMouseClick);
             // 
             // btnActualizar

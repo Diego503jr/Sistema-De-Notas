@@ -215,6 +215,39 @@ namespace SistemaDeNotas.Clases
             }
         }
 
+		public static int ActualizarInscripcion(ConstructorInscripcion Inscripcion)
+		{
+			int retorno = 0;
+
+			try
+			{
+				CConexion conexion = new CConexion();
+				string query = "UPDATE dbo.Inscripcion SET IdAlumno = @idAlumno, IdCurso = @idCurso, IdMateria = @idMateria WHERE Id = @id";
+				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+				cmd.Parameters.AddWithValue("@idAlumno",Inscripcion.IdAlumno);
+				cmd.Parameters.AddWithValue("@idCurso", Inscripcion.IdCurso);
+				cmd.Parameters.AddWithValue("@idMateria", Inscripcion.IdMateria);
+				cmd.Parameters.AddWithValue("@id", Inscripcion.Id);
+                retorno = cmd.ExecuteNonQuery();
+
+                if (retorno >= 0)
+                {
+                    MessageBox.Show("Se ha actualizado la información de curso con éxtio", "Actualizar Curso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return retorno;
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no se actualizaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+            }
+            catch (Exception ex)
+			{
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return retorno;
+			}
+		}
+
         //Listar en comboboxes
         public static DataTable ListarDocentes()
         {
@@ -259,7 +292,7 @@ namespace SistemaDeNotas.Clases
             DataTable data = new DataTable();
             try
             {
-                string query = "SELECT Id, Nombre FROM dbo.Materias";
+                string query = "SELECT Id, Nombre, IdDocente FROM dbo.Materias";
                 SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
                 SqlDataAdapter dt = new SqlDataAdapter(cmd);
                 dt.Fill(data);
