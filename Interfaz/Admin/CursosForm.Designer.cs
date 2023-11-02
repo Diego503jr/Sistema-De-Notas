@@ -37,6 +37,8 @@
 			this.btnEliminar = new System.Windows.Forms.Button();
 			this.btnActualizar = new System.Windows.Forms.Button();
 			this.btnLimpiar = new System.Windows.Forms.Button();
+			this.lblFiltro = new System.Windows.Forms.Label();
+			this.txtFiltroNombre = new System.Windows.Forms.TextBox();
 			this.gbDetalleCurso.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
 			this.SuspendLayout();
@@ -180,12 +182,36 @@
 			this.btnLimpiar.UseVisualStyleBackColor = false;
 			this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
 			// 
+			// lblFiltro
+			// 
+			this.lblFiltro.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.lblFiltro.AutoSize = true;
+			this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblFiltro.Location = new System.Drawing.Point(116, 294);
+			this.lblFiltro.Name = "lblFiltro";
+			this.lblFiltro.Size = new System.Drawing.Size(168, 24);
+			this.lblFiltro.TabIndex = 0;
+			this.lblFiltro.Text = "Filtrar por Nombre:";
+			// 
+			// txtFiltroNombre
+			// 
+			this.txtFiltroNombre.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.txtFiltroNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtFiltroNombre.Location = new System.Drawing.Point(290, 294);
+			this.txtFiltroNombre.Multiline = true;
+			this.txtFiltroNombre.Name = "txtFiltroNombre";
+			this.txtFiltroNombre.Size = new System.Drawing.Size(138, 24);
+			this.txtFiltroNombre.TabIndex = 0;
+			this.txtFiltroNombre.TextChanged += new System.EventHandler(this.txtFiltroNombre_TextChanged);
+			// 
 			// CursosForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(862, 640);
+			this.Controls.Add(this.lblFiltro);
+			this.Controls.Add(this.txtFiltroNombre);
 			this.Controls.Add(this.btnLimpiar);
 			this.Controls.Add(this.btnActualizar);
 			this.Controls.Add(this.btnEliminar);
@@ -217,5 +243,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnActualizar;
 		private System.Windows.Forms.Button btnLimpiar;
+		private System.Windows.Forms.Label lblFiltro;
+		private System.Windows.Forms.TextBox txtFiltroNombre;
 	}
 }

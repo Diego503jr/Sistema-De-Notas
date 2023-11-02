@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeNotas.Interfaz.Docente;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,8 @@ namespace SistemaDeNotas
 				perfil.Show(); // Muestra el formulario PerfilForm después de que se carga
 			};
 		}
+
+        
         public void AbrirFormHijo(object formHijo)
         {
             if (this.ContPrincipalDocente.Controls.Count > 0)
@@ -53,7 +56,7 @@ namespace SistemaDeNotas
 
         private void btnMenuCursos_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new CursoFormAlumno());
+            AbrirFormHijo(new NotasDocente());
         }
 
         private void btnMenuPerfil_Click(object sender, EventArgs e)

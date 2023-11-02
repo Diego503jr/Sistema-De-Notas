@@ -105,20 +105,10 @@ namespace SistemaDeNotas.Interfaz.Admin
 		}
 
 
-		//FILTRO DE BUSQUEDA EN TEXTBOX
+		
 		private void txtNombreCurso_TextChanged(object sender, EventArgs e)
 		{
-			//string buscar = txtNombreCurso.Text.Trim();
-			//if (!string.IsNullOrEmpty(buscar))
-			//{
-			//	// Realiza la búsqueda en la fuente de datos y filtra los resultados
-			//	(dgvCursos.DataSource as DataTable).DefaultView.RowFilter = $"Nombre LIKE '%{buscar}%'";
-			//}
-			//else
-			//{
-			//	// Si el cuadro de búsqueda está vacío, muestra todos los datos
-			//	(dgvCursos.DataSource as DataTable).DefaultView.RowFilter = "";
-			//}
+			//No se usa
 		}
 
 
@@ -146,6 +136,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 		private void btnLimpiar_Click(object sender, EventArgs e)
 		{
 			txtNombreCurso.Clear();
+			txtFiltroNombre.Clear();
 			if (dgvCursos.SelectedRows.Count > 0)
 			{
 				dgvCursos.SelectedRows[0].Selected = false;
@@ -155,6 +146,22 @@ namespace SistemaDeNotas.Interfaz.Admin
 				row.Selected = false;
 			}
 			btnAgregar.Enabled = true;
+		}
+
+		//FILTRO DE BUSQUEDA EN TEXTBOX
+		private void txtFiltroNombre_TextChanged(object sender, EventArgs e)
+		{
+			string buscar = txtFiltroNombre.Text.Trim();
+			if (!string.IsNullOrEmpty(buscar))
+			{
+				// Realiza la búsqueda en la fuente de datos y filtra los resultados
+				(dgvCursos.DataSource as DataTable).DefaultView.RowFilter = $"Nombre LIKE '%{buscar}%'";
+			}
+			else
+			{
+				// Si el cuadro de búsqueda está vacío, muestra todos los datos
+				(dgvCursos.DataSource as DataTable).DefaultView.RowFilter = "";
+			}
 		}
 	}
 

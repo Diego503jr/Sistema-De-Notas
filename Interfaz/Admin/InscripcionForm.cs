@@ -24,6 +24,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             ListarCursosIns();
             ListarMateriasIns();
             ListarEstadoIns();
+            
         }
 
         public void ListarEstadoIns()
