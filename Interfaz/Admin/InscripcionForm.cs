@@ -89,10 +89,10 @@ namespace SistemaDeNotas.Interfaz.Admin
         public void MostrarInscripcion()
         {
             dgvInscripcion.DataSource = FuncionesAdministrador.MostrarInscripcion();
-            dgvInscripcion.Columns[0].HeaderText = "IdInscripcion";
-            dgvInscripcion.Columns[1].HeaderText = "IdAlumno";
-            dgvInscripcion.Columns[2].HeaderText = "IdCurso";
-            dgvInscripcion.Columns[3].HeaderText = "IdMateria";
+            //dgvInscripcion.Columns[0].HeaderText = "IdInscripcion";
+            //dgvInscripcion.Columns[1].HeaderText = "IdAlumno";
+            //dgvInscripcion.Columns[2].HeaderText = "IdCurso";
+            //dgvInscripcion.Columns[3].HeaderText = "IdMateria";
 
         }
 
@@ -103,7 +103,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void Insertar()
         {
-            if (txtNombre.Text == "" || txtCarnet.Text == "")
+            if (txtNombre.Text == "" || txtCarnet.Text == "" || cbCursos.SelectedIndex == -1 || cbMaterias.SelectedIndex == -1)
             {
                 MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -136,7 +136,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         public void ActualizarInscripcion()
         {
-            if (txtNombre.Text == "" || txtCarnet.Text == "")
+            if (txtNombre.Text == "" || txtCarnet.Text == "" || cbCursos.SelectedIndex == -1 || cbMaterias.SelectedIndex == -1)
             {
                 MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
