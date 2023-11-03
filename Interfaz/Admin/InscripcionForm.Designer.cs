@@ -30,14 +30,10 @@
         {
             this.btnActualizarInscripcion = new System.Windows.Forms.Button();
             this.gBDatosInscribir = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.btnBuscarAlumno = new System.Windows.Forms.Button();
             this.txtCarnet = new System.Windows.Forms.TextBox();
-            this.cbMaterias = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbCursos = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnInscribir = new System.Windows.Forms.Button();
             this.dgvInscripcion = new System.Windows.Forms.DataGridView();
@@ -46,10 +42,17 @@
             this.lblFiltro = new System.Windows.Forms.Label();
             this.txtFiltroNombre = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDocente = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbMaterias = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbCursos = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.gBDatosInscribir.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).BeginInit();
             this.SubBarraTitulo.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnActualizarInscripcion
@@ -61,7 +64,7 @@
             this.btnActualizarInscripcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizarInscripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizarInscripcion.ForeColor = System.Drawing.Color.White;
-            this.btnActualizarInscripcion.Location = new System.Drawing.Point(962, 651);
+            this.btnActualizarInscripcion.Location = new System.Drawing.Point(962, 663);
             this.btnActualizarInscripcion.Name = "btnActualizarInscripcion";
             this.btnActualizarInscripcion.Size = new System.Drawing.Size(175, 41);
             this.btnActualizarInscripcion.TabIndex = 73;
@@ -72,115 +75,73 @@
             // gBDatosInscribir
             // 
             this.gBDatosInscribir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gBDatosInscribir.Controls.Add(this.txtDocente);
-            this.gBDatosInscribir.Controls.Add(this.label5);
+            this.gBDatosInscribir.Controls.Add(this.btnBuscarAlumno);
             this.gBDatosInscribir.Controls.Add(this.txtCarnet);
-            this.gBDatosInscribir.Controls.Add(this.cbMaterias);
-            this.gBDatosInscribir.Controls.Add(this.label4);
             this.gBDatosInscribir.Controls.Add(this.txtNombre);
             this.gBDatosInscribir.Controls.Add(this.label6);
-            this.gBDatosInscribir.Controls.Add(this.cbCursos);
-            this.gBDatosInscribir.Controls.Add(this.label2);
             this.gBDatosInscribir.Controls.Add(this.label8);
             this.gBDatosInscribir.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.gBDatosInscribir.Location = new System.Drawing.Point(26, 119);
+            this.gBDatosInscribir.Location = new System.Drawing.Point(12, 119);
             this.gBDatosInscribir.Name = "gBDatosInscribir";
-            this.gBDatosInscribir.Size = new System.Drawing.Size(1131, 234);
+            this.gBDatosInscribir.Size = new System.Drawing.Size(531, 234);
             this.gBDatosInscribir.TabIndex = 72;
             this.gBDatosInscribir.TabStop = false;
-            this.gBDatosInscribir.Text = "Datos inscripción";
+            this.gBDatosInscribir.Text = "Datos personales";
             // 
-            // label5
+            // btnBuscarAlumno
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(565, 168);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 29);
-            this.label5.TabIndex = 57;
-            this.label5.Text = "Docente :";
+            this.btnBuscarAlumno.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBuscarAlumno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.btnBuscarAlumno.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarAlumno.FlatAppearance.BorderSize = 0;
+            this.btnBuscarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarAlumno.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarAlumno.Location = new System.Drawing.Point(161, 175);
+            this.btnBuscarAlumno.Name = "btnBuscarAlumno";
+            this.btnBuscarAlumno.Size = new System.Drawing.Size(199, 36);
+            this.btnBuscarAlumno.TabIndex = 58;
+            this.btnBuscarAlumno.Text = "Buscar alumno";
+            this.btnBuscarAlumno.UseVisualStyleBackColor = false;
+            this.btnBuscarAlumno.Click += new System.EventHandler(this.btnBuscarAlumno_Click);
             // 
             // txtCarnet
             // 
             this.txtCarnet.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCarnet.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCarnet.Location = new System.Drawing.Point(157, 133);
+            this.txtCarnet.Location = new System.Drawing.Point(140, 115);
             this.txtCarnet.Name = "txtCarnet";
             this.txtCarnet.Size = new System.Drawing.Size(204, 34);
-            this.txtCarnet.TabIndex = 53;
-            // 
-            // cbMaterias
-            // 
-            this.cbMaterias.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbMaterias.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMaterias.FormattingEnabled = true;
-            this.cbMaterias.Location = new System.Drawing.Point(707, 105);
-            this.cbMaterias.Name = "cbMaterias";
-            this.cbMaterias.Size = new System.Drawing.Size(404, 37);
-            this.cbMaterias.TabIndex = 56;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(575, 108);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 29);
-            this.label4.TabIndex = 55;
-            this.label4.Text = "Materia :";
+            this.txtCarnet.TabIndex = 57;
             // 
             // txtNombre
             // 
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(157, 76);
+            this.txtNombre.Location = new System.Drawing.Point(140, 58);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(369, 34);
-            this.txtNombre.TabIndex = 52;
+            this.txtNombre.TabIndex = 56;
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(38, 136);
+            this.label6.Location = new System.Drawing.Point(21, 118);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 29);
-            this.label6.TabIndex = 51;
+            this.label6.TabIndex = 55;
             this.label6.Text = "Carnet :";
-            // 
-            // cbCursos
-            // 
-            this.cbCursos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCursos.FormattingEnabled = true;
-            this.cbCursos.Location = new System.Drawing.Point(707, 48);
-            this.cbCursos.Name = "cbCursos";
-            this.cbCursos.Size = new System.Drawing.Size(309, 37);
-            this.cbCursos.TabIndex = 54;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(591, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 29);
-            this.label2.TabIndex = 53;
-            this.label2.Text = "Curso :";
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(23, 79);
+            this.label8.Location = new System.Drawing.Point(6, 61);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(113, 29);
-            this.label8.TabIndex = 50;
+            this.label8.TabIndex = 54;
             this.label8.Text = "Nombre :";
             // 
             // btnInscribir
@@ -192,7 +153,7 @@
             this.btnInscribir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInscribir.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInscribir.ForeColor = System.Drawing.Color.White;
-            this.btnInscribir.Location = new System.Drawing.Point(962, 570);
+            this.btnInscribir.Location = new System.Drawing.Point(962, 587);
             this.btnInscribir.Name = "btnInscribir";
             this.btnInscribir.Size = new System.Drawing.Size(175, 41);
             this.btnInscribir.TabIndex = 71;
@@ -275,15 +236,85 @@
             this.btnLimpiar.Text = "Limpiar Búsqueda";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.txtDocente);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.cbMaterias);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cbCursos);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.groupBox1.Location = new System.Drawing.Point(580, 119);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(577, 234);
+            this.groupBox1.TabIndex = 78;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Datos de inscripción";
+            // 
             // txtDocente
             // 
             this.txtDocente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDocente.Enabled = false;
             this.txtDocente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDocente.Location = new System.Drawing.Point(707, 165);
+            this.txtDocente.Location = new System.Drawing.Point(145, 172);
             this.txtDocente.Name = "txtDocente";
             this.txtDocente.Size = new System.Drawing.Size(404, 34);
-            this.txtDocente.TabIndex = 58;
+            this.txtDocente.TabIndex = 95;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 175);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 29);
+            this.label5.TabIndex = 94;
+            this.label5.Text = "Docente :";
+            // 
+            // cbMaterias
+            // 
+            this.cbMaterias.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbMaterias.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaterias.FormattingEnabled = true;
+            this.cbMaterias.Location = new System.Drawing.Point(145, 112);
+            this.cbMaterias.Name = "cbMaterias";
+            this.cbMaterias.Size = new System.Drawing.Size(404, 37);
+            this.cbMaterias.TabIndex = 93;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(13, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(105, 29);
+            this.label4.TabIndex = 92;
+            this.label4.Text = "Materia :";
+            // 
+            // cbCursos
+            // 
+            this.cbCursos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCursos.FormattingEnabled = true;
+            this.cbCursos.Location = new System.Drawing.Point(145, 55);
+            this.cbCursos.Name = "cbCursos";
+            this.cbCursos.Size = new System.Drawing.Size(309, 37);
+            this.cbCursos.TabIndex = 91;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(29, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 29);
+            this.label2.TabIndex = 90;
+            this.label2.Text = "Curso :";
             // 
             // InscripcionForm
             // 
@@ -291,6 +322,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1169, 823);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.txtFiltroNombre);
@@ -308,6 +340,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).EndInit();
             this.SubBarraTitulo.ResumeLayout(false);
             this.SubBarraTitulo.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,22 +351,24 @@
 
         private System.Windows.Forms.Button btnActualizarInscripcion;
         private System.Windows.Forms.GroupBox gBDatosInscribir;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbMaterias;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbCursos;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnInscribir;
         private System.Windows.Forms.DataGridView dgvInscripcion;
-        private System.Windows.Forms.TextBox txtCarnet;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel SubBarraTitulo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.TextBox txtFiltroNombre;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.TextBox txtCarnet;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtDocente;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbMaterias;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbCursos;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnBuscarAlumno;
     }
 }

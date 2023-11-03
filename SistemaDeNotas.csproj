@@ -57,6 +57,12 @@
     <Compile Include="Interfaz\Admin\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaz\Admin\AlumnosListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\Admin\AlumnosListForm.Designer.cs">
+      <DependentUpon>AlumnosListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaz\Admin\CursosForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Interfaz\Admin\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\Admin\AlumnosListForm.resx">
+      <DependentUpon>AlumnosListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Admin\CursosForm.resx">
       <DependentUpon>CursosForm.cs</DependentUpon>

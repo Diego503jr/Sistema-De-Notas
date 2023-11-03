@@ -27,6 +27,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             MostrarInscripcion();
             ListarCursosIns();
             ListarMateriasIns();
+           
         }
         private void ConfigurarDataGridView()
         {
@@ -260,6 +261,12 @@ namespace SistemaDeNotas.Interfaz.Admin
                 btnInscribir.Enabled = false;
                 btnActualizarInscripcion.Enabled = true;
             }
+        }
+
+        private void btnBuscarAlumno_Click(object sender, EventArgs e)
+        {
+            AlumnosListForm alumnosListForm = new AlumnosListForm();
+            alumnosListForm.ShowDialog();
         }
     }
 }

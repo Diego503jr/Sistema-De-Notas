@@ -299,7 +299,26 @@ namespace SistemaDeNotas.Clases
             }
         }
 
-		public static DataTable ListarCursos()
+        public static DataTable ListarAlumnos()
+        {
+            CConexion conexion = new CConexion();
+            DataTable data = new DataTable();
+            try
+            {
+                string queryLeerDocentes = "SELECT Id, Nombre, Carnet, Telefono FROM dbo.Usuarios WHERE IdRol = 2";
+                SqlCommand cmd = new SqlCommand(queryLeerDocentes, conexion.establecerConexion());
+                SqlDataAdapter dt = new SqlDataAdapter(cmd);
+                dt.Fill(data);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return data;
+            }
+        }
+
+        public static DataTable ListarCursos()
 		{
 			CConexion conexion = new CConexion();
 			DataTable data = new DataTable();
