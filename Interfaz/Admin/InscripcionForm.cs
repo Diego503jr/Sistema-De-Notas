@@ -123,9 +123,9 @@ namespace SistemaDeNotas.Interfaz.Admin
 
                 if (idAlumno > -1)
                 {
-                    inscripcion.IdAlumno = idAlumno;
-                    inscripcion.IdCurso = Convert.ToInt32(cbCursos.SelectedValue);
-                    inscripcion.IdMateria = Convert.ToInt32(cbMaterias.SelectedValue);
+                    //inscripcion.IdAlumno = idAlumno;
+                    //inscripcion.IdCurso = Convert.ToInt32(cbCursos.SelectedValue);
+                    //inscripcion.IdMateria = Convert.ToInt32(cbMaterias.SelectedValue);
                     FuncionesAdministrador.AgregarInscripcion(inscripcion);
                     MostrarInscripcion();
                 }
@@ -158,10 +158,10 @@ namespace SistemaDeNotas.Interfaz.Admin
                 if (idAlumno > -1)
                 {
                     int id = (int)dgvInscripcion.SelectedRows[0].Cells["Id"].Value;
-                    inscripcion.IdAlumno = idAlumno;
-                    inscripcion.IdCurso = Convert.ToInt32(cbCursos.SelectedValue);
-                    inscripcion.IdMateria = Convert.ToInt32(cbMaterias.SelectedValue);
-                    inscripcion.Id = id;
+                    //inscripcion.IdAlumno = idAlumno;
+                    //inscripcion.IdCurso = Convert.ToInt32(cbCursos.SelectedValue);
+                    //inscripcion.IdMateria = Convert.ToInt32(cbMaterias.SelectedValue);
+                    //inscripcion.Id = id;
                     FuncionesAdministrador.ActualizarInscripcion(inscripcion);
                     MostrarInscripcion();
                 }
@@ -228,15 +228,16 @@ namespace SistemaDeNotas.Interfaz.Admin
                 //Obteniendo la fila seleccionada
                 DataGridViewRow row = dgvInscripcion.Rows[e.RowIndex];
 
-                //Obteniendo el valor del campo IdAlumno, IdCurso, IdMateria de la fila seleccionada
-                int idAlumno = Convert.ToInt32(row.Cells["IdAlumno"].Value.ToString());
-                int idCurso = Convert.ToInt32(row.Cells["IdCurso"].Value.ToString());
-                int idMateria = Convert.ToInt32(row.Cells["IdMateria"].Value.ToString());
+				//Obteniendo el valor del campo IdAlumno, IdCurso, IdMateria de la fila seleccionada
+			
+				string  idAlumno = row.Cells["Nombre"].Value.ToString();
+				string idCurso = row.Cells["Curso"].Value.ToString();
+				string idMateria = row.Cells["Materia"].Value.ToString();
 
-                //Se hacen las consulta SQL a las 3 tablas
-                string queryAlumno = "SELECT Nombre, Carnet FROM dbo.Usuarios WHERE Id = @idAlumno";
-                string queryCurso = "SELECT Nombre FROM dbo.Cursos WHERE Id = @idCurso";
-                string queryMaterias = "SELECT Nombre, IdDocente FROM dbo.Materias WHERE Id = @idMateria";
+				//Se hacen las consulta SQL a las 3 tablas
+				string queryAlumno = "SELECT Nombre, Carnet FROM dbo.Usuarios WHERE Nombre = @idAlumno";
+                string queryCurso = "SELECT Nombre FROM dbo.Cursos WHERE Nombre = @idCurso";
+                string queryMaterias = "SELECT Nombre, IdDocente FROM dbo.Materias WHERE Nombre = @idMateria";
 
                 SqlCommand cmdAlumno = new SqlCommand(queryAlumno, conexion.establecerConexion());
                 SqlCommand cmdCurso = new SqlCommand(queryCurso, conexion.establecerConexion());
