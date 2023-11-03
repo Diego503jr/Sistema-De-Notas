@@ -21,6 +21,13 @@ namespace SistemaDeNotas.Interfaz.Admin
         {
             InitializeComponent();
         }
+
+        public void ConfigurarTextbox(string nombreAlumno, string carnetAlumno)
+        {
+            txtNombre.Text = nombreAlumno;
+            txtCarnet.Text = carnetAlumno;
+        }
+
         private void InscripcionForm_Load(object sender, EventArgs e)
         {
             ConfigurarDataGridView();
@@ -265,7 +272,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void btnBuscarAlumno_Click(object sender, EventArgs e)
         {
-            AlumnosListForm alumnosListForm = new AlumnosListForm();
+            AlumnosListForm alumnosListForm = new AlumnosListForm(this);
             alumnosListForm.ShowDialog();
         }
     }

@@ -57,6 +57,9 @@ namespace SistemaDeNotas
 
         private void btnMenuCursos_Click(object sender, EventArgs e)
         {
+            string nombreAlumno = "";
+            string carnetAlumno = "";
+
             AbrirFormHijo(new InscripcionForm());
         }        
         private void btnMenuAlumnos_Click(object sender, EventArgs e)

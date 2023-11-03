@@ -32,7 +32,6 @@ namespace SistemaDeNotas
 			if (string.IsNullOrEmpty(txtCarnet.Text) || string.IsNullOrEmpty(txtContraseña.Text))
 			{
 				MessageBox.Show("No puede dejar campos vacíos", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-				
 			}
 			else
 			{

@@ -14,12 +14,12 @@ namespace SistemaDeNotas.Interfaz.Admin
 {
     public partial class AlumnosListForm : Form
     {
-        private string nombre;
-        private string carnet;
         int position;
-        public AlumnosListForm()
+        private InscripcionForm inscripcionForm;
+        public AlumnosListForm(InscripcionForm inscripcionForm)
         {
             InitializeComponent();
+            this.inscripcionForm = inscripcionForm;
         }
 
         private void AlumnosListForm_Load(object sender, EventArgs e)
@@ -49,12 +49,18 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            // Pasar los datos de regreso al formulario principal
-            InscripcionForm insForm = Owner as InscripcionForm;
-           //PSDT Aun no sirve esto no se que podria ser
-            //insForm.txt
-            this.Close();
-            this.Dispose();
+            if (txtNombreAlumno.Text == "" || txtCarnetAlumno.Text == "")
+            {
+                MessageBox.Show("No ha seleccionado ningun ALumno", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                string nombreAlumno = txtNombreAlumno.Text;
+                string carnetAlumno = txtCarnetAlumno.Text;
+
+                inscripcionForm.ConfigurarTextbox(nombreAlumno, carnetAlumno);
+                this.Close();
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

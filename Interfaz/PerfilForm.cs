@@ -22,8 +22,6 @@ namespace SistemaDeNotas
 			if (idestado.ToString() == "1")
 			{
 				txtestado.Text = "ACTIVO";
-				
-
 			}
 			else if (idestado.ToString() == "0")
 			{
