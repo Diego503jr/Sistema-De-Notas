@@ -26,10 +26,6 @@ namespace SistemaDeNotas.Interfaz.Admin
 		public void MostrarMaterias()
 		{
 			dgvMaterias.DataSource = FuncionesAdministrador.MostrarMateria();
-			dgvMaterias.Columns[0].HeaderText = "IdMateria";
-			dgvMaterias.Columns[1].HeaderText = "Materia";
-			dgvMaterias.Columns[2].HeaderText = "Descripción";
-			dgvMaterias.Columns[3].HeaderText = "Docente";
 		}
 
 		private void MateriasForm_Load(object sender, EventArgs e)
@@ -56,17 +52,34 @@ namespace SistemaDeNotas.Interfaz.Admin
             dgvMaterias.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvMaterias.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(237, 28, 36);
 
+            // Agregar relleno (padding) a todos los encabezados de las columnas
+            dgvMaterias.ColumnHeadersDefaultCellStyle.Padding = new Padding(10);
+
+            // Centrar los encabezados de las columnas
+            dgvMaterias.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             // Alinear el contenido de las celdas al centro
-            dgvMaterias.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvMaterias.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 
             // Configurar la selección de celdas
             dgvMaterias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMaterias.MultiSelect = false;
 
-            // Autoajustar el ancho de las columnas
-            dgvMaterias.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-
+            // Agregar el evento DataBindingComplete para establecer el ancho de las columnas de manera segura
+            dgvMaterias.DataBindingComplete += (sender, e) =>
+            {
+                foreach (DataGridViewColumn column in dgvMaterias.Columns)
+                {
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    int width = column.Width;
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    column.Width = width;
+                }
+            };
         }
+
+
+
         //AGREGAR MATERIA
         private void btnAgregar_Click(object sender, EventArgs e)
 		{

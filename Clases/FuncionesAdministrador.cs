@@ -50,7 +50,8 @@ namespace SistemaDeNotas.Clases
             DataTable data = new DataTable();
             try
             {
-                string query = "SELECT *FROM dbo.Materias";
+				 //string query = "SELECT * FROM Materias INNER JOIN Usuarios ON Materias.IdDocente = Usuarios.Id";
+				string query = "SELECT * FROM dbo.Materias";
                 SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
                 SqlDataAdapter dt = new SqlDataAdapter(cmd);
                 dt.Fill(data);
