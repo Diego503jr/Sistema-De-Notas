@@ -173,6 +173,21 @@ namespace SistemaDeNotas.Clases
 			try
 			{
                 CConexion conexion = new CConexion();
+
+				string existeQuery = "SELECT COUNT(*) FROM dbo.Inscripcion WHERE IdAlumno = @idAlumno AND IdCurso = @idCurso AND IdMateria = @idMateria";
+				SqlCommand cmdExiste = new SqlCommand(existeQuery, conexion.establecerConexion());
+				cmdExiste.Parameters.AddWithValue("@idAlumno", Inscripcion.IdAlumno);
+				cmdExiste.Parameters.AddWithValue("@idCurso", Inscripcion.IdCurso);
+				cmdExiste.Parameters.AddWithValue("@idMateria", Inscripcion.IdMateria);
+
+				int count = (int)cmdExiste.ExecuteScalar();
+
+                if (count > 0)
+				{
+                    MessageBox.Show("Ya existe un registro con estos datos", "Registro Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                } 
+
                 string query = "INSERT INTO dbo.Inscripcion(IdAlumno, IdCurso, IdMateria) VALUES(@idAlumno, @idCurso, @idMateria)";
                 SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
                 cmd.Parameters.AddWithValue("@idAlumno", Inscripcion.IdAlumno);
@@ -216,6 +231,55 @@ namespace SistemaDeNotas.Clases
             }
         }
 
+		public static int ActualizarInscripcion(ConstructorInscripcion Inscripcion)
+		{
+			int retorno = 0;
+
+			try
+			{
+				CConexion conexion = new CConexion();
+
+                string existeQuery = "SELECT COUNT(*) FROM dbo.Inscripcion WHERE IdAlumno = @idAlumno AND IdCurso = @idCurso AND IdMateria = @idMateria";
+                SqlCommand cmdExiste = new SqlCommand(existeQuery, conexion.establecerConexion());
+                cmdExiste.Parameters.AddWithValue("@idAlumno", Inscripcion.IdAlumno);
+                cmdExiste.Parameters.AddWithValue("@idCurso", Inscripcion.IdCurso);
+                cmdExiste.Parameters.AddWithValue("@idMateria", Inscripcion.IdMateria);
+
+                int count = (int)cmdExiste.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    MessageBox.Show("Ya existe un registro con estos datos", "Registro Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+
+
+                string query = "UPDATE dbo.Inscripcion SET IdAlumno = @idAlumno, IdCurso = @idCurso, IdMateria = @idMateria WHERE Id = @id";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@idAlumno", Inscripcion.IdAlumno);
+                cmd.Parameters.AddWithValue("@idCurso", Inscripcion.IdCurso);
+                cmd.Parameters.AddWithValue("@idMateria", Inscripcion.IdMateria);
+                cmd.Parameters.AddWithValue("@id", Inscripcion.Id);
+                retorno = cmd.ExecuteNonQuery();
+
+                if (retorno >= 0)
+                {
+                    MessageBox.Show("Se ha actualizado la información de curso con éxtio", "Actualizar Curso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return retorno;
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no se actualizaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+            }
+            catch (Exception ex)
+			{
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return retorno;
+			}
+		}
+
         //Listar en comboboxes
         public static DataTable ListarDocentes()
         {
@@ -236,7 +300,26 @@ namespace SistemaDeNotas.Clases
             }
         }
 
-		public static DataTable ListarCursos()
+        public static DataTable ListarAlumnos()
+        {
+            CConexion conexion = new CConexion();
+            DataTable data = new DataTable();
+            try
+            {
+                string queryLeerDocentes = "SELECT Id, Nombre, Carnet, Telefono FROM dbo.Usuarios WHERE IdRol = 2";
+                SqlCommand cmd = new SqlCommand(queryLeerDocentes, conexion.establecerConexion());
+                SqlDataAdapter dt = new SqlDataAdapter(cmd);
+                dt.Fill(data);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return data;
+            }
+        }
+
+        public static DataTable ListarCursos()
 		{
 			CConexion conexion = new CConexion();
 			DataTable data = new DataTable();
@@ -260,7 +343,7 @@ namespace SistemaDeNotas.Clases
             DataTable data = new DataTable();
             try
             {
-                string query = "SELECT Id, Nombre FROM dbo.Materias";
+                string query = "SELECT Id, Nombre, IdDocente FROM dbo.Materias";
                 SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
                 SqlDataAdapter dt = new SqlDataAdapter(cmd);
                 dt.Fill(data);

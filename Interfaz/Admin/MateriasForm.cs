@@ -145,16 +145,6 @@ namespace SistemaDeNotas.Interfaz.Admin
             cbDocente.Text = null;
         }
 
-        private void dgvMaterias_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
-			//No se utiliza
-		}
-
-		private void txtNombreMateria_TextChanged(object sender, EventArgs e)
-		{
-			//No se usa
-		}
-
 		//COMPLETA TEXTBOX Y COMBOBOX CON LA INFORMACIÓN SELECCIONADA EN EL DATAGRID
 		private void dgvMaterias_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
 		{

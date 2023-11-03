@@ -68,7 +68,6 @@
             this.txtNombreCurso.Name = "txtNombreCurso";
             this.txtNombreCurso.Size = new System.Drawing.Size(375, 34);
             this.txtNombreCurso.TabIndex = 1;
-            this.txtNombreCurso.TextChanged += new System.EventHandler(this.txtNombreCurso_TextChanged);
             // 
             // label2
             // 
@@ -96,7 +95,6 @@
             this.dgvCursos.RowTemplate.Height = 24;
             this.dgvCursos.Size = new System.Drawing.Size(440, 384);
             this.dgvCursos.TabIndex = 3;
-            this.dgvCursos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCursos_CellContentClick);
             this.dgvCursos.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCursos_RowHeaderMouseClick);
             // 
             // btnAgregar

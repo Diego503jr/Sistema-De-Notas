@@ -30,11 +30,6 @@ namespace SistemaDeNotas.Interfaz.Admin
 			dgvCursos.Columns[1].HeaderText = "Nombre";
 		}
 
-		private void dgvCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
-			//No se utiliza
-		}
-
 		private void CursosForm_Load(object sender, EventArgs e)
 		{
 			ConfigurarDataGridView();
@@ -129,12 +124,6 @@ namespace SistemaDeNotas.Interfaz.Admin
 			MessageBox.Show("Curso eliminado con éxito", "Eliminar Curso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			MostrarCursos();
 		}
-
-		private void txtNombreCurso_TextChanged(object sender, EventArgs e)
-		{
-			//No se usa
-		}
-
 
 		//COMPLETAR TEXTBOX CON INFORMACIÓN DE DATAGRID
 		private void dgvCursos_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
