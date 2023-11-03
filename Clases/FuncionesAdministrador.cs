@@ -50,8 +50,14 @@ namespace SistemaDeNotas.Clases
             DataTable data = new DataTable();
             try
             {
-				 //string query = "SELECT * FROM Materias INNER JOIN Usuarios ON Materias.IdDocente = Usuarios.Id";
-				string query = "SELECT * FROM dbo.Materias";
+                //string query = "SELECT * FROM Materias INNER JOIN Usuarios ON Materias.IdDocente = Usuarios.Id";
+                //          string query = "SELECT materias.*, usuarios.Nombre AS NombreDocente " +
+                //"FROM materias " +
+                //"INNER JOIN usuarios ON materias.IdDocente = usuarios.ID";
+
+
+                string query = "SELECT m.Id, m.Nombre,m.Descripcion, U.Nombre AS Docente " + "FROM dbo.Materias AS m " + "INNER JOIN dbo.Usuarios AS U ON m.IdDocente = U.Id";
+                //string query = "SELECT * FROM dbo.Materias";
                 SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
                 SqlDataAdapter dt = new SqlDataAdapter(cmd);
                 dt.Fill(data);
@@ -219,7 +225,16 @@ namespace SistemaDeNotas.Clases
             DataTable data = new DataTable();
 			try
 			{
-				string query = "SELECT * FROM dbo.Inscripcion";
+				//string query = "SELECT * FROM dbo.Inscripcion";
+
+
+                string query = "SELECT I.Id, U.Nombre, C.Nombre AS Curso,  M.Nombre AS Materia " +
+                "FROM dbo.Inscripcion AS I " +
+                "INNER JOIN dbo.Usuarios AS U ON I.IdAlumno = U.Id " +
+                "INNER JOIN dbo.Cursos AS C ON I.IdCurso = C.Id " +
+                "INNER JOIN dbo.Materias AS M ON I.IdMateria = M.Id";
+				
+
 				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
 				SqlDataAdapter dt = new SqlDataAdapter(cmd);
 				dt.Fill(data);
