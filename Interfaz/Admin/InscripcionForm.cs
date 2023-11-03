@@ -53,16 +53,30 @@ namespace SistemaDeNotas.Interfaz.Admin
             dgvInscripcion.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvInscripcion.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(237, 28, 36);
 
+            // Agregar relleno (padding) a todos los encabezados de las columnas
+            dgvInscripcion.ColumnHeadersDefaultCellStyle.Padding = new Padding(10);
+
+            // Centrar los encabezados de las columnas
+            dgvInscripcion.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             // Alinear el contenido de las celdas al centro
-            dgvInscripcion.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvInscripcion.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 
             // Configurar la selección de celdas
             dgvInscripcion.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvInscripcion.MultiSelect = false;
 
-            // Autoajustar el ancho de las columnas
-            dgvInscripcion.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-
+            // Agregar el evento DataBindingComplete para establecer el ancho de las columnas de manera segura
+            dgvInscripcion.DataBindingComplete += (sender, e) =>
+            {
+                foreach (DataGridViewColumn column in dgvInscripcion.Columns)
+                {
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    int width = column.Width;
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    column.Width = width;
+                }
+            };
         }
         public void ListarMateriasIns()
         {
