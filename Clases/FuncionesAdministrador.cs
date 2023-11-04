@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeNotas.Interfaz.Admin;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -236,5 +237,102 @@ namespace SistemaDeNotas.Clases
                 return data;
             }
         }
+
+        public static int AgregarPersonas(ConstructorPersonas Usuario)
+        {
+            int retorno = 0;
+            try
+            {
+                CConexion conexion = new CConexion();
+                string query = "INSERT INTO dbo.Usuarios ( Nombre, Carnet, Contraseña, Telefono) VALUES ( @Nombre, @Carnet, @Contraseña, @Telefono)";
+                SqlCommand add = new SqlCommand(query, conexion.establecerConexion());
+                add.Parameters.AddWithValue("@Nombre", Usuario.Nombre);
+                add.Parameters.AddWithValue("@Carnet", Usuario.Carnet);
+                add.Parameters.AddWithValue("@Contraseña", Usuario.Password);
+                add.Parameters.AddWithValue("@Telefono", Usuario.Telefono);
+                retorno = add.ExecuteNonQuery();
+                if (retorno >= 0)
+                {
+                    MessageBox.Show("El usuario ha sido agregado correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return retorno;
+                }
+                else
+                {
+                    MessageBox.Show("Hay casillas vacías, no se ha guardado el Usuario", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error de conexion" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return retorno;
+            }
+        }
+
+        public static DataTable MostrarPersonas()
+        {
+            CConexion conexion = new CConexion();
+            DataTable data = new DataTable();
+            try
+            {
+                string mostrar = "SELECT *FROM dbo.Usuarios";
+                SqlCommand cmd = new SqlCommand(mostrar, conexion.establecerConexion());
+                SqlDataAdapter dt = new SqlDataAdapter(cmd);
+                dt.Fill(data);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return data;
+            }
+        }
+        public static int ModificarUsuario(ConstructorPersonas Usuario)
+        {
+            int retorno = 0;
+            CConexion conexion = new CConexion();
+            string query = "Update dbo.Usuarios SET ( Id, IdRol, Nombre, Carnet, Contraseña, Telefono) WHERE ( @Id, @IdRol, @Nombre, @Carnet, @Contraseña, @Telefono)";
+            SqlCommand mod = new SqlCommand(query, conexion.establecerConexion());
+            mod.Parameters.AddWithValue("@Id", Usuario.Id);
+            mod.Parameters.AddWithValue("@IdRol", Usuario.IdRol);
+            mod.Parameters.AddWithValue("@Nombre", Usuario.Nombre);
+            mod.Parameters.AddWithValue("@Carnet", Usuario.Carnet);
+            mod.Parameters.AddWithValue("@Contraseña", Usuario.Password);
+            mod.Parameters.AddWithValue("@Telefono", Usuario.Telefono);
+            mod.Parameters.AddWithValue("@IdEstado", Usuario.IdEstado);
+            return retorno;
+        }
+
+        public static void EliminarPersonas(ConstructorPersonas Usuario)
+        {
+            CConexion conexion = new CConexion();
+            string query = "DELETE FROM dbo.Usuarios ( Id, IdRol, Nombre, Carnet, Contraseña, Telefono) WHERE ( @Id, @IdRol, @Nombre, @Carnet, @Contraseña, @Telefono)";
+            SqlCommand delete = new SqlCommand(query, conexion.establecerConexion());
+            delete.Parameters.AddWithValue("@Id", Usuario.Id);
+            delete.Parameters.AddWithValue("@IdRol", Usuario.IdRol);
+            delete.Parameters.AddWithValue("@Nombre", Usuario.Nombre);
+            delete.Parameters.AddWithValue("@Carnet", Usuario.Carnet);
+            delete.Parameters.AddWithValue("@Contraseña", Usuario.Password);
+            delete.Parameters.AddWithValue("@Telefono", Usuario.Telefono);
+            delete.Parameters.AddWithValue("@IdEstado", Usuario.IdEstado);
+            try
+            {
+                int filasAfectadas = delete.ExecuteNonQuery();
+                if (filasAfectadas > 0)
+                {
+                    MessageBox.Show("Datos eliminados exitosamente.","Datos Eliminados",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se han eliminado los datos.", "Datos NO ELIMINADOS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Error de conexión: " + ex,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
     }
 }

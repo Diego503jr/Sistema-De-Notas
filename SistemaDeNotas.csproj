@@ -50,6 +50,7 @@
     <Compile Include="Clases\ConstructorCurso.cs" />
     <Compile Include="Clases\ConstructorInscripcion.cs" />
     <Compile Include="Clases\ConstructorMateria.cs" />
+    <Compile Include="Clases\ConstructorPersonas.cs" />
     <Compile Include="Clases\FuncionesAdministrador.cs" />
     <Compile Include="Interfaz\Admin\AdminForm.cs">
       <SubType>Form</SubType>
