@@ -87,13 +87,13 @@
             this.dgvCursos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCursos.GridColor = System.Drawing.Color.White;
-            this.dgvCursos.Location = new System.Drawing.Point(201, 379);
+            this.dgvCursos.Location = new System.Drawing.Point(252, 379);
             this.dgvCursos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCursos.Name = "dgvCursos";
             this.dgvCursos.ReadOnly = true;
             this.dgvCursos.RowHeadersWidth = 51;
             this.dgvCursos.RowTemplate.Height = 24;
-            this.dgvCursos.Size = new System.Drawing.Size(440, 384);
+            this.dgvCursos.Size = new System.Drawing.Size(403, 384);
             this.dgvCursos.TabIndex = 3;
             this.dgvCursos.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCursos_RowHeaderMouseClick);
             // 
@@ -160,12 +160,12 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(714, 312);
+            this.btnLimpiar.Location = new System.Drawing.Point(743, 312);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(253, 41);
+            this.btnLimpiar.Size = new System.Drawing.Size(175, 41);
             this.btnLimpiar.TabIndex = 73;
-            this.btnLimpiar.Text = "Limpiar Búsqueda";
+            this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 

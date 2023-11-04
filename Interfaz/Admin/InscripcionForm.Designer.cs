@@ -218,6 +218,7 @@
             this.txtFiltroNombre.Name = "txtFiltroNombre";
             this.txtFiltroNombre.Size = new System.Drawing.Size(406, 29);
             this.txtFiltroNombre.TabIndex = 76;
+            this.txtFiltroNombre.TextChanged += new System.EventHandler(this.txtFiltroNombre_TextChanged);
             // 
             // btnLimpiar
             // 
@@ -228,13 +229,14 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(801, 392);
+            this.btnLimpiar.Location = new System.Drawing.Point(962, 392);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(253, 41);
+            this.btnLimpiar.Size = new System.Drawing.Size(175, 41);
             this.btnLimpiar.TabIndex = 77;
-            this.btnLimpiar.Text = "Limpiar Búsqueda";
+            this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // groupBox1
             // 

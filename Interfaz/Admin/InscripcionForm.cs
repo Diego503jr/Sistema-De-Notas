@@ -239,7 +239,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 
 				//Obteniendo el valor del campo IdAlumno, IdCurso, IdMateria de la fila seleccionada
 			
-				string  idAlumno = row.Cells["Nombre"].Value.ToString();
+				string idAlumno = row.Cells["Nombre"].Value.ToString();
 				string idCurso = row.Cells["Curso"].Value.ToString();
 				string idMateria = row.Cells["Materia"].Value.ToString();
 
@@ -284,6 +284,40 @@ namespace SistemaDeNotas.Interfaz.Admin
         {
             AlumnosListForm alumnosListForm = new AlumnosListForm(this);
             alumnosListForm.ShowDialog();
+        }
+
+        private void txtFiltroNombre_TextChanged(object sender, EventArgs e)
+        {
+            string buscar = txtFiltroNombre.Text.Trim();
+            if (!string.IsNullOrEmpty(buscar))
+            {
+                // Realiza la búsqueda en la fuente de datos y filtra los resultados
+                (dgvInscripcion.DataSource as DataTable).DefaultView.RowFilter = $"Materia LIKE '%{buscar}%'";
+            }
+            else
+            {
+                // Si el cuadro de búsqueda está vacío, muestra todos los datos
+                (dgvInscripcion.DataSource as DataTable).DefaultView.RowFilter = "";
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtNombre.Clear();
+            txtCarnet.Clear();
+            txtFiltroNombre.Clear();
+            cbCursos.Text = null; 
+            cbMaterias.Text = null;
+
+            if (dgvInscripcion.SelectedRows.Count > 0)
+            {
+                dgvInscripcion.SelectedRows[0].Selected = false;
+            }
+            foreach (DataGridViewRow row in dgvInscripcion.SelectedRows)
+            {
+                row.Selected = false;
+            }
+            btnActualizarInscripcion.Enabled = true;
         }
     }
 }

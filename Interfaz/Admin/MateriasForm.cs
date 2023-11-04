@@ -148,16 +148,12 @@ namespace SistemaDeNotas.Interfaz.Admin
 		//COMPLETA TEXTBOX Y COMBOBOX CON LA INFORMACIÓN SELECCIONADA EN EL DATAGRID
 		private void dgvMaterias_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
 		{
-			CConexion conexion = new CConexion();
 
 			if (e.RowIndex >= 0)
 			{
 				//Obteniendo la fila seleccionada
 				DataGridViewRow row = dgvMaterias.Rows[e.RowIndex];
-
-				//Obteniendo el valor del campo IdDocente de la fila seleccionada
-				//int idDocente = Convert.ToInt32(row.Cells["Docente"].Value.ToString());
-
+				
 				string Nombre = row.Cells["Nombre"].Value.ToString();
 				string Descripcion = row.Cells["Descripcion"].Value.ToString();
 				string Docente = row.Cells["Docente"].Value.ToString();
@@ -165,26 +161,9 @@ namespace SistemaDeNotas.Interfaz.Admin
 				txtDescripcionMateria.Text = Descripcion;
 				cbDocente.Text = Docente;
 
-				//Utiliza una consulta SQL para obtener el nombre del docente
-				//string query = "SELECT Nombre FROM dbo.Usuarios WHERE Id = @IdDocente";
-
-				//SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-				//cmd.Parameters.AddWithValue("@IdDocente", idDocente);
-				//SqlDataReader dr = cmd.ExecuteReader();
-				//if (dr.Read())
-				//{
-				//	//Asigna el nombre del docente al ComboBox
-				//	string nombreDocente = dr["Nombre"].ToString();
-				//	cbDocente.Text = nombreDocente;
-				//}
-				//else
-				//{
-				//	MessageBox.Show("No hay docente disponible");
-				//}
 				btnAgregar.Enabled = false;
 				btnActualizar.Enabled = true;
 				btnEliminar.Enabled = true;
-				//posicion = dgvMaterias.CurrentRow.Index;
 			}
 		}
 

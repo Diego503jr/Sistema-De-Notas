@@ -43,8 +43,6 @@ namespace SistemaDeNotas.Clases
 			}
 		}
 
-		
-
         public static DataTable MostrarMateria()
         {
             CConexion conexion = new CConexion();
@@ -248,7 +246,7 @@ namespace SistemaDeNotas.Clases
 				//string query = "SELECT * FROM dbo.Inscripcion";
 
 
-                string query = "SELECT I.Id, U.Nombre, C.Nombre AS Curso,  M.Nombre AS Materia " +
+                string query = "SELECT I.Id, U.Nombre, U.Carnet, C.Nombre AS Curso,  M.Nombre AS Materia " +
                 "FROM dbo.Inscripcion AS I " +
                 "INNER JOIN dbo.Usuarios AS U ON I.IdAlumno = U.Id " +
                 "INNER JOIN dbo.Cursos AS C ON I.IdCurso = C.Id " +
