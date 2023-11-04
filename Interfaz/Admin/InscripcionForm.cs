@@ -97,11 +97,6 @@ namespace SistemaDeNotas.Interfaz.Admin
         public void MostrarInscripcion()
         {
             dgvInscripcion.DataSource = FuncionesAdministrador.MostrarInscripcion();
-            //dgvInscripcion.Columns[0].HeaderText = "IdInscripcion";
-            //dgvInscripcion.Columns[1].HeaderText = "IdAlumno";
-            //dgvInscripcion.Columns[2].HeaderText = "IdCurso";
-            //dgvInscripcion.Columns[3].HeaderText = "IdMateria";
-
         }
 
         private void btnInscribir_Click(object sender, EventArgs e)
@@ -123,9 +118,9 @@ namespace SistemaDeNotas.Interfaz.Admin
 
                 if (idAlumno > -1)
                 {
-                    //inscripcion.IdAlumno = idAlumno;
-                    //inscripcion.IdCurso = Convert.ToInt32(cbCursos.SelectedValue);
-                    //inscripcion.IdMateria = Convert.ToInt32(cbMaterias.SelectedValue);
+                    inscripcion.IdAlumno = idAlumno;
+                    inscripcion.IdCurso = Convert.ToInt32(cbCursos.SelectedValue);
+                    inscripcion.IdMateria = Convert.ToInt32(cbMaterias.SelectedValue);
                     FuncionesAdministrador.AgregarInscripcion(inscripcion);
                     MostrarInscripcion();
                 }
@@ -158,10 +153,10 @@ namespace SistemaDeNotas.Interfaz.Admin
                 if (idAlumno > -1)
                 {
                     int id = (int)dgvInscripcion.SelectedRows[0].Cells["Id"].Value;
-                    //inscripcion.IdAlumno = idAlumno;
-                    //inscripcion.IdCurso = Convert.ToInt32(cbCursos.SelectedValue);
-                    //inscripcion.IdMateria = Convert.ToInt32(cbMaterias.SelectedValue);
-                    //inscripcion.Id = id;
+                    inscripcion.IdAlumno = idAlumno;
+                    inscripcion.IdCurso = Convert.ToInt32(cbCursos.SelectedValue);
+                    inscripcion.IdMateria = Convert.ToInt32(cbMaterias.SelectedValue);
+                    inscripcion.Id = id;
                     FuncionesAdministrador.ActualizarInscripcion(inscripcion);
                     MostrarInscripcion();
                 }
