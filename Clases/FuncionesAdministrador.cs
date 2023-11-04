@@ -12,8 +12,79 @@ namespace SistemaDeNotas.Clases
 {
 	internal class FuncionesAdministrador
 	{
-		//Funciones para el formulario Materias
-		public static int AgregarMateria(ConstructorMateria Materia)
+        //Funciones para el formulario Usuarios
+        public static int AgregarUsuarios(ConstructorUsuario Usuarios)
+        {
+            int retorno = 0;
+            try
+            {
+                CConexion conexion = new CConexion();
+
+                string existeQuery = "SELECT COUNT(*) FROM dbo.Usuarios WHERE Id = @id AND Nombre = @nombre AND carnet = @carnet";
+                SqlCommand cmdExiste = new SqlCommand(existeQuery, conexion.establecerConexion());
+                cmdExiste.Parameters.AddWithValue("@nombre",Usuarios.Nombre);
+                cmdExiste.Parameters.AddWithValue("@carnet", Usuarios.Carnet);
+                cmdExiste.Parameters.AddWithValue("@id",Usuarios.Id);
+
+                int count = (int)cmdExiste.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    MessageBox.Show("Ya existe un registro con estos datos", "Registro Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+
+                string query = "INSERT INTO Usuarios(IdRol, Nombre, Carnet, Contraseña, Telefono, IdEstado) VALUES(@rol, @nombre, @carnet, @contraseña, @telefono, @estado)";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@rol",Usuarios.IdRole);
+                cmd.Parameters.AddWithValue("@nombre",Usuarios.Nombre);
+                cmd.Parameters.AddWithValue("@carnet",Usuarios.Carnet);
+                cmd.Parameters.AddWithValue("@contraseña",Usuarios.Contraseña);
+                cmd.Parameters.AddWithValue("@telefono",Usuarios.Telefono);
+                cmd.Parameters.AddWithValue("@estado",Usuarios.IdEstado);
+                retorno = cmd.ExecuteNonQuery();
+                if (retorno >= 0)
+                {
+                    MessageBox.Show("Los datos del usuario se agregaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return retorno;
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no se agregaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return retorno;
+            }
+        }
+
+        public static DataTable MostrarUsuarios()
+        {
+            CConexion conexion = new CConexion();
+            DataTable data = new DataTable();
+            try
+            {
+                string query = "SELECT U.Id, R.RolUsuario As Rol, U.Nombre, U.Carnet, U.Telefono, E.EstadoValor As Estado " +
+                    "FROM dbo.Usuarios AS U " +
+                    "INNER JOIN dbo.Roles AS R ON U.IdRol = R.Id " +
+                    "INNER JOIN dbo.Estado AS E ON U.IdEstado = E.Id";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                SqlDataAdapter dt = new SqlDataAdapter(cmd);
+                dt.Fill(data);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return data;
+            }
+        }
+
+        //Funciones para el formulario Materias
+        public static int AgregarMateria(ConstructorMateria Materia)
 		{
 			int retorno = 0;
 			try
@@ -49,14 +120,7 @@ namespace SistemaDeNotas.Clases
             DataTable data = new DataTable();
             try
             {
-                //string query = "SELECT * FROM Materias INNER JOIN Usuarios ON Materias.IdDocente = Usuarios.Id";
-                //          string query = "SELECT materias.*, usuarios.Nombre AS NombreDocente " +
-                //"FROM materias " +
-                //"INNER JOIN usuarios ON materias.IdDocente = usuarios.ID";
-
-
                 string query = "SELECT m.Id, m.Nombre,m.Descripcion, U.Nombre AS Docente " + "FROM dbo.Materias AS m " + "INNER JOIN dbo.Usuarios AS U ON m.IdDocente = U.Id";
-                //string query = "SELECT * FROM dbo.Materias";
                 SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
                 SqlDataAdapter dt = new SqlDataAdapter(cmd);
                 dt.Fill(data);
@@ -69,24 +133,6 @@ namespace SistemaDeNotas.Clases
             }
         }
 
-        public static DataTable MostrarNotas()
-        {
-            CConexion conexion = new CConexion();
-            DataTable data = new DataTable();
-            try
-            {
-                string query = "SELECT * FROM dbo.Notas";
-                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-                SqlDataAdapter dt = new SqlDataAdapter(cmd);
-                dt.Fill(data);
-                return data;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return data;
-            }
-        }
 		public static int ActualizarMateria(ConstructorMateria Materia)
 		{
 			CConexion conexion = new CConexion();
@@ -108,7 +154,6 @@ namespace SistemaDeNotas.Clases
 			string query = "DELETE dbo.Materias  WHERE Id = @Id";
 			SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
 			cmd.Parameters.AddWithValue("@Id", Materia.Id);
-			//cmd.Parameters.AddWithValue("@Nombre", Curso.Nombre);
 			retorno = cmd.ExecuteNonQuery();
 			return retorno;
 		}
@@ -182,7 +227,6 @@ namespace SistemaDeNotas.Clases
 			string query = "DELETE dbo.Cursos  WHERE Id = @Id";
 			SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
 			cmd.Parameters.AddWithValue("@Id", Curso.Id);
-			//cmd.Parameters.AddWithValue("@Nombre", Curso.Nombre);
 			retorno = cmd.ExecuteNonQuery();
 			return retorno;
 		}
@@ -222,6 +266,12 @@ namespace SistemaDeNotas.Clases
                 if (retorno >= 0)
                 {
                     MessageBox.Show("Los datos de la inscripción se agregaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    string queryNotas = "INSERT INTO dbo.Notas(IdAlumno, IdMateria) VALUES(@idAlumno, @idMateria)";
+                    SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
+                    cmdNotas.Parameters.AddWithValue("@idAlumno",Inscripcion.IdAlumno);
+                    cmdNotas.Parameters.AddWithValue("@idMateria",Inscripcion.IdMateria);
+                    cmdNotas.ExecuteNonQuery();
                     return retorno;
                 }
                 else
@@ -243,9 +293,6 @@ namespace SistemaDeNotas.Clases
             DataTable data = new DataTable();
 			try
 			{
-				//string query = "SELECT * FROM dbo.Inscripcion";
-
-
                 string query = "SELECT I.Id, U.Nombre, U.Carnet, C.Nombre AS Curso,  M.Nombre AS Materia " +
                 "FROM dbo.Inscripcion AS I " +
                 "INNER JOIN dbo.Usuarios AS U ON I.IdAlumno = U.Id " +
@@ -277,7 +324,6 @@ namespace SistemaDeNotas.Clases
                 cmdExiste.Parameters.AddWithValue("@idAlumno", Inscripcion.IdAlumno);
                 cmdExiste.Parameters.AddWithValue("@idCurso", Inscripcion.IdCurso);
                 cmdExiste.Parameters.AddWithValue("@idMateria", Inscripcion.IdMateria);
-
                 int count = (int)cmdExiste.ExecuteScalar();
 
                 if (count > 0)
@@ -286,6 +332,10 @@ namespace SistemaDeNotas.Clases
                     return retorno;
                 }
 
+                string queryObtenerAntiguaIdMateria = "SELECT IdMateria FROM dbo.Inscripcion WHERE Id = @id";
+                SqlCommand cmdObtenerAntiguaIdMateria = new SqlCommand(queryObtenerAntiguaIdMateria, conexion.establecerConexion());
+                cmdObtenerAntiguaIdMateria.Parameters.AddWithValue("@id", Inscripcion.Id);
+                int antiguaIdMateria = (int)cmdObtenerAntiguaIdMateria.ExecuteScalar();
 
                 string query = "UPDATE dbo.Inscripcion SET IdAlumno = @idAlumno, IdCurso = @idCurso, IdMateria = @idMateria WHERE Id = @id";
                 SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
@@ -298,6 +348,13 @@ namespace SistemaDeNotas.Clases
                 if (retorno >= 0)
                 {
                     MessageBox.Show("Se ha actualizado la información de curso con éxtio", "Actualizar Curso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    string queryNotas = "UPDATE dbo.Notas SET IdMateria = @nuevaIdMateria WHERE IdAlumno = @idAlumno AND IdMateria = @viejaIdMateria";
+                    SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
+                    cmdNotas.Parameters.AddWithValue("@nuevaIdMateria", Inscripcion.IdMateria);
+                    cmdNotas.Parameters.AddWithValue("@idAlumno", Inscripcion.IdAlumno);
+                    cmdNotas.Parameters.AddWithValue("@viejaIdMateria", antiguaIdMateria);
+                    cmdNotas.ExecuteNonQuery();
                     return retorno;
                 }
                 else

@@ -292,7 +292,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             if (!string.IsNullOrEmpty(buscar))
             {
                 // Realiza la búsqueda en la fuente de datos y filtra los resultados
-                (dgvInscripcion.DataSource as DataTable).DefaultView.RowFilter = $"Materia LIKE '%{buscar}%'";
+                (dgvInscripcion.DataSource as DataTable).DefaultView.RowFilter = $"Materia LIKE '%{buscar}%' OR Curso LIKE '%{buscar}%' OR Nombre LIKE '%{buscar}%' OR Carnet LIKE '%{buscar}%'";
             }
             else
             {
@@ -317,7 +317,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             {
                 row.Selected = false;
             }
-            btnActualizarInscripcion.Enabled = true;
+            btnInscribir.Enabled = true;
         }
     }
 }

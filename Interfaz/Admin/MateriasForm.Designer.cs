@@ -240,9 +240,9 @@
             this.label5.Location = new System.Drawing.Point(77, 375);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(217, 29);
+            this.label5.Size = new System.Drawing.Size(87, 29);
             this.label5.TabIndex = 74;
-            this.label5.Text = "Filtrar por Nombre:";
+            this.label5.Text = "Filtrar :";
             // 
             // SubBarraTitulo
             // 

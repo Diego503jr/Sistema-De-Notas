@@ -193,7 +193,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 			if (!string.IsNullOrEmpty(buscar))
 			{
 				// Realiza la búsqueda en la fuente de datos y filtra los resultados
-				(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = $"Nombre LIKE '%{buscar}%'";
+				(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = $"Nombre LIKE '%{buscar}%' OR Docente LIKE '%{buscar}%'";
 			}
 			else
 			{

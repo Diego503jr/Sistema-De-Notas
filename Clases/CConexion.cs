@@ -26,7 +26,6 @@ namespace SistemaDeNotas.Clases
 			{
                 conexion.ConnectionString = cadeConexion;
                 conexion.Open();
-                //MessageBox.Show("Se conecto a la base de datos");
             } 
             catch (SqlException e){
                 MessageBox.Show("No se logro conectar a la base de datos" + e);

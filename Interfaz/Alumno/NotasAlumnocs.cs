@@ -19,7 +19,7 @@ namespace SistemaDeNotas.Interfaz.Alumno
         }
         public void MostrarNotas()
         {
-            dgvNotas.DataSource = FuncionesAdministrador.MostrarNotas();
+            dgvNotas.DataSource = FuncionesAlumno.MostrarNotas();
 
         }
 

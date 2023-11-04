@@ -201,18 +201,18 @@
             this.lblFiltro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblFiltro.AutoSize = true;
             this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltro.Location = new System.Drawing.Point(44, 398);
+            this.lblFiltro.Location = new System.Drawing.Point(33, 398);
             this.lblFiltro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(217, 29);
+            this.lblFiltro.Size = new System.Drawing.Size(87, 29);
             this.lblFiltro.TabIndex = 75;
-            this.lblFiltro.Text = "Filtrar por Nombre:";
+            this.lblFiltro.Text = "Filtrar :";
             // 
             // txtFiltroNombre
             // 
             this.txtFiltroNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFiltroNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltroNombre.Location = new System.Drawing.Point(276, 398);
+            this.txtFiltroNombre.Location = new System.Drawing.Point(137, 398);
             this.txtFiltroNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtFiltroNombre.Multiline = true;
             this.txtFiltroNombre.Name = "txtFiltroNombre";

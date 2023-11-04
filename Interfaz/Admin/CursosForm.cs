@@ -26,8 +26,6 @@ namespace SistemaDeNotas.Interfaz.Admin
 		private void MostrarCursos()
 		{
 			dgvCursos.DataSource = FuncionesAdministrador.MostrarCurso();
-			dgvCursos.Columns[0].HeaderText = "IdCurso";
-			dgvCursos.Columns[1].HeaderText = "Nombre";
 		}
 
 		private void CursosForm_Load(object sender, EventArgs e)
