@@ -52,16 +52,30 @@ namespace SistemaDeNotas.Interfaz.Admin
             dgvCursos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvCursos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(237, 28, 36);
 
+            // Agregar relleno (padding) a todos los encabezados de las columnas
+            dgvCursos.ColumnHeadersDefaultCellStyle.Padding = new Padding(10);
+
+            // Centrar los encabezados de las columnas
+            dgvCursos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             // Alinear el contenido de las celdas al centro
-            dgvCursos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvCursos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 
             // Configurar la selección de celdas
             dgvCursos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCursos.MultiSelect = false;
 
-            // Autoajustar el ancho de las columnas
-            dgvCursos.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-
+            // Agregar el evento DataBindingComplete para establecer el ancho de las columnas de manera segura
+            dgvCursos.DataBindingComplete += (sender, e) =>
+            {
+                foreach (DataGridViewColumn column in dgvCursos.Columns)
+                {
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    int width = column.Width;
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    column.Width = width;
+                }
+            };
         }
         //AGREGAR CURSO
         private void Insertar()
