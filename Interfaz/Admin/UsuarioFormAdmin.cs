@@ -28,9 +28,52 @@ namespace SistemaDeNotas.Interfaz.Admin
         }
         private void UsuarioFormAdmin_Load(object sender, EventArgs e)
         {
+            ConfigurarDataGridView();
             MostrarRoles();
             MostrarEstado();
             MostrarUsuarios();
+        }
+        private void ConfigurarDataGridView()
+        {
+            // Establecer el estilo de las celdas
+            dgvUsuarios.DefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
+            dgvUsuarios.DefaultCellStyle.ForeColor = Color.Black;
+            dgvUsuarios.DefaultCellStyle.BackColor = Color.White;
+            dgvUsuarios.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvUsuarios.DefaultCellStyle.SelectionBackColor = Color.FromArgb(237, 28, 36);
+
+            // Establecer el estilo de las filas alternas
+            dgvUsuarios.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+
+            // Establecer el estilo de las cabeceras de las columnas
+            dgvUsuarios.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 11, FontStyle.Bold);
+            dgvUsuarios.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvUsuarios.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(237, 28, 36);
+
+            // Agregar relleno (padding) a todos los encabezados de las columnas
+            dgvUsuarios.ColumnHeadersDefaultCellStyle.Padding = new Padding(10);
+
+            // Centrar los encabezados de las columnas
+            dgvUsuarios.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            // Alinear el contenido de las celdas al centro
+            dgvUsuarios.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+
+            // Configurar la selección de celdas
+            dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvUsuarios.MultiSelect = false;
+
+            // Agregar el evento DataBindingComplete para establecer el ancho de las columnas de manera segura
+            dgvUsuarios.DataBindingComplete += (sender, e) =>
+            {
+                foreach (DataGridViewColumn column in dgvUsuarios.Columns)
+                {
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    int width = column.Width;
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    column.Width = width;
+                }
+            };
         }
         private void btnAgregarAlumno_Click_1(object sender, EventArgs e)
         {
