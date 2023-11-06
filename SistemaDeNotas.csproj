@@ -52,6 +52,7 @@
     <Compile Include="Clases\ConstructorMateria.cs" />
     <Compile Include="Clases\ConstructorNotas.cs" />
     <Compile Include="Clases\ConstructorUsuario.cs" />
+    <Compile Include="Clases\FuncionesDocente.cs" />
     <Compile Include="Clases\FuncionesAdministrador.cs" />
     <Compile Include="Clases\FuncionesAlumno.cs" />
     <Compile Include="Interfaz\Admin\AdminForm.cs">
