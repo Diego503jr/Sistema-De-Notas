@@ -54,6 +54,7 @@
             this.BarraTitulo.Size = new System.Drawing.Size(842, 55);
             this.BarraTitulo.TabIndex = 6;
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
+            this.BarraTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseMove);
             // 
             // btnCerrar
             // 

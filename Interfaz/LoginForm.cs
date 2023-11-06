@@ -9,24 +9,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace SistemaDeNotas
 {
     public partial class LoginForm : Form
     {
+        // Importar la función SendMessage de user32.dll para mover la ventana
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(IntPtr hwnd, int wmsg, int wparam, int lparam);
         public LoginForm()
         {
             InitializeComponent();
+            this.MouseDown += BarraTitulo_MouseDown;
+            this.MouseMove += BarraTitulo_MouseMove;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-        private void BarraTitulo_MouseDown(object sender, MouseEventArgs e)
-        {
-            //Ya no se va usar
-        }
+
 		private void btnIniciarSesion_Click_1(object sender, EventArgs e)
 		{
 			if (string.IsNullOrEmpty(txtCarnet.Text) || string.IsNullOrEmpty(txtContraseña.Text))
@@ -84,5 +90,25 @@ namespace SistemaDeNotas
 				txtContraseña.Clear();
 			}
 		}
+
+        private const int WM_NCLBUTTONDOWN = 0xA1;
+        private const int HT_CAPTION = 0x2;
+
+        private void BarraTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+        private void BarraTitulo_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
     }
 }

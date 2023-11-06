@@ -20,7 +20,7 @@ namespace SistemaDeNotas
             InitializeComponent();
             txtNombreUsuario.Text =  "Bienvenid@ " + nombre;
 			PerfilForm perfil = new PerfilForm();
-			btnMenuPerfil.Click += (sender, e) =>
+			btnPerfil.Click += (sender, e) =>
 			{
                 AbrirFormHijo(perfil);
 				perfil.ConfigurarNombre(nombre, carnet, telefono, idestado); // Pasa el nombre al PerfilForm cuando se carga
@@ -44,27 +44,12 @@ namespace SistemaDeNotas
         {
             Application.Exit();
         }
-        private void btnMenuPerfil_Click(object sender, EventArgs e)
-        {
-            //AbrirFormHijo(new PerfilForm());
-        }
+
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
-        }
-
-        private void btnMenuCursos_Click(object sender, EventArgs e)
-        {
-            string nombreAlumno = "";
-            string carnetAlumno = "";
-
-            AbrirFormHijo(new InscripcionForm());
-        }        
-        private void btnMenuAlumnos_Click(object sender, EventArgs e)
-        {
-            AbrirFormHijo(new UsuarioFormAdmin());
         }
 
         private void horaFecha_Tick(object sender, EventArgs e)
@@ -73,14 +58,24 @@ namespace SistemaDeNotas
             lblFecha.Text = DateTime.Now.ToShortDateString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new CursosForm());
+            AbrirFormHijo(new UsuarioFormAdmin());
         }
 
         private void btnMaterias_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new MateriasForm());
+        }
+
+        private void btnCursos_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new CursosForm());
+        }
+
+        private void btnInscripcion_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new InscripcionForm());
         }
     }
 }
