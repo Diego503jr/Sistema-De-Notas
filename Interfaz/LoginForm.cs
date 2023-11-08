@@ -51,7 +51,7 @@ namespace SistemaDeNotas
 			CConexion conexion = new CConexion();
 			try
 			{
-				SqlCommand cmd = new SqlCommand("SELECT Nombre,IdRol,Carnet,Telefono,IdEstado FROM dbo.Usuarios WHERE Carnet = @Carnet AND Contraseña = @Contraseña", conexion.establecerConexion());
+				SqlCommand cmd = new SqlCommand("SELECT Nombre,IdRol,Carnet,Telefono,IdEstado, Id FROM dbo.Usuarios WHERE Carnet = @Carnet AND Contraseña = @Contraseña", conexion.establecerConexion());
 
 				cmd.Parameters.AddWithValue("Carnet", Carnet);
 				cmd.Parameters.AddWithValue("Contraseña", Contraseña);
@@ -68,7 +68,7 @@ namespace SistemaDeNotas
 					}
 					else if (dt.Rows[0][1].ToString() == "1")
 					{
-						new DocenteForm(dt.Rows[0][0].ToString(), dt.Rows[0][2].ToString(), dt.Rows[0][3].ToString(), dt.Rows[0][4].ToString()).Show();
+						new DocenteForm(dt.Rows[0][0].ToString(), dt.Rows[0][2].ToString(), dt.Rows[0][3].ToString(), dt.Rows[0][4].ToString(), dt.Rows[0][5].ToString()).Show();
 					}
 					else if (dt.Rows[0][1].ToString() == "2")
 					{

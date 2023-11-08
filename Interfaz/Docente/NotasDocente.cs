@@ -13,14 +13,18 @@ namespace SistemaDeNotas.Interfaz.Docente
 {
 	public partial class NotasDocente : Form
 	{
-		public NotasDocente()
+        private string IDDOCENTE;
+
+		public NotasDocente(string id)
 		{
+            this.IDDOCENTE = id;
 			InitializeComponent();
 		}
 
-		public void MostrarNotas()
+		private void MostrarNotas()
 		{
-			dgvnotasdocente.DataSource = FuncionesDocente.MostrarNotas();
+            int idDocente = Convert.ToInt32(IDDOCENTE);
+			dgvnotasdocente.DataSource = FuncionesDocente.MostrarNotas(idDocente);
 		}
 
         private void NotasDocente_Load(object sender, EventArgs e)

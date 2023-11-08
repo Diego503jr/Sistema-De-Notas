@@ -187,7 +187,6 @@
             this.btnMenuCursos.TabIndex = 27;
             this.btnMenuCursos.Text = "Notas";
             this.btnMenuCursos.UseVisualStyleBackColor = false;
-            this.btnMenuCursos.Click += new System.EventHandler(this.btnMenuCursos_Click);
             // 
             // pictureBox4
             // 
