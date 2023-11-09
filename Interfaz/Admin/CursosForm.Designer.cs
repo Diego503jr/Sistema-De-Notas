@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gbDetalleCurso = new System.Windows.Forms.GroupBox();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtNombreCurso = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
@@ -48,22 +50,46 @@
             // gbDetalleCurso
             // 
             this.gbDetalleCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gbDetalleCurso.Controls.Add(this.cbEstado);
+            this.gbDetalleCurso.Controls.Add(this.label3);
             this.gbDetalleCurso.Controls.Add(this.txtNombreCurso);
             this.gbDetalleCurso.Controls.Add(this.label2);
             this.gbDetalleCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDetalleCurso.Location = new System.Drawing.Point(145, 119);
+            this.gbDetalleCurso.Location = new System.Drawing.Point(146, 136);
             this.gbDetalleCurso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbDetalleCurso.Name = "gbDetalleCurso";
             this.gbDetalleCurso.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbDetalleCurso.Size = new System.Drawing.Size(860, 143);
+            this.gbDetalleCurso.Size = new System.Drawing.Size(860, 187);
             this.gbDetalleCurso.TabIndex = 2;
             this.gbDetalleCurso.TabStop = false;
             this.gbDetalleCurso.Text = "Detalles curso";
             // 
+            // cbEstado
+            // 
+            this.cbEstado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Location = new System.Drawing.Point(264, 120);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(256, 37);
+            this.cbEstado.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(132, 120);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 29);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Estado :";
+            // 
             // txtNombreCurso
             // 
+            this.txtNombreCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNombreCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreCurso.Location = new System.Drawing.Point(195, 74);
+            this.txtNombreCurso.Location = new System.Drawing.Point(264, 52);
             this.txtNombreCurso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombreCurso.Name = "txtNombreCurso";
             this.txtNombreCurso.Size = new System.Drawing.Size(375, 34);
@@ -71,9 +97,10 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(63, 78);
+            this.label2.Location = new System.Drawing.Point(119, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 29);
             this.label2.TabIndex = 0;
@@ -87,13 +114,13 @@
             this.dgvCursos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCursos.GridColor = System.Drawing.Color.White;
-            this.dgvCursos.Location = new System.Drawing.Point(252, 379);
+            this.dgvCursos.Location = new System.Drawing.Point(200, 428);
             this.dgvCursos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCursos.Name = "dgvCursos";
             this.dgvCursos.ReadOnly = true;
             this.dgvCursos.RowHeadersWidth = 51;
             this.dgvCursos.RowTemplate.Height = 24;
-            this.dgvCursos.Size = new System.Drawing.Size(403, 384);
+            this.dgvCursos.Size = new System.Drawing.Size(466, 331);
             this.dgvCursos.TabIndex = 3;
             this.dgvCursos.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCursos_RowHeaderMouseClick);
             // 
@@ -106,7 +133,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(743, 485);
+            this.btnAgregar.Location = new System.Drawing.Point(743, 514);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(175, 41);
@@ -124,7 +151,7 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(743, 553);
+            this.btnEliminar.Location = new System.Drawing.Point(743, 582);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(175, 41);
@@ -142,7 +169,7 @@
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.White;
-            this.btnActualizar.Location = new System.Drawing.Point(743, 629);
+            this.btnActualizar.Location = new System.Drawing.Point(743, 658);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(175, 41);
@@ -160,7 +187,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(743, 312);
+            this.btnLimpiar.Location = new System.Drawing.Point(743, 371);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(175, 41);
@@ -174,7 +201,7 @@
             this.lblFiltro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblFiltro.AutoSize = true;
             this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltro.Location = new System.Drawing.Point(177, 312);
+            this.lblFiltro.Location = new System.Drawing.Point(177, 371);
             this.lblFiltro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiltro.Name = "lblFiltro";
             this.lblFiltro.Size = new System.Drawing.Size(217, 29);
@@ -185,7 +212,7 @@
             // 
             this.txtFiltroNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFiltroNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltroNombre.Location = new System.Drawing.Point(409, 312);
+            this.txtFiltroNombre.Location = new System.Drawing.Point(409, 371);
             this.txtFiltroNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtFiltroNombre.Multiline = true;
             this.txtFiltroNombre.Name = "txtFiltroNombre";
@@ -258,5 +285,7 @@
 		private System.Windows.Forms.TextBox txtFiltroNombre;
         private System.Windows.Forms.Panel SubBarraTitulo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbEstado;
+        private System.Windows.Forms.Label label3;
     }
 }

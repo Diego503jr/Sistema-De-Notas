@@ -21,11 +21,6 @@ namespace SistemaDeNotas.Interfaz.Admin
         {
             InitializeComponent();
         }
-
-        private void btnAgregarAlumno_Click(object sender, EventArgs e)
-        {
-            //Aqui tiene que ir la funcion para crear alumno
-        }
         private void UsuarioFormAdmin_Load(object sender, EventArgs e)
         {
             ConfigurarDataGridView();
@@ -87,6 +82,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
             else
             {
+                MessageBox.Show($"{txtCarnet.Text}");
                 Usuario.IdRole = Convert.ToInt32(cbRol.SelectedValue);
                 Usuario.Nombre = txtNombre.Text;
                 Usuario.Carnet = txtCarnet.Text;
@@ -98,9 +94,52 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
         }
 
+        private void btnActualizarAlumno_Click(object sender, EventArgs e)
+        {
+            Actualizar();
+        }
+        private void Actualizar()
+        {
+            if (txtNombre.Text == "" || txtCarnet.Text == "" || txtPassword.Text == "" || txtTelefono.Text == "" || cbRol.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                int id = (int)dgvUsuarios.SelectedRows[0].Cells["Id"].Value;
+                Usuario.Id = id;
+                Usuario.IdRole = Convert.ToInt32(cbRol.SelectedValue);
+                Usuario.Nombre = txtNombre.Text;
+                Usuario.Carnet = txtCarnet.Text;
+                Usuario.Contraseña = txtPassword.Text;
+                Usuario.Telefono = txtTelefono.Text;
+                Usuario.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
+                FuncionesAdministrador.ActualizarUsuarios(Usuario);
+                MostrarUsuarios();
+            }
+        }
+        private void btnEliminarAlumno_Click(object sender, EventArgs e)
+        {
+            Eliminar();
+        }
+        private void Eliminar()
+        {
+            if (dgvUsuarios.SelectedRows.Count < 0 || txtNombre.Text == "" || txtCarnet.Text == "" || txtPassword.Text == "" || txtTelefono.Text == "" || cbRol.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show("No hay datos seleccionados para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                int id = (int)dgvUsuarios.SelectedRows[0].Cells["Id"].Value;
+                Usuario.Id = id;
+                FuncionesAdministrador.EliminarUsuario(Usuario);
+                MostrarUsuarios();
+            }
+        }
         private void MostrarUsuarios()
         {
             dgvUsuarios.DataSource = FuncionesAdministrador.MostrarUsuarios();
+            dgvUsuarios.Columns[5].Visible = false;
         }
 
         private void MostrarRoles()
@@ -154,11 +193,13 @@ namespace SistemaDeNotas.Interfaz.Admin
                 string idEstado = row.Cells["Estado"].Value.ToString();
                 string nombre = row.Cells["Nombre"].Value.ToString();
                 string carnet = row.Cells["Carnet"].Value.ToString();
+                string contraseña = row.Cells["Contraseña"].Value.ToString();
                 string telefono = row.Cells["Telefono"].Value.ToString();
 
                 txtNombre.Text = nombre;
                 txtCarnet.Text = carnet;
                 txtTelefono.Text = telefono;
+                txtPassword.Text = contraseña;
 
                 //Se hacen las consulta SQL a las 3 tablas
                 string queryRol = "SELECT RolUsuario FROM dbo.Roles WHERE RolUsuario = @rol";

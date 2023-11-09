@@ -87,6 +87,7 @@
             this.btnActualizarAlumno.TabIndex = 45;
             this.btnActualizarAlumno.Text = "Actualizar";
             this.btnActualizarAlumno.UseVisualStyleBackColor = false;
+            this.btnActualizarAlumno.Click += new System.EventHandler(this.btnActualizarAlumno_Click);
             // 
             // btnEliminarAlumno
             // 
@@ -103,6 +104,7 @@
             this.btnEliminarAlumno.TabIndex = 44;
             this.btnEliminarAlumno.Text = "Eliminar";
             this.btnEliminarAlumno.UseVisualStyleBackColor = false;
+            this.btnEliminarAlumno.Click += new System.EventHandler(this.btnEliminarAlumno_Click);
             // 
             // dgvUsuarios
             // 

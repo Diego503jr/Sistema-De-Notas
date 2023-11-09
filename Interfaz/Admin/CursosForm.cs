@@ -28,10 +28,19 @@ namespace SistemaDeNotas.Interfaz.Admin
 			dgvCursos.DataSource = FuncionesAdministrador.MostrarCurso();
 		}
 
+		private void MostrarEstado()
+		{
+            cbEstado.DataSource = FuncionesAdministrador.ListarEstado();
+            cbEstado.DisplayMember = "EstadoValor";
+            cbEstado.ValueMember = "Id";
+            cbEstado.Text = null;
+        }
+
 		private void CursosForm_Load(object sender, EventArgs e)
 		{
 			ConfigurarDataGridView();
 			MostrarCursos();
+			MostrarEstado();
 		}
         private void ConfigurarDataGridView()
         {
@@ -75,67 +84,70 @@ namespace SistemaDeNotas.Interfaz.Admin
                 }
             };
         }
+
         //AGREGAR CURSO
-        private void Insertar()
-		{
-			if (txtNombreCurso.Text == "" )
-			{
-				MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
-			else
-			{
-				Curso.Nombre = txtNombreCurso.Text;
-				FuncionesAdministrador.AgregarCurso(Curso);
-                MostrarCursos();
-			}
-		}
 		private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombreCurso.Text) )
+            Insertar();
+        }
+        private void Insertar()
+        {
+            if (txtNombreCurso.Text == "" || cbEstado.SelectedIndex == -1)
             {
-                MessageBox.Show("No puede dejar campos vacíos", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No hay datos, por favor llene todos los campos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-				Insertar();
+                Curso.Nombre = txtNombreCurso.Text;
+                Curso.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
+                FuncionesAdministrador.AgregarCurso(Curso);
+                MostrarCursos();
             }
         }
 
-        
-		//ACTUALIZAR CURSO
+        //ACTUALIZAR CURSO
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-			MessageBox.Show("Se ha actualizado la información de curso con éxtio", "Actualizar Curso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			int id = (int)dgvCursos.SelectedRows[0].Cells["Id"].Value;
-			curso.Id = id;
 			Actualizar();
 		}
 		
-
-		ConstructorCurso curso = new ConstructorCurso();
 		private void Actualizar()
 		{
-			if (txtNombreCurso.Text == "" )
+			if (txtNombreCurso.Text == "" || cbEstado.SelectedIndex == -1)
 			{
-				MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show("No hay datos, por favor llene todos los campos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
 			{
-				curso.Nombre = txtNombreCurso.Text;
-				FuncionesAdministrador.ActualizarCurso(curso);
-				MostrarCursos();
+                int id = (int)dgvCursos.SelectedRows[0].Cells["Id"].Value;
+                Curso.Id = id;
+                Curso.Nombre = txtNombreCurso.Text;
+				Curso.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
+				FuncionesAdministrador.ActualizarCurso(Curso);
+                MostrarCursos();
 			}
 		}
 
 		//ELIMINAR CURSO
 		private void btnEliminar_Click(object sender, EventArgs e)
 		{
-			int id = (int)dgvCursos.SelectedRows[0].Cells["Id"].Value;
-			curso.Id = id;
-			FuncionesAdministrador.EliminarCurso(curso);
-			MessageBox.Show("Curso eliminado con éxito", "Eliminar Curso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-			MostrarCursos();
+			Eliminar();
 		}
+
+		private void Eliminar()
+		{
+            if (dgvCursos.SelectedRows.Count < 0 || txtNombreCurso.Text == "" || cbEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show("No hay datos seleccionados para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                int id = (int)dgvCursos.SelectedRows[0].Cells["Id"].Value;
+                Curso.Id = id;
+                FuncionesAdministrador.EliminarCurso(Curso);
+                MostrarCursos();
+            }
+        }
 
 		//COMPLETAR TEXTBOX CON INFORMACIÓN DE DATAGRID
 		private void dgvCursos_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -150,6 +162,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 			}
 			posicion = dgvCursos.CurrentRow.Index;
 			txtNombreCurso.Text = dgvCursos[1, posicion].Value.ToString();
+			cbEstado.Text = dgvCursos[2, posicion].Value.ToString();
 			btnAgregar.Enabled = false;
 			btnActualizar.Enabled = true;
 			btnEliminar.Enabled = true;
@@ -162,6 +175,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 		{
 			txtNombreCurso.Clear();
 			txtFiltroNombre.Clear();
+			cbEstado.Text = null;
 			if (dgvCursos.SelectedRows.Count > 0)
 			{
 				dgvCursos.SelectedRows[0].Selected = false;
@@ -180,7 +194,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 			if (!string.IsNullOrEmpty(buscar))
 			{
 				// Realiza la búsqueda en la fuente de datos y filtra los resultados
-				(dgvCursos.DataSource as DataTable).DefaultView.RowFilter = $"Nombre LIKE '%{buscar}%'";
+				(dgvCursos.DataSource as DataTable).DefaultView.RowFilter = $"Nombre LIKE '%{buscar}%' OR Estado LIKE '%{buscar}%'";
 			}
 			else
 			{

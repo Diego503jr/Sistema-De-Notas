@@ -19,13 +19,14 @@ namespace SistemaDeNotas.Clases
             try
             {
                 CConexion conexion = new CConexion();
-
-                string existeQuery = "SELECT COUNT(*) FROM dbo.Usuarios WHERE Id = @id AND Nombre = @nombre AND carnet = @carnet";
+                // Verificar si el usuario ya existe
+                string existeQuery = "SELECT COUNT(*) FROM dbo.Usuarios WHERE Nombre = @nombre AND Carnet = @carnet AND Contraseña = @contraseña AND IdEstado = @idestado AND Telefono = @telefono";
                 SqlCommand cmdExiste = new SqlCommand(existeQuery, conexion.establecerConexion());
-                cmdExiste.Parameters.AddWithValue("@nombre",Usuarios.Nombre);
+                cmdExiste.Parameters.AddWithValue("@nombre", Usuarios.Nombre);
                 cmdExiste.Parameters.AddWithValue("@carnet", Usuarios.Carnet);
-                cmdExiste.Parameters.AddWithValue("@id",Usuarios.Id);
-
+                cmdExiste.Parameters.AddWithValue("@contraseña", Usuarios.Contraseña);
+                cmdExiste.Parameters.AddWithValue("@idestado", Usuarios.IdEstado);
+                cmdExiste.Parameters.AddWithValue("@telefono", Usuarios.Telefono);
                 int count = (int)cmdExiste.ExecuteScalar();
 
                 if (count > 0)
@@ -67,7 +68,7 @@ namespace SistemaDeNotas.Clases
             DataTable data = new DataTable();
             try
             {
-                string query = "SELECT U.Id, R.RolUsuario As Rol, U.Nombre, U.Carnet, U.Telefono, E.EstadoValor As Estado " +
+                string query = "SELECT U.Id, R.RolUsuario As Rol, U.Nombre, U.Carnet, U.Telefono, U.Contraseña ,E.EstadoValor As Estado " +
                     "FROM dbo.Usuarios AS U " +
                     "INNER JOIN dbo.Roles AS R ON U.IdRol = R.Id " +
                     "INNER JOIN dbo.Estado AS E ON U.IdEstado = E.Id";
@@ -83,6 +84,87 @@ namespace SistemaDeNotas.Clases
             }
         }
 
+        public static int ActualizarUsuarios(ConstructorUsuario Usuarios)
+        {
+            int retorno = 0;
+            try
+            {
+                CConexion conexion = new CConexion();
+
+                // Verificar si el usuario ya existe
+                string existeQuery = "SELECT COUNT(*) FROM dbo.Usuarios WHERE Nombre = @nombre AND Carnet = @carnet AND Contraseña = @contraseña AND IdEstado = @idestado AND Telefono = @telefono";
+                SqlCommand cmdExiste = new SqlCommand(existeQuery, conexion.establecerConexion());
+                cmdExiste.Parameters.AddWithValue("@nombre", Usuarios.Nombre);
+                cmdExiste.Parameters.AddWithValue("@carnet", Usuarios.Carnet);
+                cmdExiste.Parameters.AddWithValue("@contraseña", Usuarios.Contraseña);
+                cmdExiste.Parameters.AddWithValue("@idestado", Usuarios.IdEstado);
+                cmdExiste.Parameters.AddWithValue("@telefono", Usuarios.Telefono);
+                int count = (int)cmdExiste.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    MessageBox.Show("Ya existe un registro con estos datos", "Registro Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+
+                string query = "UPDATE dbo.Usuarios SET IdRol = @rol, Nombre = @nombre, Carnet = @carnet, Contraseña = @contraseña, Telefono = @telefono, IdEstado = @estado WHERE Id = @Id";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@rol", Usuarios.IdRole);
+                cmd.Parameters.AddWithValue("@nombre", Usuarios.Nombre);
+                cmd.Parameters.AddWithValue("@carnet", Usuarios.Carnet);
+                cmd.Parameters.AddWithValue("@contraseña", Usuarios.Contraseña);
+                cmd.Parameters.AddWithValue("@telefono", Usuarios.Telefono);
+                cmd.Parameters.AddWithValue("@estado", Usuarios.IdEstado);
+                cmd.Parameters.AddWithValue("@Id", Usuarios.Id);
+
+                retorno = cmd.ExecuteNonQuery();
+                if (retorno >= 0)
+                {
+                    MessageBox.Show("Los datos del usuario se agregaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return retorno;
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no se agregaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return retorno;
+            }
+        }
+
+        public static int EliminarUsuario(ConstructorUsuario Usuario)
+        {
+            int retorno = 0;
+            try
+            {
+                CConexion conexion = new CConexion();
+                string query = "UPDATE dbo.Usuarios SET IdEstado = 0 WHERE Id = @Id";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@Id", Usuario.Id);
+                retorno = cmd.ExecuteNonQuery();
+
+                if (retorno >= 0)
+                {
+                    MessageBox.Show("Los datos del usuario se eliminaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return retorno;
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no se agregaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return retorno;
+            }
+        }
+
         //Funciones para el formulario Materias
         public static int AgregarMateria(ConstructorMateria Materia)
 		{
@@ -90,12 +172,29 @@ namespace SistemaDeNotas.Clases
 			try
 			{
 				CConexion conexion = new CConexion();
-				string query = "INSERT INTO dbo.Materias (Nombre, Descripcion, IdDocente) VALUES (@Nombre, @Descripcion, @IdDocente)";
+
+                // Verificar si la materia ya existe
+                string existeQuery = "SELECT COUNT(*) FROM dbo.Materias WHERE Nombre = @nombre AND Descripcion = @descripcion AND IdDocente = @iddocente AND IdEstado = @idestado";
+                SqlCommand cmdExiste = new SqlCommand(existeQuery, conexion.establecerConexion());
+                cmdExiste.Parameters.AddWithValue("@nombre", Materia.Nombre);
+                cmdExiste.Parameters.AddWithValue("@descripcion", Materia.Descripcion);
+                cmdExiste.Parameters.AddWithValue("@iddocente", Materia.IdDocente);
+                cmdExiste.Parameters.AddWithValue("@idestado", Materia.IdEstado);
+                int count = (int)cmdExiste.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    MessageBox.Show("Ya existe un registro con estos datos", "Registro Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+
+                string query = "INSERT INTO dbo.Materias (Nombre, Descripcion, IdDocente) VALUES (@Nombre, @Descripcion, @IdDocente)";
 				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
 				cmd.Parameters.AddWithValue("@Nombre", Materia.Nombre);
 				cmd.Parameters.AddWithValue("@Descripcion", Materia.Descripcion);
 				cmd.Parameters.AddWithValue("@IdDocente", Materia.IdDocente);
 				retorno = cmd.ExecuteNonQuery();
+
 				if (retorno >= 0)
 				{
 					MessageBox.Show("Los datos de la materia se agregaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -120,7 +219,10 @@ namespace SistemaDeNotas.Clases
             DataTable data = new DataTable();
             try
             {
-                string query = "SELECT m.Id, m.Nombre,m.Descripcion, U.Nombre AS Docente " + "FROM dbo.Materias AS m " + "INNER JOIN dbo.Usuarios AS U ON m.IdDocente = U.Id";
+                string query = "SELECT m.Id, m.Nombre,m.Descripcion, U.Nombre AS Docente, E.EstadoValor AS Estado " + 
+                    "FROM dbo.Materias AS m " + 
+                    "INNER JOIN dbo.Usuarios AS U ON m.IdDocente = U.Id " +
+                    "INNER JOIN dbo.Estado AS E ON m.IdEstado = E.Id";
                 SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
                 SqlDataAdapter dt = new SqlDataAdapter(cmd);
                 dt.Fill(data);
@@ -135,27 +237,79 @@ namespace SistemaDeNotas.Clases
 
 		public static int ActualizarMateria(ConstructorMateria Materia)
 		{
-			CConexion conexion = new CConexion();
 			int retorno = 0;
-			string actu = "UPDATE dbo.Materias SET Nombre = @Nombre, Descripcion= @Descripcion, IdDocente = @IdDocente WHERE Id= @Id";
-			SqlCommand cmd = new SqlCommand(actu, conexion.establecerConexion());
-			cmd.Parameters.AddWithValue("@Nombre", Materia.Nombre);
-			cmd.Parameters.AddWithValue("@Descripcion", Materia.Descripcion);
-			cmd.Parameters.AddWithValue("@Id", Materia.Id);
-			cmd.Parameters.AddWithValue("@IdDocente", Materia.IdDocente);
-			retorno = cmd.ExecuteNonQuery();
-			return retorno;
+            try
+            {
+                CConexion conexion = new CConexion();
+                // Verificar si la materia ya existe
+                string existeQuery = "SELECT COUNT(*) FROM dbo.Materias WHERE Nombre = @nombre AND Descripcion = @descripcion AND IdDocente = @iddocente AND IdEstado = @idestado";
+                SqlCommand cmdExiste = new SqlCommand(existeQuery, conexion.establecerConexion());
+                cmdExiste.Parameters.AddWithValue("@nombre", Materia.Nombre);
+                cmdExiste.Parameters.AddWithValue("@descripcion", Materia.Descripcion);
+                cmdExiste.Parameters.AddWithValue("@iddocente", Materia.IdDocente);
+                cmdExiste.Parameters.AddWithValue("@idestado", Materia.IdEstado);
+                int count = (int)cmdExiste.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    MessageBox.Show("Ya existe un registro con estos datos", "Registro Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+
+                string actu = "UPDATE dbo.Materias SET Nombre = @Nombre, Descripcion = @Descripcion, IdDocente = @IdDocente, IdEstado = @idestado WHERE Id= @Id";
+                SqlCommand cmd = new SqlCommand(actu, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@Nombre", Materia.Nombre);
+                cmd.Parameters.AddWithValue("@Descripcion", Materia.Descripcion);
+                cmd.Parameters.AddWithValue("@IdDocente", Materia.IdDocente);
+                cmd.Parameters.AddWithValue("@idestado", Materia.IdEstado);
+                cmd.Parameters.AddWithValue("@Id", Materia.Id);
+                retorno = cmd.ExecuteNonQuery();
+                if (retorno >= 0)
+                {
+                    MessageBox.Show("Los datos de la materia se actualizaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return retorno;
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no se actualizaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return retorno;
+            }
 		}
 
 		public static int EliminarMateria(ConstructorMateria Materia)
 		{
-			CConexion conexion = new CConexion();
-			int retorno = 0;
-			string query = "DELETE dbo.Materias  WHERE Id = @Id";
-			SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-			cmd.Parameters.AddWithValue("@Id", Materia.Id);
-			retorno = cmd.ExecuteNonQuery();
-			return retorno;
+            int retorno = 0;
+            try
+            {
+                CConexion conexion = new CConexion();
+                string query = "UPDATE dbo.Materias SET IdEstado = 0 WHERE Id = @Id";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@Id", Materia.Id);
+                retorno = cmd.ExecuteNonQuery();
+
+                if (retorno >= 0)
+                {
+                    MessageBox.Show("Los datos de la materia se eliminaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return retorno;
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no se eliminaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return retorno;
+            }
+            
 		}
 
 		//Funciones para el formulario Curso
@@ -166,9 +320,24 @@ namespace SistemaDeNotas.Clases
 			try
 			{
 				CConexion conexion = new CConexion();
-				string query = "INSERT INTO dbo.Cursos ( Nombre) VALUES ( @Nombre)";
+
+                // Verificar si el curso ya existe
+                string queryVerificar = "SELECT COUNT(*) FROM dbo.Cursos WHERE Nombre = @Nombre AND IdEstado = @idestado";
+                SqlCommand cmdVerificar = new SqlCommand(queryVerificar, conexion.establecerConexion());
+                cmdVerificar.Parameters.AddWithValue("@Nombre", Curso.Nombre);
+                cmdVerificar.Parameters.AddWithValue("@idestado", Curso.IdEstado);
+                int cantidadCursos = (int)cmdVerificar.ExecuteScalar();
+
+                if (cantidadCursos > 0)
+                {
+                    MessageBox.Show("Ya existe un curso con el mismo nombre.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+
+                string query = "INSERT INTO dbo.Cursos (Nombre, IdEstado) VALUES (@Nombre, @IdEstado)";
 				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
 				cmd.Parameters.AddWithValue("@Nombre", Curso.Nombre);
+                cmd.Parameters.AddWithValue("@IdEstado", Curso.IdEstado);
 				retorno = cmd.ExecuteNonQuery();
 				if (retorno >= 0)
 				{
@@ -195,7 +364,9 @@ namespace SistemaDeNotas.Clases
             DataTable data = new DataTable();
 			try
 			{
-				string query = "SELECT *FROM dbo.Cursos";
+                string query = "SELECT C.Id, C.Nombre, E.EstadoValor AS Estado " +
+                    "FROM dbo.Cursos AS C " +
+                    "INNER JOIN dbo.Estado AS E ON C.IdEstado = E.Id ";
 				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
 				SqlDataAdapter dt = new SqlDataAdapter(cmd);
 				dt.Fill(data);
@@ -212,23 +383,74 @@ namespace SistemaDeNotas.Clases
 		{
             CConexion conexion = new CConexion();
             int retorno = 0;
-			string query = "Update dbo.Cursos SET Nombre = @Nombre WHERE Id = @Id";
-			SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-			cmd.Parameters.AddWithValue("@Nombre", Curso.Nombre);
-			cmd.Parameters.AddWithValue("@Id",Curso.Id);
-			retorno = cmd.ExecuteNonQuery();
-			return retorno;
+
+            try
+            {
+                // Verificar si el curso ya existe
+                string queryVerificar = "SELECT COUNT(*) FROM dbo.Cursos WHERE Nombre = @Nombre AND IdEstado = @idestado";
+                SqlCommand cmdVerificar = new SqlCommand(queryVerificar, conexion.establecerConexion());
+                cmdVerificar.Parameters.AddWithValue("@Nombre", Curso.Nombre);
+                cmdVerificar.Parameters.AddWithValue("@idestado", Curso.IdEstado);
+                int cantidadCursos = (int)cmdVerificar.ExecuteScalar();
+
+                if (cantidadCursos > 0)
+                {
+                    MessageBox.Show("Ya existe un curso con el mismo nombre.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+
+                string query = "Update dbo.Cursos SET Nombre = @Nombre, IdEstado = @IdEstado WHERE Id = @Id";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@Nombre", Curso.Nombre);
+                cmd.Parameters.AddWithValue("@IdEstado", Curso.IdEstado);
+                cmd.Parameters.AddWithValue("@Id", Curso.Id);
+                retorno = cmd.ExecuteNonQuery();
+
+                if (retorno >= 0)
+                {
+                    MessageBox.Show("Se ha actualizado la información de curso con éxtio", "Actualizar Curso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return retorno;
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no se actualizaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return retorno;
+            }
 		}
 
 		public static int EliminarCurso(ConstructorCurso Curso)
 		{
 			CConexion conexion = new CConexion();
 			int retorno = 0;
-			string query = "DELETE dbo.Cursos  WHERE Id = @Id";
-			SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-			cmd.Parameters.AddWithValue("@Id", Curso.Id);
-			retorno = cmd.ExecuteNonQuery();
-			return retorno;
+            try
+            {
+                string query = "UPDATE dbo.Cursos SET IdEstado = 0 WHERE Id = @Id";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@Id", Curso.Id);
+                retorno = cmd.ExecuteNonQuery();
+
+                if (retorno >= 0)
+                {
+			        MessageBox.Show("Curso eliminado con éxito", "Eliminar Curso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return retorno;
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no se eliminaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return retorno;
+            }
 		}
 
 
@@ -242,7 +464,8 @@ namespace SistemaDeNotas.Clases
 			{
                 CConexion conexion = new CConexion();
 
-				string existeQuery = "SELECT COUNT(*) FROM dbo.Inscripcion WHERE IdAlumno = @idAlumno AND IdCurso = @idCurso AND IdMateria = @idMateria";
+                // Verificar si la inscripcion ya existe
+                string existeQuery = "SELECT COUNT(*) FROM dbo.Inscripcion WHERE IdAlumno = @idAlumno AND IdCurso = @idCurso AND IdMateria = @idMateria";
 				SqlCommand cmdExiste = new SqlCommand(existeQuery, conexion.establecerConexion());
 				cmdExiste.Parameters.AddWithValue("@idAlumno", Inscripcion.IdAlumno);
 				cmdExiste.Parameters.AddWithValue("@idCurso", Inscripcion.IdCurso);
@@ -319,6 +542,7 @@ namespace SistemaDeNotas.Clases
 			{
 				CConexion conexion = new CConexion();
 
+                // Verificar si la inscripcion ya existe
                 string existeQuery = "SELECT COUNT(*) FROM dbo.Inscripcion WHERE IdAlumno = @idAlumno AND IdCurso = @idCurso AND IdMateria = @idMateria";
                 SqlCommand cmdExiste = new SqlCommand(existeQuery, conexion.establecerConexion());
                 cmdExiste.Parameters.AddWithValue("@idAlumno", Inscripcion.IdAlumno);

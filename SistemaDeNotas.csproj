@@ -55,6 +55,7 @@
     <Compile Include="Clases\FuncionesDocente.cs" />
     <Compile Include="Clases\FuncionesAdministrador.cs" />
     <Compile Include="Clases\FuncionesAlumno.cs" />
+    <Compile Include="Clases\FuncionesGlobales.cs" />
     <Compile Include="Interfaz\Admin\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
