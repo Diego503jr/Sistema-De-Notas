@@ -49,6 +49,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbCursos = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
+            this.btnEliminarInscrip = new System.Windows.Forms.Button();
             this.gBDatosInscribir.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).BeginInit();
             this.SubBarraTitulo.SuspendLayout();
@@ -64,7 +67,7 @@
             this.btnActualizarInscripcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizarInscripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizarInscripcion.ForeColor = System.Drawing.Color.White;
-            this.btnActualizarInscripcion.Location = new System.Drawing.Point(962, 663);
+            this.btnActualizarInscripcion.Location = new System.Drawing.Point(962, 620);
             this.btnActualizarInscripcion.Name = "btnActualizarInscripcion";
             this.btnActualizarInscripcion.Size = new System.Drawing.Size(175, 41);
             this.btnActualizarInscripcion.TabIndex = 73;
@@ -75,6 +78,8 @@
             // gBDatosInscribir
             // 
             this.gBDatosInscribir.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gBDatosInscribir.Controls.Add(this.cbEstado);
+            this.gBDatosInscribir.Controls.Add(this.label3);
             this.gBDatosInscribir.Controls.Add(this.btnBuscarAlumno);
             this.gBDatosInscribir.Controls.Add(this.txtCarnet);
             this.gBDatosInscribir.Controls.Add(this.txtNombre);
@@ -95,10 +100,11 @@
             this.btnBuscarAlumno.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarAlumno.FlatAppearance.BorderSize = 0;
             this.btnBuscarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarAlumno.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarAlumno.Location = new System.Drawing.Point(161, 175);
+            this.btnBuscarAlumno.Location = new System.Drawing.Point(379, 124);
             this.btnBuscarAlumno.Name = "btnBuscarAlumno";
-            this.btnBuscarAlumno.Size = new System.Drawing.Size(199, 36);
+            this.btnBuscarAlumno.Size = new System.Drawing.Size(130, 68);
             this.btnBuscarAlumno.TabIndex = 58;
             this.btnBuscarAlumno.Text = "Buscar alumno";
             this.btnBuscarAlumno.UseVisualStyleBackColor = false;
@@ -108,16 +114,16 @@
             // 
             this.txtCarnet.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCarnet.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCarnet.Location = new System.Drawing.Point(140, 115);
+            this.txtCarnet.Location = new System.Drawing.Point(140, 112);
             this.txtCarnet.Name = "txtCarnet";
-            this.txtCarnet.Size = new System.Drawing.Size(204, 34);
+            this.txtCarnet.Size = new System.Drawing.Size(184, 34);
             this.txtCarnet.TabIndex = 57;
             // 
             // txtNombre
             // 
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(140, 58);
+            this.txtNombre.Location = new System.Drawing.Point(140, 55);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(369, 34);
             this.txtNombre.TabIndex = 56;
@@ -127,7 +133,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(21, 118);
+            this.label6.Location = new System.Drawing.Point(29, 115);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 29);
             this.label6.TabIndex = 55;
@@ -138,7 +144,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 61);
+            this.label8.Location = new System.Drawing.Point(12, 58);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(113, 29);
             this.label8.TabIndex = 54;
@@ -153,7 +159,7 @@
             this.btnInscribir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInscribir.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInscribir.ForeColor = System.Drawing.Color.White;
-            this.btnInscribir.Location = new System.Drawing.Point(962, 587);
+            this.btnInscribir.Location = new System.Drawing.Point(962, 544);
             this.btnInscribir.Name = "btnInscribir";
             this.btnInscribir.Size = new System.Drawing.Size(175, 41);
             this.btnInscribir.TabIndex = 71;
@@ -318,12 +324,50 @@
             this.label2.TabIndex = 90;
             this.label2.Text = "Curso :";
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(25, 175);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 29);
+            this.label3.TabIndex = 59;
+            this.label3.Text = "Estado :";
+            // 
+            // cbEstado
+            // 
+            this.cbEstado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Location = new System.Drawing.Point(140, 172);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(184, 37);
+            this.cbEstado.TabIndex = 60;
+            // 
+            // btnEliminarInscrip
+            // 
+            this.btnEliminarInscrip.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEliminarInscrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.btnEliminarInscrip.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminarInscrip.FlatAppearance.BorderSize = 0;
+            this.btnEliminarInscrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarInscrip.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarInscrip.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarInscrip.Location = new System.Drawing.Point(962, 699);
+            this.btnEliminarInscrip.Name = "btnEliminarInscrip";
+            this.btnEliminarInscrip.Size = new System.Drawing.Size(175, 41);
+            this.btnEliminarInscrip.TabIndex = 79;
+            this.btnEliminarInscrip.Text = "Eliminar";
+            this.btnEliminarInscrip.UseVisualStyleBackColor = false;
+            this.btnEliminarInscrip.Click += new System.EventHandler(this.btnEliminarInscrip_Click);
+            // 
             // InscripcionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1169, 823);
+            this.Controls.Add(this.btnEliminarInscrip);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.lblFiltro);
@@ -372,5 +416,8 @@
         private System.Windows.Forms.ComboBox cbCursos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBuscarAlumno;
+        private System.Windows.Forms.ComboBox cbEstado;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnEliminarInscrip;
     }
 }

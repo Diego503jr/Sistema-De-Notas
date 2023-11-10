@@ -21,21 +21,21 @@ namespace SistemaDeNotas.Interfaz.Admin
 		{
 			InitializeComponent();
 		}
+        private void MateriasForm_Load(object sender, EventArgs e)
+        {
+            ConfigurarDataGridView();
+            MostrarMaterias();
+            MostrarEstado();
+            ListarDocentesMat();
+        }
 
-		//MOSTRAR MATERIA
-		public void MostrarMaterias()
+        //MOSTRAR MATERIA
+        public void MostrarMaterias()
 		{
 			dgvMaterias.DataSource = FuncionesAdministrador.MostrarMateria();
 		}
 
-		private void MateriasForm_Load(object sender, EventArgs e)
-		{
-			ConfigurarDataGridView();
-			MostrarMaterias();
-            MostrarEstado();
-            ListarDocentesMat();
-		}
-
+        //PERSONALIZACION DEL DATAGRID
         private void ConfigurarDataGridView()
         {
             // Establecer el estilo de las celdas
@@ -78,6 +78,8 @@ namespace SistemaDeNotas.Interfaz.Admin
                 }
             };
         }
+
+        //MOSTRAR ESTADO
         private void MostrarEstado()
         {
             cbEstado.DataSource = FuncionesAdministrador.ListarEstado();
