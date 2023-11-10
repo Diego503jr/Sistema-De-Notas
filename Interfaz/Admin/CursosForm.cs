@@ -21,14 +21,21 @@ namespace SistemaDeNotas.Interfaz.Admin
         {
             InitializeComponent();
         }
+        private void CursosForm_Load(object sender, EventArgs e)
+        {
+            ConfigurarDataGridView();
+            MostrarCursos();
+            MostrarEstado();
+        }
 
-		//MOSTRAR CURSO
-		private void MostrarCursos()
+        //MOSTRAR CURSO
+        private void MostrarCursos()
 		{
 			dgvCursos.DataSource = FuncionesAdministrador.MostrarCurso();
 		}
 
-		private void MostrarEstado()
+        //MOSTRAR ESTADO
+        private void MostrarEstado()
 		{
             cbEstado.DataSource = FuncionesAdministrador.ListarEstado();
             cbEstado.DisplayMember = "EstadoValor";
@@ -36,12 +43,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             cbEstado.Text = null;
         }
 
-		private void CursosForm_Load(object sender, EventArgs e)
-		{
-			ConfigurarDataGridView();
-			MostrarCursos();
-			MostrarEstado();
-		}
+		//PERSONALIZACION DEL DATAGRID
         private void ConfigurarDataGridView()
         {
             // Establecer el estilo de las celdas
@@ -85,11 +87,11 @@ namespace SistemaDeNotas.Interfaz.Admin
             };
         }
 
-        //AGREGAR CURSO
 		private void btnAgregar_Click(object sender, EventArgs e)
         {
             Insertar();
         }
+        //FUNCION PARA AGREGAR CURSO
         private void Insertar()
         {
             if (txtNombreCurso.Text == "" || cbEstado.SelectedIndex == -1)
@@ -105,13 +107,13 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
         }
 
-        //ACTUALIZAR CURSO
         private void btnActualizar_Click(object sender, EventArgs e)
         {
 			Actualizar();
 		}
-		
-		private void Actualizar()
+
+        //FUNCION PARA ACTUALIZAR 
+        private void Actualizar()
 		{
 			if (txtNombreCurso.Text == "" || cbEstado.SelectedIndex == -1)
 			{
@@ -128,13 +130,13 @@ namespace SistemaDeNotas.Interfaz.Admin
 			}
 		}
 
-		//ELIMINAR CURSO
 		private void btnEliminar_Click(object sender, EventArgs e)
 		{
 			Eliminar();
 		}
 
-		private void Eliminar()
+        //FUNCION PARA ELIMINAR CURSO
+        private void Eliminar()
 		{
             if (dgvCursos.SelectedRows.Count < 0 || txtNombreCurso.Text == "" || cbEstado.SelectedIndex == -1)
             {
@@ -149,7 +151,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
         }
 
-		//COMPLETAR TEXTBOX CON INFORMACIÓN DE DATAGRID
+		//COMPLETAR TEXTBOX Y COMBOBX CON INFORMACIÓN DEL DATAGRID
 		private void dgvCursos_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
 		{
 			if (e.RowIndex >= 0)
@@ -169,9 +171,24 @@ namespace SistemaDeNotas.Interfaz.Admin
 			txtNombreCurso.Focus();
 		}
 
+        //FILTRO DE BUSQUEDA EN TEXTBOX
+        private void txtFiltroNombre_TextChanged(object sender, EventArgs e)
+        {
+            string buscar = txtFiltroNombre.Text.Trim();
+            if (!string.IsNullOrEmpty(buscar))
+            {
+                // Realiza la búsqueda en la fuente de datos y filtra los resultados
+                (dgvCursos.DataSource as DataTable).DefaultView.RowFilter = $"Nombre LIKE '%{buscar}%' OR Estado LIKE '%{buscar}%'";
+            }
+            else
+            {
+                // Si el cuadro de búsqueda está vacío, muestra todos los datos
+                (dgvCursos.DataSource as DataTable).DefaultView.RowFilter = "";
+            }
+        }
 
-		//LIMPIAR BÚSQUEDA
-		private void btnLimpiar_Click(object sender, EventArgs e)
+        //LIMPIAR BÚSQUEDA
+        private void btnLimpiar_Click(object sender, EventArgs e)
 		{
 			txtNombreCurso.Clear();
 			txtFiltroNombre.Clear();
@@ -186,23 +203,5 @@ namespace SistemaDeNotas.Interfaz.Admin
 			}
 			btnAgregar.Enabled = true;
 		}
-
-		//FILTRO DE BUSQUEDA EN TEXTBOX
-		private void txtFiltroNombre_TextChanged(object sender, EventArgs e)
-		{
-			string buscar = txtFiltroNombre.Text.Trim();
-			if (!string.IsNullOrEmpty(buscar))
-			{
-				// Realiza la búsqueda en la fuente de datos y filtra los resultados
-				(dgvCursos.DataSource as DataTable).DefaultView.RowFilter = $"Nombre LIKE '%{buscar}%' OR Estado LIKE '%{buscar}%'";
-			}
-			else
-			{
-				// Si el cuadro de búsqueda está vacío, muestra todos los datos
-				(dgvCursos.DataSource as DataTable).DefaultView.RowFilter = "";
-			}
-		}
 	}
-
-	
 }
