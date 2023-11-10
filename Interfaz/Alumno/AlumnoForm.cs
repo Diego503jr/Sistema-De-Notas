@@ -13,7 +13,7 @@ namespace SistemaDeNotas
 {
     public partial class AlumnoForm : Form
     {
-        public AlumnoForm(string nombre, string carnet, string telefono, string idestado)
+        public AlumnoForm(string nombre, string carnet, string telefono, string idestado, string id)
         {
             InitializeComponent();
 			txtNombreUsuario.Text =  "Bienvenid@ " + nombre;
@@ -23,6 +23,18 @@ namespace SistemaDeNotas
 				AbrirFormHijo(perfil);
 				perfil.ConfigurarNombre(nombre, carnet, telefono, idestado); // Pasa el nombre al PerfilForm cuando se carga
 				perfil.Show(); // Muestra el formulario PerfilForm después de que se carga
+			};
+			NotasAlumnocs notasAlumno = new NotasAlumnocs(id);
+			btnNotas.Click += (sender, e) =>
+			{
+				AbrirFormHijo(notasAlumno);
+				notasAlumno.Show();
+			};
+			CursosAlumno cursosAlumno = new CursosAlumno(id);
+			btnCursos.Click += (sender, e) =>
+			{
+				AbrirFormHijo(cursosAlumno);
+				cursosAlumno.Show();
 			};
 		}
 
@@ -65,7 +77,7 @@ namespace SistemaDeNotas
 
         private void btnNotas_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new NotasAlumnocs());
+            //AbrirFormHijo(new NotasAlumnocs());
 
         }
     }

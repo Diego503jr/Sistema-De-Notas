@@ -56,6 +56,12 @@
     <Compile Include="Clases\FuncionesAdministrador.cs" />
     <Compile Include="Clases\FuncionesAlumno.cs" />
     <Compile Include="Clases\FuncionesGlobales.cs" />
+    <Compile Include="Interfaz\Alumno\CursosAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\Alumno\CursosAlumno.Designer.cs">
+      <DependentUpon>CursosAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaz\Admin\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Alumno\AlumnoForm.resx">
       <DependentUpon>AlumnoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\Alumno\CursosAlumno.resx">
+      <DependentUpon>CursosAlumno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Alumno\NotasAlumnocs.resx">
       <DependentUpon>NotasAlumnocs.cs</DependentUpon>
