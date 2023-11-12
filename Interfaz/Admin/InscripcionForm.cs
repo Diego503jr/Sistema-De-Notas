@@ -126,7 +126,8 @@ namespace SistemaDeNotas.Interfaz.Admin
         private void btnInscribir_Click(object sender, EventArgs e)
         {
             Insertar();
-        }
+			Limpiar();
+		}
 
         private void Insertar()
         {
@@ -160,7 +161,8 @@ namespace SistemaDeNotas.Interfaz.Admin
         private void btnActualizarInscripcion_Click(object sender, EventArgs e)
         {
             ActualizarInscripcion();
-        }
+			Limpiar();
+		}
 
         public void ActualizarInscripcion()
         {
@@ -277,11 +279,11 @@ namespace SistemaDeNotas.Interfaz.Admin
                 //Obteniendo la fila seleccionada
                 DataGridViewRow row = dgvInscripcion.Rows[e.RowIndex];
 
-				//Obteniendo el valor del campo IdAlumno, IdCurso, IdMateria de la fila seleccionada
-			
-				string idAlumno = row.Cells["Nombre"].Value.ToString();
-				string idCurso = row.Cells["Curso"].Value.ToString();
-				string idMateria = row.Cells["Materia"].Value.ToString();
+                //Obteniendo el valor del campo IdAlumno, IdCurso, IdMateria de la fila seleccionada
+
+                string idAlumno = row.Cells["Nombre"].Value.ToString();
+                string idCurso = row.Cells["Curso"].Value.ToString();
+                string idMateria = row.Cells["Materia"].Value.ToString();
                 string idEstado = row.Cells["Estado"].Value.ToString();
 
                 //Se hacen las consulta SQL a las 3 tablas
@@ -353,27 +355,32 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtNombre.Clear();
-            txtCarnet.Clear();
-            txtFiltroNombre.Clear();
-            cbCursos.Text = null; 
-            cbMaterias.Text = null;
-
-            if (dgvInscripcion.SelectedRows.Count > 0)
-            {
-                dgvInscripcion.SelectedRows[0].Selected = false;
-            }
-            foreach (DataGridViewRow row in dgvInscripcion.SelectedRows)
-            {
-                row.Selected = false;
-            }
-            btnInscribir.Enabled = true;
+            Limpiar();
         }
+        public void Limpiar()
+        {
+			txtNombre.Clear();
+			txtCarnet.Clear();
+			txtFiltroNombre.Clear();
+			cbCursos.Text = null;
+			cbMaterias.Text = null;
+
+			if (dgvInscripcion.SelectedRows.Count > 0)
+			{
+				dgvInscripcion.SelectedRows[0].Selected = false;
+			}
+			foreach (DataGridViewRow row in dgvInscripcion.SelectedRows)
+			{
+				row.Selected = false;
+			}
+			btnInscribir.Enabled = true;
+		}
 
         private void btnEliminarInscrip_Click(object sender, EventArgs e)
         {
             Eliminar();
-        }
+			Limpiar();
+		}
 
         private void Eliminar()
         {

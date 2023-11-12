@@ -92,6 +92,7 @@ namespace SistemaDeNotas.Interfaz.Admin
         private void btnAgregar_Click(object sender, EventArgs e)
 		{
 			Insertar();
+			Limpiar();
 		}
 
 		private void Insertar()
@@ -134,11 +135,13 @@ namespace SistemaDeNotas.Interfaz.Admin
 		private void btnActualizar_Click(object sender, EventArgs e)
 		{
 			Actualizar();
+			Limpiar();
 		}
 
 		private void btnEliminar_Click(object sender, EventArgs e)
 		{
 			Eliminar();
+			Limpiar();
 		}
 
 		private void Eliminar()
@@ -190,9 +193,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 			}
 		}
 
-
-		//LIMPIAR BÚSQUEDA
-		private void btnLimpiar_Click(object sender, EventArgs e)
+		public void Limpiar()
 		{
 			txtNombreMateria.Clear();
 			txtDescripcionMateria.Clear();
@@ -208,6 +209,12 @@ namespace SistemaDeNotas.Interfaz.Admin
 				row.Selected = false;
 			}
 			btnAgregar.Enabled = true;
+
+		}
+		//LIMPIAR BÚSQUEDA
+		private void btnLimpiar_Click(object sender, EventArgs e)
+		{
+			Limpiar();
 		}
 
 		//FILTRAR BÚSQUEDA

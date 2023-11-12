@@ -73,7 +73,8 @@ namespace SistemaDeNotas.Interfaz.Admin
         private void btnAgregarAlumno_Click_1(object sender, EventArgs e)
         {
             Insertar();
-        }
+			Limpiar();
+		}
         private void Insertar()
         {
             if (txtNombre.Text == "" || txtCarnet.Text == "" || txtPassword.Text == "" || txtTelefono.Text == "" || cbRol.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
@@ -97,7 +98,8 @@ namespace SistemaDeNotas.Interfaz.Admin
         private void btnActualizarAlumno_Click(object sender, EventArgs e)
         {
             Actualizar();
-        }
+			Limpiar();
+		}
         private void Actualizar()
         {
             if (txtNombre.Text == "" || txtCarnet.Text == "" || txtPassword.Text == "" || txtTelefono.Text == "" || cbRol.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
@@ -121,7 +123,8 @@ namespace SistemaDeNotas.Interfaz.Admin
         private void btnEliminarAlumno_Click(object sender, EventArgs e)
         {
             Eliminar();
-        }
+			Limpiar();
+		}
         private void Eliminar()
         {
             if (dgvUsuarios.SelectedRows.Count < 0 || txtNombre.Text == "" || txtCarnet.Text == "" || txtPassword.Text == "" || txtTelefono.Text == "" || cbRol.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
@@ -160,25 +163,30 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtNombre.Clear();
-            txtFiltroNombre.Clear();
-            txtTelefono.Clear();
-            txtPassword.Clear();
-            txtCarnet.Clear();
-            cbRol.Text = null;
-            cbEstado.Text = null;
-
-            if (dgvUsuarios.SelectedRows.Count > 0)
-            {
-                
-            }
-            foreach (DataGridViewRow row in dgvUsuarios.SelectedRows)
-            {
-                row.Selected = false;
-            }
-            btnAgregarAlumno.Enabled = true;
+			Limpiar();
+			
 
         }
+        public void Limpiar()
+        {
+			txtNombre.Clear();
+			txtFiltroNombre.Clear();
+			txtTelefono.Clear();
+			txtPassword.Clear();
+			txtCarnet.Clear();
+			cbRol.Text = null;
+			cbEstado.Text = null;
+
+			if (dgvUsuarios.SelectedRows.Count > 0)
+			{
+
+			}
+			foreach (DataGridViewRow row in dgvUsuarios.SelectedRows)
+			{
+				row.Selected = false;
+			}
+			btnAgregarAlumno.Enabled = true;
+		}
 
         private void dgvUsuarios_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {

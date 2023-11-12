@@ -110,5 +110,26 @@ namespace SistemaDeNotas
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-    }
+
+		private void pbMostrar_Click(object sender, EventArgs e)
+		{
+			//Enviamos imagen ocultar al frente
+			pbOcultar.BringToFront();
+			//Mostramos la contraseña
+			txtContraseña.PasswordChar = '\0';
+		}
+
+		private void pbOcultar_Click(object sender, EventArgs e)
+		{
+			//Enviamos imagen mostrar al frente
+			pbMostrar.BringToFront();
+			//Ocultamos la contraseña
+			txtContraseña.PasswordChar = '*';
+		}
+
+		private void LoginForm_Load(object sender, EventArgs e)
+		{
+			txtContraseña.PasswordChar = '*';
+		}
+	}
 }

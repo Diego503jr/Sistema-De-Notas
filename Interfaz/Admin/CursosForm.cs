@@ -90,7 +90,8 @@ namespace SistemaDeNotas.Interfaz.Admin
 		private void btnAgregar_Click(object sender, EventArgs e)
         {
             Insertar();
-        }
+			Limpiar();
+		}
         //FUNCION PARA AGREGAR CURSO
         private void Insertar()
         {
@@ -103,13 +104,14 @@ namespace SistemaDeNotas.Interfaz.Admin
                 Curso.Nombre = txtNombreCurso.Text;
                 Curso.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
                 FuncionesAdministrador.AgregarCurso(Curso);
-                MostrarCursos();
+				MostrarCursos();
             }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
 			Actualizar();
+			Limpiar();
 		}
 
         //FUNCION PARA ACTUALIZAR 
@@ -126,13 +128,14 @@ namespace SistemaDeNotas.Interfaz.Admin
                 Curso.Nombre = txtNombreCurso.Text;
 				Curso.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
 				FuncionesAdministrador.ActualizarCurso(Curso);
-                MostrarCursos();
+				MostrarCursos();
 			}
 		}
 
 		private void btnEliminar_Click(object sender, EventArgs e)
 		{
 			Eliminar();
+			Limpiar();
 		}
 
         //FUNCION PARA ELIMINAR CURSO
@@ -147,7 +150,7 @@ namespace SistemaDeNotas.Interfaz.Admin
                 int id = (int)dgvCursos.SelectedRows[0].Cells["Id"].Value;
                 Curso.Id = id;
                 FuncionesAdministrador.EliminarCurso(Curso);
-                MostrarCursos();
+				MostrarCursos();
             }
         }
 
@@ -190,6 +193,10 @@ namespace SistemaDeNotas.Interfaz.Admin
         //LIMPIAR BÚSQUEDA
         private void btnLimpiar_Click(object sender, EventArgs e)
 		{
+            Limpiar();	
+		}
+        public void Limpiar()
+        {
 			txtNombreCurso.Clear();
 			txtFiltroNombre.Clear();
 			cbEstado.Text = null;
