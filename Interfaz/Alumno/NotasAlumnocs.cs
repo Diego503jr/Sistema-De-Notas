@@ -13,13 +13,16 @@ namespace SistemaDeNotas.Interfaz.Alumno
 {
     public partial class NotasAlumnocs : Form
     {
-        public NotasAlumnocs()
+        private string IdAlumno;
+		public NotasAlumnocs(string id)
         {
+            this.IdAlumno = id;
             InitializeComponent();
         }
         public void MostrarNotas()
         {
-            dgvNotas.DataSource = FuncionesAlumno.MostrarNotas();
+            int idAlumno = Convert.ToInt32(IdAlumno);
+            dgvNotas.DataSource = FuncionesAlumno.MostrarNotas(idAlumno);
 
         }
 

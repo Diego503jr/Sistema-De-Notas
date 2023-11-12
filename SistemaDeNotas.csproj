@@ -55,6 +55,13 @@
     <Compile Include="Clases\FuncionesDocente.cs" />
     <Compile Include="Clases\FuncionesAdministrador.cs" />
     <Compile Include="Clases\FuncionesAlumno.cs" />
+    <Compile Include="Clases\FuncionesGlobales.cs" />
+    <Compile Include="Interfaz\Alumno\CursosAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\Alumno\CursosAlumno.Designer.cs">
+      <DependentUpon>CursosAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaz\Admin\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,17 +111,17 @@
     <Compile Include="Interfaz\Alumno\NotasAlumnocs.Designer.cs">
       <DependentUpon>NotasAlumnocs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Cursos\CursoFormAlumno.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaz\Cursos\CursoFormAlumno.Designer.cs">
-      <DependentUpon>CursoFormAlumno.cs</DependentUpon>
-    </Compile>
     <Compile Include="Interfaz\Docente\DocenteForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Interfaz\Docente\DocenteForm.Designer.cs">
       <DependentUpon>DocenteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaz\Docente\GraficaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\Docente\GraficaForm.Designer.cs">
+      <DependentUpon>GraficaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaz\Docente\NotasDocente.cs">
       <SubType>Form</SubType>
@@ -157,14 +164,17 @@
     <EmbeddedResource Include="Interfaz\Alumno\AlumnoForm.resx">
       <DependentUpon>AlumnoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\Alumno\CursosAlumno.resx">
+      <DependentUpon>CursosAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Alumno\NotasAlumnocs.resx">
       <DependentUpon>NotasAlumnocs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Cursos\CursoFormAlumno.resx">
-      <DependentUpon>CursoFormAlumno.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Docente\DocenteForm.resx">
       <DependentUpon>DocenteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\Docente\GraficaForm.resx">
+      <DependentUpon>GraficaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Docente\NotasDocente.resx">
       <DependentUpon>NotasDocente.cs</DependentUpon>
@@ -227,6 +237,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo Usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mostrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ocultar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,7 +13,7 @@ namespace SistemaDeNotas
 {
     public partial class DocenteForm : Form
     {
-        public DocenteForm(string nombre, string carnet, string telefono, string idestado)
+        public DocenteForm(string nombre, string carnet, string telefono, string idestado, string id)
         {
             InitializeComponent();
             txtNombreUsuario.Text = "Bienvenid@ " + nombre;
@@ -24,6 +24,12 @@ namespace SistemaDeNotas
 				perfil.ConfigurarNombre(nombre, carnet, telefono, idestado); // Pasa el nombre al PerfilForm cuando se carga
 				perfil.Show(); // Muestra el formulario PerfilForm después de que se carga
 			};
+            NotasDocente notasDocentes = new NotasDocente(id);
+            btnMenuCursos.Click += (sender, e) =>
+            {
+                AbrirFormHijo(notasDocentes);
+                notasDocentes.Show();
+            };
 		}
 
         
@@ -54,10 +60,10 @@ namespace SistemaDeNotas
             loginForm.ShowDialog();
         }
 
-        private void btnMenuCursos_Click(object sender, EventArgs e)
-        {
-            AbrirFormHijo(new NotasDocente());
-        }
+        //private void btnMenuCursos_Click(object sender, EventArgs e)
+        //{
+        //    AbrirFormHijo(new NotasDocente());
+        //}
 
         private void btnMenuPerfil_Click(object sender, EventArgs e)
         {
@@ -69,6 +75,11 @@ namespace SistemaDeNotas
         {
             lblHora.Text = DateTime.Now.ToLongTimeString();
             lblFecha.Text = DateTime.Now.ToShortDateString();
+        }
+
+        private void btnGrafica_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new GraficaForm());
         }
     }
 }

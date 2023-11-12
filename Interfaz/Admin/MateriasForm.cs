@@ -26,13 +26,11 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-			//throw new NotImplementedException();
 			FuncionesAdministrador.ManejoErrores(e);
         }
 
         private void TxtNombreMateria_KeyPress(object sender, KeyPressEventArgs e)
         {
-			//throw new NotImplementedException();
 			FuncionesAdministrador.ManejoErrores(e);
         }
 
@@ -49,6 +47,13 @@ namespace SistemaDeNotas.Interfaz.Admin
 			ListarDocentesMat();
 		}
 
+        //MOSTRAR MATERIA
+        /*public void MostrarMaterias()
+		{
+			dgvMaterias.DataSource = FuncionesAdministrador.MostrarMateria();
+		}*/
+
+        //PERSONALIZACION DEL DATAGRID
         private void ConfigurarDataGridView()
         {
             // Establecer el estilo de las celdas
@@ -92,17 +97,25 @@ namespace SistemaDeNotas.Interfaz.Admin
             };
         }
 
-
+        //MOSTRAR ESTADO
+        private void MostrarEstado()
+        {
+            cbEstado.DataSource = FuncionesAdministrador.ListarEstado();
+            cbEstado.DisplayMember = "EstadoValor";
+            cbEstado.ValueMember = "Id";
+            cbEstado.Text = null;
+        }
 
         //AGREGAR MATERIA
         private void btnAgregar_Click(object sender, EventArgs e)
 		{
 			Insertar();
+			Limpiar();
 		}
 
 		private void Insertar()
 		{
-			if (txtNombreMateria.Text == "" || txtDescripcionMateria.Text == "")
+			if (txtNombreMateria.Text == "" || txtDescripcionMateria.Text == "" || cbDocente.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
 			{
 				MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
@@ -111,7 +124,8 @@ namespace SistemaDeNotas.Interfaz.Admin
 				Materia.Nombre = txtNombreMateria.Text;
 				Materia.Descripcion = txtDescripcionMateria.Text;
 				Materia.IdDocente = Convert.ToInt32(cbDocente.SelectedValue);
-				FuncionesAdministrador.AgregarMateria(Materia);
+                Materia.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
+                FuncionesAdministrador.AgregarMateria(Materia);
                 MostrarMaterias();
             }
         }
@@ -119,15 +133,18 @@ namespace SistemaDeNotas.Interfaz.Admin
 		//ACTUALIZAR MATERIA
 		private void Actualizar()
 		{
-			if (txtNombreMateria.Text == "" || txtDescripcionMateria.Text == "")
+			if (txtNombreMateria.Text == "" || txtDescripcionMateria.Text == "" || cbDocente.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
 			{
 				MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
 			{
-				Materia.Nombre = txtNombreMateria.Text;
+                int id = (int)dgvMaterias.SelectedRows[0].Cells["Id"].Value;
+                Materia.Id = id;
+                Materia.Nombre = txtNombreMateria.Text;
 				Materia.Descripcion = txtDescripcionMateria.Text;
 				Materia.IdDocente = Convert.ToInt32(cbDocente.SelectedValue);
+				Materia.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
 				FuncionesAdministrador.ActualizarMateria(Materia);
                 MostrarMaterias();
             }
@@ -135,20 +152,30 @@ namespace SistemaDeNotas.Interfaz.Admin
 
 		private void btnActualizar_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("Se ha actualizado la información de la materia con éxtio", "Actualizar Materia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			int id = (int)dgvMaterias.SelectedRows[0].Cells["Id"].Value;
-			Materia.Id = id;
 			Actualizar();
+			Limpiar();
 		}
 
 		private void btnEliminar_Click(object sender, EventArgs e)
 		{
-			int id = (int)dgvMaterias.SelectedRows[0].Cells["Id"].Value;
-			Materia.Id = id;
-			FuncionesAdministrador.EliminarMateria(Materia);
-			MessageBox.Show("Materia eliminada con éxito", "Eliminar Materia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-			MostrarMaterias();
+			Eliminar();
+			Limpiar();
 		}
+
+		private void Eliminar()
+		{
+			if (dgvMaterias.SelectedRows.Count < 0 || txtNombreMateria.Text == "" || txtDescripcionMateria.Text == "" || cbDocente.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
+			{
+                MessageBox.Show("No hay datos seleccionados para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+			{
+                int id = (int)dgvMaterias.SelectedRows[0].Cells["Id"].Value;
+                Materia.Id = id;
+                FuncionesAdministrador.EliminarMateria(Materia);
+                MostrarMaterias();
+            }
+        }
 
 		//LISTAR DOCENTE
 		public void ListarDocentesMat()
@@ -171,9 +198,12 @@ namespace SistemaDeNotas.Interfaz.Admin
 				string Nombre = row.Cells["Nombre"].Value.ToString();
 				string Descripcion = row.Cells["Descripcion"].Value.ToString();
 				string Docente = row.Cells["Docente"].Value.ToString();
-				txtNombreMateria.Text = Nombre;
+                string Estado = row.Cells["Estado"].Value.ToString();
+
+                txtNombreMateria.Text = Nombre;
 				txtDescripcionMateria.Text = Descripcion;
 				cbDocente.Text = Docente;
+				cbEstado.Text = Estado;
 
 				btnAgregar.Enabled = false;
 				btnActualizar.Enabled = true;
@@ -181,14 +211,13 @@ namespace SistemaDeNotas.Interfaz.Admin
 			}
 		}
 
-
-		//LIMPIAR BÚSQUEDA
-		private void btnLimpiar_Click(object sender, EventArgs e)
+		public void Limpiar()
 		{
 			txtNombreMateria.Clear();
 			txtDescripcionMateria.Clear();
 			txtFiltroNombre.Clear();
 			cbDocente.Text = null;
+			cbEstado.Text = null;
 			if (dgvMaterias.SelectedRows.Count > 0)
 			{
 				dgvMaterias.SelectedRows[0].Selected = false;
@@ -198,6 +227,12 @@ namespace SistemaDeNotas.Interfaz.Admin
 				row.Selected = false;
 			}
 			btnAgregar.Enabled = true;
+
+		}
+		//LIMPIAR BÚSQUEDA
+		private void btnLimpiar_Click(object sender, EventArgs e)
+		{
+			Limpiar();
 		}
 
 		//FILTRAR BÚSQUEDA

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -52,7 +53,8 @@ namespace SistemaDeNotas.Interfaz.Admin
             MostrarInscripcion();
             ListarCursosIns();
             ListarMateriasIns();
-           
+            ListarEstado();
+
         }
         private void ConfigurarDataGridView()
         {
@@ -131,14 +133,23 @@ namespace SistemaDeNotas.Interfaz.Admin
             dgvInscripcion.DataSource = FuncionesAdministrador.MostrarInscripcion();
         }
 
+        public void ListarEstado()
+        {
+            cbEstado.DataSource = FuncionesAdministrador.ListarEstado();
+            cbEstado.DisplayMember = "EstadoValor";
+            cbEstado.ValueMember = "Id";
+            cbEstado.Text = null;
+        }
+
         private void btnInscribir_Click(object sender, EventArgs e)
         {
             Insertar();
-        }
+			Limpiar();
+		}
 
         private void Insertar()
         {
-            if (txtNombre.Text == "" || txtCarnet.Text == "" || cbCursos.SelectedIndex == -1 || cbMaterias.SelectedIndex == -1)
+            if (txtNombre.Text == "" || txtCarnet.Text == "" || cbCursos.SelectedIndex == -1 || cbMaterias.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
             {
                 MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -153,6 +164,7 @@ namespace SistemaDeNotas.Interfaz.Admin
                     inscripcion.IdAlumno = idAlumno;
                     inscripcion.IdCurso = Convert.ToInt32(cbCursos.SelectedValue);
                     inscripcion.IdMateria = Convert.ToInt32(cbMaterias.SelectedValue);
+                    inscripcion.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
                     FuncionesAdministrador.AgregarInscripcion(inscripcion);
                     MostrarInscripcion();
                 }
@@ -167,11 +179,12 @@ namespace SistemaDeNotas.Interfaz.Admin
         private void btnActualizarInscripcion_Click(object sender, EventArgs e)
         {
             ActualizarInscripcion();
-        }
+			Limpiar();
+		}
 
         public void ActualizarInscripcion()
         {
-            if (txtNombre.Text == "" || txtCarnet.Text == "" || cbCursos.SelectedIndex == -1 || cbMaterias.SelectedIndex == -1)
+            if (txtNombre.Text == "" || txtCarnet.Text == "" || cbCursos.SelectedIndex == -1 || cbMaterias.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
             {
                 MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -188,6 +201,7 @@ namespace SistemaDeNotas.Interfaz.Admin
                     inscripcion.IdAlumno = idAlumno;
                     inscripcion.IdCurso = Convert.ToInt32(cbCursos.SelectedValue);
                     inscripcion.IdMateria = Convert.ToInt32(cbMaterias.SelectedValue);
+                    inscripcion.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
                     inscripcion.Id = id;
                     FuncionesAdministrador.ActualizarInscripcion(inscripcion);
                     MostrarInscripcion();
@@ -247,6 +261,34 @@ namespace SistemaDeNotas.Interfaz.Admin
             return idUsuario;
         }
 
+        public static int ObtenerIdMateria(string nombre)
+        {
+            int idMateria = -1;
+
+            try
+            {
+                CConexion conexion = new CConexion();
+                string query = "SELECT Id FROM dbo.Materias WHERE Nombre = @nombre";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    idMateria = (int)reader["Id"];
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+
+            return idMateria;
+        }
+
         private void dgvInscripcion_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             CConexion conexion = new CConexion();
@@ -255,39 +297,49 @@ namespace SistemaDeNotas.Interfaz.Admin
                 //Obteniendo la fila seleccionada
                 DataGridViewRow row = dgvInscripcion.Rows[e.RowIndex];
 
-				//Obteniendo el valor del campo IdAlumno, IdCurso, IdMateria de la fila seleccionada
-			
-				string idAlumno = row.Cells["Nombre"].Value.ToString();
-				string idCurso = row.Cells["Curso"].Value.ToString();
-				string idMateria = row.Cells["Materia"].Value.ToString();
+                //Obteniendo el valor del campo IdAlumno, IdCurso, IdMateria de la fila seleccionada
 
-				//Se hacen las consulta SQL a las 3 tablas
-				string queryAlumno = "SELECT Nombre, Carnet FROM dbo.Usuarios WHERE Nombre = @idAlumno";
+                string idAlumno = row.Cells["Nombre"].Value.ToString();
+                string idCurso = row.Cells["Curso"].Value.ToString();
+                string idMateria = row.Cells["Materia"].Value.ToString();
+                string idEstado = row.Cells["Estado"].Value.ToString();
+
+                //Se hacen las consulta SQL a las 3 tablas
+                string queryAlumno = "SELECT Nombre, Carnet FROM dbo.Usuarios WHERE Nombre = @idAlumno";
                 string queryCurso = "SELECT Nombre FROM dbo.Cursos WHERE Nombre = @idCurso";
                 string queryMaterias = "SELECT Nombre, IdDocente FROM dbo.Materias WHERE Nombre = @idMateria";
+                string queryEstado = "SELECT EstadoValor FROM dbo.Estado WHERE EstadoValor = @idestado";
+
 
                 SqlCommand cmdAlumno = new SqlCommand(queryAlumno, conexion.establecerConexion());
                 SqlCommand cmdCurso = new SqlCommand(queryCurso, conexion.establecerConexion());
                 SqlCommand cmdMateria = new SqlCommand(queryMaterias, conexion.establecerConexion());
+                SqlCommand cmdEstado = new SqlCommand(queryEstado, conexion.establecerConexion());
                 cmdAlumno.Parameters.AddWithValue("@idAlumno", idAlumno);
                 cmdCurso.Parameters.AddWithValue("@idCurso", idCurso);
                 cmdMateria.Parameters.AddWithValue("@idMateria", idMateria);
+                cmdEstado.Parameters.AddWithValue("@idestado", idEstado);
+
 
                 SqlDataReader drAlumno = cmdAlumno.ExecuteReader();
                 SqlDataReader drCurso = cmdCurso.ExecuteReader();
                 SqlDataReader drMateria = cmdMateria.ExecuteReader();
+                SqlDataReader drEstado = cmdEstado.ExecuteReader();
 
-                if (drAlumno.Read() && drCurso.Read() && drMateria.Read())
+                if (drAlumno.Read() && drCurso.Read() && drMateria.Read() && drEstado.Read())
                 {
                     string nombre = drAlumno["Nombre"].ToString();
                     string carnet = drAlumno["Carnet"].ToString();
                     string curso = drCurso["Nombre"].ToString();
                     string materia = drMateria["Nombre"].ToString();
+                    string estado = drEstado["EstadoValor"].ToString();
+
 
                     txtNombre.Text = nombre;
                     txtCarnet.Text = carnet;
                     cbCursos.Text = curso;
                     cbMaterias.Text = materia;
+                    cbEstado.Text = estado;
                 }
                 else
                 {
@@ -321,21 +373,52 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtNombre.Clear();
-            txtCarnet.Clear();
-            txtFiltroNombre.Clear();
-            cbCursos.Text = null; 
-            cbMaterias.Text = null;
+            Limpiar();
+        }
+        public void Limpiar()
+        {
+			txtNombre.Clear();
+			txtCarnet.Clear();
+			txtFiltroNombre.Clear();
+			cbCursos.Text = null;
+			cbMaterias.Text = null;
 
-            if (dgvInscripcion.SelectedRows.Count > 0)
+			if (dgvInscripcion.SelectedRows.Count > 0)
+			{
+				dgvInscripcion.SelectedRows[0].Selected = false;
+			}
+			foreach (DataGridViewRow row in dgvInscripcion.SelectedRows)
+			{
+				row.Selected = false;
+			}
+			btnInscribir.Enabled = true;
+		}
+
+        private void btnEliminarInscrip_Click(object sender, EventArgs e)
+        {
+            Eliminar();
+			Limpiar();
+		}
+
+        private void Eliminar()
+        {
+            if (dgvInscripcion.SelectedRows.Count < 0 || txtNombre.Text == "" || txtCarnet.Text == "" || cbCursos.SelectedIndex == -1 || cbMaterias.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
             {
-                dgvInscripcion.SelectedRows[0].Selected = false;
+                MessageBox.Show("No hay datos seleccionados para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            foreach (DataGridViewRow row in dgvInscripcion.SelectedRows)
+            else
             {
-                row.Selected = false;
+                int id = (int)dgvInscripcion.SelectedRows[0].Cells["Id"].Value;
+                string idAlumno = dgvInscripcion.SelectedRows[0].Cells["Nombre"].Value.ToString();
+                string idCarnet = dgvInscripcion.SelectedRows[0].Cells["Carnet"].Value.ToString();
+                string idMateria = dgvInscripcion.SelectedRows[0].Cells["Materia"].Value.ToString();
+
+                inscripcion.Id = id;
+                inscripcion.IdAlumno = ObtenerIdAlumno(idAlumno, idCarnet);
+                inscripcion.IdMateria = ObtenerIdMateria(idMateria);
+                FuncionesAdministrador.EliminarInscripcion(inscripcion);
+                MostrarInscripcion();
             }
-            btnInscribir.Enabled = true;
         }
     }
 }

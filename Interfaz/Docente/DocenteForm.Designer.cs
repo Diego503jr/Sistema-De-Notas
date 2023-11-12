@@ -34,6 +34,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.BarraMenuLateral = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnGrafica = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btnMenuDocentes = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -54,6 +56,7 @@
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.BarraMenuLateral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -104,6 +107,8 @@
             // BarraMenuLateral
             // 
             this.BarraMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
+            this.BarraMenuLateral.Controls.Add(this.pictureBox1);
+            this.BarraMenuLateral.Controls.Add(this.btnGrafica);
             this.BarraMenuLateral.Controls.Add(this.pictureBox6);
             this.BarraMenuLateral.Controls.Add(this.btnMenuDocentes);
             this.BarraMenuLateral.Controls.Add(this.pictureBox5);
@@ -119,6 +124,36 @@
             this.BarraMenuLateral.Name = "BarraMenuLateral";
             this.BarraMenuLateral.Size = new System.Drawing.Size(410, 735);
             this.BarraMenuLateral.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 404);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(13, 46);
+            this.pictureBox1.TabIndex = 33;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnGrafica
+            // 
+            this.btnGrafica.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnGrafica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
+            this.btnGrafica.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGrafica.FlatAppearance.BorderSize = 0;
+            this.btnGrafica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.btnGrafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrafica.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrafica.ForeColor = System.Drawing.Color.White;
+            this.btnGrafica.Location = new System.Drawing.Point(13, 404);
+            this.btnGrafica.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGrafica.Name = "btnGrafica";
+            this.btnGrafica.Size = new System.Drawing.Size(397, 46);
+            this.btnGrafica.TabIndex = 32;
+            this.btnGrafica.Text = "Grafica";
+            this.btnGrafica.UseVisualStyleBackColor = false;
+            this.btnGrafica.Click += new System.EventHandler(this.btnGrafica_Click);
             // 
             // pictureBox6
             // 
@@ -187,7 +222,6 @@
             this.btnMenuCursos.TabIndex = 27;
             this.btnMenuCursos.Text = "Notas";
             this.btnMenuCursos.UseVisualStyleBackColor = false;
-            this.btnMenuCursos.Click += new System.EventHandler(this.btnMenuCursos_Click);
             // 
             // pictureBox4
             // 
@@ -358,6 +392,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.BarraMenuLateral.ResumeLayout(false);
             this.BarraMenuLateral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -394,5 +429,7 @@
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Timer horaFecha;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnGrafica;
     }
 }
