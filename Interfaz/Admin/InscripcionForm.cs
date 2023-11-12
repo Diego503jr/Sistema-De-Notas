@@ -20,6 +20,24 @@ namespace SistemaDeNotas.Interfaz.Admin
         public InscripcionForm()
         {
             InitializeComponent();
+            txtNombre.KeyPress += TxtNombre_KeyPress;
+            txtCarnet.KeyPress += TxtCarnet_KeyPress;
+            txtFiltroNombre.KeyPress += TxtFiltroNombre_KeyPress;
+        }
+
+        private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FuncionesAdministrador.ManejoErrores(e);
+        }
+
+        private void TxtCarnet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FuncionesAdministrador.ManejoErrores(e);
+        }
+
+        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FuncionesAdministrador.ManejoErroresNombre(e);
         }
 
         public void ConfigurarTextbox(string nombreAlumno, string carnetAlumno)

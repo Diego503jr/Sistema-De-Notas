@@ -20,10 +20,24 @@ namespace SistemaDeNotas.Interfaz.Admin
 		public MateriasForm()
 		{
 			InitializeComponent();
+            txtNombreMateria.KeyPress += TxtNombreMateria_KeyPress;
+            txtFiltroNombre.KeyPress += TxtFiltroNombre_KeyPress;
 		}
 
-		//MOSTRAR MATERIA
-		public void MostrarMaterias()
+        private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+			//throw new NotImplementedException();
+			FuncionesAdministrador.ManejoErrores(e);
+        }
+
+        private void TxtNombreMateria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+			//throw new NotImplementedException();
+			FuncionesAdministrador.ManejoErrores(e);
+        }
+
+        //MOSTRAR MATERIA
+        public void MostrarMaterias()
 		{
 			dgvMaterias.DataSource = FuncionesAdministrador.MostrarMateria();
 		}

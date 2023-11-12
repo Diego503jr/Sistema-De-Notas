@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -481,6 +482,57 @@ namespace SistemaDeNotas.Clases
             {
                 MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return data;
+            }
+        }
+
+        //Mediante este manejo se evalua si la tecla presionada es letra o numero, se utilizara en cursos, carnets, contraseñas
+        public static void ManejoErrores(KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true; //se ejecuta para suprimir la tecla presionada en caso no haya cumplido la condicion
+                    MessageBox.Show("Ingrese únicamente letras por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //este es para el nombre
+        public static void ManejoErroresNombre(KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true; //se ejecuta para suprimir la tecla presionada en caso no haya cumplido la condicion
+                    MessageBox.Show("Ingrese únicamente números por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //este es para el telefono
+        public static void ManejoErroresTelefono(KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!char.IsDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true; //se ejecuta para suprimir la tecla presionada en caso no haya cumplido la condicion
+                    MessageBox.Show("Ingrese únicamente números por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

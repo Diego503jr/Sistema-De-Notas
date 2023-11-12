@@ -20,10 +20,22 @@ namespace SistemaDeNotas.Interfaz.Admin
         public CursosForm()
         {
             InitializeComponent();
+            txtNombreCurso.KeyPress += TxtNombreCurso_KeyPress;
+            txtFiltroNombre.KeyPress += TxtFiltroNombre_KeyPress;
         }
 
-		//MOSTRAR CURSO
-		private void MostrarCursos()
+        private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+			FuncionesAdministrador.ManejoErrores(e);
+        }
+
+        private void TxtNombreCurso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+			FuncionesAdministrador.ManejoErrores(e);
+        }
+
+        //MOSTRAR CURSO
+        private void MostrarCursos()
 		{
 			dgvCursos.DataSource = FuncionesAdministrador.MostrarCurso();
 		}

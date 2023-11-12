@@ -20,6 +20,38 @@ namespace SistemaDeNotas.Interfaz.Admin
         public UsuarioFormAdmin()
         {
             InitializeComponent();
+            txtNombre.KeyPress += TxtNombre_KeyPress; //Se asocia la keypress a la funcion con el textbox
+            txtCarnet.KeyPress += TxtCarnet_KeyPress;
+            txtTelefono.KeyPress += TxtTelefono_KeyPress;
+            txtFiltroNombre.KeyPress += TxtFiltroNombre_KeyPress;
+            txtPassword.KeyPress += TxtPassword_KeyPress;
+        }
+
+        private void TxtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FuncionesAdministrador.ManejoErrores(e);
+        }
+
+        //Con estos keypress se maneja que no se pueda escribir caracteres que no se quieran escribir
+        private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FuncionesAdministrador.ManejoErrores(e);
+        }
+
+        private void TxtCarnet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FuncionesAdministrador.ManejoErrores(e);
+        }
+
+        private void TxtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FuncionesAdministrador.ManejoErroresTelefono(e);
+        }
+
+        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //se manda a llamar el manejo de errores desde la clase FuncionesAdministrador
+            FuncionesAdministrador.ManejoErroresNombre(e);
         }
 
         private void btnAgregarAlumno_Click(object sender, EventArgs e)
@@ -204,5 +236,6 @@ namespace SistemaDeNotas.Interfaz.Admin
                 (dgvUsuarios.DataSource as DataTable).DefaultView.RowFilter = "";
             }
         }
+
     }
 }
