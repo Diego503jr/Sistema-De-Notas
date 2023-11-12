@@ -139,10 +139,32 @@ namespace SistemaDeNotas.Interfaz.Docente
         }
         public void ListarMaterias()
         {
-            cbRegistroNotas.DataSource = FuncionesAdministrador.ListarMaterias();
-            cbRegistroNotas.DisplayMember = "Nombre";
-            cbRegistroNotas.ValueMember = "Id";
-            cbRegistroNotas.Text = null;
-        }
-    }
+			int idDocente = Convert.ToInt32(IDDOCENTE);
+			cbRegistroNotas.DataSource = FuncionesAdministrador.ListarMateriaDocente(idDocente);
+			cbRegistroNotas.DisplayMember = "Nombre";
+			cbRegistroNotas.ValueMember = "Id";
+			cbRegistroNotas.Text = null;
+		}
+
+		private void btnLimpiar_Click(object sender, EventArgs e)
+		{
+			cbRegistroNotas.Text = null;
+			txtNombre.Clear();
+		}
+
+		private void cbRegistroNotas_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string buscar = cbRegistroNotas.Text.Trim();
+			if (!string.IsNullOrEmpty(buscar))
+			{
+				// Realiza la búsqueda en la fuente de datos y filtra los resultados
+				(dgvNotasDocente.DataSource as DataTable).DefaultView.RowFilter = $"Materia = '{buscar}'";
+			}
+			else
+			{
+				// Si el cuadro de búsqueda está vacío, muestra todos los datos
+				(dgvNotasDocente.DataSource as DataTable).DefaultView.RowFilter = "";
+			}
+		}
+	}
 }

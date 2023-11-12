@@ -191,7 +191,12 @@ namespace SistemaDeNotas.Interfaz.Admin
             cbEstado.DisplayMember = "EstadoValor";
             cbEstado.ValueMember = "Id";
             cbEstado.Text = null;
-        }
+
+			cmbFiltroEstado.DataSource = FuncionesAdministrador.ListarEstado();
+			cmbFiltroEstado.DisplayMember = "EstadoValor";
+			cmbFiltroEstado.ValueMember = "Id";
+			cmbFiltroEstado.Text = null;
+		}
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -208,7 +213,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 			txtCarnet.Clear();
 			cbRol.Text = null;
 			cbEstado.Text = null;
-
+            cmbFiltroEstado.Text = null;
 			if (dgvUsuarios.SelectedRows.Count > 0)
 			{
 
@@ -286,5 +291,24 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
         }
 
-    }
+		private void cmbFiltroEstado_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Verificar si dgvUsuarios.DataSource no es null y es de tipo DataTable
+			if (dgvUsuarios.DataSource is DataTable dataTable)
+			{
+				string buscar = cmbFiltroEstado.Text.Trim();
+				if (!string.IsNullOrEmpty(buscar))
+				{
+					// Realiza la búsqueda en la fuente de datos y filtra los resultados
+					dataTable.DefaultView.RowFilter = $"Estado = '{buscar}'";
+				}
+				else
+				{
+					// Si el cuadro de búsqueda está vacío, muestra todos los datos
+					dataTable.DefaultView.RowFilter = "";
+				}
+			}
+
+		}
+	}
 }

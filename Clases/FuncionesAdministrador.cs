@@ -718,16 +718,21 @@ namespace SistemaDeNotas.Clases
                 return data;
             }
         }
+
         public static DataTable ListarMateriaDocente(int ValorIdDocente)
         {
             CConexion conexion = new CConexion();
             DataTable data = new DataTable();
             try
             {
-                string query = "SELECT * FROM Materias WHERE IdDocente = @iddocente";
+                string query = "SELECT M.Id AS Id, M.Nombre AS nombre, M.IdDocente " +
+					"FROM dbo.Materias AS M " +
+					"INNER JOIN dbo.Usuarios AS U ON M.IdDocente = U.Id " +
+					"WHERE M.IdDocente = @IdDocente ";
 
-                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-                cmd.Parameters.AddWithValue("@iddocente", ValorIdDocente);
+
+				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@IdDocente", ValorIdDocente);
 
                 SqlDataAdapter dt = new SqlDataAdapter(cmd);
                 dt.Fill(data);
@@ -739,8 +744,7 @@ namespace SistemaDeNotas.Clases
                 return data;
             }
         }
-
-
+        
 
         public static DataTable ListarEstado()
         {

@@ -53,7 +53,12 @@ namespace SistemaDeNotas.Interfaz.Admin
             cbEstado.DisplayMember = "EstadoValor";
             cbEstado.ValueMember = "Id";
             cbEstado.Text = null;
-        }
+
+			cmbFiltroEstado.DataSource = FuncionesAdministrador.ListarEstado();
+			cmbFiltroEstado.DisplayMember = "EstadoValor";
+			cmbFiltroEstado.ValueMember = "Id";
+			cmbFiltroEstado.Text = null;
+		}
 
 		//PERSONALIZACION DEL DATAGRID
         private void ConfigurarDataGridView()
@@ -212,6 +217,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 			txtNombreCurso.Clear();
 			txtFiltroNombre.Clear();
 			cbEstado.Text = null;
+			cmbFiltroEstado.Text = null;
 			if (dgvCursos.SelectedRows.Count > 0)
 			{
 				dgvCursos.SelectedRows[0].Selected = false;
@@ -221,6 +227,22 @@ namespace SistemaDeNotas.Interfaz.Admin
 				row.Selected = false;
 			}
 			btnAgregar.Enabled = true;
+		}
+
+		private void cmbFiltroEstado_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string buscar = cmbFiltroEstado.Text.Trim();
+
+			if (!string.IsNullOrEmpty(buscar))
+			{
+				// Realiza la búsqueda en la fuente de datos y filtra los resultados
+				(dgvCursos.DataSource as DataTable).DefaultView.RowFilter = $"Estado = '{buscar}'";
+			}
+			else
+			{
+				// Si el cuadro de búsqueda está vacío, muestra todos los datos
+				(dgvCursos.DataSource as DataTable).DefaultView.RowFilter = "";
+			}
 		}
 	}
 }

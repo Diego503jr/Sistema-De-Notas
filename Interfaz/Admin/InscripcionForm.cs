@@ -139,7 +139,12 @@ namespace SistemaDeNotas.Interfaz.Admin
             cbEstado.DisplayMember = "EstadoValor";
             cbEstado.ValueMember = "Id";
             cbEstado.Text = null;
-        }
+
+			cmbFiltroEstado.DataSource = FuncionesAdministrador.ListarEstado();
+			cmbFiltroEstado.DisplayMember = "EstadoValor";
+			cmbFiltroEstado.ValueMember = "Id";
+			cmbFiltroEstado.Text = null;
+		}
 
         private void btnInscribir_Click(object sender, EventArgs e)
         {
@@ -377,12 +382,13 @@ namespace SistemaDeNotas.Interfaz.Admin
         }
         public void Limpiar()
         {
+
 			txtNombre.Clear();
 			txtCarnet.Clear();
 			txtFiltroNombre.Clear();
 			cbCursos.Text = null;
 			cbMaterias.Text = null;
-
+			cmbFiltroEstado.Text = null;
 			if (dgvInscripcion.SelectedRows.Count > 0)
 			{
 				dgvInscripcion.SelectedRows[0].Selected = false;
@@ -420,5 +426,20 @@ namespace SistemaDeNotas.Interfaz.Admin
                 MostrarInscripcion();
             }
         }
-    }
+
+		private void cmbFiltroEstado_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string buscar = cmbFiltroEstado.Text.Trim();
+			if (!string.IsNullOrEmpty(buscar))
+			{
+				// Realiza la búsqueda en la fuente de datos y filtra los resultados
+				(dgvInscripcion.DataSource as DataTable).DefaultView.RowFilter = $"Estado = '{buscar}'";
+			}
+			else
+			{
+				// Si el cuadro de búsqueda está vacío, muestra todos los datos
+				(dgvInscripcion.DataSource as DataTable).DefaultView.RowFilter = "";
+			}
+		}
+	}
 }

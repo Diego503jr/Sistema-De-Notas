@@ -42,6 +42,8 @@
 			this.txtFiltroNombre = new System.Windows.Forms.TextBox();
 			this.SubBarraTitulo = new System.Windows.Forms.Panel();
 			this.label1 = new System.Windows.Forms.Label();
+			this.cmbFiltroEstado = new System.Windows.Forms.ComboBox();
+			this.label4 = new System.Windows.Forms.Label();
 			this.gbDetalleCurso.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
 			this.SubBarraTitulo.SuspendLayout();
@@ -56,9 +58,9 @@
 			this.gbDetalleCurso.Controls.Add(this.label2);
 			this.gbDetalleCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.gbDetalleCurso.Location = new System.Drawing.Point(110, 110);
-			this.gbDetalleCurso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.gbDetalleCurso.Margin = new System.Windows.Forms.Padding(2);
 			this.gbDetalleCurso.Name = "gbDetalleCurso";
-			this.gbDetalleCurso.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.gbDetalleCurso.Padding = new System.Windows.Forms.Padding(2);
 			this.gbDetalleCurso.Size = new System.Drawing.Size(645, 152);
 			this.gbDetalleCurso.TabIndex = 2;
 			this.gbDetalleCurso.TabStop = false;
@@ -70,7 +72,7 @@
 			this.cbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
 			this.cbEstado.FormattingEnabled = true;
 			this.cbEstado.Location = new System.Drawing.Point(198, 98);
-			this.cbEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.cbEstado.Margin = new System.Windows.Forms.Padding(2);
 			this.cbEstado.Name = "cbEstado";
 			this.cbEstado.Size = new System.Drawing.Size(193, 30);
 			this.cbEstado.TabIndex = 3;
@@ -92,7 +94,7 @@
 			this.txtNombreCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.txtNombreCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtNombreCurso.Location = new System.Drawing.Point(198, 42);
-			this.txtNombreCurso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtNombreCurso.Margin = new System.Windows.Forms.Padding(2);
 			this.txtNombreCurso.Name = "txtNombreCurso";
 			this.txtNombreCurso.Size = new System.Drawing.Size(282, 28);
 			this.txtNombreCurso.TabIndex = 1;
@@ -118,7 +120,7 @@
 			this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvCursos.GridColor = System.Drawing.Color.White;
 			this.dgvCursos.Location = new System.Drawing.Point(150, 348);
-			this.dgvCursos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.dgvCursos.Margin = new System.Windows.Forms.Padding(2);
 			this.dgvCursos.Name = "dgvCursos";
 			this.dgvCursos.ReadOnly = true;
 			this.dgvCursos.RowHeadersWidth = 51;
@@ -137,7 +139,7 @@
 			this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnAgregar.ForeColor = System.Drawing.Color.White;
 			this.btnAgregar.Location = new System.Drawing.Point(557, 418);
-			this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
 			this.btnAgregar.Name = "btnAgregar";
 			this.btnAgregar.Size = new System.Drawing.Size(131, 33);
 			this.btnAgregar.TabIndex = 66;
@@ -155,7 +157,7 @@
 			this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnEliminar.ForeColor = System.Drawing.Color.White;
 			this.btnEliminar.Location = new System.Drawing.Point(557, 473);
-			this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
 			this.btnEliminar.Name = "btnEliminar";
 			this.btnEliminar.Size = new System.Drawing.Size(131, 33);
 			this.btnEliminar.TabIndex = 67;
@@ -173,7 +175,7 @@
 			this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnActualizar.ForeColor = System.Drawing.Color.White;
 			this.btnActualizar.Location = new System.Drawing.Point(557, 535);
-			this.btnActualizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnActualizar.Margin = new System.Windows.Forms.Padding(2);
 			this.btnActualizar.Name = "btnActualizar";
 			this.btnActualizar.Size = new System.Drawing.Size(131, 33);
 			this.btnActualizar.TabIndex = 68;
@@ -191,7 +193,7 @@
 			this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnLimpiar.ForeColor = System.Drawing.Color.White;
 			this.btnLimpiar.Location = new System.Drawing.Point(557, 301);
-			this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2);
 			this.btnLimpiar.Name = "btnLimpiar";
 			this.btnLimpiar.Size = new System.Drawing.Size(131, 33);
 			this.btnLimpiar.TabIndex = 73;
@@ -204,7 +206,7 @@
 			this.lblFiltro.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.lblFiltro.AutoSize = true;
 			this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblFiltro.Location = new System.Drawing.Point(133, 301);
+			this.lblFiltro.Location = new System.Drawing.Point(134, 267);
 			this.lblFiltro.Name = "lblFiltro";
 			this.lblFiltro.Size = new System.Drawing.Size(168, 24);
 			this.lblFiltro.TabIndex = 0;
@@ -214,7 +216,7 @@
 			// 
 			this.txtFiltroNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.txtFiltroNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtFiltroNombre.Location = new System.Drawing.Point(307, 301);
+			this.txtFiltroNombre.Location = new System.Drawing.Point(308, 267);
 			this.txtFiltroNombre.Multiline = true;
 			this.txtFiltroNombre.Name = "txtFiltroNombre";
 			this.txtFiltroNombre.Size = new System.Drawing.Size(186, 24);
@@ -227,7 +229,7 @@
 			this.SubBarraTitulo.Controls.Add(this.label1);
 			this.SubBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
 			this.SubBarraTitulo.Location = new System.Drawing.Point(0, 0);
-			this.SubBarraTitulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.SubBarraTitulo.Margin = new System.Windows.Forms.Padding(2);
 			this.SubBarraTitulo.Name = "SubBarraTitulo";
 			this.SubBarraTitulo.Size = new System.Drawing.Size(862, 68);
 			this.SubBarraTitulo.TabIndex = 74;
@@ -245,12 +247,38 @@
 			this.label1.TabIndex = 2;
 			this.label1.Text = "Registrar Cursos";
 			// 
+			// cmbFiltroEstado
+			// 
+			this.cmbFiltroEstado.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.cmbFiltroEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+			this.cmbFiltroEstado.FormattingEnabled = true;
+			this.cmbFiltroEstado.Location = new System.Drawing.Point(308, 301);
+			this.cmbFiltroEstado.Margin = new System.Windows.Forms.Padding(2);
+			this.cmbFiltroEstado.Name = "cmbFiltroEstado";
+			this.cmbFiltroEstado.Size = new System.Drawing.Size(193, 30);
+			this.cmbFiltroEstado.TabIndex = 75;
+			this.cmbFiltroEstado.SelectedIndexChanged += new System.EventHandler(this.cmbFiltroEstado_SelectedIndexChanged);
+			// 
+			// label4
+			// 
+			this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Location = new System.Drawing.Point(135, 301);
+			this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(162, 24);
+			this.label4.TabIndex = 76;
+			this.label4.Text = "Filtrar por Estado :";
+			// 
 			// CursosForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(862, 640);
+			this.Controls.Add(this.cmbFiltroEstado);
+			this.Controls.Add(this.label4);
 			this.Controls.Add(this.SubBarraTitulo);
 			this.Controls.Add(this.lblFiltro);
 			this.Controls.Add(this.txtFiltroNombre);
@@ -261,7 +289,7 @@
 			this.Controls.Add(this.dgvCursos);
 			this.Controls.Add(this.gbDetalleCurso);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "CursosForm";
 			this.Text = "CursosForm";
 			this.Load += new System.EventHandler(this.CursosForm_Load);
@@ -290,5 +318,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.Label label3;
-    }
+		private System.Windows.Forms.ComboBox cmbFiltroEstado;
+		private System.Windows.Forms.Label label4;
+	}
 }

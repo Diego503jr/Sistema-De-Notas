@@ -45,6 +45,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 			ConfigurarDataGridView();
 			MostrarMaterias();
 			ListarDocentesMat();
+			MostrarEstado();
 		}
 
         //MOSTRAR MATERIA
@@ -104,7 +105,12 @@ namespace SistemaDeNotas.Interfaz.Admin
             cbEstado.DisplayMember = "EstadoValor";
             cbEstado.ValueMember = "Id";
             cbEstado.Text = null;
-        }
+
+			cmbFiltroEstado.DataSource = FuncionesAdministrador.ListarEstado();
+			cmbFiltroEstado.DisplayMember = "EstadoValor";
+			cmbFiltroEstado.ValueMember = "Id";
+			cmbFiltroEstado.Text = null;
+		}
 
         //AGREGAR MATERIA
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -218,6 +224,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 			txtFiltroNombre.Clear();
 			cbDocente.Text = null;
 			cbEstado.Text = null;
+			cmbFiltroEstado.Text = null;
 			if (dgvMaterias.SelectedRows.Count > 0)
 			{
 				dgvMaterias.SelectedRows[0].Selected = false;
@@ -242,7 +249,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 			if (!string.IsNullOrEmpty(buscar))
 			{
 				// Realiza la búsqueda en la fuente de datos y filtra los resultados
-				(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = $"Nombre LIKE '%{buscar}%' OR Docente LIKE '%{buscar}%'";
+				(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = $"Nombre  LIKE '%{buscar}%' OR Docente  LIKE '%{buscar}%' OR Descripcion  LIKE '%{buscar}%'";
 			}
 			else
 			{
@@ -250,6 +257,21 @@ namespace SistemaDeNotas.Interfaz.Admin
 				(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = "";
 			}
 
+		}
+
+		private void cmbFiltroEstado_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string buscar = cmbFiltroEstado.Text.Trim();
+			if (!string.IsNullOrEmpty(buscar))
+			{
+				// Realiza la búsqueda en la fuente de datos y filtra los resultados
+				(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = $"Estado = '{buscar}'";
+			}
+			else
+			{
+				// Si el cuadro de búsqueda está vacío, muestra todos los datos
+				(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = "";
+			}
 		}
 	}
 }
