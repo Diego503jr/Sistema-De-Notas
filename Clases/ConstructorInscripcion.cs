@@ -12,6 +12,8 @@ namespace SistemaDeNotas.Clases
         public int IdAlumno { get; set; }
         public int IdCurso { get; set; }
         public int IdMateria { get; set; }
+        public int IdEstado { get; set; }
+
 
         public ConstructorInscripcion() { }
     }

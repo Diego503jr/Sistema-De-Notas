@@ -12,8 +12,9 @@ namespace SistemaDeNotas.Clases
 		public string Nombre { get; set; }
 		public string Descripcion { get; set; }
 		public int IdDocente { get; set; }
+        public int IdEstado { get; set; }
 
-		public ConstructorMateria() { }
+        public ConstructorMateria() { }
 	}
 
 }

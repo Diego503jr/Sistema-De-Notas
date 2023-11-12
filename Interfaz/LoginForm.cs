@@ -51,7 +51,7 @@ namespace SistemaDeNotas
 			CConexion conexion = new CConexion();
 			try
 			{
-				SqlCommand cmd = new SqlCommand("SELECT Nombre,IdRol,Carnet,Telefono,IdEstado, Id FROM dbo.Usuarios WHERE Carnet = @Carnet AND Contraseña = @Contraseña", conexion.establecerConexion());
+				SqlCommand cmd = new SqlCommand("SELECT Nombre,IdRol,Carnet,Telefono,IdEstado, Id FROM dbo.Usuarios WHERE Carnet = @Carnet AND  Contraseña = @Contraseña AND IdEstado = 1 ", conexion.establecerConexion());
 
 				cmd.Parameters.AddWithValue("Carnet", Carnet);
 				cmd.Parameters.AddWithValue("Contraseña", Contraseña);
@@ -72,7 +72,7 @@ namespace SistemaDeNotas
 					}
 					else if (dt.Rows[0][1].ToString() == "2")
 					{
-						new AlumnoForm(dt.Rows[0][0].ToString(), dt.Rows[0][2].ToString(), dt.Rows[0][3].ToString(), dt.Rows[0][4].ToString()).Show();
+						new AlumnoForm(dt.Rows[0][0].ToString(), dt.Rows[0][2].ToString(), dt.Rows[0][3].ToString(), dt.Rows[0][4].ToString(), dt.Rows[0][5].ToString()).Show();
 					}
 					
 				}
@@ -110,5 +110,26 @@ namespace SistemaDeNotas
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-    }
+
+		private void pbMostrar_Click(object sender, EventArgs e)
+		{
+			//Enviamos imagen ocultar al frente
+			pbOcultar.BringToFront();
+			//Mostramos la contraseña
+			txtContraseña.PasswordChar = '\0';
+		}
+
+		private void pbOcultar_Click(object sender, EventArgs e)
+		{
+			//Enviamos imagen mostrar al frente
+			pbMostrar.BringToFront();
+			//Ocultamos la contraseña
+			txtContraseña.PasswordChar = '*';
+		}
+
+		private void LoginForm_Load(object sender, EventArgs e)
+		{
+			txtContraseña.PasswordChar = '*';
+		}
+	}
 }
