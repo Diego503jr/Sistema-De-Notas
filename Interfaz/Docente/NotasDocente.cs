@@ -179,6 +179,7 @@ namespace SistemaDeNotas.Interfaz.Docente
             {
                 string alumno = txtNombre.Text;
                 int usuario = ObtenerIdAlumno(alumno);
+                int idMateria = Convert.ToInt32(cbRegistroNotas.SelectedValue);
                 int id = (int)dgvNotasDocente.SelectedRows[0].Cells["Id"].Value;
                 notas.IdAlumno = usuario;
                 notas.IdMateria = Convert.ToInt32(cbRegistroNotas.SelectedValue);
@@ -238,5 +239,7 @@ namespace SistemaDeNotas.Interfaz.Docente
         {
             Actualizar();
         }
+
+
     }
 }

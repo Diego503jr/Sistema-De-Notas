@@ -59,7 +59,7 @@
             this.panel1.Controls.Add(this.lblRegistroNotas);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1363, 84);
             this.panel1.TabIndex = 0;
@@ -81,7 +81,7 @@
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(384, 146);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(664, 35);
@@ -92,7 +92,7 @@
             this.txtNota1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtNota1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNota1.Location = new System.Drawing.Point(192, 294);
-            this.txtNota1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNota1.Margin = new System.Windows.Forms.Padding(4);
             this.txtNota1.Multiline = true;
             this.txtNota1.Name = "txtNota1";
             this.txtNota1.Size = new System.Drawing.Size(83, 41);
@@ -104,7 +104,7 @@
             this.txtNota2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtNota2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNota2.Location = new System.Drawing.Point(381, 294);
-            this.txtNota2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNota2.Margin = new System.Windows.Forms.Padding(4);
             this.txtNota2.Multiline = true;
             this.txtNota2.Name = "txtNota2";
             this.txtNota2.Size = new System.Drawing.Size(83, 41);
@@ -116,7 +116,7 @@
             this.txtNota3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtNota3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNota3.Location = new System.Drawing.Point(568, 294);
-            this.txtNota3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNota3.Margin = new System.Windows.Forms.Padding(4);
             this.txtNota3.Multiline = true;
             this.txtNota3.Name = "txtNota3";
             this.txtNota3.Size = new System.Drawing.Size(83, 41);
@@ -128,7 +128,7 @@
             this.txtNota4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtNota4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNota4.Location = new System.Drawing.Point(780, 294);
-            this.txtNota4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNota4.Margin = new System.Windows.Forms.Padding(4);
             this.txtNota4.Multiline = true;
             this.txtNota4.Name = "txtNota4";
             this.txtNota4.Size = new System.Drawing.Size(83, 41);
@@ -141,7 +141,7 @@
             this.txtPromedio.Enabled = false;
             this.txtPromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPromedio.Location = new System.Drawing.Point(1056, 294);
-            this.txtPromedio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPromedio.Margin = new System.Windows.Forms.Padding(4);
             this.txtPromedio.Multiline = true;
             this.txtPromedio.Name = "txtPromedio";
             this.txtPromedio.Size = new System.Drawing.Size(83, 41);
@@ -156,7 +156,7 @@
             this.dgvNotasDocente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
             this.dgvNotasDocente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNotasDocente.Location = new System.Drawing.Point(192, 378);
-            this.dgvNotasDocente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvNotasDocente.Margin = new System.Windows.Forms.Padding(4);
             this.dgvNotasDocente.Name = "dgvNotasDocente";
             this.dgvNotasDocente.ReadOnly = true;
             this.dgvNotasDocente.RowHeadersWidth = 51;
@@ -256,7 +256,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
             this.btnLimpiar.Location = new System.Drawing.Point(1087, 161);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(225, 46);
             this.btnLimpiar.TabIndex = 0;
@@ -272,7 +272,7 @@
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Location = new System.Drawing.Point(1056, 394);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(205, 46);
             this.btnAgregar.TabIndex = 5;
@@ -288,7 +288,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Location = new System.Drawing.Point(1056, 545);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(205, 41);
             this.btnEliminar.TabIndex = 0;
@@ -303,7 +303,7 @@
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.White;
             this.btnActualizar.Location = new System.Drawing.Point(1056, 476);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(205, 44);
             this.btnActualizar.TabIndex = 0;
@@ -349,7 +349,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NotasDocente";
             this.Text = "NotasDocente";
             this.Load += new System.EventHandler(this.NotasDocente_Load);
