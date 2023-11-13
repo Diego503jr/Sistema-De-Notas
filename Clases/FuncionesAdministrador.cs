@@ -492,7 +492,7 @@ namespace SistemaDeNotas.Clases
                 {
                     MessageBox.Show("Los datos de la inscripción se agregaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    string queryNotas = "INSERT INTO dbo.Notas(IdAlumno, IdMateria, IdEstado) VALUES(@idAlumno, @idMateria, @idestado)";
+                    string queryNotas = "INSERT INTO dbo.Notas(IdAlumno, IdMateria,Nota1, Nota2, Nota3, Nota4, Promedio, IdEstado) VALUES(@idAlumno, @idMateria,0,0,0,0,0, @idestado)";
                     SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
                     cmdNotas.Parameters.AddWithValue("@idAlumno",Inscripcion.IdAlumno);
                     cmdNotas.Parameters.AddWithValue("@idMateria",Inscripcion.IdMateria);
