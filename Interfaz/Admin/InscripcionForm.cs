@@ -28,8 +28,8 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            FuncionesAdministrador.ManejoErrores(e);
-        }
+			FuncionesAdministrador.ManejoErrores(e);
+		}
 
         private void TxtCarnet_KeyPress(object sender, KeyPressEventArgs e)
         {

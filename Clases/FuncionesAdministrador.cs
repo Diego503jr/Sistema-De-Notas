@@ -492,7 +492,7 @@ namespace SistemaDeNotas.Clases
                 {
                     MessageBox.Show("Los datos de la inscripción se agregaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    string queryNotas = "INSERT INTO dbo.Notas(IdAlumno, IdMateria, IdEstado) VALUES(@idAlumno, @idMateria, @idestado)";
+                    string queryNotas = "INSERT INTO dbo.Notas(IdAlumno, IdMateria,Nota1, Nota2, Nota3, Nota4, Promedio, IdEstado) VALUES(@idAlumno, @idMateria,0,0,0,0,0, @idestado)";
                     SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
                     cmdNotas.Parameters.AddWithValue("@idAlumno",Inscripcion.IdAlumno);
                     cmdNotas.Parameters.AddWithValue("@idMateria",Inscripcion.IdMateria);
@@ -792,7 +792,7 @@ namespace SistemaDeNotas.Clases
                 if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
                 {
                     e.Handled = true; //se ejecuta para suprimir la tecla presionada en caso no haya cumplido la condicion
-                    MessageBox.Show("Ingrese únicamente letras por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Formato de entrada incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -809,7 +809,7 @@ namespace SistemaDeNotas.Clases
                 if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
                 {
                     e.Handled = true; //se ejecuta para suprimir la tecla presionada en caso no haya cumplido la condicion
-                    MessageBox.Show("Ingrese únicamente números por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ingrese únicamente letras por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
