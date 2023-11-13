@@ -33,9 +33,13 @@ namespace SistemaDeNotas.Interfaz.Admin
         {
 			FuncionesAdministrador.ManejoErrores(e);
         }
+		private void txtDescripcionMateria_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			FuncionesAdministrador.ManejoErrores(e);
+		}
 
-        //MOSTRAR MATERIA
-        public void MostrarMaterias()
+		//MOSTRAR MATERIA
+		public void MostrarMaterias()
 		{
 			dgvMaterias.DataSource = FuncionesAdministrador.MostrarMateria();
 		}
@@ -273,5 +277,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 				(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = "";
 			}
 		}
+
+		
 	}
 }

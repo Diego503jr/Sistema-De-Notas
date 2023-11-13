@@ -74,5 +74,26 @@ namespace SistemaDeNotas.Interfaz.Alumno
                 }
             };
         }
-    }
+
+		private void dgvNotas_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			// Obtiene el IdAlumno de la fila seleccionada en el DataGridView
+			double promedio = Convert.ToDouble(dgvNotas.Rows[e.RowIndex].Cells["Promedio"].Value);
+
+
+			// Muestra el promedio en el TextBox
+			txtpromedio.Text = promedio.ToString();
+
+			// Establece el estado de la materia
+			if (promedio >= 7)
+			{
+				txtEstadoMateria.Text = "APROBADO";
+			}
+			else
+			{
+				txtEstadoMateria.Text = "REPROBADO";
+			}
+		}
+
+	}
 }

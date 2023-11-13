@@ -27,7 +27,7 @@ namespace SistemaDeNotas.Interfaz.Admin
         private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
 			FuncionesAdministrador.ManejoErrores(e);
-        }
+		}
 
         private void TxtNombreCurso_KeyPress(object sender, KeyPressEventArgs e)
         {

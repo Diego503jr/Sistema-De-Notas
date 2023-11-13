@@ -66,9 +66,9 @@
 			this.gbDetalleMateria.Controls.Add(this.label2);
 			this.gbDetalleMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.gbDetalleMateria.Location = new System.Drawing.Point(22, 98);
-			this.gbDetalleMateria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.gbDetalleMateria.Margin = new System.Windows.Forms.Padding(2);
 			this.gbDetalleMateria.Name = "gbDetalleMateria";
-			this.gbDetalleMateria.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.gbDetalleMateria.Padding = new System.Windows.Forms.Padding(2);
 			this.gbDetalleMateria.Size = new System.Drawing.Size(1036, 168);
 			this.gbDetalleMateria.TabIndex = 3;
 			this.gbDetalleMateria.TabStop = false;
@@ -80,7 +80,7 @@
 			this.cbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cbEstado.FormattingEnabled = true;
 			this.cbEstado.Location = new System.Drawing.Point(726, 97);
-			this.cbEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.cbEstado.Margin = new System.Windows.Forms.Padding(2);
 			this.cbEstado.Name = "cbEstado";
 			this.cbEstado.Size = new System.Drawing.Size(293, 30);
 			this.cbEstado.TabIndex = 11;
@@ -103,7 +103,7 @@
 			this.cbDocente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cbDocente.FormattingEnabled = true;
 			this.cbDocente.Location = new System.Drawing.Point(726, 39);
-			this.cbDocente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.cbDocente.Margin = new System.Windows.Forms.Padding(2);
 			this.cbDocente.Name = "cbDocente";
 			this.cbDocente.Size = new System.Drawing.Size(293, 30);
 			this.cbDocente.TabIndex = 2;
@@ -125,11 +125,12 @@
 			this.txtDescripcionMateria.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.txtDescripcionMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtDescripcionMateria.Location = new System.Drawing.Point(132, 97);
-			this.txtDescripcionMateria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtDescripcionMateria.Margin = new System.Windows.Forms.Padding(2);
 			this.txtDescripcionMateria.Multiline = true;
 			this.txtDescripcionMateria.Name = "txtDescripcionMateria";
 			this.txtDescripcionMateria.Size = new System.Drawing.Size(474, 56);
 			this.txtDescripcionMateria.TabIndex = 3;
+			this.txtDescripcionMateria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcionMateria_KeyPress);
 			// 
 			// label3
 			// 
@@ -148,7 +149,7 @@
 			this.txtNombreMateria.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.txtNombreMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtNombreMateria.Location = new System.Drawing.Point(132, 41);
-			this.txtNombreMateria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtNombreMateria.Margin = new System.Windows.Forms.Padding(2);
 			this.txtNombreMateria.Name = "txtNombreMateria";
 			this.txtNombreMateria.Size = new System.Drawing.Size(325, 28);
 			this.txtNombreMateria.TabIndex = 1;
@@ -171,7 +172,7 @@
 			this.dgvMaterias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(58)))), ((int)(((byte)(68)))));
 			this.dgvMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvMaterias.Location = new System.Drawing.Point(22, 355);
-			this.dgvMaterias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.dgvMaterias.Margin = new System.Windows.Forms.Padding(2);
 			this.dgvMaterias.Name = "dgvMaterias";
 			this.dgvMaterias.ReadOnly = true;
 			this.dgvMaterias.RowHeadersWidth = 51;
@@ -190,7 +191,7 @@
 			this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnActualizar.ForeColor = System.Drawing.Color.White;
 			this.btnActualizar.Location = new System.Drawing.Point(900, 552);
-			this.btnActualizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnActualizar.Margin = new System.Windows.Forms.Padding(2);
 			this.btnActualizar.Name = "btnActualizar";
 			this.btnActualizar.Size = new System.Drawing.Size(131, 33);
 			this.btnActualizar.TabIndex = 71;
@@ -208,7 +209,7 @@
 			this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnEliminar.ForeColor = System.Drawing.Color.White;
 			this.btnEliminar.Location = new System.Drawing.Point(900, 492);
-			this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
 			this.btnEliminar.Name = "btnEliminar";
 			this.btnEliminar.Size = new System.Drawing.Size(131, 33);
 			this.btnEliminar.TabIndex = 70;
@@ -226,7 +227,7 @@
 			this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnAgregar.ForeColor = System.Drawing.Color.White;
 			this.btnAgregar.Location = new System.Drawing.Point(900, 435);
-			this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
 			this.btnAgregar.Name = "btnAgregar";
 			this.btnAgregar.Size = new System.Drawing.Size(131, 33);
 			this.btnAgregar.TabIndex = 69;
@@ -244,7 +245,7 @@
 			this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnLimpiar.ForeColor = System.Drawing.Color.White;
 			this.btnLimpiar.Location = new System.Drawing.Point(735, 293);
-			this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2);
 			this.btnLimpiar.Name = "btnLimpiar";
 			this.btnLimpiar.Size = new System.Drawing.Size(131, 33);
 			this.btnLimpiar.TabIndex = 72;
@@ -280,7 +281,7 @@
 			this.SubBarraTitulo.Controls.Add(this.label1);
 			this.SubBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
 			this.SubBarraTitulo.Location = new System.Drawing.Point(0, 0);
-			this.SubBarraTitulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.SubBarraTitulo.Margin = new System.Windows.Forms.Padding(2);
 			this.SubBarraTitulo.Name = "SubBarraTitulo";
 			this.SubBarraTitulo.Size = new System.Drawing.Size(1040, 68);
 			this.SubBarraTitulo.TabIndex = 75;
@@ -340,7 +341,7 @@
 			this.Controls.Add(this.dgvMaterias);
 			this.Controls.Add(this.gbDetalleMateria);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "MateriasForm";
 			this.Text = "MateriasForm";
 			this.Load += new System.EventHandler(this.MateriasForm_Load);

@@ -792,7 +792,7 @@ namespace SistemaDeNotas.Clases
                 if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
                 {
                     e.Handled = true; //se ejecuta para suprimir la tecla presionada en caso no haya cumplido la condicion
-                    MessageBox.Show("Ingrese únicamente letras por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Formato de entrada incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -809,7 +809,7 @@ namespace SistemaDeNotas.Clases
                 if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
                 {
                     e.Handled = true; //se ejecuta para suprimir la tecla presionada en caso no haya cumplido la condicion
-                    MessageBox.Show("Ingrese únicamente números por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ingrese únicamente letras por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
