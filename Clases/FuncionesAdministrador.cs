@@ -143,10 +143,30 @@ namespace SistemaDeNotas.Clases
             try
             {
                 CConexion conexion = new CConexion();
-                string query = "UPDATE dbo.Usuarios SET IdEstado = 0 WHERE Id = @Id";
-                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-                cmd.Parameters.AddWithValue("@Id", Usuario.Id);
-                retorno = cmd.ExecuteNonQuery();
+
+                // Actualizar Usuarios
+                string queryUsuarios = "UPDATE dbo.Usuarios SET IdEstado = 0 WHERE Id = @Id";
+                SqlCommand cmdUsuarios = new SqlCommand(queryUsuarios, conexion.establecerConexion());
+                cmdUsuarios.Parameters.AddWithValue("@Id", Usuario.Id);
+                retorno = cmdUsuarios.ExecuteNonQuery();
+
+                // Actualizar Inscripciones
+                string queryInscripciones = "UPDATE dbo.Inscripciones SET IdEstado = 0 WHERE IdAlumno = @IdUsuario";
+                SqlCommand cmdInscripciones = new SqlCommand(queryInscripciones, conexion.establecerConexion());
+                cmdInscripciones.Parameters.AddWithValue("@IdUsuario", Usuario.Id);
+                retorno += cmdInscripciones.ExecuteNonQuery();
+
+                // Actualizar Materias
+                string queryMaterias = "UPDATE dbo.Materias SET IdEstado = 0 WHERE IdDocente = @IdUsuario";
+                SqlCommand cmdMaterias = new SqlCommand(queryMaterias, conexion.establecerConexion());
+                cmdMaterias.Parameters.AddWithValue("@IdUsuario", Usuario.Id);
+                retorno += cmdMaterias.ExecuteNonQuery();
+
+                // Actualizar Notas
+                string queryNotas = "UPDATE dbo.Notas SET IdEstado = 0 WHERE IdAlumno = @IdUsuario";
+                SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
+                cmdNotas.Parameters.AddWithValue("@IdUsuario", Usuario.Id);
+                retorno += cmdNotas.ExecuteNonQuery();
 
                 if (retorno >= 0)
                 {
