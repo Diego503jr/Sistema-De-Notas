@@ -16,6 +16,8 @@ namespace SistemaDeNotas.Interfaz.Docente
 	{
         private string IDDOCENTE;
 
+        ConstructorNotas notas =  new ConstructorNotas();
+
 		public NotasDocente(string id)
 		{
             this.IDDOCENTE = id;
@@ -166,5 +168,78 @@ namespace SistemaDeNotas.Interfaz.Docente
 				(dgvNotasDocente.DataSource as DataTable).DefaultView.RowFilter = "";
 			}
 		}
-	}
+
+        public void Actualizar()
+        {
+            if (cbRegistroNotas.SelectedIndex == -1 || txtNombre.Text == "" || txtNota1.Text == "" || txtNota2.Text == "" || txtNota3.Text == "" || txtNota4.Text == "")
+            {
+                MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                string alumno = txtNombre.Text;
+                int usuario = ObtenerIdAlumno(alumno);
+                int idMateria = Convert.ToInt32(cbRegistroNotas.SelectedValue);
+                int id = (int)dgvNotasDocente.SelectedRows[0].Cells["Id"].Value;
+                notas.IdAlumno = usuario;
+                notas.IdMateria = Convert.ToInt32(cbRegistroNotas.SelectedValue);
+                notas.Nota1 = Convert.ToDecimal(txtNota1.Text);
+                notas.Nota2 = Convert.ToDecimal(txtNota2.Text);
+                notas.Nota3 = Convert.ToDecimal(txtNota3.Text);
+                notas.Nota4 = Convert.ToDecimal(txtNota4.Text);
+                decimal promedioFinal = ObtenerPromedio(notas.Nota1, notas.Nota2, notas.Nota3, notas.Nota4);
+                notas.Promedio = promedioFinal;
+                notas.Id = id;
+                FuncionesDocente.AgregarNota(notas);
+                MostrarNotas();
+            }
+
+        }
+
+        public static decimal ObtenerPromedio( decimal nota1, decimal nota2, decimal nota3, decimal nota4)
+        {
+
+            decimal promediosuma = nota1 + nota2 + nota3 + nota4;
+            decimal promediodivision = promediosuma / 4;
+
+            return promediodivision;
+
+        }
+
+        public static int ObtenerIdAlumno(string nombre)
+        {
+            int idUsuario = -1;
+
+            try
+            {
+                CConexion conexion = new CConexion();
+                string query = "SELECT Id FROM dbo.Usuarios Where Nombre = @nombre";
+
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    idUsuario = (int)reader["Id"];
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+
+            return idUsuario;
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Actualizar();
+        }
+
+
+    }
 }
