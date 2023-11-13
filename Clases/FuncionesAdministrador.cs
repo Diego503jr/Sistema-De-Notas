@@ -118,6 +118,27 @@ namespace SistemaDeNotas.Clases
                 cmd.Parameters.AddWithValue("@estado", Usuarios.IdEstado);
                 cmd.Parameters.AddWithValue("@Id", Usuarios.Id);
 
+                // Actualizar Inscripciones
+                string queryInscripciones = "UPDATE dbo.Inscripcion SET IdEstado = @estado WHERE IdAlumno = @IdUsuario";
+                SqlCommand cmdInscripciones = new SqlCommand(queryInscripciones, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@estado", Usuarios.IdEstado);
+                cmdInscripciones.Parameters.AddWithValue("@IdUsuario", Usuarios.Id);
+                retorno += cmdInscripciones.ExecuteNonQuery();
+
+                // Actualizar Materias
+                string queryMaterias = "UPDATE dbo.Materias SET IdEstado = @estado WHERE IdDocente = @IdUsuario";
+                SqlCommand cmdMaterias = new SqlCommand(queryMaterias, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@estado", Usuarios.IdEstado);
+                cmdMaterias.Parameters.AddWithValue("@IdUsuario", Usuarios.Id);
+                retorno += cmdMaterias.ExecuteNonQuery();
+
+                // Actualizar Notas
+                string queryNotas = "UPDATE dbo.Notas SET IdEstado = @estado WHERE IdAlumno = @IdUsuario";
+                SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@estado", Usuarios.IdEstado);
+                cmdNotas.Parameters.AddWithValue("@IdUsuario", Usuarios.Id);
+                retorno += cmdNotas.ExecuteNonQuery();
+
                 retorno = cmd.ExecuteNonQuery();
                 if (retorno >= 0)
                 {
@@ -151,7 +172,7 @@ namespace SistemaDeNotas.Clases
                 retorno = cmdUsuarios.ExecuteNonQuery();
 
                 // Actualizar Inscripciones
-                string queryInscripciones = "UPDATE dbo.Inscripciones SET IdEstado = 0 WHERE IdAlumno = @IdUsuario";
+                string queryInscripciones = "UPDATE dbo.Inscripcion SET IdEstado = 0 WHERE IdAlumno = @IdUsuario";
                 SqlCommand cmdInscripciones = new SqlCommand(queryInscripciones, conexion.establecerConexion());
                 cmdInscripciones.Parameters.AddWithValue("@IdUsuario", Usuario.Id);
                 retorno += cmdInscripciones.ExecuteNonQuery();
