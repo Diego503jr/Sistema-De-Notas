@@ -30,6 +30,12 @@ namespace SistemaDeNotas
                 AbrirFormHijo(notasDocentes);
                 notasDocentes.Show();
             };
+			ListarAlumnos listarAlumnos = new ListarAlumnos(id);
+			btnMenuDocentes.Click += (sender, e) =>
+			{
+				AbrirFormHijo(listarAlumnos);
+				listarAlumnos.Show();
+			};
 		}
 
         
