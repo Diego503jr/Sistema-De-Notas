@@ -70,5 +70,28 @@ namespace SistemaDeNotas.Clases
                 return retorno;
             }
         }
-    }
+		public static DataTable MostrarAlumnos(int idDocente)
+		{
+			CConexion conexion = new CConexion();
+			DataTable data = new DataTable();
+			try
+			{
+				string query = "SELECT M.Id, U.Nombre AS Alumno, M.Nombre AS Materia  " +
+				 "FROM dbo.Inscripcion AS I " +
+				 "INNER JOIN dbo.Usuarios AS U ON I.IdAlumno = U.Id " +
+				 "INNER JOIN dbo.Materias AS M ON I.IdMateria = M.Id " +
+				 "WHERE M.IdDocente = @IdDocente";
+				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+				cmd.Parameters.Add(new SqlParameter("@IdDocente", idDocente));
+				SqlDataAdapter dt = new SqlDataAdapter(cmd);
+				dt.Fill(data);
+				return data;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+				return data;
+			}
+		}
+	}
 }
