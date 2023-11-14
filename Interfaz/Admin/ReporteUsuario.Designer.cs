@@ -35,7 +35,7 @@
             // crystalReportViewer1
             // 
             this.crystalReportViewer1.ActiveViewIndex = -1;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
@@ -43,6 +43,7 @@
             this.crystalReportViewer1.ReportSource = this.ReporteUsuario1;
             this.crystalReportViewer1.Size = new System.Drawing.Size(1193, 696);
             this.crystalReportViewer1.TabIndex = 0;
+            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // ReporteUsuario
             // 
@@ -50,6 +51,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1193, 696);
             this.Controls.Add(this.crystalReportViewer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ReporteUsuario";
             this.Text = "ReporteUsuario";
             this.ResumeLayout(false);
