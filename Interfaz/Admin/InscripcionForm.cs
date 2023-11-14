@@ -441,5 +441,11 @@ namespace SistemaDeNotas.Interfaz.Admin
 				(dgvInscripcion.DataSource as DataTable).DefaultView.RowFilter = "";
 			}
 		}
-	}
+
+        private void btnGenerarReporte_Click(object sender, EventArgs e)
+        {
+            ReporteInscripcion reportInsc = new ReporteInscripcion();
+            reportInsc.ShowDialog();
+        }
+    }
 }

@@ -310,5 +310,11 @@ namespace SistemaDeNotas.Interfaz.Admin
 			}
 
 		}
-	}
+
+        private void btnReporteUsuario_Click(object sender, EventArgs e)
+        {
+            ReporteUsuario reporteUsuario = new ReporteUsuario();
+            reporteUsuario.ShowDialog();
+        }
+    }
 }
