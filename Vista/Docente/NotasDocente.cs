@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Windows.Forms.DataVisualization.Charting;
+using SistemaDeNotas.Controlador;
 
 namespace SistemaDeNotas.Interfaz.Docente
 {
@@ -34,7 +35,7 @@ namespace SistemaDeNotas.Interfaz.Docente
         private void DocentesNotas()
         {
             int idDocente = Convert.ToInt32(IDDOCENTE);
-            cbRegistroNotas.DataSource = ControllerAdministrador.ListarMateriaDocente(idDocente);
+            cbRegistroNotas.DataSource = ControllerGlobales.ListarMateriaDocente(idDocente);
         }
 
         private void NotasDocente_Load(object sender, EventArgs e)
@@ -146,7 +147,7 @@ namespace SistemaDeNotas.Interfaz.Docente
         public void ListarMaterias()
         {
             int idDocente = Convert.ToInt32(IDDOCENTE);
-            cbRegistroNotas.DataSource = ControllerAdministrador.ListarMateriaDocente(idDocente);
+            cbRegistroNotas.DataSource = ControllerGlobales.ListarMateriaDocente(idDocente);
             cbRegistroNotas.DisplayMember = "Nombre";
             cbRegistroNotas.ValueMember = "Id";
             cbRegistroNotas.Text = null;
@@ -182,7 +183,7 @@ namespace SistemaDeNotas.Interfaz.Docente
             else
             {
                 string alumno = txtNombre.Text;
-                int usuario = ObtenerIdAlumno(alumno);
+                int usuario = ControllerSearch.ObtenerIdAlumnoDocente(alumno);
                 int id = (int)dgvNotasDocente.SelectedRows[0].Cells["Id"].Value;
                 notas.IdAlumno = usuario;
                 notas.IdMateria = Convert.ToInt32(cbRegistroNotas.SelectedValue);
@@ -208,7 +209,7 @@ namespace SistemaDeNotas.Interfaz.Docente
             else
             {
                 string alumno = txtNombre.Text;
-                int usuario = ObtenerIdAlumno(alumno);
+                int usuario = ControllerSearch.ObtenerIdAlumnoDocente(alumno);
                 int id = (int)dgvNotasDocente.SelectedRows[0].Cells["Id"].Value;
                 notas.IdAlumno = usuario;
                 notas.IdMateria = Convert.ToInt32(cbRegistroNotas.SelectedValue);
@@ -231,36 +232,6 @@ namespace SistemaDeNotas.Interfaz.Docente
             decimal promediodivision = promediosuma / 4;
 
             return promediodivision;
-
-        }
-
-        public static int ObtenerIdAlumno(string nombre)
-        {
-            int idUsuario = -1;
-
-            try
-            {
-                CConexion conexion = new CConexion();
-                string query = "SELECT Id FROM dbo.Usuarios Where Nombre = @nombre";
-
-                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-                cmd.Parameters.AddWithValue("@nombre", nombre);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    idUsuario = (int)reader["Id"];
-                }
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-
-            return idUsuario;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

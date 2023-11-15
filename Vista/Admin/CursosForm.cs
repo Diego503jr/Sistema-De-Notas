@@ -26,12 +26,12 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-			ControllerAdministrador.ManejoErrores(e);
+			ControllerGlobales.ManejoErrores(e);
 		}
 
         private void TxtNombreCurso_KeyPress(object sender, KeyPressEventArgs e)
         {
-			ControllerAdministrador.ManejoErrores(e);
+			ControllerGlobales.ManejoErrores(e);
         }
         private void CursosForm_Load(object sender, EventArgs e)
         {
@@ -49,12 +49,12 @@ namespace SistemaDeNotas.Interfaz.Admin
         //MOSTRAR ESTADO
         private void MostrarEstado()
 		{
-            cbEstado.DataSource = ControllerAdministrador.ListarEstado();
+            cbEstado.DataSource = ControllerGlobales.ListarEstado();
             cbEstado.DisplayMember = "EstadoValor";
             cbEstado.ValueMember = "Id";
             cbEstado.Text = null;
 
-			cmbFiltroEstado.DataSource = ControllerAdministrador.ListarEstado();
+			cmbFiltroEstado.DataSource = ControllerGlobales.ListarEstado();
 			cmbFiltroEstado.DisplayMember = "EstadoValor";
 			cmbFiltroEstado.ValueMember = "Id";
 			cmbFiltroEstado.Text = null;

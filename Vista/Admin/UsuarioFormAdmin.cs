@@ -29,29 +29,29 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void TxtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControllerAdministrador.ManejoErrores(e);
+            ControllerGlobales.ManejoErrores(e);
         }
 
         //Con estos keypress se maneja que no se pueda escribir caracteres que no se quieran escribir
         private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControllerAdministrador.ManejoErrores(e);
+            ControllerGlobales.ManejoErrores(e);
         }
 
         private void TxtCarnet_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControllerAdministrador.ManejoErrores(e);
+            ControllerGlobales.ManejoErrores(e);
         }
 
         private void TxtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControllerAdministrador.ManejoErroresTelefono(e);
+            ControllerGlobales.ManejoErroresTelefono(e);
         }
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             //se manda a llamar el manejo de errores desde la clase FuncionesAdministrador
-            ControllerAdministrador.ManejoErroresNombre(e);
+            ControllerGlobales.ManejoErroresNombre(e);
         }
         private void UsuarioFormAdmin_Load(object sender, EventArgs e)
         {
@@ -179,7 +179,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void MostrarRoles()
         {
-            cbRol.DataSource = ControllerAdministrador.ListarRoles();
+            cbRol.DataSource = ControllerGlobales.ListarRoles();
             cbRol.DisplayMember = "RolUsuario";
             cbRol.ValueMember = "Id";
             cbRol.Text = null;
@@ -187,12 +187,12 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void MostrarEstado()
         {
-            cbEstado.DataSource = ControllerAdministrador.ListarEstado();
+            cbEstado.DataSource = ControllerGlobales.ListarEstado();
             cbEstado.DisplayMember = "EstadoValor";
             cbEstado.ValueMember = "Id";
             cbEstado.Text = null;
 
-			cmbFiltroEstado.DataSource = ControllerAdministrador.ListarEstado();
+			cmbFiltroEstado.DataSource = ControllerGlobales.ListarEstado();
 			cmbFiltroEstado.DisplayMember = "EstadoValor";
 			cmbFiltroEstado.ValueMember = "Id";
 			cmbFiltroEstado.Text = null;

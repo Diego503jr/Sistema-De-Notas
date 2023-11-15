@@ -26,16 +26,16 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-			ControllerAdministrador.ManejoErrores(e);
+			ControllerGlobales.ManejoErrores(e);
         }
 
         private void TxtNombreMateria_KeyPress(object sender, KeyPressEventArgs e)
         {
-			ControllerAdministrador.ManejoErrores(e);
+			ControllerGlobales.ManejoErrores(e);
         }
 		private void txtDescripcionMateria_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			ControllerAdministrador.ManejoErrores(e);
+			ControllerGlobales.ManejoErrores(e);
 		}
 
 		//MOSTRAR MATERIA
@@ -99,12 +99,12 @@ namespace SistemaDeNotas.Interfaz.Admin
         //MOSTRAR ESTADO
         private void MostrarEstado()
         {
-            cbEstado.DataSource = ControllerAdministrador.ListarEstado();
+            cbEstado.DataSource = ControllerGlobales.ListarEstado();
             cbEstado.DisplayMember = "EstadoValor";
             cbEstado.ValueMember = "Id";
             cbEstado.Text = null;
 
-			cmbFiltroEstado.DataSource = ControllerAdministrador.ListarEstado();
+			cmbFiltroEstado.DataSource = ControllerGlobales.ListarEstado();
 			cmbFiltroEstado.DisplayMember = "EstadoValor";
 			cmbFiltroEstado.ValueMember = "Id";
 			cmbFiltroEstado.Text = null;
@@ -184,7 +184,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 		//LISTAR DOCENTE
 		public void ListarDocentesMat()
 		{
-			cbDocente.DataSource = ControllerAdministrador.ListarDocentes();
+			cbDocente.DataSource = ControllerGlobales.ListarDocentes();
 			cbDocente.DisplayMember = "Nombre";
 			cbDocente.ValueMember = "Id";
             cbDocente.Text = null;

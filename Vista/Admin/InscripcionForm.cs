@@ -1,4 +1,5 @@
 ﻿using SistemaDeNotas.Clases;
+using SistemaDeNotas.Controlador;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,17 +29,17 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-			ControllerAdministrador.ManejoErrores(e);
+            ControllerGlobales.ManejoErrores(e);
 		}
 
         private void TxtCarnet_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControllerAdministrador.ManejoErrores(e);
+            ControllerGlobales.ManejoErrores(e);
         }
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControllerAdministrador.ManejoErroresNombre(e);
+            ControllerGlobales.ManejoErroresNombre(e);
         }
 
         public void ConfigurarTextbox(string nombreAlumno, string carnetAlumno)
@@ -99,7 +100,7 @@ namespace SistemaDeNotas.Interfaz.Admin
         }
         public void ListarMateriasIns()
         {
-            cbMaterias.DataSource = ControllerAdministrador.ListarMaterias();
+            cbMaterias.DataSource = ControllerGlobales.ListarMaterias();
             cbMaterias.DisplayMember = "Nombre";
             cbMaterias.ValueMember = "Id";
             cbMaterias.Text = null;
@@ -109,7 +110,7 @@ namespace SistemaDeNotas.Interfaz.Admin
                 if (cbMaterias.SelectedIndex != -1)
                 {
                     int IdDocente = Convert.ToInt32(((DataRowView)cbMaterias.SelectedItem)["IdDocente"]);
-                    string nombreDocente = ObtenerNombreDocente(IdDocente);
+                    string nombreDocente = ControllerSearch.ObtenerNombreDocente(IdDocente);
                     txtDocente.Text = nombreDocente;
                 }
                 else
@@ -121,7 +122,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         public void ListarCursosIns()
         {
-            cbCursos.DataSource = ControllerAdministrador.ListarCursos();
+            cbCursos.DataSource = ControllerGlobales.ListarCursos();
             cbCursos.DisplayMember = "Nombre";
             cbCursos.ValueMember = "Id";
             cbCursos.Text = null;
@@ -134,12 +135,12 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         public void ListarEstado()
         {
-            cbEstado.DataSource = ControllerAdministrador.ListarEstado();
+            cbEstado.DataSource = ControllerGlobales.ListarEstado();
             cbEstado.DisplayMember = "EstadoValor";
             cbEstado.ValueMember = "Id";
             cbEstado.Text = null;
 
-			cmbFiltroEstado.DataSource = ControllerAdministrador.ListarEstado();
+			cmbFiltroEstado.DataSource = ControllerGlobales.ListarEstado();
 			cmbFiltroEstado.DisplayMember = "EstadoValor";
 			cmbFiltroEstado.ValueMember = "Id";
 			cmbFiltroEstado.Text = null;
@@ -161,7 +162,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             {
                 string nombre = txtNombre.Text;
                 string carnet = txtCarnet.Text;
-                int idAlumno = ObtenerIdAlumno(nombre, carnet);
+                int idAlumno = ControllerSearch.ObtenerIdAlumno(nombre, carnet);
 
                 if (idAlumno > -1)
                 {
@@ -197,7 +198,7 @@ namespace SistemaDeNotas.Interfaz.Admin
                 string Nombre = txtNombre.Text;
                 string Carnet = txtCarnet.Text;
 
-                int idAlumno = ObtenerIdAlumno(Nombre, Carnet);
+                int idAlumno = ControllerSearch.ObtenerIdAlumno(Nombre, Carnet);
 
                 if (idAlumno > -1)
                 {
@@ -215,82 +216,6 @@ namespace SistemaDeNotas.Interfaz.Admin
                     MessageBox.Show("El usuario no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        public static string ObtenerNombreDocente(int IdDocente)
-        {
-            CConexion conexion = new CConexion();
-
-            try
-            {
-                string query = "SELECT Nombre FROM dbo.Usuarios WHERE Id = @idDocente";
-                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-                cmd.Parameters.AddWithValue("@idDocente", IdDocente);
-                string nombreDocente = (string)cmd.ExecuteScalar();
-                return nombreDocente;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                return null;
-            }
-        }
-
-        public static int ObtenerIdAlumno(string nombre, string carnet)
-        {
-            int idUsuario = -1;
-
-            try
-            {
-                CConexion conexion = new CConexion();
-                string query = "SELECT Id FROM dbo.Usuarios WHERE Nombre = @nombre AND Carnet = @carnet AND IdRol = 2";
-                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-                cmd.Parameters.AddWithValue("@nombre", nombre);
-                cmd.Parameters.AddWithValue("@carnet", carnet);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    idUsuario = (int)reader["Id"];
-                }
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-
-            return idUsuario;
-        }
-
-        public static int ObtenerIdMateria(string nombre)
-        {
-            int idMateria = -1;
-
-            try
-            {
-                CConexion conexion = new CConexion();
-                string query = "SELECT Id FROM dbo.Materias WHERE Nombre = @nombre";
-                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-                cmd.Parameters.AddWithValue("@nombre", nombre);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    idMateria = (int)reader["Id"];
-                }
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-
-            return idMateria;
         }
 
         private void dgvInscripcion_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -420,8 +345,8 @@ namespace SistemaDeNotas.Interfaz.Admin
                 string idMateria = dgvInscripcion.SelectedRows[0].Cells["Materia"].Value.ToString();
 
                 inscripcion.Id = id;
-                inscripcion.IdAlumno = ObtenerIdAlumno(idAlumno, idCarnet);
-                inscripcion.IdMateria = ObtenerIdMateria(idMateria);
+                inscripcion.IdAlumno = ControllerSearch.ObtenerIdAlumno(idAlumno, idCarnet);
+                inscripcion.IdMateria = ControllerSearch.ObtenerIdMateria(idMateria);
                 ControllerAdministrador.EliminarInscripcion(inscripcion);
                 MostrarInscripcion();
             }
