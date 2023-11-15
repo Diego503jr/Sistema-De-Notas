@@ -164,39 +164,48 @@ namespace SistemaDeNotas.Clases
             try
             {
                 CConexion conexion = new CConexion();
+               DialogResult resultado = MessageBox.Show("¿Estás seguro de Eliminar al Usuario?", "Alerta!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                // Actualizar Usuarios
-                string queryUsuarios = "UPDATE dbo.Usuarios SET IdEstado = 0 WHERE Id = @Id";
-                SqlCommand cmdUsuarios = new SqlCommand(queryUsuarios, conexion.establecerConexion());
-                cmdUsuarios.Parameters.AddWithValue("@Id", Usuario.Id);
-                retorno = cmdUsuarios.ExecuteNonQuery();
-
-                // Actualizar Inscripciones
-                string queryInscripciones = "UPDATE dbo.Inscripcion SET IdEstado = 0 WHERE IdAlumno = @IdUsuario";
-                SqlCommand cmdInscripciones = new SqlCommand(queryInscripciones, conexion.establecerConexion());
-                cmdInscripciones.Parameters.AddWithValue("@IdUsuario", Usuario.Id);
-                retorno += cmdInscripciones.ExecuteNonQuery();
-
-                // Actualizar Materias
-                string queryMaterias = "UPDATE dbo.Materias SET IdEstado = 0 WHERE IdDocente = @IdUsuario";
-                SqlCommand cmdMaterias = new SqlCommand(queryMaterias, conexion.establecerConexion());
-                cmdMaterias.Parameters.AddWithValue("@IdUsuario", Usuario.Id);
-                retorno += cmdMaterias.ExecuteNonQuery();
-
-                // Actualizar Notas
-                string queryNotas = "UPDATE dbo.Notas SET IdEstado = 0 WHERE IdAlumno = @IdUsuario";
-                SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
-                cmdNotas.Parameters.AddWithValue("@IdUsuario", Usuario.Id);
-                retorno += cmdNotas.ExecuteNonQuery();
-
-                if (retorno >= 0)
+                if (resultado == DialogResult.Yes)
                 {
-                    MessageBox.Show("Los datos del usuario se eliminaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return retorno;
+                    // Actualizar Usuarios
+                    string queryUsuarios = "UPDATE dbo.Usuarios SET IdEstado = 0 WHERE Id = @Id";
+                    SqlCommand cmdUsuarios = new SqlCommand(queryUsuarios, conexion.establecerConexion());
+                    cmdUsuarios.Parameters.AddWithValue("@Id", Usuario.Id);
+                    retorno = cmdUsuarios.ExecuteNonQuery();
+
+                    // Actualizar Inscripciones
+                    string queryInscripciones = "UPDATE dbo.Inscripcion SET IdEstado = 0 WHERE IdAlumno = @IdUsuario";
+                    SqlCommand cmdInscripciones = new SqlCommand(queryInscripciones, conexion.establecerConexion());
+                    cmdInscripciones.Parameters.AddWithValue("@IdUsuario", Usuario.Id);
+                    retorno += cmdInscripciones.ExecuteNonQuery();
+
+                    // Actualizar Materias
+                    string queryMaterias = "UPDATE dbo.Materias SET IdEstado = 0 WHERE IdDocente = @IdUsuario";
+                    SqlCommand cmdMaterias = new SqlCommand(queryMaterias, conexion.establecerConexion());
+                    cmdMaterias.Parameters.AddWithValue("@IdUsuario", Usuario.Id);
+                    retorno += cmdMaterias.ExecuteNonQuery();
+
+                    // Actualizar Notas
+                    string queryNotas = "UPDATE dbo.Notas SET IdEstado = 0 WHERE IdAlumno = @IdUsuario";
+                    SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
+                    cmdNotas.Parameters.AddWithValue("@IdUsuario", Usuario.Id);
+                    retorno += cmdNotas.ExecuteNonQuery();
+
+                    if (retorno >= 0)
+                    {
+                        MessageBox.Show("Los datos del usuario se eliminaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return retorno;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Los datos no se agregaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return retorno;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Los datos no se agregaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El usuario no se elimino", "Informacion!!",MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return retorno;
                 }
             }

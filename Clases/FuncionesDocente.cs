@@ -113,11 +113,12 @@ namespace SistemaDeNotas.Clases
 			DataTable data = new DataTable();
 			try
 			{
-				string query = "SELECT M.Id, U.Nombre AS Alumno, M.Nombre AS Materia  " +
+				string query = "SELECT M.Id, U.Nombre AS Alumno, M.Nombre AS Materia, C.Nombre As Curso " +
 				 "FROM dbo.Inscripcion AS I " +
 				 "INNER JOIN dbo.Usuarios AS U ON I.IdAlumno = U.Id " +
 				 "INNER JOIN dbo.Materias AS M ON I.IdMateria = M.Id " +
-				 "WHERE M.IdDocente = @IdDocente WHERE I.IdEstado = 1 AND U.IdEstado = 1 AND M.IdEstado = 1";
+                 "INNER JOIN dbo.Cursos AS C ON I.IdCurso = C.ID " +
+				 "WHERE M.IdDocente = @IdDocente AND I.IdEstado = 1 AND U.IdEstado = 1 AND M.IdEstado = 1 AND C.IdEstado = 1";
 				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
 				cmd.Parameters.Add(new SqlParameter("@IdDocente", idDocente));
 				SqlDataAdapter dt = new SqlDataAdapter(cmd);

@@ -142,12 +142,6 @@
     <Compile Include="Interfaz\Docente\DocenteForm.Designer.cs">
       <DependentUpon>DocenteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Docente\GraficaForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaz\Docente\GraficaForm.Designer.cs">
-      <DependentUpon>GraficaForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Interfaz\Docente\ListarAlumnos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,9 +213,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Docente\DocenteForm.resx">
       <DependentUpon>DocenteForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Docente\GraficaForm.resx">
-      <DependentUpon>GraficaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Docente\ListarAlumnos.resx">
       <DependentUpon>ListarAlumnos.cs</DependentUpon>

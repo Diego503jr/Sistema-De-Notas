@@ -47,8 +47,8 @@ namespace SistemaDeNotas.Clases
 				 "FROM dbo.Inscripcion AS I " +
 				 "INNER JOIN dbo.Usuarios AS U ON I.IdAlumno = U.Id " +
 				 "INNER JOIN dbo.Materias AS M ON I.IdMateria = M.Id " +
-				 "INNER JOIN dbo.Cursos   AS C ON I.IdCurso = C.Id " + 
-				 "WHERE I.IdAlumno = @IdAlumno AND U.IdEstado = 1 AND I.Estado = 1 M.IdEstado = 1 AND C.IdEstado = 1";
+				 "INNER JOIN dbo.Cursos AS C ON I.IdCurso = C.Id " + 
+				 "WHERE I.IdAlumno = @IdAlumno AND U.IdEstado = 1 AND I.IdEstado = 1 AND M.IdEstado = 1 AND C.IdEstado = 1";
 
 				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
 				cmd.Parameters.Add(new SqlParameter("@IdAlumno", idAlumno));

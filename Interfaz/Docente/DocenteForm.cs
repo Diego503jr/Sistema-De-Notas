@@ -82,10 +82,5 @@ namespace SistemaDeNotas
             lblHora.Text = DateTime.Now.ToLongTimeString();
             lblFecha.Text = DateTime.Now.ToShortDateString();
         }
-
-        private void btnGrafica_Click(object sender, EventArgs e)
-        {
-            AbrirFormHijo(new GraficaForm());
-        }
-    }
+       }
 }
