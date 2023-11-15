@@ -17,7 +17,7 @@ namespace SistemaDeNotas.Interfaz.Docente
     {
         private string IDDOCENTE;
 
-        ConstructorNotas notas = new ConstructorNotas();
+        Notas notas = new Notas();
 
         public NotasDocente(string id)
         {
@@ -28,13 +28,13 @@ namespace SistemaDeNotas.Interfaz.Docente
         private void MostrarNotas()
         {
             int idDocente = Convert.ToInt32(IDDOCENTE);
-            dgvNotasDocente.DataSource = FuncionesDocente.MostrarNotas(idDocente);
+            dgvNotasDocente.DataSource = ControllerDocente.MostrarNotas(idDocente);
         }
 
         private void DocentesNotas()
         {
             int idDocente = Convert.ToInt32(IDDOCENTE);
-            cbRegistroNotas.DataSource = FuncionesAdministrador.ListarMateriaDocente(idDocente);
+            cbRegistroNotas.DataSource = ControllerAdministrador.ListarMateriaDocente(idDocente);
         }
 
         private void NotasDocente_Load(object sender, EventArgs e)
@@ -146,7 +146,7 @@ namespace SistemaDeNotas.Interfaz.Docente
         public void ListarMaterias()
         {
             int idDocente = Convert.ToInt32(IDDOCENTE);
-            cbRegistroNotas.DataSource = FuncionesAdministrador.ListarMateriaDocente(idDocente);
+            cbRegistroNotas.DataSource = ControllerAdministrador.ListarMateriaDocente(idDocente);
             cbRegistroNotas.DisplayMember = "Nombre";
             cbRegistroNotas.ValueMember = "Id";
             cbRegistroNotas.Text = null;
@@ -183,7 +183,6 @@ namespace SistemaDeNotas.Interfaz.Docente
             {
                 string alumno = txtNombre.Text;
                 int usuario = ObtenerIdAlumno(alumno);
-                int idMateria = Convert.ToInt32(cbRegistroNotas.SelectedValue);
                 int id = (int)dgvNotasDocente.SelectedRows[0].Cells["Id"].Value;
                 notas.IdAlumno = usuario;
                 notas.IdMateria = Convert.ToInt32(cbRegistroNotas.SelectedValue);
@@ -194,7 +193,7 @@ namespace SistemaDeNotas.Interfaz.Docente
                 decimal promedioFinal = ObtenerPromedio(notas.Nota1, notas.Nota2, notas.Nota3, notas.Nota4);
                 notas.Promedio = promedioFinal;
                 notas.Id = id;
-                FuncionesDocente.AgregarNota(notas);
+                ControllerDocente.AgregarNota(notas);
                 MostrarNotas();
             }
 
@@ -210,7 +209,6 @@ namespace SistemaDeNotas.Interfaz.Docente
             {
                 string alumno = txtNombre.Text;
                 int usuario = ObtenerIdAlumno(alumno);
-                int idMateria = Convert.ToInt32(cbRegistroNotas.SelectedValue);
                 int id = (int)dgvNotasDocente.SelectedRows[0].Cells["Id"].Value;
                 notas.IdAlumno = usuario;
                 notas.IdMateria = Convert.ToInt32(cbRegistroNotas.SelectedValue);
@@ -221,7 +219,7 @@ namespace SistemaDeNotas.Interfaz.Docente
                 decimal promedioFinal = ObtenerPromedio(notas.Nota1, notas.Nota2, notas.Nota3, notas.Nota4);
                 notas.Promedio = promedioFinal;
                 notas.Id = id;
-                FuncionesDocente.ActualizarNota(notas);
+                ControllerDocente.ActualizarNota(notas);
                 MostrarNotas();
             }
         }

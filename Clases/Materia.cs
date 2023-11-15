@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaDeNotas.Clases
 {
-	internal class ConstructorMateria
+	internal class Materia
 	{
 		public int Id { get; set; }
 		public string Nombre { get; set; }
@@ -14,7 +14,7 @@ namespace SistemaDeNotas.Clases
 		public int IdDocente { get; set; }
         public int IdEstado { get; set; }
 
-        public ConstructorMateria() { }
+        public Materia() { }
 	}
 
 }

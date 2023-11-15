@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace SistemaDeNotas.Clases
 {
-    internal class FuncionesAlumno
+    internal class ControllerAlumno
     {
         public static DataTable MostrarNotas(int idAlumno)
         {
@@ -30,7 +30,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return data;
             }
         }
@@ -58,8 +58,8 @@ namespace SistemaDeNotas.Clases
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return data;
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return data;
 			}
 		}
 

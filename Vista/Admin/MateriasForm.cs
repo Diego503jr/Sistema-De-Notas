@@ -14,7 +14,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 {
 	public partial class MateriasForm : Form
 	{
-		ConstructorMateria Materia = new ConstructorMateria();
+		Materia Materia = new Materia();
 		int posicion; //Obtener la fila seleccionada del DataGridView
 
 		public MateriasForm()
@@ -26,22 +26,22 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-			FuncionesAdministrador.ManejoErrores(e);
+			ControllerAdministrador.ManejoErrores(e);
         }
 
         private void TxtNombreMateria_KeyPress(object sender, KeyPressEventArgs e)
         {
-			FuncionesAdministrador.ManejoErrores(e);
+			ControllerAdministrador.ManejoErrores(e);
         }
 		private void txtDescripcionMateria_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			FuncionesAdministrador.ManejoErrores(e);
+			ControllerAdministrador.ManejoErrores(e);
 		}
 
 		//MOSTRAR MATERIA
 		public void MostrarMaterias()
 		{
-			dgvMaterias.DataSource = FuncionesAdministrador.MostrarMateria();
+			dgvMaterias.DataSource = ControllerAdministrador.MostrarMateria();
 		}
 
 		private void MateriasForm_Load(object sender, EventArgs e)
@@ -105,12 +105,12 @@ namespace SistemaDeNotas.Interfaz.Admin
         //MOSTRAR ESTADO
         private void MostrarEstado()
         {
-            cbEstado.DataSource = FuncionesAdministrador.ListarEstado();
+            cbEstado.DataSource = ControllerAdministrador.ListarEstado();
             cbEstado.DisplayMember = "EstadoValor";
             cbEstado.ValueMember = "Id";
             cbEstado.Text = null;
 
-			cmbFiltroEstado.DataSource = FuncionesAdministrador.ListarEstado();
+			cmbFiltroEstado.DataSource = ControllerAdministrador.ListarEstado();
 			cmbFiltroEstado.DisplayMember = "EstadoValor";
 			cmbFiltroEstado.ValueMember = "Id";
 			cmbFiltroEstado.Text = null;
@@ -135,7 +135,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 				Materia.Descripcion = txtDescripcionMateria.Text;
 				Materia.IdDocente = Convert.ToInt32(cbDocente.SelectedValue);
                 Materia.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
-                FuncionesAdministrador.AgregarMateria(Materia);
+                ControllerAdministrador.AgregarMateria(Materia);
                 MostrarMaterias();
             }
         }
@@ -155,7 +155,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 				Materia.Descripcion = txtDescripcionMateria.Text;
 				Materia.IdDocente = Convert.ToInt32(cbDocente.SelectedValue);
 				Materia.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
-				FuncionesAdministrador.ActualizarMateria(Materia);
+				ControllerAdministrador.ActualizarMateria(Materia);
                 MostrarMaterias();
             }
         }
@@ -182,7 +182,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 			{
                 int id = (int)dgvMaterias.SelectedRows[0].Cells["Id"].Value;
                 Materia.Id = id;
-                FuncionesAdministrador.EliminarMateria(Materia);
+                ControllerAdministrador.EliminarMateria(Materia);
                 MostrarMaterias();
             }
         }
@@ -190,7 +190,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 		//LISTAR DOCENTE
 		public void ListarDocentesMat()
 		{
-			cbDocente.DataSource = FuncionesAdministrador.ListarDocentes();
+			cbDocente.DataSource = ControllerAdministrador.ListarDocentes();
 			cbDocente.DisplayMember = "Nombre";
 			cbDocente.ValueMember = "Id";
             cbDocente.Text = null;

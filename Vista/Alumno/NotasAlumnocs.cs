@@ -22,7 +22,7 @@ namespace SistemaDeNotas.Interfaz.Alumno
         public void MostrarNotas()
         {
             int idAlumno = Convert.ToInt32(IdAlumno);
-            dgvNotas.DataSource = FuncionesAlumno.MostrarNotas(idAlumno);
+            dgvNotas.DataSource = ControllerAlumno.MostrarNotas(idAlumno);
 
         }
 

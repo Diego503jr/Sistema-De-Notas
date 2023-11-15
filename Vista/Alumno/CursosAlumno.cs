@@ -22,7 +22,7 @@ namespace SistemaDeNotas
 		public void MostrarCursos()
 		{
 			int idAlumno = Convert.ToInt32(IdAlumno);
-			dgvCursos.DataSource = FuncionesAlumno.MostrarCursos(idAlumno);
+			dgvCursos.DataSource = ControllerAlumno.MostrarCursos(idAlumno);
 		}
 
 		private void CursosAlumno_Load(object sender, EventArgs e)

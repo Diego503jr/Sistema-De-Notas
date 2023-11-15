@@ -29,7 +29,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         public void MostrarAlumnos()
         {
-            dgvAlumnos.DataSource = FuncionesAdministrador.ListarAlumnos();
+            dgvAlumnos.DataSource = ControllerAdministrador.ListarAlumnos();
         }
 
         private void dgvAlumnos_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

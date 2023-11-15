@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SistemaDeNotas.Clases
 {
-	internal class ConstructorCurso
+	internal class Cursos
 	{
 		public int Id { get; set; }
 		public string Nombre { get; set; }
         public int IdEstado { get; set; }
 
-        public ConstructorCurso() { }
+        public Cursos() { }
 	}
 }

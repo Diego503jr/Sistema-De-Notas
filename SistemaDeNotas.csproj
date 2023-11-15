@@ -54,116 +54,116 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\ConstructorCurso.cs" />
-    <Compile Include="Clases\ConstructorInscripcion.cs" />
-    <Compile Include="Clases\ConstructorMateria.cs" />
-    <Compile Include="Clases\ConstructorNotas.cs" />
-    <Compile Include="Clases\ConstructorUsuario.cs" />
-    <Compile Include="Clases\FuncionesDocente.cs" />
-    <Compile Include="Clases\FuncionesAdministrador.cs" />
-    <Compile Include="Clases\FuncionesAlumno.cs" />
-    <Compile Include="Clases\FuncionesGlobales.cs" />
+    <Compile Include="Clases\Cursos.cs" />
+    <Compile Include="Clases\Inscripcion.cs" />
+    <Compile Include="Clases\Materia.cs" />
+    <Compile Include="Clases\Notas.cs" />
+    <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="Controlador\ControllerDocente.cs" />
+    <Compile Include="Controlador\ControllerAdministrador.cs" />
+    <Compile Include="Controlador\ControllerAlumno.cs" />
+    <Compile Include="Controlador\FuncionesGlobales.cs" />
     <Compile Include="CrystalReportInscripcion.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReportInscripcion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Interfaz\Admin\ReporteInscripcion.cs">
+    <Compile Include="Vista\Admin\ReporteInscripcion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Admin\ReporteInscripcion.Designer.cs">
+    <Compile Include="Vista\Admin\ReporteInscripcion.Designer.cs">
       <DependentUpon>ReporteInscripcion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Admin\ReporteUsuario.cs">
+    <Compile Include="Vista\Admin\ReporteUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Admin\ReporteUsuario.Designer.cs">
+    <Compile Include="Vista\Admin\ReporteUsuario.Designer.cs">
       <DependentUpon>ReporteUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Alumno\CursosAlumno.cs">
+    <Compile Include="Vista\Alumno\CursosAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Alumno\CursosAlumno.Designer.cs">
+    <Compile Include="Vista\Alumno\CursosAlumno.Designer.cs">
       <DependentUpon>CursosAlumno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Admin\AdminForm.cs">
+    <Compile Include="Vista\Admin\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Admin\AdminForm.Designer.cs">
+    <Compile Include="Vista\Admin\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Admin\AlumnosListForm.cs">
+    <Compile Include="Vista\Admin\AlumnosListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Admin\AlumnosListForm.Designer.cs">
+    <Compile Include="Vista\Admin\AlumnosListForm.Designer.cs">
       <DependentUpon>AlumnosListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Admin\CursosForm.cs">
+    <Compile Include="Vista\Admin\CursosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Admin\CursosForm.Designer.cs">
+    <Compile Include="Vista\Admin\CursosForm.Designer.cs">
       <DependentUpon>CursosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Admin\MateriasForm.cs">
+    <Compile Include="Vista\Admin\MateriasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Admin\MateriasForm.Designer.cs">
+    <Compile Include="Vista\Admin\MateriasForm.Designer.cs">
       <DependentUpon>MateriasForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Admin\UsuarioFormAdmin.cs">
+    <Compile Include="Vista\Admin\UsuarioFormAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Admin\UsuarioFormAdmin.Designer.cs">
+    <Compile Include="Vista\Admin\UsuarioFormAdmin.Designer.cs">
       <DependentUpon>UsuarioFormAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Admin\InscripcionForm.cs">
+    <Compile Include="Vista\Admin\InscripcionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Admin\InscripcionForm.Designer.cs">
+    <Compile Include="Vista\Admin\InscripcionForm.Designer.cs">
       <DependentUpon>InscripcionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Alumno\AlumnoForm.cs">
+    <Compile Include="Vista\Alumno\AlumnoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Alumno\AlumnoForm.Designer.cs">
+    <Compile Include="Vista\Alumno\AlumnoForm.Designer.cs">
       <DependentUpon>AlumnoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Clases\CConexion.cs" />
-    <Compile Include="Interfaz\Alumno\NotasAlumnocs.cs">
+    <Compile Include="Controlador\CConexion.cs" />
+    <Compile Include="Vista\Alumno\NotasAlumnocs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Alumno\NotasAlumnocs.Designer.cs">
+    <Compile Include="Vista\Alumno\NotasAlumnocs.Designer.cs">
       <DependentUpon>NotasAlumnocs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Docente\DocenteForm.cs">
+    <Compile Include="Vista\Docente\DocenteForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Docente\DocenteForm.Designer.cs">
+    <Compile Include="Vista\Docente\DocenteForm.Designer.cs">
       <DependentUpon>DocenteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Docente\ListarAlumnos.cs">
+    <Compile Include="Vista\Docente\ListarAlumnos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Docente\ListarAlumnos.Designer.cs">
+    <Compile Include="Vista\Docente\ListarAlumnos.Designer.cs">
       <DependentUpon>ListarAlumnos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\Docente\NotasDocente.cs">
+    <Compile Include="Vista\Docente\NotasDocente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\Docente\NotasDocente.Designer.cs">
+    <Compile Include="Vista\Docente\NotasDocente.Designer.cs">
       <DependentUpon>NotasDocente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\LoginForm.cs">
+    <Compile Include="Vista\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\LoginForm.Designer.cs">
+    <Compile Include="Vista\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz\PerfilForm.cs">
+    <Compile Include="Vista\PerfilForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\PerfilForm.Designer.cs">
+    <Compile Include="Vista\PerfilForm.Designer.cs">
       <DependentUpon>PerfilForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -178,52 +178,52 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportInscripcion.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Admin\AdminForm.resx">
+    <EmbeddedResource Include="Vista\Admin\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Admin\AlumnosListForm.resx">
+    <EmbeddedResource Include="Vista\Admin\AlumnosListForm.resx">
       <DependentUpon>AlumnosListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Admin\CursosForm.resx">
+    <EmbeddedResource Include="Vista\Admin\CursosForm.resx">
       <DependentUpon>CursosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Admin\MateriasForm.resx">
+    <EmbeddedResource Include="Vista\Admin\MateriasForm.resx">
       <DependentUpon>MateriasForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Admin\ReporteInscripcion.resx">
+    <EmbeddedResource Include="Vista\Admin\ReporteInscripcion.resx">
       <DependentUpon>ReporteInscripcion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Admin\ReporteUsuario.resx">
+    <EmbeddedResource Include="Vista\Admin\ReporteUsuario.resx">
       <DependentUpon>ReporteUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Admin\UsuarioFormAdmin.resx">
+    <EmbeddedResource Include="Vista\Admin\UsuarioFormAdmin.resx">
       <DependentUpon>UsuarioFormAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Admin\InscripcionForm.resx">
+    <EmbeddedResource Include="Vista\Admin\InscripcionForm.resx">
       <DependentUpon>InscripcionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Alumno\AlumnoForm.resx">
+    <EmbeddedResource Include="Vista\Alumno\AlumnoForm.resx">
       <DependentUpon>AlumnoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Alumno\CursosAlumno.resx">
+    <EmbeddedResource Include="Vista\Alumno\CursosAlumno.resx">
       <DependentUpon>CursosAlumno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Alumno\NotasAlumnocs.resx">
+    <EmbeddedResource Include="Vista\Alumno\NotasAlumnocs.resx">
       <DependentUpon>NotasAlumnocs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Docente\DocenteForm.resx">
+    <EmbeddedResource Include="Vista\Docente\DocenteForm.resx">
       <DependentUpon>DocenteForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Docente\ListarAlumnos.resx">
+    <EmbeddedResource Include="Vista\Docente\ListarAlumnos.resx">
       <DependentUpon>ListarAlumnos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\Docente\NotasDocente.resx">
+    <EmbeddedResource Include="Vista\Docente\NotasDocente.resx">
       <DependentUpon>NotasDocente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\LoginForm.resx">
+    <EmbeddedResource Include="Vista\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\PerfilForm.resx">
+    <EmbeddedResource Include="Vista\PerfilForm.resx">
       <DependentUpon>PerfilForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

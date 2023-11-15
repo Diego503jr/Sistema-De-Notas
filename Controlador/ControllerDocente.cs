@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace SistemaDeNotas.Clases
 {
-    internal class FuncionesDocente
+    internal class ControllerDocente
     {
         public static DataTable MostrarNotas(int idDocente)
         {
@@ -30,11 +30,11 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return data;
             }
         }
-        public static int AgregarNota(ConstructorNotas NotasAlumno)
+        public static int AgregarNota(Notas NotasAlumno)
         {
             int retorno = 0;
 
@@ -66,12 +66,12 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return retorno;
             }
         }
 
-        public static int ActualizarNota(ConstructorNotas NotasAlumno)
+        public static int ActualizarNota(Notas NotasAlumno)
         {
             int retorno = 0;
 
@@ -103,7 +103,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return retorno;
             }
         }
@@ -127,8 +127,8 @@ namespace SistemaDeNotas.Clases
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-				return data;
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return data;
 			}
 		}
 	}

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaDeNotas.Clases
 {
-    internal class ConstructorUsuario
+    internal class Usuario
     {
         public int Id { get; set; }
         public int IdRole { get; set; }
@@ -15,6 +15,6 @@ namespace SistemaDeNotas.Clases
         public string Contraseña { get; set; }
         public string Telefono { get; set; }
         public int IdEstado { get; set; }
-        public ConstructorUsuario() { }
+        public Usuario() { }
     }
 }

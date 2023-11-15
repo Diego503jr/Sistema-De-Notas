@@ -28,7 +28,7 @@ namespace SistemaDeNotas.Clases
                 conexion.Open();
             } 
             catch (SqlException e){
-                MessageBox.Show("No se logro conectar a la base de datos" + e);
+                MessageBox.Show("No se logro conectar a la nube");
             }
 
             return conexion;

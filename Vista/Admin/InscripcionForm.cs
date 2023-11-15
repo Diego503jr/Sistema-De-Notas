@@ -16,7 +16,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 {
     public partial class InscripcionForm : Form
     {
-        ConstructorInscripcion inscripcion = new ConstructorInscripcion();
+        Inscripcion inscripcion = new Inscripcion();
         int posicion;
         public InscripcionForm()
         {
@@ -28,17 +28,17 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-			FuncionesAdministrador.ManejoErrores(e);
+			ControllerAdministrador.ManejoErrores(e);
 		}
 
         private void TxtCarnet_KeyPress(object sender, KeyPressEventArgs e)
         {
-            FuncionesAdministrador.ManejoErrores(e);
+            ControllerAdministrador.ManejoErrores(e);
         }
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            FuncionesAdministrador.ManejoErroresNombre(e);
+            ControllerAdministrador.ManejoErroresNombre(e);
         }
 
         public void ConfigurarTextbox(string nombreAlumno, string carnetAlumno)
@@ -100,7 +100,7 @@ namespace SistemaDeNotas.Interfaz.Admin
         }
         public void ListarMateriasIns()
         {
-            cbMaterias.DataSource = FuncionesAdministrador.ListarMaterias();
+            cbMaterias.DataSource = ControllerAdministrador.ListarMaterias();
             cbMaterias.DisplayMember = "Nombre";
             cbMaterias.ValueMember = "Id";
             cbMaterias.Text = null;
@@ -122,7 +122,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         public void ListarCursosIns()
         {
-            cbCursos.DataSource = FuncionesAdministrador.ListarCursos();
+            cbCursos.DataSource = ControllerAdministrador.ListarCursos();
             cbCursos.DisplayMember = "Nombre";
             cbCursos.ValueMember = "Id";
             cbCursos.Text = null;
@@ -130,17 +130,17 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         public void MostrarInscripcion()
         {
-            dgvInscripcion.DataSource = FuncionesAdministrador.MostrarInscripcion();
+            dgvInscripcion.DataSource = ControllerAdministrador.MostrarInscripcion();
         }
 
         public void ListarEstado()
         {
-            cbEstado.DataSource = FuncionesAdministrador.ListarEstado();
+            cbEstado.DataSource = ControllerAdministrador.ListarEstado();
             cbEstado.DisplayMember = "EstadoValor";
             cbEstado.ValueMember = "Id";
             cbEstado.Text = null;
 
-			cmbFiltroEstado.DataSource = FuncionesAdministrador.ListarEstado();
+			cmbFiltroEstado.DataSource = ControllerAdministrador.ListarEstado();
 			cmbFiltroEstado.DisplayMember = "EstadoValor";
 			cmbFiltroEstado.ValueMember = "Id";
 			cmbFiltroEstado.Text = null;
@@ -170,7 +170,7 @@ namespace SistemaDeNotas.Interfaz.Admin
                     inscripcion.IdCurso = Convert.ToInt32(cbCursos.SelectedValue);
                     inscripcion.IdMateria = Convert.ToInt32(cbMaterias.SelectedValue);
                     inscripcion.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
-                    FuncionesAdministrador.AgregarInscripcion(inscripcion);
+                    ControllerAdministrador.AgregarInscripcion(inscripcion);
                     MostrarInscripcion();
                 }
                 else
@@ -208,7 +208,7 @@ namespace SistemaDeNotas.Interfaz.Admin
                     inscripcion.IdMateria = Convert.ToInt32(cbMaterias.SelectedValue);
                     inscripcion.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
                     inscripcion.Id = id;
-                    FuncionesAdministrador.ActualizarInscripcion(inscripcion);
+                    ControllerAdministrador.ActualizarInscripcion(inscripcion);
                     MostrarInscripcion();
                 }
                 else
@@ -422,7 +422,7 @@ namespace SistemaDeNotas.Interfaz.Admin
                 inscripcion.Id = id;
                 inscripcion.IdAlumno = ObtenerIdAlumno(idAlumno, idCarnet);
                 inscripcion.IdMateria = ObtenerIdMateria(idMateria);
-                FuncionesAdministrador.EliminarInscripcion(inscripcion);
+                ControllerAdministrador.EliminarInscripcion(inscripcion);
                 MostrarInscripcion();
             }
         }

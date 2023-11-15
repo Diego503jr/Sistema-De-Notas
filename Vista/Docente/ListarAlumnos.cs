@@ -23,7 +23,7 @@ namespace SistemaDeNotas.Interfaz.Docente
 		public void MostrarAlumnos()
 		{
 			int idDocente = Convert.ToInt32(IdDocente);
-			dgvListarAlumnos.DataSource = FuncionesDocente.MostrarAlumnos(idDocente);
+			dgvListarAlumnos.DataSource = ControllerDocente.MostrarAlumnos(idDocente);
 		}
 
 		private void ConfigurarDataGridView()

@@ -15,7 +15,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 {
     public partial class UsuarioFormAdmin : Form
     {
-        ConstructorUsuario Usuario = new ConstructorUsuario();
+        Usuario Usuario = new Usuario();
         int posicion;
         public UsuarioFormAdmin()
         {
@@ -29,29 +29,29 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void TxtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            FuncionesAdministrador.ManejoErrores(e);
+            ControllerAdministrador.ManejoErrores(e);
         }
 
         //Con estos keypress se maneja que no se pueda escribir caracteres que no se quieran escribir
         private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            FuncionesAdministrador.ManejoErrores(e);
+            ControllerAdministrador.ManejoErrores(e);
         }
 
         private void TxtCarnet_KeyPress(object sender, KeyPressEventArgs e)
         {
-            FuncionesAdministrador.ManejoErrores(e);
+            ControllerAdministrador.ManejoErrores(e);
         }
 
         private void TxtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            FuncionesAdministrador.ManejoErroresTelefono(e);
+            ControllerAdministrador.ManejoErroresTelefono(e);
         }
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             //se manda a llamar el manejo de errores desde la clase FuncionesAdministrador
-            FuncionesAdministrador.ManejoErroresNombre(e);
+            ControllerAdministrador.ManejoErroresNombre(e);
         }
         private void UsuarioFormAdmin_Load(object sender, EventArgs e)
         {
@@ -122,7 +122,7 @@ namespace SistemaDeNotas.Interfaz.Admin
                 Usuario.Contraseña = txtPassword.Text;
                 Usuario.Telefono = txtTelefono.Text;
                 Usuario.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
-                FuncionesAdministrador.AgregarUsuarios(Usuario);
+                ControllerAdministrador.AgregarUsuarios(Usuario);
                 MostrarUsuarios();
             }
         }
@@ -148,7 +148,7 @@ namespace SistemaDeNotas.Interfaz.Admin
                 Usuario.Contraseña = txtPassword.Text;
                 Usuario.Telefono = txtTelefono.Text;
                 Usuario.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
-                FuncionesAdministrador.ActualizarUsuarios(Usuario);
+                ControllerAdministrador.ActualizarUsuarios(Usuario);
                 MostrarUsuarios();
             }
         }
@@ -167,19 +167,19 @@ namespace SistemaDeNotas.Interfaz.Admin
             {
                 int id = (int)dgvUsuarios.SelectedRows[0].Cells["Id"].Value;
                 Usuario.Id = id;
-                FuncionesAdministrador.EliminarUsuario(Usuario);
+                ControllerAdministrador.EliminarUsuario(Usuario);
                 MostrarUsuarios();
             }
         }
         private void MostrarUsuarios()
         {
-            dgvUsuarios.DataSource = FuncionesAdministrador.MostrarUsuarios();
+            dgvUsuarios.DataSource = ControllerAdministrador.MostrarUsuarios();
             dgvUsuarios.Columns[5].Visible = false;
         }
 
         private void MostrarRoles()
         {
-            cbRol.DataSource = FuncionesAdministrador.ListarRoles();
+            cbRol.DataSource = ControllerAdministrador.ListarRoles();
             cbRol.DisplayMember = "RolUsuario";
             cbRol.ValueMember = "Id";
             cbRol.Text = null;
@@ -187,12 +187,12 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void MostrarEstado()
         {
-            cbEstado.DataSource = FuncionesAdministrador.ListarEstado();
+            cbEstado.DataSource = ControllerAdministrador.ListarEstado();
             cbEstado.DisplayMember = "EstadoValor";
             cbEstado.ValueMember = "Id";
             cbEstado.Text = null;
 
-			cmbFiltroEstado.DataSource = FuncionesAdministrador.ListarEstado();
+			cmbFiltroEstado.DataSource = ControllerAdministrador.ListarEstado();
 			cmbFiltroEstado.DisplayMember = "EstadoValor";
 			cmbFiltroEstado.ValueMember = "Id";
 			cmbFiltroEstado.Text = null;

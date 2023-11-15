@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace SistemaDeNotas.Clases
 {
-	internal class FuncionesAdministrador
+	internal class ControllerAdministrador
 	{
         //Funciones para el formulario Usuarios
-        public static int AgregarUsuarios(ConstructorUsuario Usuarios)
+        public static int AgregarUsuarios(Usuario Usuarios)
         {
             int retorno = 0;
             try
@@ -58,7 +58,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return retorno;
             }
         }
@@ -80,12 +80,12 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return data;
             }
         }
 
-        public static int ActualizarUsuarios(ConstructorUsuario Usuarios)
+        public static int ActualizarUsuarios(Usuario Usuarios)
         {
             int retorno = 0;
             try
@@ -153,18 +153,18 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return retorno;
             }
         }
 
-        public static int EliminarUsuario(ConstructorUsuario Usuario)
+        public static int EliminarUsuario(Usuario Usuario)
         {
             int retorno = 0;
             try
             {
                 CConexion conexion = new CConexion();
-               DialogResult resultado = MessageBox.Show("¿Estás seguro de Eliminar al Usuario?", "Alerta!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult resultado = MessageBox.Show("¿Estás seguro de Eliminar al Usuario?", "Alerta!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (resultado == DialogResult.Yes)
                 {
@@ -211,13 +211,13 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return retorno;
             }
         }
 
         //Funciones para el formulario Materias
-        public static int AgregarMateria(ConstructorMateria Materia)
+        public static int AgregarMateria(Materia Materia)
 		{
 			int retorno = 0;
 			try
@@ -259,8 +259,8 @@ namespace SistemaDeNotas.Clases
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show($"Hubo un error de conexion {ex}" , "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-				return retorno;
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return retorno;
 			}
 		}
 
@@ -281,12 +281,12 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return data;
             }
         }
 
-		public static int ActualizarMateria(ConstructorMateria Materia)
+		public static int ActualizarMateria(Materia Materia)
 		{
 			int retorno = 0;
             try
@@ -328,12 +328,12 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return retorno;
             }
 		}
 
-		public static int EliminarMateria(ConstructorMateria Materia)
+		public static int EliminarMateria(Materia Materia)
 		{
             int retorno = 0;
             try
@@ -357,7 +357,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return retorno;
             }
             
@@ -365,7 +365,7 @@ namespace SistemaDeNotas.Clases
 
 		//Funciones para el formulario Curso
 
-		public static int AgregarCurso(ConstructorCurso Curso)
+		public static int AgregarCurso(Cursos Curso)
 		{
 			int retorno = 0;
 			try
@@ -403,8 +403,8 @@ namespace SistemaDeNotas.Clases
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("Hubo un error de conexion" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-				return retorno;
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return retorno;
 			}
 
 		}
@@ -425,12 +425,12 @@ namespace SistemaDeNotas.Clases
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return data;
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return data;
 			}
 		}
 
-		public static int ActualizarCurso(ConstructorCurso Curso)
+		public static int ActualizarCurso(Cursos Curso)
 		{
             CConexion conexion = new CConexion();
             int retorno = 0;
@@ -471,12 +471,12 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return retorno;
             }
 		}
 
-		public static int EliminarCurso(ConstructorCurso Curso)
+		public static int EliminarCurso(Cursos Curso)
 		{
 			CConexion conexion = new CConexion();
 			int retorno = 0;
@@ -499,7 +499,7 @@ namespace SistemaDeNotas.Clases
                 }
             } catch(Exception ex)
             {
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return retorno;
             }
 		}
@@ -508,7 +508,7 @@ namespace SistemaDeNotas.Clases
 
 		//Funciones para el formulario de inscripcion
 
-		public static int AgregarInscripcion(ConstructorInscripcion Inscripcion)
+		public static int AgregarInscripcion(Inscripcion Inscripcion)
 		{
 			int retorno = 0;
 			try
@@ -559,7 +559,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
 			{
-                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return retorno;
             }
 		}
@@ -582,14 +582,15 @@ namespace SistemaDeNotas.Clases
 				SqlDataAdapter dt = new SqlDataAdapter(cmd);
 				dt.Fill(data);
 				return data;
-			}catch (Exception ex)
+			}
+            catch (Exception ex)
 			{
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return data;
             }
         }
 
-		public static int ActualizarInscripcion(ConstructorInscripcion Inscripcion)
+		public static int ActualizarInscripcion(Inscripcion Inscripcion)
 		{
 			int retorno = 0;
 
@@ -653,12 +654,12 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
 			{
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return retorno;
 			}
 		}
 
-        public static int EliminarInscripcion(ConstructorInscripcion Inscripcion)
+        public static int EliminarInscripcion(Inscripcion Inscripcion)
         {
             CConexion conexion = new CConexion();
             int retorno = 0;
@@ -688,7 +689,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return retorno;
             }
         }
@@ -708,7 +709,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return data;
             }
         }
@@ -727,7 +728,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return data;
             }
         }
@@ -743,9 +744,10 @@ namespace SistemaDeNotas.Clases
 				SqlDataAdapter dt = new SqlDataAdapter(cmd);
 				dt.Fill(data);
 				return data;
-			}catch (Exception ex)
+			}
+            catch (Exception ex)
 			{
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return data;
             }
 		}
@@ -764,7 +766,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return data;
             }
         }
@@ -790,7 +792,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return data;
             }
         }
@@ -810,7 +812,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return data;
             }
         }
@@ -829,7 +831,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return data;
             }
         }
@@ -847,7 +849,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ha ocurrido un error" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -864,7 +866,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ha ocurrido un error" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -881,7 +883,7 @@ namespace SistemaDeNotas.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ha ocurrido un error" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
     }

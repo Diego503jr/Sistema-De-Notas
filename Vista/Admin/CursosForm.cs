@@ -15,7 +15,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 {
     public partial class CursosForm : Form
     {
-        ConstructorCurso Curso = new ConstructorCurso();
+        Cursos Curso = new Cursos();
 		int posicion; //Devuelve la fila en el dataGrid
         public CursosForm()
         {
@@ -26,12 +26,12 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void TxtFiltroNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-			FuncionesAdministrador.ManejoErrores(e);
+			ControllerAdministrador.ManejoErrores(e);
 		}
 
         private void TxtNombreCurso_KeyPress(object sender, KeyPressEventArgs e)
         {
-			FuncionesAdministrador.ManejoErrores(e);
+			ControllerAdministrador.ManejoErrores(e);
         }
         private void CursosForm_Load(object sender, EventArgs e)
         {
@@ -43,18 +43,18 @@ namespace SistemaDeNotas.Interfaz.Admin
         //MOSTRAR CURSO
         private void MostrarCursos()
 		{
-			dgvCursos.DataSource = FuncionesAdministrador.MostrarCurso();
+			dgvCursos.DataSource = ControllerAdministrador.MostrarCurso();
 		}
 
         //MOSTRAR ESTADO
         private void MostrarEstado()
 		{
-            cbEstado.DataSource = FuncionesAdministrador.ListarEstado();
+            cbEstado.DataSource = ControllerAdministrador.ListarEstado();
             cbEstado.DisplayMember = "EstadoValor";
             cbEstado.ValueMember = "Id";
             cbEstado.Text = null;
 
-			cmbFiltroEstado.DataSource = FuncionesAdministrador.ListarEstado();
+			cmbFiltroEstado.DataSource = ControllerAdministrador.ListarEstado();
 			cmbFiltroEstado.DisplayMember = "EstadoValor";
 			cmbFiltroEstado.ValueMember = "Id";
 			cmbFiltroEstado.Text = null;
@@ -120,7 +120,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             {
                 Curso.Nombre = txtNombreCurso.Text;
                 Curso.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
-                FuncionesAdministrador.AgregarCurso(Curso);
+                ControllerAdministrador.AgregarCurso(Curso);
 				MostrarCursos();
             }
         }
@@ -144,7 +144,7 @@ namespace SistemaDeNotas.Interfaz.Admin
                 Curso.Id = id;
                 Curso.Nombre = txtNombreCurso.Text;
 				Curso.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
-				FuncionesAdministrador.ActualizarCurso(Curso);
+				ControllerAdministrador.ActualizarCurso(Curso);
 				MostrarCursos();
 			}
 		}
@@ -166,7 +166,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             {
                 int id = (int)dgvCursos.SelectedRows[0].Cells["Id"].Value;
                 Curso.Id = id;
-                FuncionesAdministrador.EliminarCurso(Curso);
+                ControllerAdministrador.EliminarCurso(Curso);
 				MostrarCursos();
             }
         }
