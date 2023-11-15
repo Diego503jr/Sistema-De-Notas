@@ -52,9 +52,9 @@ namespace SistemaDeNotas
 			CConexion conexion = new CConexion();
 			try
 			{
-				SqlCommand cmd = new SqlCommand("SELECT Nombre,IdRol,Carnet,Telefono,IdEstado, Id FROM dbo.Usuarios WHERE Carnet = @Carnet AND  Contraseña = @Contraseña AND IdEstado = 1 ", conexion.establecerConexion());
-				cmd.Parameters.AddWithValue("Carnet", Carnet);
-				cmd.Parameters.AddWithValue("Contraseña", Contraseña);
+				SqlCommand cmd = new SqlCommand("SELECT Nombre,IdRol,Carnet,Telefono,IdEstado, Id FROM dbo.Usuarios WHERE BINARY_CHECKSUM(Carnet) = BINARY_CHECKSUM(@Carnet) AND BINARY_CHECKSUM(Contraseña) = BINARY_CHECKSUM(@Contraseña) AND IdEstado = 1 ", conexion.establecerConexion());
+				cmd.Parameters.AddWithValue("@Carnet", Carnet);
+				cmd.Parameters.AddWithValue("@Contraseña", Contraseña);
 				SqlDataAdapter sda = new SqlDataAdapter(cmd);
 				DataTable dt = new DataTable();
 				sda.Fill(dt);
