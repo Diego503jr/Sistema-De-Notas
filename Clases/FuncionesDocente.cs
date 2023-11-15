@@ -70,6 +70,43 @@ namespace SistemaDeNotas.Clases
                 return retorno;
             }
         }
+
+        public static int ActualizarNota(ConstructorNotas NotasAlumno)
+        {
+            int retorno = 0;
+
+            CConexion conexion = new CConexion();
+            try
+            {
+                string query = "UPDATE Notas SET Nota1 = @nota1, Nota2 = @nota2, Nota3 = @nota3 , Nota4 = @nota4, Promedio = @promedioA WHERE Id = @id AND IdAlumno = @idalumno AND IdMateria = @idmateria";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                cmd.Parameters.Add(new SqlParameter("@nota1", NotasAlumno.Nota1));
+                cmd.Parameters.Add(new SqlParameter("@nota2", NotasAlumno.Nota2));
+                cmd.Parameters.Add(new SqlParameter("@nota3", NotasAlumno.Nota3));
+                cmd.Parameters.Add(new SqlParameter("@nota4", NotasAlumno.Nota4));
+                cmd.Parameters.Add(new SqlParameter("@promedioA", NotasAlumno.Promedio));
+                cmd.Parameters.Add(new SqlParameter("@idalumno", NotasAlumno.IdAlumno));
+                cmd.Parameters.Add(new SqlParameter("@idmateria", NotasAlumno.IdMateria));
+                cmd.Parameters.Add(new SqlParameter("@id", NotasAlumno.Id));
+                retorno = cmd.ExecuteNonQuery();
+                if (retorno >= 0)
+                {
+                    MessageBox.Show("Las notas se actualizaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return retorno;
+                }
+                else
+                {
+                    MessageBox.Show("Las notas no se actualizaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return retorno;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return retorno;
+            }
+        }
 		public static DataTable MostrarAlumnos(int idDocente)
 		{
 			CConexion conexion = new CConexion();

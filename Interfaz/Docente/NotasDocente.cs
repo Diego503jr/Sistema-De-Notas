@@ -200,6 +200,32 @@ namespace SistemaDeNotas.Interfaz.Docente
 
         }
 
+        public void ActualizarNota()
+        {
+            if (cbRegistroNotas.SelectedIndex == -1 || txtNombre.Text == "" || txtNota1.Text == "" || txtNota2.Text == "" || txtNota3.Text == "" || txtNota4.Text == "")
+            {
+                MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                string alumno = txtNombre.Text;
+                int usuario = ObtenerIdAlumno(alumno);
+                int idMateria = Convert.ToInt32(cbRegistroNotas.SelectedValue);
+                int id = (int)dgvNotasDocente.SelectedRows[0].Cells["Id"].Value;
+                notas.IdAlumno = usuario;
+                notas.IdMateria = Convert.ToInt32(cbRegistroNotas.SelectedValue);
+                notas.Nota1 = Convert.ToDecimal(txtNota1.Text);
+                notas.Nota2 = Convert.ToDecimal(txtNota2.Text);
+                notas.Nota3 = Convert.ToDecimal(txtNota3.Text);
+                notas.Nota4 = Convert.ToDecimal(txtNota4.Text);
+                decimal promedioFinal = ObtenerPromedio(notas.Nota1, notas.Nota2, notas.Nota3, notas.Nota4);
+                notas.Promedio = promedioFinal;
+                notas.Id = id;
+                FuncionesDocente.ActualizarNota(notas);
+                MostrarNotas();
+            }
+        }
+
         public static decimal ObtenerPromedio(decimal nota1, decimal nota2, decimal nota3, decimal nota4)
         {
 
@@ -311,6 +337,9 @@ namespace SistemaDeNotas.Interfaz.Docente
             gfcNotas.Series["Reprobados"].Points.AddY(datosReprobados.Count);
         }
 
-      
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            ActualizarNota();
+        }
     }
 }
