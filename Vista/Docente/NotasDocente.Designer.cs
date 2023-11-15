@@ -28,8 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblRegistroNotas = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -53,6 +53,7 @@
             this.gfcNotas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.txtAprobados = new System.Windows.Forms.TextBox();
             this.txtReprobados = new System.Windows.Forms.TextBox();
+            this.btnActualizaGrafico = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotasDocente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gfcNotas)).BeginInit();
@@ -297,10 +298,10 @@
             // gfcNotas
             // 
             this.gfcNotas.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            chartArea1.Name = "ChartArea1";
-            this.gfcNotas.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.gfcNotas.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.gfcNotas.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.gfcNotas.Legends.Add(legend3);
             this.gfcNotas.Location = new System.Drawing.Point(194, 497);
             this.gfcNotas.Margin = new System.Windows.Forms.Padding(1);
             this.gfcNotas.Name = "gfcNotas";
@@ -311,22 +312,34 @@
             // txtAprobados
             // 
             this.txtAprobados.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtAprobados.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.txtAprobados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtAprobados.Location = new System.Drawing.Point(580, 544);
             this.txtAprobados.Name = "txtAprobados";
             this.txtAprobados.ReadOnly = true;
-            this.txtAprobados.Size = new System.Drawing.Size(100, 29);
+            this.txtAprobados.Size = new System.Drawing.Size(120, 24);
             this.txtAprobados.TabIndex = 9;
             // 
             // txtReprobados
             // 
             this.txtReprobados.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtReprobados.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.txtReprobados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtReprobados.Location = new System.Drawing.Point(741, 544);
             this.txtReprobados.Name = "txtReprobados";
             this.txtReprobados.ReadOnly = true;
-            this.txtReprobados.Size = new System.Drawing.Size(100, 29);
+            this.txtReprobados.Size = new System.Drawing.Size(120, 24);
             this.txtReprobados.TabIndex = 10;
+            // 
+            // btnActualizaGrafico
+            // 
+            this.btnActualizaGrafico.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnActualizaGrafico.ForeColor = System.Drawing.Color.White;
+            this.btnActualizaGrafico.Location = new System.Drawing.Point(60, 513);
+            this.btnActualizaGrafico.Name = "btnActualizaGrafico";
+            this.btnActualizaGrafico.Size = new System.Drawing.Size(87, 55);
+            this.btnActualizaGrafico.TabIndex = 11;
+            this.btnActualizaGrafico.Text = "Actualizar Grafico";
+            this.btnActualizaGrafico.UseVisualStyleBackColor = false;
+            this.btnActualizaGrafico.Click += new System.EventHandler(this.btnActualizaGrafico_Click);
             // 
             // NotasDocente
             // 
@@ -334,6 +347,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(942, 583);
+            this.Controls.Add(this.btnActualizaGrafico);
             this.Controls.Add(this.txtReprobados);
             this.Controls.Add(this.txtAprobados);
             this.Controls.Add(this.gfcNotas);
@@ -394,5 +408,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart gfcNotas;
         private System.Windows.Forms.TextBox txtAprobados;
         private System.Windows.Forms.TextBox txtReprobados;
+        private System.Windows.Forms.Button btnActualizaGrafico;
     }
 }

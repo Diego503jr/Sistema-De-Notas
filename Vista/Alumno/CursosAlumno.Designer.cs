@@ -41,6 +41,7 @@
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCursos.Location = new System.Drawing.Point(236, 211);
             this.dgvCursos.Name = "dgvCursos";
+            this.dgvCursos.ReadOnly = true;
             this.dgvCursos.Size = new System.Drawing.Size(568, 201);
             this.dgvCursos.TabIndex = 6;
             // 

@@ -78,6 +78,7 @@
             this.dgvNotas.Location = new System.Drawing.Point(47, 119);
             this.dgvNotas.Margin = new System.Windows.Forms.Padding(2);
             this.dgvNotas.Name = "dgvNotas";
+            this.dgvNotas.ReadOnly = true;
             this.dgvNotas.RowHeadersWidth = 51;
             this.dgvNotas.RowTemplate.Height = 24;
             this.dgvNotas.Size = new System.Drawing.Size(905, 294);

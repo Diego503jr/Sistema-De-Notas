@@ -41,6 +41,7 @@
             this.dgvListarAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListarAlumnos.Location = new System.Drawing.Point(161, 200);
             this.dgvListarAlumnos.Name = "dgvListarAlumnos";
+            this.dgvListarAlumnos.ReadOnly = true;
             this.dgvListarAlumnos.Size = new System.Drawing.Size(540, 186);
             this.dgvListarAlumnos.TabIndex = 0;
             // 
