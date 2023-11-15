@@ -32,7 +32,6 @@ namespace SistemaDeNotas
 			txtnombre.Text = nombre;
 			txtcarnet.Text = carnet;
 			txttelefono.Text = telefono;
-			//txtestado.Text = idestado;
 		}
 
 		private void PerfilForm_Load(object sender, EventArgs e)

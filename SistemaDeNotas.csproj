@@ -54,15 +54,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\Cursos.cs" />
-    <Compile Include="Clases\Inscripcion.cs" />
-    <Compile Include="Clases\Materia.cs" />
-    <Compile Include="Clases\Notas.cs" />
-    <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="Modelo\Cursos.cs" />
+    <Compile Include="Modelo\Inscripcion.cs" />
+    <Compile Include="Modelo\Materia.cs" />
+    <Compile Include="Modelo\Notas.cs" />
+    <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Controlador\ControllerDocente.cs" />
     <Compile Include="Controlador\ControllerAdministrador.cs" />
     <Compile Include="Controlador\ControllerAlumno.cs" />
-    <Compile Include="Controlador\FuncionesGlobales.cs" />
+    <Compile Include="Controlador\ControllerGlobales.cs" />
     <Compile Include="CrystalReportInscripcion.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

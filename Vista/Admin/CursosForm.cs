@@ -136,9 +136,9 @@ namespace SistemaDeNotas.Interfaz.Admin
 		{
 			if (txtNombreCurso.Text == "" || cbEstado.SelectedIndex == -1)
 			{
-				MessageBox.Show("No hay datos, por favor llene todos los campos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
-			else
+                MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
 			{
                 int id = (int)dgvCursos.SelectedRows[0].Cells["Id"].Value;
                 Curso.Id = id;
@@ -160,7 +160,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 		{
             if (dgvCursos.SelectedRows.Count < 0 || txtNombreCurso.Text == "" || cbEstado.SelectedIndex == -1)
             {
-                MessageBox.Show("No hay datos seleccionados para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

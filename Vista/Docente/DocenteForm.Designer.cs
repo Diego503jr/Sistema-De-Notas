@@ -51,6 +51,7 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.horaFecha = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.BarraMenuLateral.SuspendLayout();
@@ -61,12 +62,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarSesion)).BeginInit();
             this.ContPrincipalDocente.SuspendLayout();
             this.BarraFooter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // BarraTitulo
             // 
             this.BarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
             this.BarraTitulo.Controls.Add(this.label4);
+            this.BarraTitulo.Controls.Add(this.txtNombreUsuario);
             this.BarraTitulo.Controls.Add(this.btnCerrar);
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
@@ -122,7 +125,7 @@
             // 
             this.pictureBox6.Image = global::SistemaDeNotas.Properties.Resources.ITCA_RemoveBG;
             this.pictureBox6.Location = new System.Drawing.Point(2, 6);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(300, 131);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -239,7 +242,7 @@
             // ContPrincipalDocente
             // 
             this.ContPrincipalDocente.BackColor = System.Drawing.Color.White;
-            this.ContPrincipalDocente.Controls.Add(this.txtNombreUsuario);
+            this.ContPrincipalDocente.Controls.Add(this.pictureBox7);
             this.ContPrincipalDocente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContPrincipalDocente.Location = new System.Drawing.Point(308, 49);
             this.ContPrincipalDocente.Name = "ContPrincipalDocente";
@@ -249,12 +252,12 @@
             // txtNombreUsuario
             // 
             this.txtNombreUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNombreUsuario.BackColor = System.Drawing.Color.White;
+            this.txtNombreUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
             this.txtNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNombreUsuario.Cursor = System.Windows.Forms.Cursors.No;
             this.txtNombreUsuario.Enabled = false;
             this.txtNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreUsuario.Location = new System.Drawing.Point(57, 49);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(331, 6);
             this.txtNombreUsuario.Multiline = true;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(445, 37);
@@ -269,7 +272,7 @@
             this.BarraFooter.Controls.Add(this.lblHora);
             this.BarraFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BarraFooter.Location = new System.Drawing.Point(308, 591);
-            this.BarraFooter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BarraFooter.Margin = new System.Windows.Forms.Padding(2);
             this.BarraFooter.Name = "BarraFooter";
             this.BarraFooter.Size = new System.Drawing.Size(560, 49);
             this.BarraFooter.TabIndex = 4;
@@ -331,6 +334,17 @@
             this.horaFecha.Enabled = true;
             this.horaFecha.Tick += new System.EventHandler(this.horaFecha_Tick);
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox7.Image = global::SistemaDeNotas.Properties.Resources.ITCA_RemoveBG;
+            this.pictureBox7.Location = new System.Drawing.Point(81, 198);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(445, 158);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 11;
+            this.pictureBox7.TabStop = false;
+            // 
             // DocenteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,9 +370,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarSesion)).EndInit();
             this.ContPrincipalDocente.ResumeLayout(false);
-            this.ContPrincipalDocente.PerformLayout();
             this.BarraFooter.ResumeLayout(false);
             this.BarraFooter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -386,5 +400,6 @@
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Timer horaFecha;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }

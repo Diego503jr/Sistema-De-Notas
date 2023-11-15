@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaDeNotas.Clases
 {
-    internal class FuncionesGlobales
+    internal class ControllerGlobales
     {
     }
 }

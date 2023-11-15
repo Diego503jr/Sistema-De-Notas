@@ -21,6 +21,7 @@ namespace SistemaDeNotas
 
         [DllImport("user32.dll", EntryPoint = "SendMessage")]
         private extern static void SendMessage(IntPtr hwnd, int wmsg, int wparam, int lparam);
+
         public LoginForm()
         {
             InitializeComponent();
@@ -52,7 +53,6 @@ namespace SistemaDeNotas
 			try
 			{
 				SqlCommand cmd = new SqlCommand("SELECT Nombre,IdRol,Carnet,Telefono,IdEstado, Id FROM dbo.Usuarios WHERE Carnet = @Carnet AND  Contraseña = @Contraseña AND IdEstado = 1 ", conexion.establecerConexion());
-
 				cmd.Parameters.AddWithValue("Carnet", Carnet);
 				cmd.Parameters.AddWithValue("Contraseña", Contraseña);
 				SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -74,7 +74,6 @@ namespace SistemaDeNotas
 					{
 						new AlumnoForm(dt.Rows[0][0].ToString(), dt.Rows[0][2].ToString(), dt.Rows[0][3].ToString(), dt.Rows[0][4].ToString(), dt.Rows[0][5].ToString()).Show();
 					}
-					
 				}
 				else
 				{
@@ -85,8 +84,8 @@ namespace SistemaDeNotas
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show($"Error, {ex}");
-				txtCarnet.Clear();
+				MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txtCarnet.Clear();
 				txtContraseña.Clear();
 			}
 		}

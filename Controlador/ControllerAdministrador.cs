@@ -45,6 +45,7 @@ namespace SistemaDeNotas.Clases
                 cmd.Parameters.AddWithValue("@telefono",Usuarios.Telefono);
                 cmd.Parameters.AddWithValue("@estado",Usuarios.IdEstado);
                 retorno = cmd.ExecuteNonQuery();
+
                 if (retorno >= 0)
                 {
                     MessageBox.Show("Los datos del usuario se agregaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -164,7 +165,21 @@ namespace SistemaDeNotas.Clases
             try
             {
                 CConexion conexion = new CConexion();
-                DialogResult resultado = MessageBox.Show("¿Estás seguro de Eliminar al Usuario?", "Alerta!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                // Verificar si el usuario ya está marcado como eliminado
+                string queryVerificarEstado = "SELECT IdEstado FROM dbo.Usuarios WHERE Id = @Id";
+                SqlCommand cmdVerificarEstado = new SqlCommand(queryVerificarEstado, conexion.establecerConexion());
+                cmdVerificarEstado.Parameters.AddWithValue("@Id", Usuario.Id);
+
+                // Obtener el estado actual del usuario
+                int estadoActual = (int)cmdVerificarEstado.ExecuteScalar();
+
+                if (estadoActual == 0)
+                {
+                    MessageBox.Show("El usuario ya está marcado como eliminado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return retorno;
+                }
+
+                DialogResult resultado = MessageBox.Show("¿Estás seguro de Eliminar el Usuario?", "Alerta!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (resultado == DialogResult.Yes)
                 {
@@ -239,12 +254,13 @@ namespace SistemaDeNotas.Clases
                     return retorno;
                 }
 
-                string query = "INSERT INTO dbo.Materias (Nombre, Descripcion, IdDocente) VALUES (@Nombre, @Descripcion, @IdDocente)";
+                string query = "INSERT INTO dbo.Materias (Nombre, Descripcion, IdDocente, IdEstado) VALUES (@Nombre, @Descripcion, @IdDocente, @idestado)";
 				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
 				cmd.Parameters.AddWithValue("@Nombre", Materia.Nombre);
 				cmd.Parameters.AddWithValue("@Descripcion", Materia.Descripcion);
 				cmd.Parameters.AddWithValue("@IdDocente", Materia.IdDocente);
-				retorno = cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("@idestado", Materia.IdEstado);
+                retorno = cmd.ExecuteNonQuery();
 
 				if (retorno >= 0)
 				{
@@ -339,19 +355,43 @@ namespace SistemaDeNotas.Clases
             try
             {
                 CConexion conexion = new CConexion();
-                string query = "UPDATE dbo.Materias SET IdEstado = 0 WHERE Id = @Id";
-                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-                cmd.Parameters.AddWithValue("@Id", Materia.Id);
-                retorno = cmd.ExecuteNonQuery();
+                // Verificar si la materia ya está marcado como eliminado
+                string queryVerificarEstado = "SELECT IdEstado FROM dbo.Materias WHERE Id = @Id";
+                SqlCommand cmdVerificarEstado = new SqlCommand(queryVerificarEstado, conexion.establecerConexion());
+                cmdVerificarEstado.Parameters.AddWithValue("@Id", Materia.Id);
 
-                if (retorno >= 0)
+                // Obtener el estado actual de la materia   
+                int estadoActual = (int)cmdVerificarEstado.ExecuteScalar();
+
+                if (estadoActual == 0)
                 {
-                    MessageBox.Show("Los datos de la materia se eliminaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return retorno;
+                    MessageBox.Show("La Materia ya está marcado como eliminado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return 0;
+                }
+
+                DialogResult resultado = MessageBox.Show("¿Estás seguro de Eliminar la Materia?", "Alerta!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    string query = "UPDATE dbo.Materias SET IdEstado = 0 WHERE Id = @Id";
+                    SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                    cmd.Parameters.AddWithValue("@Id", Materia.Id);
+                    retorno = cmd.ExecuteNonQuery();
+
+                    if (retorno >= 0)
+                    {
+                        MessageBox.Show("Los datos de la materia se eliminaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return retorno;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Los datos no se eliminaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return retorno;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Los datos no se eliminaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("La materia no se elimino", "Informacion!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return retorno;
                 }
             }
@@ -482,21 +522,46 @@ namespace SistemaDeNotas.Clases
 			int retorno = 0;
             try
             {
-                string query = "UPDATE dbo.Cursos SET IdEstado = 0 WHERE Id = @Id";
-                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-                cmd.Parameters.AddWithValue("@Id", Curso.Id);
-                retorno = cmd.ExecuteNonQuery();
+                // Verificar si el curso ya está marcado como eliminado
+                string queryVerificarEstado = "SELECT IdEstado FROM dbo.Cursos WHERE Id = @Id";
+                SqlCommand cmdVerificarEstado = new SqlCommand(queryVerificarEstado, conexion.establecerConexion());
+                cmdVerificarEstado.Parameters.AddWithValue("@Id", Curso.Id);
 
-                if (retorno >= 0)
+                // Obtener el estado actual del curso
+                int estadoActual = (int)cmdVerificarEstado.ExecuteScalar();
+
+                if (estadoActual == 0)
                 {
-			        MessageBox.Show("Curso eliminado con éxito", "Eliminar Curso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return retorno;
+                    MessageBox.Show("El Curso ya está marcado como eliminado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return 0;
+                }
+
+                DialogResult resultado = MessageBox.Show("¿Estás seguro de Eliminar el Curso?", "Alerta!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    string query = "UPDATE dbo.Cursos SET IdEstado = 0 WHERE Id = @Id";
+                    SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                    cmd.Parameters.AddWithValue("@Id", Curso.Id);
+                    retorno = cmd.ExecuteNonQuery();
+
+                    if (retorno >= 0)
+                    {
+                        MessageBox.Show("Curso eliminado con éxito", "Eliminar Curso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return retorno;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Los datos no se eliminaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return retorno;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Los datos no se eliminaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El usuario no se elimino", "Informacion!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return retorno;
                 }
+               
             } catch(Exception ex)
             {
                 MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -576,8 +641,6 @@ namespace SistemaDeNotas.Clases
                 "INNER JOIN dbo.Cursos AS C ON I.IdCurso = C.Id " +
                 "INNER JOIN dbo.Materias AS M ON I.IdMateria = M.Id " + 
                 "INNER JOIN dbo.Estado AS E ON I.IdEstado = E.Id";
-				
-
 				SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
 				SqlDataAdapter dt = new SqlDataAdapter(cmd);
 				dt.Fill(data);
@@ -665,25 +728,49 @@ namespace SistemaDeNotas.Clases
             int retorno = 0;
             try
             {
-                string query = "UPDATE dbo.Inscripcion SET IdEstado = 0 WHERE Id = @Id";
-                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-                cmd.Parameters.AddWithValue("@Id", Inscripcion.Id);
-                retorno = cmd.ExecuteNonQuery();
+                // Verificar si la inscripcion ya está marcado como eliminado
+                string queryVerificarEstado = "SELECT IdEstado FROM dbo.Inscripcion WHERE Id = @Id";
+                SqlCommand cmdVerificarEstado = new SqlCommand(queryVerificarEstado, conexion.establecerConexion());
+                cmdVerificarEstado.Parameters.AddWithValue("@Id", Inscripcion.Id);
 
-                if (retorno >= 0)
+                // Obtener el estado actual de la inscripcion   
+                int estadoActual = (int)cmdVerificarEstado.ExecuteScalar();
+
+                if (estadoActual == 0)
                 {
-                    string queryNotas = "UPDATE dbo.Notas SET IdEstado = 0 WHERE IdAlumno = @idAlumno AND IdMateria = @idMateria";
-                    SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
-                    cmdNotas.Parameters.AddWithValue("@idAlumno", Inscripcion.IdAlumno);
-                    cmdNotas.Parameters.AddWithValue("@idMateria", Inscripcion.IdMateria);
-                    int resultadoNotas = cmdNotas.ExecuteNonQuery();
+                    MessageBox.Show("La Inscripcion ya está marcado como eliminado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return 0;
+                }
 
-                    MessageBox.Show("Inscripcion eliminada con éxito", "Eliminar Curso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return retorno;
+                DialogResult resultado = MessageBox.Show("¿Estás seguro de Eliminar la inscripcion?", "Alerta!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    string query = "UPDATE dbo.Inscripcion SET IdEstado = 0 WHERE Id = @Id";
+                    SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                    cmd.Parameters.AddWithValue("@Id", Inscripcion.Id);
+                    retorno = cmd.ExecuteNonQuery();
+
+                    if (retorno >= 0)
+                    {
+                        string queryNotas = "UPDATE dbo.Notas SET IdEstado = 0 WHERE IdAlumno = @idAlumno AND IdMateria = @idMateria";
+                        SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
+                        cmdNotas.Parameters.AddWithValue("@idAlumno", Inscripcion.IdAlumno);
+                        cmdNotas.Parameters.AddWithValue("@idMateria", Inscripcion.IdMateria);
+                        int resultadoNotas = cmdNotas.ExecuteNonQuery();
+
+                        MessageBox.Show("Inscripcion eliminada con éxito", "Eliminar Curso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return retorno;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Los datos no se eliminaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return retorno;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Los datos no se eliminaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("La Inscripcion no se elimino", "Informacion!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return retorno;
                 }
             }

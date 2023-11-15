@@ -107,6 +107,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             Insertar();
 			Limpiar();
 		}
+
         private void Insertar()
         {
             if (txtNombre.Text == "" || txtCarnet.Text == "" || txtPassword.Text == "" || txtTelefono.Text == "" || cbRol.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
@@ -115,7 +116,6 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
             else
             {
-                MessageBox.Show($"{txtCarnet.Text}");
                 Usuario.IdRole = Convert.ToInt32(cbRol.SelectedValue);
                 Usuario.Nombre = txtNombre.Text;
                 Usuario.Carnet = txtCarnet.Text;
@@ -161,7 +161,7 @@ namespace SistemaDeNotas.Interfaz.Admin
         {
             if (dgvUsuarios.SelectedRows.Count < 0 || txtNombre.Text == "" || txtCarnet.Text == "" || txtPassword.Text == "" || txtTelefono.Text == "" || cbRol.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
             {
-                MessageBox.Show("No hay datos seleccionados para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

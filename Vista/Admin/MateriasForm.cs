@@ -52,12 +52,6 @@ namespace SistemaDeNotas.Interfaz.Admin
 			MostrarEstado();
 		}
 
-        //MOSTRAR MATERIA
-        /*public void MostrarMaterias()
-		{
-			dgvMaterias.DataSource = FuncionesAdministrador.MostrarMateria();
-		}*/
-
         //PERSONALIZACION DEL DATAGRID
         private void ConfigurarDataGridView()
         {
@@ -176,7 +170,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 		{
 			if (dgvMaterias.SelectedRows.Count < 0 || txtNombreMateria.Text == "" || txtDescripcionMateria.Text == "" || cbDocente.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
 			{
-                MessageBox.Show("No hay datos seleccionados para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
 			{
@@ -253,14 +247,13 @@ namespace SistemaDeNotas.Interfaz.Admin
 			if (!string.IsNullOrEmpty(buscar))
 			{
 				// Realiza la búsqueda en la fuente de datos y filtra los resultados
-				(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = $"Nombre  LIKE '%{buscar}%' OR Docente  LIKE '%{buscar}%' OR Descripcion  LIKE '%{buscar}%'";
+				(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = $"Nombre LIKE '%{buscar}%' OR Docente  LIKE '%{buscar}%' OR Descripcion  LIKE '%{buscar}%'";
 			}
 			else
 			{
 				// Si el cuadro de búsqueda está vacío, muestra todos los datos
 				(dgvMaterias.DataSource as DataTable).DefaultView.RowFilter = "";
 			}
-
 		}
 
 		private void cmbFiltroEstado_SelectedIndexChanged(object sender, EventArgs e)

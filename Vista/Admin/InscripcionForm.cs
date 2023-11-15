@@ -54,7 +54,6 @@ namespace SistemaDeNotas.Interfaz.Admin
             ListarCursosIns();
             ListarMateriasIns();
             ListarEstado();
-
         }
         private void ConfigurarDataGridView()
         {
@@ -232,7 +231,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hubo un error de conexión" + ex, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return null;
             }
         }
@@ -260,7 +259,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
 
             return idUsuario;
@@ -288,7 +287,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hubo un error de conexion {ex}", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
 
             return idMateria;
@@ -388,6 +387,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 			txtFiltroNombre.Clear();
 			cbCursos.Text = null;
 			cbMaterias.Text = null;
+            cbEstado.Text = null;
 			cmbFiltroEstado.Text = null;
 			if (dgvInscripcion.SelectedRows.Count > 0)
 			{
@@ -410,7 +410,7 @@ namespace SistemaDeNotas.Interfaz.Admin
         {
             if (dgvInscripcion.SelectedRows.Count < 0 || txtNombre.Text == "" || txtCarnet.Text == "" || cbCursos.SelectedIndex == -1 || cbMaterias.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
             {
-                MessageBox.Show("No hay datos seleccionados para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
