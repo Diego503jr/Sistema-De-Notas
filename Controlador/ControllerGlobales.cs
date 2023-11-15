@@ -158,7 +158,7 @@ namespace SistemaDeNotas.Clases
         {
             try
             {
-                if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
+                if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back && !char.IsControl(e.KeyChar))
                 {
                     e.Handled = true; //se ejecuta para suprimir la tecla presionada en caso no haya cumplido la condicion
                     MessageBox.Show("Formato de entrada incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -175,7 +175,7 @@ namespace SistemaDeNotas.Clases
         {
             try
             {
-                if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
+                if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back && !char.IsControl(e.KeyChar))
                 {
                     e.Handled = true; //se ejecuta para suprimir la tecla presionada en caso no haya cumplido la condicion
                     MessageBox.Show("Ingrese únicamente letras por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -192,7 +192,7 @@ namespace SistemaDeNotas.Clases
         {
             try
             {
-                if (!char.IsDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != (char)Keys.Back)
+                if (!char.IsDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != (char)Keys.Back && !char.IsControl(e.KeyChar))
                 {
                     e.Handled = true; //se ejecuta para suprimir la tecla presionada en caso no haya cumplido la condicion
                     MessageBox.Show("Ingrese únicamente números por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

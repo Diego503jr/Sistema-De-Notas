@@ -24,6 +24,30 @@ namespace SistemaDeNotas.Interfaz.Docente
         {
             this.IDDOCENTE = id;
             InitializeComponent();
+            txtNota1.KeyPress += TxtNota1_KeyPress;
+            txtNota2.KeyPress += TxtNota2_KeyPress;
+            txtNota3.KeyPress += TxtNota3_KeyPress;
+            txtNota4.KeyPress += TxtNota4_KeyPress;
+        }
+
+        private void TxtNota4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControllerGlobales.ManejoErroresTelefono(e);
+        }
+
+        private void TxtNota3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControllerGlobales.ManejoErroresTelefono(e);
+        }
+
+        private void TxtNota2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControllerGlobales.ManejoErroresTelefono(e);
+        }
+
+        private void TxtNota1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ControllerGlobales.ManejoErroresTelefono(e);
         }
 
         private void MostrarNotas()
@@ -239,8 +263,12 @@ namespace SistemaDeNotas.Interfaz.Docente
             Actualizar();
         }
 
+
         private void ObtenerTotales()
         {
+            datosAprobados.Clear();
+            datosReprobados.Clear();
+            
             int totalAprobados = 0;
             int totalReprobados = 0;
 
@@ -272,6 +300,9 @@ namespace SistemaDeNotas.Interfaz.Docente
         }
         List<double> datosAprobados = new List<double>();
         List<double> datosReprobados = new List<double>();
+
+
+
         private void ConfigurarGrafico()
         {
             // Configuración del gráfico
@@ -302,13 +333,24 @@ namespace SistemaDeNotas.Interfaz.Docente
             // Agregar el total de aprobados al gráfico
             gfcNotas.Series["Aprobados"].Points.AddY(datosAprobados.Count);
 
+
             // Agregar el total de reprobados al gráfico
             gfcNotas.Series["Reprobados"].Points.AddY(datosReprobados.Count);
+
         }
+
+
+
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             ActualizarNota();
+        }
+
+        private void btnActualizaGrafico_Click(object sender, EventArgs e)
+        {
+            ObtenerTotales();
+            LlenarGrafico();
         }
     }
 }
