@@ -13,7 +13,7 @@ namespace SistemaDeNotas.Clases
 {
 	internal class ControllerAdministrador
 	{
-        //Funciones para el formulario Usuarios
+        // Esta función realiza la inserción de usuarios en la base de datos
         public static int AgregarUsuarios(Usuario Usuarios)
         {
             int retorno = 0;
@@ -23,11 +23,13 @@ namespace SistemaDeNotas.Clases
                 // Verificar si el usuario ya existe
                 string existeQuery = "SELECT COUNT(*) FROM dbo.Usuarios WHERE Nombre = @nombre AND Carnet = @carnet AND Contraseña = @contraseña AND IdEstado = @idestado AND Telefono = @telefono";
                 SqlCommand cmdExiste = new SqlCommand(existeQuery, conexion.establecerConexion());
+                // Asignar los parámetros con los valores del objeto Usuario proporcionado
                 cmdExiste.Parameters.AddWithValue("@nombre", Usuarios.Nombre);
                 cmdExiste.Parameters.AddWithValue("@carnet", Usuarios.Carnet);
                 cmdExiste.Parameters.AddWithValue("@contraseña", Usuarios.Contraseña);
                 cmdExiste.Parameters.AddWithValue("@idestado", Usuarios.IdEstado);
                 cmdExiste.Parameters.AddWithValue("@telefono", Usuarios.Telefono);
+                // Ejecutar la consulta para insertar datos y obtener el número de filas afectadas
                 int count = (int)cmdExiste.ExecuteScalar();
 
                 if (count > 0)
@@ -46,6 +48,7 @@ namespace SistemaDeNotas.Clases
                 cmd.Parameters.AddWithValue("@estado",Usuarios.IdEstado);
                 retorno = cmd.ExecuteNonQuery();
 
+                // Mostrar un mensaje de acuerdo al resultado de la inserción
                 if (retorno >= 0)
                 {
                     MessageBox.Show("Los datos del usuario se agregaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -67,6 +70,7 @@ namespace SistemaDeNotas.Clases
         public static DataTable MostrarUsuarios()
         {
             CConexion conexion = new CConexion();
+            // Se crea un DataTable para almacenar los resultados de la consulta
             DataTable data = new DataTable();
             try
             {
@@ -75,8 +79,10 @@ namespace SistemaDeNotas.Clases
                     "INNER JOIN dbo.Roles AS R ON U.IdRol = R.Id " +
                     "INNER JOIN dbo.Estado AS E ON U.IdEstado = E.Id";
                 SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                // Creación de un SqlDataAdapter para llenar el DataTable con los resultados de la consulta
                 SqlDataAdapter dt = new SqlDataAdapter(cmd);
                 dt.Fill(data);
+                // Devuelve el DataTable con los datos recuperados de la base de datos
                 return data;
             }
             catch (Exception ex)
@@ -88,11 +94,10 @@ namespace SistemaDeNotas.Clases
 
         public static int ActualizarUsuarios(Usuario Usuarios)
         {
+            CConexion conexion = new CConexion();
             int retorno = 0;
             try
             {
-                CConexion conexion = new CConexion();
-
                 // Verificar si el usuario ya existe
                 string existeQuery = "SELECT COUNT(*) FROM dbo.Usuarios WHERE Nombre = @nombre AND Carnet = @carnet AND Contraseña = @contraseña AND IdEstado = @idestado AND Telefono = @telefono";
                 SqlCommand cmdExiste = new SqlCommand(existeQuery, conexion.establecerConexion());
@@ -108,7 +113,7 @@ namespace SistemaDeNotas.Clases
                     MessageBox.Show("Ya existe un registro con estos datos", "Registro Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return retorno;
                 }
-
+                //SI NO EXISTE SE ACTUALIZAN LOS DATOS
                 string query = "UPDATE dbo.Usuarios SET IdRol = @rol, Nombre = @nombre, Carnet = @carnet, Contraseña = @contraseña, Telefono = @telefono, IdEstado = @estadoUs WHERE Id = @Id";
                 SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
                 cmd.Parameters.AddWithValue("@rol", Usuarios.IdRole);

@@ -10,6 +10,7 @@ namespace SistemaDeNotas.Clases
 {
     internal class CConexion
     {
+        //Se inicializan las variables que almacenan los datos de la base de datos en la nube
         static string servidor = "DBRegistroNotas.mssql.somee.com";
         static string db = "DBRegistroNotas";
         static string user = "DieCaris503_SQLLogin_1";
@@ -24,7 +25,10 @@ namespace SistemaDeNotas.Clases
 			SqlConnection conexion = new SqlConnection(cadeConexion);
 			try
 			{
+                // Establecer la cadena de conexión en el objeto de conexión
                 conexion.ConnectionString = cadeConexion;
+
+                // Intentar abrir la conexión a la base de datos
                 conexion.Open();
             } 
             catch (SqlException e){

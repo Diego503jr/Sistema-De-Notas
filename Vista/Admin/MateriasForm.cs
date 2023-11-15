@@ -117,7 +117,8 @@ namespace SistemaDeNotas.Interfaz.Admin
 			Limpiar();
 		}
 
-		private void Insertar()
+        //AGREGAR MATERIA
+        private void Insertar()
 		{
 			if (txtNombreMateria.Text == "" || txtDescripcionMateria.Text == "" || cbDocente.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
 			{

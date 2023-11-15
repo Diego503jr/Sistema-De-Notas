@@ -108,6 +108,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 			Limpiar();
 		}
 
+        //Funcion para agregar usuarios
         private void Insertar()
         {
             if (txtNombre.Text == "" || txtCarnet.Text == "" || txtPassword.Text == "" || txtTelefono.Text == "" || cbRol.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
@@ -116,6 +117,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
             else
             {
+                // Uso de la función insertar:
                 Usuario.IdRole = Convert.ToInt32(cbRol.SelectedValue);
                 Usuario.Nombre = txtNombre.Text;
                 Usuario.Carnet = txtCarnet.Text;
@@ -132,6 +134,8 @@ namespace SistemaDeNotas.Interfaz.Admin
             Actualizar();
 			Limpiar();
 		}
+
+        //Funcion para actualizar usuarios
         private void Actualizar()
         {
             if (txtNombre.Text == "" || txtCarnet.Text == "" || txtPassword.Text == "" || txtTelefono.Text == "" || cbRol.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
@@ -140,6 +144,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
             else
             {
+                // Uso de la función actualizar:
                 int id = (int)dgvUsuarios.SelectedRows[0].Cells["Id"].Value;
                 Usuario.Id = id;
                 Usuario.IdRole = Convert.ToInt32(cbRol.SelectedValue);
@@ -157,6 +162,8 @@ namespace SistemaDeNotas.Interfaz.Admin
             Eliminar();
 			Limpiar();
 		}
+
+        //Funcion para eliminar usuarios
         private void Eliminar()
         {
             if (dgvUsuarios.SelectedRows.Count < 0 || txtNombre.Text == "" || txtCarnet.Text == "" || txtPassword.Text == "" || txtTelefono.Text == "" || cbRol.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
@@ -165,12 +172,15 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
             else
             {
+                // Uso de la función Eliminar
                 int id = (int)dgvUsuarios.SelectedRows[0].Cells["Id"].Value;
                 Usuario.Id = id;
                 ControllerAdministrador.EliminarUsuario(Usuario);
                 MostrarUsuarios();
             }
         }
+
+        //FUNCIONES PARA MOSTRAR DATOS
         private void MostrarUsuarios()
         {
             dgvUsuarios.DataSource = ControllerAdministrador.MostrarUsuarios();
@@ -201,9 +211,9 @@ namespace SistemaDeNotas.Interfaz.Admin
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
 			Limpiar();
-			
-
         }
+
+        //Funcion para limpiar todos los txt y cbo
         public void Limpiar()
         {
 			txtNombre.Clear();
@@ -216,7 +226,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             cmbFiltroEstado.Text = null;
 			if (dgvUsuarios.SelectedRows.Count > 0)
 			{
-
+                dgvUsuarios.SelectedRows[0].Selected = false;
 			}
 			foreach (DataGridViewRow row in dgvUsuarios.SelectedRows)
 			{
@@ -225,6 +235,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 			btnAgregarAlumno.Enabled = true;
 		}
 
+        //COMPLETA TEXTBOX Y COMBOBOX CON LA INFORMACIÓN SELECCIONADA EN EL DATAGRID
         private void dgvUsuarios_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             CConexion conexion = new CConexion();
@@ -276,6 +287,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
         }
 
+        //BUSCADOR TXT
         private void txtFiltroNombre_TextChanged(object sender, EventArgs e)
         {
             string buscar = txtFiltroNombre.Text.Trim();
@@ -291,7 +303,8 @@ namespace SistemaDeNotas.Interfaz.Admin
             }
         }
 
-		private void cmbFiltroEstado_SelectedIndexChanged(object sender, EventArgs e)
+        //BUSCADOR CBO
+        private void cmbFiltroEstado_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			// Verificar si dgvUsuarios.DataSource no es null y es de tipo DataTable
 			if (dgvUsuarios.DataSource is DataTable dataTable)
@@ -311,6 +324,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 
 		}
 
+        //BOTON PARA ABRIR REPORTE DE USUARIO   
         private void btnReporteUsuario_Click(object sender, EventArgs e)
         {
             ReporteUsuario reporteUsuario = new ReporteUsuario();
