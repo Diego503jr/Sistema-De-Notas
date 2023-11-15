@@ -9,26 +9,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SistemaDeNotas.Interfaz.Docente
 {
-	public partial class NotasDocente : Form
-	{
+    public partial class NotasDocente : Form
+    {
         private string IDDOCENTE;
 
-        ConstructorNotas notas =  new ConstructorNotas();
+        ConstructorNotas notas = new ConstructorNotas();
 
-		public NotasDocente(string id)
-		{
+        public NotasDocente(string id)
+        {
             this.IDDOCENTE = id;
-			InitializeComponent();
-		}
+            InitializeComponent();
+        }
 
-		private void MostrarNotas()
-		{
+        private void MostrarNotas()
+        {
             int idDocente = Convert.ToInt32(IDDOCENTE);
-			dgvNotasDocente.DataSource = FuncionesDocente.MostrarNotas(idDocente);
-		}
+            dgvNotasDocente.DataSource = FuncionesDocente.MostrarNotas(idDocente);
+        }
 
         private void DocentesNotas()
         {
@@ -38,10 +39,13 @@ namespace SistemaDeNotas.Interfaz.Docente
 
         private void NotasDocente_Load(object sender, EventArgs e)
         {
-			MostrarNotas();
+            MostrarNotas();
             DocentesNotas();
             ListarMaterias();
-			ConfigurarDataGridView();
+            ConfigurarDataGridView();
+            ConfigurarGrafico();
+            ObtenerTotales();
+            LlenarGrafico();
         }
         private void ConfigurarDataGridView()
         {
@@ -57,7 +61,7 @@ namespace SistemaDeNotas.Interfaz.Docente
 
             // Establecer el estilo de las cabeceras de las columnas
             dgvNotasDocente.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 11, FontStyle.Bold);
-            dgvNotasDocente .ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvNotasDocente.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvNotasDocente.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(237, 28, 36);
 
             // Agregar relleno (padding) a todos los encabezados de las columnas
@@ -67,10 +71,10 @@ namespace SistemaDeNotas.Interfaz.Docente
             dgvNotasDocente.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             // Alinear el contenido de las celdas al centro
-            dgvNotasDocente .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dgvNotasDocente.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 
             // Configurar la selección de celdas
-            dgvNotasDocente .SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvNotasDocente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvNotasDocente.MultiSelect = false;
 
             // Agregar el evento DataBindingComplete para establecer el ancho de las columnas de manera segura
@@ -89,7 +93,7 @@ namespace SistemaDeNotas.Interfaz.Docente
         private void dgvNotasDocente_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             CConexion conexion = new CConexion();
-            if (e.RowIndex >= 0) 
+            if (e.RowIndex >= 0)
             {
                 //Obteniendo la fila seleccionada
                 DataGridViewRow row = dgvNotasDocente.Rows[e.RowIndex];
@@ -122,9 +126,9 @@ namespace SistemaDeNotas.Interfaz.Docente
                 SqlDataReader drAlumno = cmdAlumno.ExecuteReader();
                 SqlDataReader drMateria = cmdMateria.ExecuteReader();
 
-                if (drAlumno.Read()  && drMateria.Read())
+                if (drAlumno.Read() && drMateria.Read())
                 {
-                    string  NombreUsuario = drAlumno["Nombre"].ToString();
+                    string NombreUsuario = drAlumno["Nombre"].ToString();
                     string NombreMateria = drMateria["Nombre"].ToString();
 
 
@@ -141,33 +145,33 @@ namespace SistemaDeNotas.Interfaz.Docente
         }
         public void ListarMaterias()
         {
-			int idDocente = Convert.ToInt32(IDDOCENTE);
-			cbRegistroNotas.DataSource = FuncionesAdministrador.ListarMateriaDocente(idDocente);
-			cbRegistroNotas.DisplayMember = "Nombre";
-			cbRegistroNotas.ValueMember = "Id";
-			cbRegistroNotas.Text = null;
-		}
+            int idDocente = Convert.ToInt32(IDDOCENTE);
+            cbRegistroNotas.DataSource = FuncionesAdministrador.ListarMateriaDocente(idDocente);
+            cbRegistroNotas.DisplayMember = "Nombre";
+            cbRegistroNotas.ValueMember = "Id";
+            cbRegistroNotas.Text = null;
+        }
 
-		private void btnLimpiar_Click(object sender, EventArgs e)
-		{
-			cbRegistroNotas.Text = null;
-			txtNombre.Clear();
-		}
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            cbRegistroNotas.Text = null;
+            txtNombre.Clear();
+        }
 
-		private void cbRegistroNotas_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			string buscar = cbRegistroNotas.Text.Trim();
-			if (!string.IsNullOrEmpty(buscar))
-			{
-				// Realiza la búsqueda en la fuente de datos y filtra los resultados
-				(dgvNotasDocente.DataSource as DataTable).DefaultView.RowFilter = $"Materia = '{buscar}'";
-			}
-			else
-			{
-				// Si el cuadro de búsqueda está vacío, muestra todos los datos
-				(dgvNotasDocente.DataSource as DataTable).DefaultView.RowFilter = "";
-			}
-		}
+        private void cbRegistroNotas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string buscar = cbRegistroNotas.Text.Trim();
+            if (!string.IsNullOrEmpty(buscar))
+            {
+                // Realiza la búsqueda en la fuente de datos y filtra los resultados
+                (dgvNotasDocente.DataSource as DataTable).DefaultView.RowFilter = $"Materia = '{buscar}'";
+            }
+            else
+            {
+                // Si el cuadro de búsqueda está vacío, muestra todos los datos
+                (dgvNotasDocente.DataSource as DataTable).DefaultView.RowFilter = "";
+            }
+        }
 
         public void Actualizar()
         {
@@ -196,7 +200,7 @@ namespace SistemaDeNotas.Interfaz.Docente
 
         }
 
-        public static decimal ObtenerPromedio( decimal nota1, decimal nota2, decimal nota3, decimal nota4)
+        public static decimal ObtenerPromedio(decimal nota1, decimal nota2, decimal nota3, decimal nota4)
         {
 
             decimal promediosuma = nota1 + nota2 + nota3 + nota4;
@@ -240,6 +244,73 @@ namespace SistemaDeNotas.Interfaz.Docente
             Actualizar();
         }
 
+        private void ObtenerTotales()
+        {
+            int totalAprobados = 0;
+            int totalReprobados = 0;
 
+            foreach (DataGridViewRow fila in dgvNotasDocente.Rows)
+            {
+                if (fila.Cells["Promedio"].Value != null)
+                {
+                    string estado = fila.Cells["Promedio"].Value.ToString();
+
+                    double acu = Convert.ToDouble(estado);
+
+                    if (acu >= 7)
+                    {
+                        totalAprobados ++;
+                        datosAprobados.Add(acu);
+                    }
+                    else
+                    {
+                        totalReprobados ++;
+                        datosReprobados.Add(acu);
+                    }
+                }
+            }
+
+            // Puedes mostrar los resultados donde desees
+            txtAprobados.Text = "Aprobados: " + totalAprobados.ToString();
+            txtReprobados.Text = "Reprobados: " + totalReprobados.ToString();
+
+        }
+        List<double> datosAprobados = new List<double>();
+        List<double> datosReprobados = new List<double>();
+        private void ConfigurarGrafico()
+        {
+            // Configuración del gráfico
+            gfcNotas.ChartAreas.Add("AreaPrincipal");
+            int totApro= datosAprobados.Count;
+            int totRepro = datosReprobados.Count;
+
+            gfcNotas.Series.Add("Aprobados");
+            gfcNotas.Series["Aprobados"].ChartType = SeriesChartType.Column;
+            gfcNotas.Series["Aprobados"].Points.Add(totApro); // Agrega un punto para evitar el color predeterminado
+            gfcNotas.Series["Aprobados"].LegendText = "Aprobados";
+
+            gfcNotas.Series.Add("Reprobados");
+            gfcNotas.Series["Reprobados"].ChartType = SeriesChartType.Column;
+            gfcNotas.Series["Aprobados"].Points.Add(totRepro); // Agrega un punto para evitar el color predeterminado
+            gfcNotas.Series["Reprobados"].LegendText = "Reprobados";
+
+            gfcNotas.Titles.Add("Rendimiento Académico");
+
+        }
+
+        private void LlenarGrafico() 
+        {
+            // Limpiar la serie antes de agregar nuevos datos
+            gfcNotas.Series["Aprobados"].Points.Clear();
+            gfcNotas.Series["Reprobados"].Points.Clear();
+
+            // Agregar el total de aprobados al gráfico
+            gfcNotas.Series["Aprobados"].Points.AddY(datosAprobados.Count);
+
+            // Agregar el total de reprobados al gráfico
+            gfcNotas.Series["Reprobados"].Points.AddY(datosReprobados.Count);
+        }
+
+      
     }
 }
