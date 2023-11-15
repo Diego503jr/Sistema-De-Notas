@@ -257,21 +257,6 @@
     <None Include="Resources\cerrar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Matemáticas.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Matemáticas1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Base de datos.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Estadística.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Programación.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\cerrarSesion.png" />
   </ItemGroup>
   <ItemGroup>
@@ -291,6 +276,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimazar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

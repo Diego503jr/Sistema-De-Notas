@@ -63,16 +63,6 @@ namespace SistemaDeNotas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Base_de_datos {
-            get {
-                object obj = ResourceManager.GetObject("Base de datos", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap cerrar {
             get {
                 object obj = ResourceManager.GetObject("cerrar", resourceCulture);
@@ -86,16 +76,6 @@ namespace SistemaDeNotas.Properties {
         internal static System.Drawing.Bitmap cerrarSesion {
             get {
                 object obj = ResourceManager.GetObject("cerrarSesion", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Estadística {
-            get {
-                object obj = ResourceManager.GetObject("Estadística", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,19 +113,9 @@ namespace SistemaDeNotas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Matemáticas {
+        internal static System.Drawing.Bitmap minimazar {
             get {
-                object obj = ResourceManager.GetObject("Matemáticas", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Matemáticas1 {
-            get {
-                object obj = ResourceManager.GetObject("Matemáticas1", resourceCulture);
+                object obj = ResourceManager.GetObject("minimazar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,16 +136,6 @@ namespace SistemaDeNotas.Properties {
         internal static System.Drawing.Bitmap Ocultar {
             get {
                 object obj = ResourceManager.GetObject("Ocultar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Programación {
-            get {
-                object obj = ResourceManager.GetObject("Programación", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

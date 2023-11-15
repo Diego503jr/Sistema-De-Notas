@@ -82,5 +82,10 @@ namespace SistemaDeNotas
             lblHora.Text = DateTime.Now.ToLongTimeString();
             lblFecha.Text = DateTime.Now.ToShortDateString();
         }
-       }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+    }
 }

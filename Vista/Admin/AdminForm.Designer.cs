@@ -31,7 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.BarraTitulo = new System.Windows.Forms.Panel();
+            this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.BarraMenuLateral = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -49,7 +51,6 @@
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.ContPrincipalAdmin = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.BarraFooter = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@
             this.lblHora = new System.Windows.Forms.Label();
             this.horaFecha = new System.Windows.Forms.Timer(this.components);
             this.BarraTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.BarraMenuLateral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -74,6 +76,7 @@
             // BarraTitulo
             // 
             this.BarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.BarraTitulo.Controls.Add(this.btnMinimizar);
             this.BarraTitulo.Controls.Add(this.label4);
             this.BarraTitulo.Controls.Add(this.txtNombreUsuario);
             this.BarraTitulo.Controls.Add(this.btnCerrar);
@@ -82,6 +85,19 @@
             this.BarraTitulo.Name = "BarraTitulo";
             this.BarraTitulo.Size = new System.Drawing.Size(866, 49);
             this.BarraTitulo.TabIndex = 0;
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimizar.Image = global::SistemaDeNotas.Properties.Resources.minimazar;
+            this.btnMinimizar.Location = new System.Drawing.Point(771, 4);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(38, 41);
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMinimizar.TabIndex = 9;
+            this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // label4
             // 
@@ -95,6 +111,21 @@
             this.label4.Size = new System.Drawing.Size(137, 26);
             this.label4.TabIndex = 1;
             this.label4.Text = "Panel Admin";
+            // 
+            // txtNombreUsuario
+            // 
+            this.txtNombreUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNombreUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.txtNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombreUsuario.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtNombreUsuario.Enabled = false;
+            this.txtNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreUsuario.ForeColor = System.Drawing.Color.White;
+            this.txtNombreUsuario.Location = new System.Drawing.Point(314, 6);
+            this.txtNombreUsuario.Multiline = true;
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(445, 37);
+            this.txtNombreUsuario.TabIndex = 8;
             // 
             // btnCerrar
             // 
@@ -317,21 +348,6 @@
             this.pictureBox7.TabIndex = 9;
             this.pictureBox7.TabStop = false;
             // 
-            // txtNombreUsuario
-            // 
-            this.txtNombreUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNombreUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.txtNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombreUsuario.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtNombreUsuario.Enabled = false;
-            this.txtNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreUsuario.ForeColor = System.Drawing.Color.White;
-            this.txtNombreUsuario.Location = new System.Drawing.Point(331, 6);
-            this.txtNombreUsuario.Multiline = true;
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(445, 37);
-            this.txtNombreUsuario.TabIndex = 8;
-            // 
             // BarraFooter
             // 
             this.BarraFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
@@ -420,6 +436,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.BarraTitulo.ResumeLayout(false);
             this.BarraTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.BarraMenuLateral.ResumeLayout(false);
             this.BarraMenuLateral.PerformLayout();
@@ -467,5 +484,6 @@
         private System.Windows.Forms.Button btnCursos;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.TextBox txtNombreUsuario;
+        private System.Windows.Forms.PictureBox btnMinimizar;
     }
 }

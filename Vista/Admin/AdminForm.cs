@@ -77,5 +77,10 @@ namespace SistemaDeNotas
         {
             AbrirFormHijo(new InscripcionForm());
         }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

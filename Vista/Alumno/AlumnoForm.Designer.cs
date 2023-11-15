@@ -31,10 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlumnoForm));
             this.BarraTitulo = new System.Windows.Forms.Panel();
+            this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ContPrincipal = new System.Windows.Forms.Panel();
-            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.BarraMenuLateral = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnCursos = new System.Windows.Forms.Button();
@@ -52,10 +54,11 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.horaFecha = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.BarraTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ContPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.BarraMenuLateral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -64,12 +67,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.ContPrincipalAlumno.SuspendLayout();
             this.BarraFooter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // BarraTitulo
             // 
             this.BarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.BarraTitulo.Controls.Add(this.btnMinimizar);
             this.BarraTitulo.Controls.Add(this.label4);
             this.BarraTitulo.Controls.Add(this.txtNombreUsuario);
             this.BarraTitulo.Controls.Add(this.pictureBox1);
@@ -78,6 +81,19 @@
             this.BarraTitulo.Name = "BarraTitulo";
             this.BarraTitulo.Size = new System.Drawing.Size(866, 49);
             this.BarraTitulo.TabIndex = 0;
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimizar.Image = global::SistemaDeNotas.Properties.Resources.minimazar;
+            this.btnMinimizar.Location = new System.Drawing.Point(771, 4);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(38, 41);
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMinimizar.TabIndex = 9;
+            this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // label4
             // 
@@ -91,6 +107,20 @@
             this.label4.Size = new System.Drawing.Size(149, 26);
             this.label4.TabIndex = 2;
             this.label4.Text = "Panel Alumno";
+            // 
+            // txtNombreUsuario
+            // 
+            this.txtNombreUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNombreUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.txtNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombreUsuario.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtNombreUsuario.Enabled = false;
+            this.txtNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreUsuario.Location = new System.Drawing.Point(311, 6);
+            this.txtNombreUsuario.Multiline = true;
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(445, 37);
+            this.txtNombreUsuario.TabIndex = 8;
             // 
             // pictureBox1
             // 
@@ -115,19 +145,16 @@
             this.ContPrincipal.Size = new System.Drawing.Size(558, 542);
             this.ContPrincipal.TabIndex = 2;
             // 
-            // txtNombreUsuario
+            // pictureBox7
             // 
-            this.txtNombreUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNombreUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.txtNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombreUsuario.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtNombreUsuario.Enabled = false;
-            this.txtNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreUsuario.Location = new System.Drawing.Point(335, 6);
-            this.txtNombreUsuario.Multiline = true;
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(445, 37);
-            this.txtNombreUsuario.TabIndex = 8;
+            this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox7.Image = global::SistemaDeNotas.Properties.Resources.ITCA_RemoveBG;
+            this.pictureBox7.Location = new System.Drawing.Point(81, 176);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(445, 158);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 10;
+            this.pictureBox7.TabStop = false;
             // 
             // BarraMenuLateral
             // 
@@ -236,7 +263,6 @@
             this.btnNotas.TabIndex = 0;
             this.btnNotas.Text = "Notas";
             this.btnNotas.UseVisualStyleBackColor = false;
-            this.btnNotas.Click += new System.EventHandler(this.btnNotas_Click);
             // 
             // pictureBox4
             // 
@@ -264,7 +290,6 @@
             this.btnMenuPerfil.TabIndex = 0;
             this.btnMenuPerfil.Text = "Perfil";
             this.btnMenuPerfil.UseVisualStyleBackColor = false;
-            this.btnMenuPerfil.Click += new System.EventHandler(this.btnMenuPerfil_Click);
             // 
             // ContPrincipalAlumno
             // 
@@ -347,17 +372,6 @@
             this.horaFecha.Enabled = true;
             this.horaFecha.Tick += new System.EventHandler(this.horaFecha_Tick);
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox7.Image = global::SistemaDeNotas.Properties.Resources.ITCA_RemoveBG;
-            this.pictureBox7.Location = new System.Drawing.Point(81, 176);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(445, 158);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 10;
-            this.pictureBox7.TabStop = false;
-            // 
             // AlumnoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,8 +387,10 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.BarraTitulo.ResumeLayout(false);
             this.BarraTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ContPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.BarraMenuLateral.ResumeLayout(false);
             this.BarraMenuLateral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -385,7 +401,6 @@
             this.ContPrincipalAlumno.ResumeLayout(false);
             this.BarraFooter.ResumeLayout(false);
             this.BarraFooter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -415,5 +430,6 @@
 		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.Button btnCursos;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox btnMinimizar;
     }
 }

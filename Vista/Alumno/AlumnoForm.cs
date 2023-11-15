@@ -45,10 +45,8 @@ namespace SistemaDeNotas
 		private void AbrirFormHijo(object formHijo)
 		{
 			if (this.ContPrincipal.Controls.Count > 0)
-
-				this.ContPrincipal.Controls.RemoveAt(0);
+			this.ContPrincipal.Controls.RemoveAt(0);
 			Form fh = formHijo as Form;
-			//AlumnoFormSecundario alumnFormSec = new AlumnoFormSecundario();
 			fh.TopLevel = false;
 			fh.Dock = DockStyle.Fill;
 			this.ContPrincipal.Controls.Add(fh);
@@ -64,21 +62,15 @@ namespace SistemaDeNotas
             loginForm.ShowDialog();
         }
 
-        private void btnMenuPerfil_Click(object sender, EventArgs e)
-        {
-            //AbrirFormHijo(new PerfilForm());
-        }
-
         private void horaFecha_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToLongTimeString();
             lblFecha.Text = DateTime.Now.ToShortDateString();
         }
 
-        private void btnNotas_Click(object sender, EventArgs e)
+        private void btnMinimizar_Click(object sender, EventArgs e)
         {
-            //AbrirFormHijo(new NotasAlumnocs());
-
+			this.WindowState = FormWindowState.Minimized;
         }
     }
 }
