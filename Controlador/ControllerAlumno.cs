@@ -17,7 +17,7 @@ namespace SistemaDeNotas.Clases
             DataTable data = new DataTable();
             try
             {
-                string query = "SELECT N.Id, U.Nombre AS Alumno, M.Nombre AS Materia, N.Nota1, N.Nota2, N.Nota3, N.Nota4, N.Promedio " +
+                string query = "SELECT N.Id, U.Nombre AS Alumno, M.Nombre AS Materia, N.Nota1, N.Nota2, N.Nota3, N.Nota4, N.Promedio, C.Nombre AS Curso " +
                  "FROM dbo.Notas AS N " +
 				 "INNER JOIN dbo.Usuarios AS U ON N.IdAlumno = U.Id " +
 				 "INNER JOIN dbo.Materias AS M ON N.IdMateria = M.Id " +

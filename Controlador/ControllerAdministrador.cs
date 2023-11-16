@@ -583,14 +583,12 @@ namespace SistemaDeNotas.Clases
 
 
 		//Funciones para el formulario de inscripcion
-
 		public static int AgregarInscripcion(Inscripcion Inscripcion)
 		{
 			int retorno = 0;
 			try
 			{
                 CConexion conexion = new CConexion();
-
                 // Verificar si la inscripcion ya existe
                 string existeQuery = "SELECT COUNT(*) FROM dbo.Inscripcion WHERE IdAlumno = @idAlumno AND IdCurso = @idCurso AND IdMateria = @idMateria AND IdEstado = @idestado";
 				SqlCommand cmdExiste = new SqlCommand(existeQuery, conexion.establecerConexion());
@@ -772,11 +770,12 @@ namespace SistemaDeNotas.Clases
 
                     if (retorno >= 0)
                     {
-                        string queryNotas = "UPDATE dbo.Notas SET IdEstado = 0 WHERE IdAlumno = @idAlumno AND IdMateria = @idMateria AND IdCurso = @idCurso";
+                        string queryNotas = "UPDATE dbo.Notas SET IdEstado = 0 WHERE IdAlumno = @idAlumno AND IdMateria = @idMateria AND IdCurso = @idCurso AND Id = @id";
                         SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
                         cmdNotas.Parameters.AddWithValue("@idAlumno", Inscripcion.IdAlumno);
-                        cmdNotas.Parameters.AddWithValue("@idCurso", Inscripcion.IdCurso);
                         cmdNotas.Parameters.AddWithValue("@idMateria", Inscripcion.IdMateria);
+                        cmdNotas.Parameters.AddWithValue("@idCurso", Inscripcion.IdCurso);
+                        cmdNotas.Parameters.AddWithValue("@Id", Inscripcion.Id);
                         int resultadoNotas = cmdNotas.ExecuteNonQuery();
 
                         MessageBox.Show("Inscripcion eliminada con éxito", "Eliminar Curso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

@@ -337,7 +337,7 @@ namespace SistemaDeNotas.Interfaz.Admin
 
         private void Eliminar()
         {
-            if (dgvInscripcion.SelectedRows.Count < 0 || txtNombre.Text == "" || txtCarnet.Text == "" || cbCursos.SelectedIndex == -1 || cbMaterias.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
+            if (txtNombre.Text == "" || txtCarnet.Text == "" || cbCursos.SelectedIndex == -1 || cbMaterias.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
             {
                 MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -345,12 +345,14 @@ namespace SistemaDeNotas.Interfaz.Admin
             {
                 int id = (int)dgvInscripcion.SelectedRows[0].Cells["Id"].Value;
                 string idAlumno = dgvInscripcion.SelectedRows[0].Cells["Nombre"].Value.ToString();
+                string IdCurso = dgvInscripcion.SelectedRows[0].Cells["Curso"].Value.ToString();
                 string idCarnet = dgvInscripcion.SelectedRows[0].Cells["Carnet"].Value.ToString();
                 string idMateria = dgvInscripcion.SelectedRows[0].Cells["Materia"].Value.ToString();
 
                 inscripcion.Id = id;
                 inscripcion.IdAlumno = ControllerSearch.ObtenerIdAlumno(idAlumno, idCarnet);
                 inscripcion.IdMateria = ControllerSearch.ObtenerIdMateria(idMateria);
+                inscripcion.IdCurso = ControllerSearch.ObtenerIdCurso(IdCurso);
                 ControllerAdministrador.EliminarInscripcion(inscripcion);
                 MostrarInscripcion();
             }

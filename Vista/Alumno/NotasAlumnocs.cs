@@ -77,23 +77,35 @@ namespace SistemaDeNotas.Interfaz.Alumno
 
 		private void dgvNotas_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
 		{
-			// Obtiene el IdAlumno de la fila seleccionada en el DataGridView
-			double promedio = Convert.ToDouble(dgvNotas.Rows[e.RowIndex].Cells["Promedio"].Value);
+            // Verifica si la fila seleccionada no es nula y si el índice de la celda es válido
+            if (e.RowIndex >= 0 && dgvNotas.Rows[e.RowIndex].Cells["Promedio"].Value != null)
+            {
+                // Obtiene el valor de la celda "Promedio" solo si no es nulo
+                if (double.TryParse(dgvNotas.Rows[e.RowIndex].Cells["Promedio"].Value.ToString(), out double promedio))
+                {
+                    // Muestra el promedio en el TextBox
+                    txtpromedio.Text = promedio.ToString();
 
-
-			// Muestra el promedio en el TextBox
-			txtpromedio.Text = promedio.ToString();
-
-			// Establece el estado de la materia
-			if (promedio >= 7)
-			{
-				txtEstadoMateria.Text = "APROBADO";
-			}
-			else
-			{
-				txtEstadoMateria.Text = "REPROBADO";
-			}
-		}
+                    // Establece el estado de la materia
+                    if (promedio >= 7)
+                    {
+                        txtEstadoMateria.Text = "APROBADO";
+                    }
+                    else
+                    {
+                        txtEstadoMateria.Text = "REPROBADO";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Promedio no valido", "Upss!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay datos", "Upss!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
 
 	}
 }

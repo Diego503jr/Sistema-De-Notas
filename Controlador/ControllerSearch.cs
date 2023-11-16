@@ -115,5 +115,33 @@ namespace SistemaDeNotas.Controlador
 
             return idMateria;
         }
+
+        public static int ObtenerIdCurso(string curso)
+        {
+            int idCurso = -1;
+
+            try
+            {
+                CConexion conexion = new CConexion();
+                string query = "SELECT Id FROM dbo.Cursos WHERE Nombre = @nombre";
+                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                cmd.Parameters.AddWithValue("@nombre", curso);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    idCurso = (int)reader["Id"];
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error de conexión, compruebe su conexion a internet ", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+
+            return idCurso;
+        }
     }
 }
