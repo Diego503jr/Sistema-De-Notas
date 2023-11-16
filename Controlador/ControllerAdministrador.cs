@@ -694,7 +694,7 @@ namespace SistemaDeNotas.Clases
                 int antiguaIdMateria = (int)cmdObtenerAntiguaIdMateria.ExecuteScalar();
 
                 string queryObtenerAntiguoIdCurso = "SELECT IdCurso FROM dbo.Inscripcion WHERE Id = @id";
-                SqlCommand cmdObtenerAntiguoIdCurso = new SqlCommand(queryObtenerAntiguaIdMateria, conexion.establecerConexion());
+                SqlCommand cmdObtenerAntiguoIdCurso = new SqlCommand(queryObtenerAntiguoIdCurso, conexion.establecerConexion());
                 cmdObtenerAntiguoIdCurso.Parameters.AddWithValue("@id", Inscripcion.Id);
                 int antiguoIdCurso = (int)cmdObtenerAntiguaIdMateria.ExecuteScalar();
 
