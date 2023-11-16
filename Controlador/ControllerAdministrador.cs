@@ -618,10 +618,11 @@ namespace SistemaDeNotas.Clases
                 {
                     MessageBox.Show("Los datos de la inscripción se agregaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    string queryNotas = "INSERT INTO dbo.Notas(IdAlumno, IdMateria,Nota1, Nota2, Nota3, Nota4, Promedio, IdEstado) VALUES(@idAlumno, @idMateria,0,0,0,0,0, @idestado)";
+                    string queryNotas = "INSERT INTO dbo.Notas(IdAlumno, IdMateria,Nota1, Nota2, Nota3, Nota4, Promedio, IdEstado, IdCurso) VALUES(@idAlumno, @idMateria,0,0,0,0,0, @idestado, @idCurso)";
                     SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
                     cmdNotas.Parameters.AddWithValue("@idAlumno",Inscripcion.IdAlumno);
                     cmdNotas.Parameters.AddWithValue("@idMateria",Inscripcion.IdMateria);
+                    cmdNotas.Parameters.AddWithValue("@idCurso", Inscripcion.IdCurso);
                     cmdNotas.Parameters.AddWithValue("@idestado", Inscripcion.IdEstado);
                     cmdNotas.ExecuteNonQuery();
 
@@ -692,6 +693,11 @@ namespace SistemaDeNotas.Clases
                 cmdObtenerAntiguaIdMateria.Parameters.AddWithValue("@id", Inscripcion.Id);
                 int antiguaIdMateria = (int)cmdObtenerAntiguaIdMateria.ExecuteScalar();
 
+                string queryObtenerAntiguoIdCurso = "SELECT IdCurso FROM dbo.Inscripcion WHERE Id = @id";
+                SqlCommand cmdObtenerAntiguoIdCurso = new SqlCommand(queryObtenerAntiguaIdMateria, conexion.establecerConexion());
+                cmdObtenerAntiguoIdCurso.Parameters.AddWithValue("@id", Inscripcion.Id);
+                int antiguoIdCurso = (int)cmdObtenerAntiguaIdMateria.ExecuteScalar();
+
                 string queryObtenerAntiguoEstado = "SELECT IdEstado FROM dbo.Inscripcion WHERE Id = @id";
                 SqlCommand cmdObtenerAntiguoIdEstado = new SqlCommand(queryObtenerAntiguoEstado, conexion.establecerConexion());
                 cmdObtenerAntiguoIdEstado.Parameters.AddWithValue("@id", Inscripcion.Id);
@@ -710,11 +716,13 @@ namespace SistemaDeNotas.Clases
                 {
                     MessageBox.Show("Se ha actualizado la información de curso con éxtio", "Actualizar Curso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    string queryNotas = "UPDATE dbo.Notas SET IdMateria = @nuevaIdMateria, IdEstado= @nuevoEstado WHERE IdAlumno = @idAlumno AND IdMateria = @viejaIdMateria AND IdEstado = @viejoIdEstado";
+                    string queryNotas = "UPDATE dbo.Notas SET IdMateria = @nuevaIdMateria, IdEstado= @nuevoEstado, IdCurso = @nuevaIdCurso WHERE IdAlumno = @idAlumno AND IdMateria = @viejaIdMateria AND IdEstado = @viejoIdEstado AND IdCurso = @viejoIdCurso";
                     SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
                     cmdNotas.Parameters.AddWithValue("@nuevaIdMateria", Inscripcion.IdMateria);
+                    cmdNotas.Parameters.AddWithValue("@nuevaIdCurso", Inscripcion.IdCurso);
                     cmdNotas.Parameters.AddWithValue("@nuevoEstado", Inscripcion.IdEstado);
                     cmdNotas.Parameters.AddWithValue("@idAlumno", Inscripcion.IdAlumno);
+                    cmdNotas.Parameters.AddWithValue("@viejoIdCurso", antiguoIdCurso);
                     cmdNotas.Parameters.AddWithValue("@viejaIdMateria", antiguaIdMateria);
                     cmdNotas.Parameters.AddWithValue("@viejoIdEstado", antiguoEstado);
                     cmdNotas.ExecuteNonQuery();
@@ -764,9 +772,10 @@ namespace SistemaDeNotas.Clases
 
                     if (retorno >= 0)
                     {
-                        string queryNotas = "UPDATE dbo.Notas SET IdEstado = 0 WHERE IdAlumno = @idAlumno AND IdMateria = @idMateria";
+                        string queryNotas = "UPDATE dbo.Notas SET IdEstado = 0 WHERE IdAlumno = @idAlumno AND IdMateria = @idMateria AND IdCurso = @idCurso";
                         SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
                         cmdNotas.Parameters.AddWithValue("@idAlumno", Inscripcion.IdAlumno);
+                        cmdNotas.Parameters.AddWithValue("@idCurso", Inscripcion.IdCurso);
                         cmdNotas.Parameters.AddWithValue("@idMateria", Inscripcion.IdMateria);
                         int resultadoNotas = cmdNotas.ExecuteNonQuery();
 
