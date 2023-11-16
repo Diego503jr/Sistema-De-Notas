@@ -16,7 +16,7 @@ namespace SistemaDeNotas
         public DocenteForm(string nombre, string carnet, string telefono, string idestado, string id)
         {
             InitializeComponent();
-            txtNombreUsuario.Text = "Bienvenid@ " + nombre;
+            lblNombreUser.Text = nombre;
 			PerfilForm perfil = new PerfilForm();
 			btnMenuPerfil.Click += (sender, e) =>
 			{

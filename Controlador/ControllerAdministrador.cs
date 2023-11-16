@@ -99,12 +99,13 @@ namespace SistemaDeNotas.Clases
             try
             {
                 // Verificar si el usuario ya existe
-                string existeQuery = "SELECT COUNT(*) FROM dbo.Usuarios WHERE Nombre = @nombre AND Carnet = @carnet AND Contraseña = @contraseña AND IdEstado = @idestado AND Telefono = @telefono";
+                string existeQuery = "SELECT COUNT(*) FROM dbo.Usuarios WHERE Nombre = @nombre AND Carnet = @carnet AND Contraseña = @contraseña AND IdEstado = @idestado AND Telefono = @telefono AND IdRol = @idrol   ";
                 SqlCommand cmdExiste = new SqlCommand(existeQuery, conexion.establecerConexion());
                 cmdExiste.Parameters.AddWithValue("@nombre", Usuarios.Nombre);
                 cmdExiste.Parameters.AddWithValue("@carnet", Usuarios.Carnet);
                 cmdExiste.Parameters.AddWithValue("@contraseña", Usuarios.Contraseña);
                 cmdExiste.Parameters.AddWithValue("@idestado", Usuarios.IdEstado);
+                cmdExiste.Parameters.AddWithValue("@idrol", Usuarios.IdRole);
                 cmdExiste.Parameters.AddWithValue("@telefono", Usuarios.Telefono);
                 int count = (int)cmdExiste.ExecuteScalar();
 
@@ -113,49 +114,54 @@ namespace SistemaDeNotas.Clases
                     MessageBox.Show("Ya existe un registro con estos datos", "Registro Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return retorno;
                 }
-                //SI NO EXISTE SE ACTUALIZAN LOS DATOS
-                string query = "UPDATE dbo.Usuarios SET IdRol = @rol, Nombre = @nombre, Carnet = @carnet, Contraseña = @contraseña, Telefono = @telefono, IdEstado = @estadoUs WHERE Id = @Id";
-                SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
-                cmd.Parameters.AddWithValue("@rol", Usuarios.IdRole);
-                cmd.Parameters.AddWithValue("@nombre", Usuarios.Nombre);
-                cmd.Parameters.AddWithValue("@carnet", Usuarios.Carnet);
-                cmd.Parameters.AddWithValue("@contraseña", Usuarios.Contraseña);
-                cmd.Parameters.AddWithValue("@telefono", Usuarios.Telefono);
-                cmd.Parameters.AddWithValue("@estadoUs", Usuarios.IdEstado);
-                cmd.Parameters.AddWithValue("@Id", Usuarios.Id);
-
-                // Actualizar Inscripciones
-                string queryInscripciones = "UPDATE dbo.Inscripcion SET IdEstado = @estadoIns WHERE IdAlumno = @IdUsuario";
-                SqlCommand cmdInscripciones = new SqlCommand(queryInscripciones, conexion.establecerConexion());
-                cmdInscripciones.Parameters.AddWithValue("@estadoIns", Usuarios.IdEstado);
-                cmdInscripciones.Parameters.AddWithValue("@IdUsuario", Usuarios.Id);
-                retorno += cmdInscripciones.ExecuteNonQuery();
-
-                // Actualizar Materias
-                string queryMaterias = "UPDATE dbo.Materias SET IdEstado = @estadoMat WHERE IdDocente = @IdUsuario";
-                SqlCommand cmdMaterias = new SqlCommand(queryMaterias, conexion.establecerConexion());
-                cmdMaterias.Parameters.AddWithValue("@estadoMat", Usuarios.IdEstado);
-                cmdMaterias.Parameters.AddWithValue("@IdUsuario", Usuarios.Id);
-                retorno += cmdMaterias.ExecuteNonQuery();
-
-                // Actualizar Notas
-                string queryNotas = "UPDATE dbo.Notas SET IdEstado = @estadoNota WHERE IdAlumno = @IdUsuario";
-                SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
-                cmdNotas.Parameters.AddWithValue("@estadoNota", Usuarios.IdEstado);
-                cmdNotas.Parameters.AddWithValue("@IdUsuario", Usuarios.Id);
-                retorno += cmdNotas.ExecuteNonQuery();
-
-                retorno = cmd.ExecuteNonQuery();
-                if (retorno >= 0)
-                {
-                    MessageBox.Show("Los datos del usuario se agregaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return retorno;
-                }
                 else
                 {
-                    MessageBox.Show("Los datos no se agregaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return retorno;
+
+                    //SI NO EXISTE SE ACTUALIZAN LOS DATOS
+                    string query = "UPDATE dbo.Usuarios SET IdRol = @rol, Nombre = @nombre, Carnet = @carnet, Contraseña = @contraseña, Telefono = @telefono, IdEstado = @estadoUs WHERE Id = @Id";
+                    SqlCommand cmd = new SqlCommand(query, conexion.establecerConexion());
+                    cmd.Parameters.AddWithValue("@rol", Usuarios.IdRole);
+                    cmd.Parameters.AddWithValue("@nombre", Usuarios.Nombre);
+                    cmd.Parameters.AddWithValue("@carnet", Usuarios.Carnet);
+                    cmd.Parameters.AddWithValue("@contraseña", Usuarios.Contraseña);
+                    cmd.Parameters.AddWithValue("@telefono", Usuarios.Telefono);
+                    cmd.Parameters.AddWithValue("@estadoUs", Usuarios.IdEstado);
+                    cmd.Parameters.AddWithValue("@Id", Usuarios.Id);
+
+                    // Actualizar Inscripciones
+                    string queryInscripciones = "UPDATE dbo.Inscripcion SET IdEstado = @estadoIns WHERE IdAlumno = @IdUsuario";
+                    SqlCommand cmdInscripciones = new SqlCommand(queryInscripciones, conexion.establecerConexion());
+                    cmdInscripciones.Parameters.AddWithValue("@estadoIns", Usuarios.IdEstado);
+                    cmdInscripciones.Parameters.AddWithValue("@IdUsuario", Usuarios.Id);
+                    retorno += cmdInscripciones.ExecuteNonQuery();
+
+                    // Actualizar Materias
+                    string queryMaterias = "UPDATE dbo.Materias SET IdEstado = @estadoMat WHERE IdDocente = @IdUsuario";
+                    SqlCommand cmdMaterias = new SqlCommand(queryMaterias, conexion.establecerConexion());
+                    cmdMaterias.Parameters.AddWithValue("@estadoMat", Usuarios.IdEstado);
+                    cmdMaterias.Parameters.AddWithValue("@IdUsuario", Usuarios.Id);
+                    retorno += cmdMaterias.ExecuteNonQuery();
+
+                    // Actualizar Notas
+                    string queryNotas = "UPDATE dbo.Notas SET IdEstado = @estadoNota WHERE IdAlumno = @IdUsuario";
+                    SqlCommand cmdNotas = new SqlCommand(queryNotas, conexion.establecerConexion());
+                    cmdNotas.Parameters.AddWithValue("@estadoNota", Usuarios.IdEstado);
+                    cmdNotas.Parameters.AddWithValue("@IdUsuario", Usuarios.Id);
+                    retorno += cmdNotas.ExecuteNonQuery();
+
+                    retorno = cmd.ExecuteNonQuery();
+                    if (retorno >= 0)
+                    {
+                        MessageBox.Show("Los datos del usuario se agregaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return retorno;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Los datos no se agregaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return retorno;
+                    }
                 }
+
             }
             catch (Exception ex)
             {

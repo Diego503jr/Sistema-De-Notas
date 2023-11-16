@@ -18,7 +18,7 @@ namespace SistemaDeNotas
         public AdminForm(string nombre, string carnet, string telefono, string idestado)
         {
             InitializeComponent();
-            txtNombreUsuario.Text =  "Bienvenid@ " + nombre;
+            lblNombreUser.Text = nombre;
 			PerfilForm perfil = new PerfilForm();
 			btnPerfil.Click += (sender, e) =>
 			{

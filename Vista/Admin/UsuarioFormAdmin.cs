@@ -59,6 +59,7 @@ namespace SistemaDeNotas.Interfaz.Admin
             MostrarRoles();
             MostrarEstado();
             MostrarUsuarios();
+            txtPassword.PasswordChar = '*';
         }
         private void ConfigurarDataGridView()
         {
@@ -329,6 +330,26 @@ namespace SistemaDeNotas.Interfaz.Admin
         {
             ReporteUsuario reporteUsuario = new ReporteUsuario();
             reporteUsuario.ShowDialog();
+        }
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pbOcultar_Click(object sender, EventArgs e)
+        {
+            //Enviamos imagen mostrar al frente
+            pbMostrar.BringToFront();
+            //Ocultamos la contraseña
+            txtPassword.PasswordChar = '*';
+        }
+
+        private void pbMostrar_Click(object sender, EventArgs e)
+        {
+            //Enviamos imagen ocultar al frente
+            pbOcultar.BringToFront();
+            //Mostramos la contraseña
+            txtPassword.PasswordChar = '\0';
         }
     }
 }

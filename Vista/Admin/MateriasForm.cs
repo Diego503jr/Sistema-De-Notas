@@ -33,10 +33,6 @@ namespace SistemaDeNotas.Interfaz.Admin
         {
 			ControllerGlobales.ManejoErrores(e);
         }
-		private void txtDescripcionMateria_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			ControllerGlobales.ManejoErrores(e);
-		}
 
 		//MOSTRAR MATERIA
 		public void MostrarMaterias()
@@ -126,12 +122,19 @@ namespace SistemaDeNotas.Interfaz.Admin
 			}
 			else
 			{
-				Materia.Nombre = txtNombreMateria.Text;
-				Materia.Descripcion = txtDescripcionMateria.Text;
-				Materia.IdDocente = Convert.ToInt32(cbDocente.SelectedValue);
-                Materia.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
-                ControllerAdministrador.AgregarMateria(Materia);
-                MostrarMaterias();
+                if (txtDescripcionMateria.Text.Length > 499)
+                {
+                    MessageBox.Show("La descripción no puede exceder los 499 caracteres", "Exceso de caracteres", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    Materia.Nombre = txtNombreMateria.Text;
+                    Materia.Descripcion = txtDescripcionMateria.Text;
+                    Materia.IdDocente = Convert.ToInt32(cbDocente.SelectedValue);
+                    Materia.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
+                    ControllerAdministrador.AgregarMateria(Materia);
+                    MostrarMaterias();
+                }
             }
         }
 
@@ -144,14 +147,21 @@ namespace SistemaDeNotas.Interfaz.Admin
 			}
 			else
 			{
-                int id = (int)dgvMaterias.SelectedRows[0].Cells["Id"].Value;
-                Materia.Id = id;
-                Materia.Nombre = txtNombreMateria.Text;
-				Materia.Descripcion = txtDescripcionMateria.Text;
-				Materia.IdDocente = Convert.ToInt32(cbDocente.SelectedValue);
-				Materia.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
-				ControllerAdministrador.ActualizarMateria(Materia);
-                MostrarMaterias();
+                if (txtDescripcionMateria.Text.Length > 499)
+                {
+                    MessageBox.Show("La descripción no puede exceder los 499 caracteres", "Exceso de caracteres", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    int id = (int)dgvMaterias.SelectedRows[0].Cells["Id"].Value;
+                    Materia.Id = id;
+                    Materia.Nombre = txtNombreMateria.Text;
+                    Materia.Descripcion = txtDescripcionMateria.Text;
+                    Materia.IdDocente = Convert.ToInt32(cbDocente.SelectedValue);
+                    Materia.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
+                    ControllerAdministrador.ActualizarMateria(Materia);
+                    MostrarMaterias();
+                }
             }
         }
 

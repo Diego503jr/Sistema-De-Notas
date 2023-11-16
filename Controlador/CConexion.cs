@@ -32,7 +32,7 @@ namespace SistemaDeNotas.Clases
                 conexion.Open();
             } 
             catch (SqlException e){
-                MessageBox.Show("No se logro conectar a la nube");
+                MessageBox.Show("No se logro conectar a la nube", "Error en la conexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return conexion;

@@ -33,7 +33,6 @@
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.BarraMenuLateral = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -57,6 +56,8 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.horaFecha = new System.Windows.Forms.Timer(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblNombreUser = new System.Windows.Forms.Label();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -76,9 +77,10 @@
             // BarraTitulo
             // 
             this.BarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.BarraTitulo.Controls.Add(this.lblNombreUser);
+            this.BarraTitulo.Controls.Add(this.label5);
             this.BarraTitulo.Controls.Add(this.btnMinimizar);
             this.BarraTitulo.Controls.Add(this.label4);
-            this.BarraTitulo.Controls.Add(this.txtNombreUsuario);
             this.BarraTitulo.Controls.Add(this.btnCerrar);
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
@@ -111,21 +113,6 @@
             this.label4.Size = new System.Drawing.Size(137, 26);
             this.label4.TabIndex = 1;
             this.label4.Text = "Panel Admin";
-            // 
-            // txtNombreUsuario
-            // 
-            this.txtNombreUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNombreUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.txtNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombreUsuario.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtNombreUsuario.Enabled = false;
-            this.txtNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreUsuario.ForeColor = System.Drawing.Color.White;
-            this.txtNombreUsuario.Location = new System.Drawing.Point(314, 6);
-            this.txtNombreUsuario.Multiline = true;
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(445, 37);
-            this.txtNombreUsuario.TabIndex = 8;
             // 
             // btnCerrar
             // 
@@ -419,6 +406,30 @@
             this.horaFecha.Enabled = true;
             this.horaFecha.Tick += new System.EventHandler(this.horaFecha_Tick);
             // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(368, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(177, 36);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Bienvenid@";
+            // 
+            // lblNombreUser
+            // 
+            this.lblNombreUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblNombreUser.AutoSize = true;
+            this.lblNombreUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F);
+            this.lblNombreUser.ForeColor = System.Drawing.Color.White;
+            this.lblNombreUser.Location = new System.Drawing.Point(548, 7);
+            this.lblNombreUser.Name = "lblNombreUser";
+            this.lblNombreUser.Size = new System.Drawing.Size(95, 36);
+            this.lblNombreUser.TabIndex = 11;
+            this.lblNombreUser.Text = "label6";
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -483,7 +494,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnCursos;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.TextBox txtNombreUsuario;
         private System.Windows.Forms.PictureBox btnMinimizar;
+        private System.Windows.Forms.Label lblNombreUser;
+        private System.Windows.Forms.Label label5;
     }
 }

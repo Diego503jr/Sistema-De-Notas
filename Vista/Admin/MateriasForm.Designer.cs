@@ -130,7 +130,6 @@
 			this.txtDescripcionMateria.Name = "txtDescripcionMateria";
 			this.txtDescripcionMateria.Size = new System.Drawing.Size(474, 56);
 			this.txtDescripcionMateria.TabIndex = 3;
-			this.txtDescripcionMateria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcionMateria_KeyPress);
 			// 
 			// label3
 			// 
