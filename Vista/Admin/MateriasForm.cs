@@ -46,6 +46,8 @@ namespace SistemaDeNotas.Interfaz.Admin
 			MostrarMaterias();
 			ListarDocentesMat();
 			MostrarEstado();
+			btnActualizar.Enabled = false;
+			btnEliminar.Enabled = false;
 		}
 
         //PERSONALIZACION DEL DATAGRID
@@ -141,12 +143,12 @@ namespace SistemaDeNotas.Interfaz.Admin
 		//ACTUALIZAR MATERIA
 		private void Actualizar()
 		{
-			if (txtNombreMateria.Text == "" || txtDescripcionMateria.Text == "" || cbDocente.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
-			{
-				MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
-			else
-			{
+            if (txtNombreMateria.Text == "" || txtDescripcionMateria.Text == "" || cbDocente.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
                 if (txtDescripcionMateria.Text.Length > 499)
                 {
                     MessageBox.Show("La descripción no puede exceder los 499 caracteres", "Exceso de caracteres", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -179,12 +181,12 @@ namespace SistemaDeNotas.Interfaz.Admin
 
 		private void Eliminar()
 		{
-			if (dgvMaterias.SelectedRows.Count < 0 || txtNombreMateria.Text == "" || txtDescripcionMateria.Text == "" || cbDocente.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
-			{
+            if (txtNombreMateria.Text == "" || txtDescripcionMateria.Text == "" || cbDocente.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
+            {
                 MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-			{
+            {
                 int id = (int)dgvMaterias.SelectedRows[0].Cells["Id"].Value;
                 Materia.Id = id;
                 ControllerAdministrador.EliminarMateria(Materia);
@@ -243,8 +245,9 @@ namespace SistemaDeNotas.Interfaz.Admin
 				row.Selected = false;
 			}
 			btnAgregar.Enabled = true;
-
-		}
+            btnActualizar.Enabled = false;
+            btnEliminar.Enabled = false;
+        }
 		//LIMPIAR BÚSQUEDA
 		private void btnLimpiar_Click(object sender, EventArgs e)
 		{

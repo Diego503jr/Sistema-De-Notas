@@ -60,6 +60,8 @@ namespace SistemaDeNotas.Interfaz.Admin
             MostrarEstado();
             MostrarUsuarios();
             txtPassword.PasswordChar = '*';
+            btnActualizarAlumno.Enabled = false;
+            btnEliminarAlumno.Enabled = false;
         }
         private void ConfigurarDataGridView()
         {
@@ -158,6 +160,7 @@ namespace SistemaDeNotas.Interfaz.Admin
                 MostrarUsuarios();
             }
         }
+
         private void btnEliminarAlumno_Click(object sender, EventArgs e)
         {
             Eliminar();
@@ -167,7 +170,7 @@ namespace SistemaDeNotas.Interfaz.Admin
         //Funcion para eliminar usuarios
         private void Eliminar()
         {
-            if (dgvUsuarios.SelectedRows.Count < 0 || txtNombre.Text == "" || txtCarnet.Text == "" || txtPassword.Text == "" || txtTelefono.Text == "" || cbRol.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
+            if (txtNombre.Text == "" || txtCarnet.Text == "" || txtPassword.Text == "" || txtTelefono.Text == "" || cbRol.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
             {
                 MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -234,7 +237,9 @@ namespace SistemaDeNotas.Interfaz.Admin
 				row.Selected = false;
 			}
 			btnAgregarAlumno.Enabled = true;
-		}
+            btnActualizarAlumno.Enabled = false;
+            btnEliminarAlumno.Enabled = false;
+        }
 
         //COMPLETA TEXTBOX Y COMBOBOX CON LA INFORMACIÓN SELECCIONADA EN EL DATAGRID
         private void dgvUsuarios_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

@@ -71,6 +71,7 @@ namespace SistemaDeNotas.Interfaz.Docente
             ConfigurarGrafico();
             ObtenerTotales();
             LlenarGrafico();
+            btnActualizar.Enabled = false;
         }
         private void ConfigurarDataGridView()
         {
@@ -156,16 +157,15 @@ namespace SistemaDeNotas.Interfaz.Docente
                     string NombreUsuario = drAlumno["Nombre"].ToString();
                     string NombreMateria = drMateria["Nombre"].ToString();
 
-
                     txtNombre.Text = NombreUsuario;
                     cbRegistroNotas.Text = NombreMateria;
-
                 }
                 else
                 {
                     MessageBox.Show("No hay registros de un dato");
                 }
-
+                btnActualizar.Enabled = true;
+                btnAgregar.Enabled = false;
             }
         }
         public void ListarMaterias()
@@ -181,6 +181,8 @@ namespace SistemaDeNotas.Interfaz.Docente
         {
             cbRegistroNotas.Text = null;
             txtNombre.Clear();
+            btnActualizar.Enabled = false;
+            btnAgregar.Enabled = true;
         }
 
         private void cbRegistroNotas_SelectedIndexChanged(object sender, EventArgs e)
@@ -338,9 +340,6 @@ namespace SistemaDeNotas.Interfaz.Docente
             gfcNotas.Series["Reprobados"].Points.AddY(datosReprobados.Count);
 
         }
-
-
-
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {

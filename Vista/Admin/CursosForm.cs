@@ -38,6 +38,8 @@ namespace SistemaDeNotas.Interfaz.Admin
             ConfigurarDataGridView();
             MostrarCursos();
             MostrarEstado();
+            btnEliminar.Enabled = false;
+            btnActualizar.Enabled = false;
         }
 
         //MOSTRAR CURSO
@@ -134,20 +136,20 @@ namespace SistemaDeNotas.Interfaz.Admin
         //FUNCION PARA ACTUALIZAR 
         private void Actualizar()
 		{
-			if (txtNombreCurso.Text == "" || cbEstado.SelectedIndex == -1)
-			{
+            if (txtNombreCurso.Text == "" || cbEstado.SelectedIndex == -1)
+            {
                 MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-			{
+            {
                 int id = (int)dgvCursos.SelectedRows[0].Cells["Id"].Value;
                 Curso.Id = id;
                 Curso.Nombre = txtNombreCurso.Text;
-				Curso.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
-				ControllerAdministrador.ActualizarCurso(Curso);
-				MostrarCursos();
-			}
-		}
+                Curso.IdEstado = Convert.ToInt32(cbEstado.SelectedValue);
+                ControllerAdministrador.ActualizarCurso(Curso);
+                MostrarCursos();
+            }
+        }
 
 		private void btnEliminar_Click(object sender, EventArgs e)
 		{
@@ -158,7 +160,7 @@ namespace SistemaDeNotas.Interfaz.Admin
         //FUNCION PARA ELIMINAR CURSO
         private void Eliminar()
 		{
-            if (dgvCursos.SelectedRows.Count < 0 || txtNombreCurso.Text == "" || cbEstado.SelectedIndex == -1)
+            if (txtNombreCurso.Text == "" || cbEstado.SelectedIndex == -1)
             {
                 MessageBox.Show("Datos incompletos, por favor llene todos los campos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -227,7 +229,9 @@ namespace SistemaDeNotas.Interfaz.Admin
 				row.Selected = false;
 			}
 			btnAgregar.Enabled = true;
-		}
+            btnEliminar.Enabled = false;
+            btnActualizar.Enabled = false;
+        }
 
 		private void cmbFiltroEstado_SelectedIndexChanged(object sender, EventArgs e)
 		{

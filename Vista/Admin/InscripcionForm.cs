@@ -55,6 +55,8 @@ namespace SistemaDeNotas.Interfaz.Admin
             ListarCursosIns();
             ListarMateriasIns();
             ListarEstado();
+            btnActualizarInscripcion.Enabled = false;
+            btnEliminarInscrip.Enabled = false;
         }
         private void ConfigurarDataGridView()
         {
@@ -263,7 +265,6 @@ namespace SistemaDeNotas.Interfaz.Admin
                     string materia = drMateria["Nombre"].ToString();
                     string estado = drEstado["EstadoValor"].ToString();
 
-
                     txtNombre.Text = nombre;
                     txtCarnet.Text = carnet;
                     cbCursos.Text = curso;
@@ -276,6 +277,7 @@ namespace SistemaDeNotas.Interfaz.Admin
                 }
                 btnInscribir.Enabled = false;
                 btnActualizarInscripcion.Enabled = true;
+                btnEliminarInscrip.Enabled = true;
             }
         }
 
@@ -323,7 +325,9 @@ namespace SistemaDeNotas.Interfaz.Admin
 				row.Selected = false;
 			}
 			btnInscribir.Enabled = true;
-		}
+            btnActualizarInscripcion.Enabled = false;
+            btnEliminarInscrip.Enabled = false;
+        }
 
         private void btnEliminarInscrip_Click(object sender, EventArgs e)
         {

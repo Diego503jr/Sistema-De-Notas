@@ -152,12 +152,12 @@ namespace SistemaDeNotas.Clases
                     retorno = cmd.ExecuteNonQuery();
                     if (retorno >= 0)
                     {
-                        MessageBox.Show("Los datos del usuario se agregaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Los datos del usuario se actualizaron correctamente", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return retorno;
                     }
                     else
                     {
-                        MessageBox.Show("Los datos no se agregaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Los datos no se actualizaron exitosamente", "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return retorno;
                     }
                 }
