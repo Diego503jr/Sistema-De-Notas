@@ -15,9 +15,8 @@ namespace SistemaDeNotas.Clases
         static string db = "DBRegistroNotas";
         static string user = "DieCaris503_SQLLogin_1";
         static string password = "wyej8uij24";
-        //static string port = "4096";
 
-        string cadeConexion = "Data source=" + servidor /*+ "," + port */+ ";" + "user id=" + user + ";" + "password=" + password + ";" + "Initial Catalog=" + db + ";" + "Persist Security Info=true";
+        string cadeConexion = "Data source=" + servidor + ";" + "user id=" + user + ";" + "password=" + password + ";" + "Initial Catalog=" + db + ";" + "Persist Security Info=true";
 
         public SqlConnection establecerConexion()
         {
