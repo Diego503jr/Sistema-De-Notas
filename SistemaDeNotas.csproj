@@ -79,24 +79,6 @@
     <Compile Include="Controlador\ControllerAdministrador.cs" />
     <Compile Include="Controlador\ControllerAlumno.cs" />
     <Compile Include="Controlador\ControllerGlobales.cs" />
-    <Compile Include="CrystalReportInscripcion.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReportInscripcion.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Vista\Admin\ReporteInscripcion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\Admin\ReporteInscripcion.Designer.cs">
-      <DependentUpon>ReporteInscripcion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\Admin\ReporteUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\Admin\ReporteUsuario.Designer.cs">
-      <DependentUpon>ReporteUsuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vista\Alumno\CursosAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,16 +166,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReporteUsuario.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReporteUsuario.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <EmbeddedResource Include="CrystalReportInscripcion.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReportInscripcion.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Admin\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,12 +177,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Admin\MateriasForm.resx">
       <DependentUpon>MateriasForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vista\Admin\ReporteInscripcion.resx">
-      <DependentUpon>ReporteInscripcion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vista\Admin\ReporteUsuario.resx">
-      <DependentUpon>ReporteUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Admin\UsuarioFormAdmin.resx">
       <DependentUpon>UsuarioFormAdmin.cs</DependentUpon>
@@ -246,10 +212,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteUsuario.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReporteUsuario.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

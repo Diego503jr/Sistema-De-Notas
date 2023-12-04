@@ -330,12 +330,6 @@ namespace SistemaDeNotas.Interfaz.Admin
 
 		}
 
-        //BOTON PARA ABRIR REPORTE DE USUARIO   
-        private void btnReporteUsuario_Click(object sender, EventArgs e)
-        {
-            ReporteUsuario reporteUsuario = new ReporteUsuario();
-            reporteUsuario.ShowDialog();
-        }
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;

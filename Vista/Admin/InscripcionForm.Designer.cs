@@ -54,7 +54,6 @@
             this.btnEliminarInscrip = new System.Windows.Forms.Button();
             this.cmbFiltroEstado = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnGenerarReporte = new System.Windows.Forms.Button();
             this.gBDatosInscribir.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).BeginInit();
             this.SubBarraTitulo.SuspendLayout();
@@ -252,7 +251,7 @@
             this.txtFiltroNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFiltroNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltroNombre.Location = new System.Drawing.Point(265, 359);
-            this.txtFiltroNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFiltroNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtFiltroNombre.Multiline = true;
             this.txtFiltroNombre.Name = "txtFiltroNombre";
             this.txtFiltroNombre.Size = new System.Drawing.Size(407, 29);
@@ -403,31 +402,12 @@
             this.label7.TabIndex = 81;
             this.label7.Text = "Filtrar por Estado :";
             // 
-            // btnGenerarReporte
-            // 
-            this.btnGenerarReporte.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGenerarReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnGenerarReporte.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGenerarReporte.FlatAppearance.BorderSize = 0;
-            this.btnGenerarReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerarReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerarReporte.ForeColor = System.Drawing.Color.White;
-            this.btnGenerarReporte.Location = new System.Drawing.Point(967, 707);
-            this.btnGenerarReporte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGenerarReporte.Name = "btnGenerarReporte";
-            this.btnGenerarReporte.Size = new System.Drawing.Size(175, 70);
-            this.btnGenerarReporte.TabIndex = 82;
-            this.btnGenerarReporte.Text = "Generar Reporte";
-            this.btnGenerarReporte.UseVisualStyleBackColor = false;
-            this.btnGenerarReporte.Click += new System.EventHandler(this.btnGenerarReporte_Click);
-            // 
             // InscripcionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1169, 788);
-            this.Controls.Add(this.btnGenerarReporte);
             this.Controls.Add(this.cmbFiltroEstado);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnEliminarInscrip);
@@ -485,6 +465,5 @@
         private System.Windows.Forms.Button btnEliminarInscrip;
 		private System.Windows.Forms.ComboBox cmbFiltroEstado;
 		private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnGenerarReporte;
     }
 }
